@@ -30,6 +30,10 @@ class trainDao {
     {
         //todo.......
     }
+    
+    public function createTrain($id, $nomTrain){
+        self::$connexion->ExecuteInsert("INSERT INTO train(NOTRAIN) VALUES ('" . $nomTrain . "')", array());
+    }
 }
 
 ?>

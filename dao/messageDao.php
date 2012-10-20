@@ -19,7 +19,7 @@ class messageDao {
     }
     
     public function createMessage($label, $date, $idMessageParent, $idProprietaire, $idTrain){
-        self::$connexion->ExecuteInsert("INSERT INTO message(IDMESSAGE, LBLMESSAGE, DATEMESSAGE, IDMESSAGE_REPONDRE, IDUSER, IDTRAIN) VALUES (default, '" . $label . "', '" . $date . "', " . $idMessageParent . ", " . $idProprietaire . ", " . $idTrain . ')', array());
+        self::$connexion->ExecuteInsert("INSERT INTO message(LBLMESSAGE, DATEMESSAGE, IDMESSAGE_REPONDRE, IDUSER, IDTRAIN) VALUES ('" . $label . "', '" . $date . "', " . $idMessageParent . ", " . $idProprietaire . ", " . $idTrain . ')', array());
     }
 }
 
