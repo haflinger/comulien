@@ -25,6 +25,57 @@ class User {
 	// Date de l'inscription
 	var $date_inscription;
 	
+	
+	
+	function getId(){
+		return $this->id_user;
+	}
+	
+	function setId($id){
+		$this->id_user = $id;
+	}
+	
+	function getLogin(){
+		return $this->login;
+	}
+	
+	function setLogin($login){
+		$this->login = $login;
+	}
+	
+	function getPassword(){
+		return $this->password;
+	}
+	
+	function setPassword($password){
+		$this->password = $password;
+	}
+	
+	function getEmail(){
+		return $this->email;
+	}
+	
+	function setEmail($email){
+		$this->email = $email;
+	}
+	
+	function getNbMessages(){
+		return $this->nb_message;
+	}
+	
+	function getNbMsgOk(){
+		return $this->nb_ok;
+	}
+	
+	function setDateInscription($date_inscription){
+		$this->date_inscription = $date_inscription;
+	}
+	
+	function getDateInscription(){
+		return $this->date_inscription;
+	}
+	
+	// function addMsg
 }
 
 ?>
