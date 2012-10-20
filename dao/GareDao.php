@@ -8,7 +8,7 @@ class GareDAO{
         //return $gare;
     //}
     
-    public function getGares($id){
+    public function getGares(){
         $garesSQL = self::$connexion->ExecuteSelect('SELECT * FROM gare');
         $gares = array();
         foreach($garesSQL as $gareSQL)
