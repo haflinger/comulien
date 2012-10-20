@@ -12,9 +12,5 @@ require_once('controller/var.php');
 require_once('dao/messageDao.php');
 require_once('model/message.php');
 
-//var_dump(getAllMessage());
+listeMessage(1);
 
-createMessage(null, 'Voici le premier poulpe', time(),6, 1);
-var_dump(getAllMessage());
-
-//include_once("view/login.php");

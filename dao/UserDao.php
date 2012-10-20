@@ -4,11 +4,20 @@ require_once(MODELEPATH . 'user.php');
 require_once(MODELEPATH . 'dbConnect.php');
 
 function getUserById($id){
-    $connexion = dbConnect::getInstance();
+        $connexion = dbConnect::getInstance();
         $array = $connexion->ExecuteSelectOne('SELECT * FROM user WHERE IDUSER =' . $id );
 	return new User ($array['IDUSER'], $array['LOGIN'], $array['PASSWORD'], $array['EMAIL'], $array['NBMESSAGE'], $array['NBOK'], $array['IDROLE']);
 }
 
+function isCheminot($id){
+    $connexion = dbConnect::getInstance();
+    $array = $connexion->ExecuteSelectOne('SELECT * FROM user WHERE IDUSER =' . $id );
+    if ($array['IDROLE'] == 2 || $array['IDROLE'] == 3){
+        return true;
+    }else{
+        return false;
+    }  
+}
 
 function getAllUsers(){
 	$connexion = dbConnect::getInstance();
