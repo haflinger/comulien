@@ -24,6 +24,7 @@ class User {
 	
 	// Date de l'inscription
 	var $date_inscription;
+	
 }
 
 ?>
