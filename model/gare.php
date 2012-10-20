@@ -1,10 +1,10 @@
 ﻿<?php
 
-class gare {
+class Gare {
     var $id_gare;
     var $nom_gare;
        
-    private function __construct($id, $nom) {
+    public function __construct($id, $nom) {
         $this->$id_gare = $id;
         $this->$nom_gare = $nom;
     }
@@ -22,7 +22,7 @@ class gare {
 		return $this->$nom_gare;
 	}
 	
-	function setgetNom($nom){
+	function setNom($nom){
 		$this->$nom_gare = $nom;
 	}
 }
