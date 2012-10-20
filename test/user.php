@@ -4,9 +4,8 @@ require_once '../model/dbConnect.php';
 
 require_once '../dao/UserDao.php';
 
-$user = getUserById(1);
-
-print_r($user);
+print_r(getUserById(2));
+print_r(getAllUsers());
 
 
 ?>
