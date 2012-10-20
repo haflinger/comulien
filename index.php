@@ -8,6 +8,8 @@
 //  * #a2enmod rewrite
 //  * edit the file /etc/apache2/site-available/default.conf (or something like this) and change Allow Override on your /var/www dir to "All"
 //  * restart your server: apache2ctl restart 
-
-include_once("view/index.php");
 require_once('controller/var.php');
+require_once('dao/UserDao.php');
+
+matchUser('fred', 'fred');
+//include_once("view/login.php");

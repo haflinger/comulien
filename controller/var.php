@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 define ("MODELEPATH", 'model/');
 define ("CONTROLPATH", 'controler/');
 define ("CONTROLERSPATH", 'controlers/');
