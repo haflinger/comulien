@@ -32,10 +32,6 @@ class User {
 		return $this->id_user;
 	}
 	
-	function setId($id){
-		$this->id_user = $id;
-	}
-	
 	function getLogin(){
 		return $this->login;
 	}
