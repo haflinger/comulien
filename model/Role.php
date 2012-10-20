@@ -5,6 +5,13 @@ class Role {
 	var $nom_role;
 	var $lbl_role;
 	var $img_role;
+    
+    public function __construct($id, $nom, $label, $img) {
+        $this->$id_role = $id;
+        $this->$nom_role = $nom;
+        $this->$lbl_role = $label;
+        $this->$img_role = $img;
+    }
 	
 	function getId(){
 		return $this->id_role;
@@ -12,10 +19,6 @@ class Role {
 	
 	function setId($id){
 		$this->id_role = $id;
-	}
-	
-	function getId(){
-		return $this->id_role;
 	}
 	
 	function getNom(){
