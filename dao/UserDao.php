@@ -34,11 +34,8 @@ function createUser($idrole, $login, $pass, $mail){
 
 function matchUser($login, $pass){
     $connexion = dbConnect::getInstance();
-    var_dump($login);
-    var_dump($pass);
     $array = $connexion->ExecuteSelectOne('SELECT * FROM user WHERE LOGIN ="' . $login . '" AND PASSWORD ="' . md5($pass) . '"');
-    var_dump($array);  
-    
+
     if(!empty($array[0])){
         return new User ($array['IDUSER'], $array['LOGIN'], $array['PASSWORD'], $array['EMAIL'], $array['NBMESSAGE'], $array['NBOK'], $array['IDROLE']);
     }else{

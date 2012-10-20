@@ -20,7 +20,6 @@ class messageDao {
         $tabMod = array();
         $tabMod['IDUSER'] = $idProprietaire;
         self::$connexion->ExecuteUpdate('UPDATE user SET NBMESSAGE = NBMESSAGE + 1 WHERE IDUSER = :IDUSER', $tabMod);
-        
     }
 }
 
