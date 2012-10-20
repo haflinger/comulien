@@ -11,6 +11,18 @@ body{
 }
 
 
+h1, h2 {
+    text-align: center;
+}
+.icon {
+    width: 32px;
+}
+.icontd{
+    width:32px;
+}
+.ligne {
+    height: 30px;
+}
 
 
 
