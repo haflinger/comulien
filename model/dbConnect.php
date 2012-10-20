@@ -40,7 +40,7 @@ class dbConnect {
     
     public static function getInstance() {
         if(is_null(self::$connexion)) {
-            self::$connexion = new dbConnect('localhost', 'art9', 'fred', 'fredus');
+            self::$connexion = new dbConnect('localhost', 'comulien', 'fred', 'fredus');
         }
         return self::$connexion;
     }

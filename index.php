@@ -10,3 +10,4 @@
 //  * restart your server: apache2ctl restart 
 
 include_once("view/index.php");
+require_once('modele/var.php');
