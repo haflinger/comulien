@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Sam 20 Octobre 2012 à 19:13
+-- Généré le : Sam 20 Octobre 2012 à 23:10
 -- Version du serveur: 5.5.16
 -- Version de PHP: 5.3.8
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `gare`
 --
 
-DROP TABLE IF EXISTS `gare`;
 CREATE TABLE IF NOT EXISTS `gare` (
   `IDGARE` varchar(255) NOT NULL,
   `NOMGARE` varchar(255) DEFAULT NULL,
@@ -554,19 +553,27 @@ INSERT INTO `gare` (`IDGARE`, `NOMGARE`) VALUES
 -- Structure de la table `message`
 --
 
-DROP TABLE IF EXISTS `message`;
 CREATE TABLE IF NOT EXISTS `message` (
   `IDMESSAGE` bigint(4) NOT NULL AUTO_INCREMENT,
   `IDMESSAGE_REPONDRE` bigint(4) DEFAULT NULL,
   `IDUSER` bigint(4) NOT NULL,
-  `IDTRAIN` bigint(4) NOT NULL,
+  `IDTRAIN` bigint(4) DEFAULT NULL,
   `LBLMESSAGE` varchar(255) DEFAULT NULL,
-  `datemessage` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `DATEMESSAGE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`IDMESSAGE`),
   KEY `I_FK_MESSAGE_MESSAGE` (`IDMESSAGE_REPONDRE`),
   KEY `I_FK_MESSAGE_USER` (`IDUSER`),
   KEY `I_FK_MESSAGE_TRAIN` (`IDTRAIN`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Contenu de la table `message`
+--
+
+INSERT INTO `message` (`IDMESSAGE`, `IDMESSAGE_REPONDRE`, `IDUSER`, `IDTRAIN`, `LBLMESSAGE`, `DATEMESSAGE`) VALUES
+(5, NULL, 6, 1, 'Voici le premier poulpe', '0000-00-00 00:00:00'),
+(6, 5, 6, 1, 'Bravo pour ce poulpe', '2012-10-20 22:44:34'),
+(7, 5, 11, 1, 'C''est moi le poulpe', '2012-10-20 22:44:34');
 
 -- --------------------------------------------------------
 
@@ -574,7 +581,6 @@ CREATE TABLE IF NOT EXISTS `message` (
 -- Structure de la table `role`
 --
 
-DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
   `IDROLE` bigint(4) NOT NULL AUTO_INCREMENT,
   `LBLROLE` varchar(128) DEFAULT NULL,
@@ -598,12 +604,18 @@ INSERT INTO `role` (`IDROLE`, `LBLROLE`, `TYPEROLE`, `IMAGEROLE`) VALUES
 -- Structure de la table `train`
 --
 
-DROP TABLE IF EXISTS `train`;
 CREATE TABLE IF NOT EXISTS `train` (
   `IDTRAIN` bigint(4) NOT NULL AUTO_INCREMENT,
   `NOTRAIN` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`IDTRAIN`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `train`
+--
+
+INSERT INTO `train` (`IDTRAIN`, `NOTRAIN`) VALUES
+(1, '96124');
 
 -- --------------------------------------------------------
 
@@ -611,7 +623,6 @@ CREATE TABLE IF NOT EXISTS `train` (
 -- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `IDUSER` bigint(4) NOT NULL AUTO_INCREMENT,
   `IDROLE` bigint(4) NOT NULL,
@@ -623,7 +634,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `DATEINSCRIPTION` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`IDUSER`),
   KEY `I_FK_USER_ROLE` (`IDROLE`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `user`
@@ -638,7 +649,8 @@ INSERT INTO `user` (`IDUSER`, `IDROLE`, `LOGIN`, `PASSWORD`, `EMAIL`, `NBMESSAGE
 (6, 1, 'jc', 'b7adde8a9eec8ce92b5ee0507ce054a4', 'jc@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
 (7, 1, 'laurent', '34a321664be49e31c2368f6f42798a98', 'laurent@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
 (8, 1, 'poulpe', ' f4e0d0452b352a5bf0a1a5f2a65cb88b', 'poulpe@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(9, 3, 'romain', '5026bc63b5418ffdb54f238db245ec01', 'romain@gmail.com', NULL, NULL, '0000-00-00 00:00:00');
+(9, 3, 'romain', '5026bc63b5418ffdb54f238db245ec01', 'romain@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(11, 3, 'Frederic', '9f9d51bc70ef21ca5c14f307980a29d8', 'mail@sncf.fr', 2, 0, '0000-00-00 00:00:00');
 
 --
 -- Contraintes pour les tables exportées
