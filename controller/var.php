@@ -2,9 +2,10 @@
 
 define ("MODELEPATH", 'model/');
 define ("CONTROLPATH", 'controler/');
+define ("CONTROLERSPATH", 'controlers/');
 define ("VUEPATH", 'view/');
 
-require_once (CLASSPATH . 'dbConnect.php');
+require_once (MODELEPATH . 'dbConnect.php');
 
 $connexion = dbConnect::getInstance();
 ?>
