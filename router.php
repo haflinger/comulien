@@ -23,8 +23,8 @@ function __autoload($class){
 //using regular expression. If you don't know these, I'm nearby!
 $urls = array(
     "/" => "Index",
-  "/logging" => "ControllerLogging", //example of a new line
-    "/(.+)" => "AController"
+  "/logging/" => "Logging"//example of a new line
+    //"/(.+)" => "AController"
 );
 
 //This function will do the magic. See includes/glue.php
