@@ -19,8 +19,21 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link rel="stylesheet" href="css/main.css">
-
+        <!--  AutoCompletion -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+        
+        
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        
+        <!--  Integration de l'autocompletion -->
+	    <script type="text/javascript">
+	        jQuery(document).ready(function() {
+	            var stationsList = ['Chatelet', 'Charles de Gaulle', 'Gare de Lyon'].sort();
+	            $('#station').typeahead({source: stationsList, items:5});
+	        });
+	    </script>
+        
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -39,17 +52,14 @@
                 
             </div>
             <center>
+            
+            
             <form class="form-search">
                     <div class="input-append">
-                        <input type="text" class="search-query">
+                        <input type="search" id="station" name="station" placeholder="Indiquez votre gare" data-provide="typeahead" class="search-query" />
                         <button type="submit" class="btn">Go!</button>
                     </div>
                 </form>
-                <table class="table table-striped table-bordered table-hover">
-                    <tr><td>Chatelet les halles</td></tr>
-                    <tr><td>Versailles Chantier</td></tr>
-                    <tr><td>Charles de Gaule - Etoiles</td></tr>
-                </table>
                 </center>
             <?php
             //include 'inc/footer.php';
