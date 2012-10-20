@@ -16,11 +16,11 @@ function getAllUsers(){
 	
 	$array = $connexion->ExecuteSelect('SELECT * FROM user');
 	
-	for ($i= 0; $i < count($array); $i++){
-		$u_array = $array[$i];
+	foreach ($array as $u_array)
+	{
 		$user = new User ($u_array['IDUSER'], $u_array['LOGIN'], $u_array['PASSWORD'], $u_array['EMAIL'], $u_array['NBMESSAGE'], $u_array['NBOK'], $u_array['IDROLE']);
 		$list[] = $user;
 	}
-	
+		
 	return $list;
 }
