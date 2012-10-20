@@ -35,22 +35,24 @@
 
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="hero-unit">
-                <h1>Identification</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                <form class="well" action="#" method="post">  
-                    <label>Pseudo ou Email</label>  
-                    <input type="text" class="span3" placeholder="Type something…">
-                    <label>Mot de passe</label>  
-                    <input type="password" class="span3" placeholder="Type something…">
-                    <span class="help-inline">Veuillez vous identifier!</span>  
-                    <label class="checkbox">  
-                        <input type="checkbox">Rester connecté  
-                    </label>  
-                    <button type="submit" class="btn">Go!</button>  
-                </form> 
+                <img src="img/SNC_Illu_Batiment_3-02.png">
+                
             </div>
+            <center>
+            <form class="form-search">
+                    <div class="input-append">
+                        <input type="text" class="search-query">
+                        <button type="submit" class="btn">Go!</button>
+                    </div>
+                </form>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr><td>Chatelet les halles</td></tr>
+                    <tr><td>Versailles Chantier</td></tr>
+                    <tr><td>Charles de Gaule - Etoiles</td></tr>
+                </table>
+                </center>
             <?php
-            include 'inc/footer.php';
+            //include 'inc/footer.php';
             include 'inc/scripts.php';
             ?>
         </div> <!-- /container -->
