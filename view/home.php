@@ -29,8 +29,30 @@
         <!--  Integration de l'autocompletion -->
 	    <script type="text/javascript">
 	        jQuery(document).ready(function() {
-	            var stationsList = ['Chatelet', 'Charles de Gaulle', 'Gare de Lyon'].sort();
-	            $('#station').typeahead({source: stationsList, items:5});
+		        
+	        	$.ajax({
+	        		async: false,
+	        		url: "/webdev/hackaton/comulien/Json",
+	        		type : "GET",
+	        		data: { },
+	        		success: function(data){
+	        			data = $.parseJSON(data);
+	        			var stationsList = [];
+	        			for(var i = 0, j = data.lenght; i<j; ++i){
+		        				var a = ++i;
+		        				var b = i++;
+		        				alert(data[i].nom_gare);
+								stationsList.push(data[i].nom_gare);
+		        			}
+	    	            stationsList = stationsList.sort();
+	    	            $('#station').typeahead({source: stationsList, items:5});
+	        			
+		        	}
+	        	});	
+
+
+		        
+
 	        });
 	    </script>
         

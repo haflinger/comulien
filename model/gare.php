@@ -5,8 +5,8 @@ class Gare {
     var $nom_gare;
        
     public function __construct($id, $nom) {
-        $this->$id_gare = $id;
-        $this->$nom_gare = $nom;
+        $this->id_gare = $id;
+        $this->nom_gare = $nom;
     }
     
 	
