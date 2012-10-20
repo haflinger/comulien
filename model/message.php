@@ -14,17 +14,17 @@ class message {
     private $idmessage;
     private $lblmessage;
     private $datemessage;
-    private $idparentmessage;
-    private $idusermessage;
-    private $idtrainmessage;
+    private $idmessage_reponse;
+    private $iduser;
+    private $idtrain;
     
     public function __construct($id, $mess, $date, $idParent, $idUser, $idTrain) {
         $this->idmessage = $id;
         $this->lblmessage = $mess;
         $this->datemessage = $date;
-        $this->idparentmessage = $idParent;
-        $this->idusermessage = $idUser;
-        $this->idtrainmessage = $idTrain;
+        $this->idmessage_reponse = $idParent;
+        $this->iduser = $idUser;
+        $this->idtrain = $idTrain;
     }
     
     public function getIdmessage(){

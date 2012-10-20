@@ -1,9 +1,13 @@
 ﻿<?php
-include_once('../model/gare.php');
+require_once('model/gare.php');
+require_once('model/dbConnect.php');
 
 class GareDAO{
     public function getGares(){
-        $garesSQL = self::$connexion->ExecuteSelect('SELECT * FROM gare');
+        
+    	$connexion = dbConnect::getInstance();
+    	
+    	$garesSQL = $connexion->ExecuteSelect('SELECT * FROM gare');
         
         foreach($garesSQL as $gareSQL)
         {

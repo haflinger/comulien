@@ -1,23 +1,46 @@
 <?php
-include_once('../model/message.php');
+include_once(MODELEPATH . 'message.php');
+require_once(MODELEPATH . 'dbConnect.php');
 
-class messageDao {
-	
-    public function getMessageById($id){
-        $messageSQL = self::$connexion->ExecuteSelectOne('SELECT * FROM message WHERE IDMESSAGE = ' . $id);
+function getMessageById($id){
+        $connexion = dbConnect::getInstance();
+        $messageSQL = $connexion->ExecuteSelectOne('SELECT * FROM message WHERE IDMESSAGE = ' . $id);
         $message = new message($messageSQL['IDMESSAGE'], $messageSQL['LBLMESSAGE'], $messageSQL['DATEMESSAGE'], $messageSQL['IDMESSAGE_REPONDRE'], $messageSQL['IDUSER'], $messageSQL['IDTRAIN']);
         return $message;
     }
     
-    public function createMessage($label, $date, $idMessageParent, $idProprietaire, $idTrain){
-        $tabData = array();
-        $tabData['LBLMESSAGE'] = $_POST['nomutil'];
-        $tabData['DATEMESSAGE'] = $_POST['prenom'];
-        $tabData['IDMESSAGE_REPONSE'] = $_POST['mail'];
-        $tabData['IDUSER'] = $_POST['newlogin'];
-        $tabData['IDTRAIN'] = md5($_POST['newpass']);
-        self::$connexion->ExecuteInsert('INSERT INTO message(LBLMESSAGE, DATEMESSAGE, IDMESSAGE_REPONDRE, IDUSER, IDTRAIN) VALUES (:LBLMESSAGE, :DATEMESSAGE, :IDMESSAGE_REPONDRE, :IDUSER, :IDTRAIN)', $tabData);
+function getAllMessage(){
+         $connexion = dbConnect::getInstance();
+        $messageSQL = $connexion->ExecuteSelectOne('SELECT * FROM message');
+        $message = new message($messageSQL['IDMESSAGE'], $messageSQL['LBLMESSAGE'], $messageSQL['DATEMESSAGE'], $messageSQL['IDMESSAGE_REPONDRE'], $messageSQL['IDUSER'], $messageSQL['IDTRAIN']);
+        return $message;
     }
-}
+    
+function createMessage($idparent, $label, $date, $idProprietaire, $idTrain){
+        $connexion = dbConnect::getInstance();
+        $tabData = array();
+        $tabData['IDMESSAGE_REPONDRE'] = $idparent;
+        $tabData['IDUSER'] = $idProprietaire;
+        $tabData['IDTRAIN'] = $idTrain;
+        $tabData['LBLMESSAGE'] = $label;
+        $tabData['DATEMESSAGE'] = $date;
+        var_dump($tabData);
+        $connexion->ExecuteInsert('INSERT INTO message(IDMESSAGE_REPONDRE, IDUSER, IDTRAIN, LBLMESSAGE, DATEMESSAGE) VALUES (:IDMESSAGE_REPONDRE, :IDUSER, :IDTRAIN, :LBLMESSAGE, :DATEMESSAGE)', $tabData);
+        //$tabMod = array();
+        //$tabMod['IDUSER'] = $idProprietaire;
+        //$connexion->ExecuteUpdate('UPDATE user SET NBMESSAGE = NBMESSAGE + 1 WHERE IDUSER = :IDUSER', $tabMod);
+    }
 
+    function listeMessage($idTrain){
+        $connexion = dbConnect::getInstance();
+        $listeMess = $connexion->ExecuteSelect('SELECT * FROM message WHERE idtrain = ' . $idTrain . ' AND IDMESSAGE_REPONDRE = null' );
+        prepareListeMessage($listeMess);
+    }
+    
+    function prepareListeMessage($listeM){
+        var_dump($listeM);
+        foreach ($listeM as $mess){
+            
+        }
+    }
 ?>
