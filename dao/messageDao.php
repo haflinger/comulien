@@ -11,12 +11,16 @@ class messageDao {
     
     public function createMessage($label, $date, $idMessageParent, $idProprietaire, $idTrain){
         $tabData = array();
-        $tabData['LBLMESSAGE'] = $_POST['nomutil'];
-        $tabData['DATEMESSAGE'] = $_POST['prenom'];
-        $tabData['IDMESSAGE_REPONSE'] = $_POST['mail'];
-        $tabData['IDUSER'] = $_POST['newlogin'];
-        $tabData['IDTRAIN'] = md5($_POST['newpass']);
+        $tabData['LBLMESSAGE'] = $label;
+        $tabData['DATEMESSAGE'] = $date;
+        $tabData['IDMESSAGE_REPONSE'] = $idMessageParent;
+        $tabData['IDUSER'] = $idProprietaire;
+        $tabData['IDTRAIN'] = $idTrain;
         self::$connexion->ExecuteInsert('INSERT INTO message(LBLMESSAGE, DATEMESSAGE, IDMESSAGE_REPONDRE, IDUSER, IDTRAIN) VALUES (:LBLMESSAGE, :DATEMESSAGE, :IDMESSAGE_REPONDRE, :IDUSER, :IDTRAIN)', $tabData);
+        $tabMod = array();
+        $tabMod['IDUSER'] = $idProprietaire;
+        self::$connexion->ExecuteUpdate('UPDATE user SET NBMESSAGE = NBMESSAGE + 1 WHERE IDUSER = :IDUSER', $tabMod);
+        
     }
 }
 
