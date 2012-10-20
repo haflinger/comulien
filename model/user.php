@@ -25,7 +25,8 @@ class User {
 	// Date de l'inscription
 	var $date_inscription;
 	
-	
+	// Role
+	var $role;
 	
 	function getId(){
 		return $this->id_user;
@@ -73,6 +74,14 @@ class User {
 	
 	function getDateInscription(){
 		return $this->date_inscription;
+	}
+	
+	function setRole($role){
+		$this->role = $role;
+	}
+	
+	function getRole(){
+		return $this->role;
 	}
 	
 	// function addMsg
