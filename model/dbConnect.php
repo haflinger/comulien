@@ -55,6 +55,14 @@ class dbConnect {
         return $data;
         
     }
+    public function ExecuteSelectOne($requete)
+    {
+        $resulRequete = $this->bdd -> prepare ($requete);
+        $resulRequete -> execute();
+        $data = $resulRequete -> fetch();
+        $resulRequete -> closeCursor();
+        return $data;
+    }
     
      // exécute la requête en insérant les données passées dans le tableau $tabData
     public function ExecuteInsert($strRequete, $tabData){
