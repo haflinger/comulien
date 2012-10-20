@@ -68,6 +68,8 @@ class dbConnect {
      // exécute la requête en insérant les données passées dans le tableau $tabData
     public function ExecuteInsert($strRequete, $tabData){
         $req = $this->bdd -> prepare($strRequete);
+        print_r($tabData);
+        print_r($strRequete);
         $req->execute($tabData);
         $req -> closeCursor();
     }

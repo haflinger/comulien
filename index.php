@@ -9,7 +9,12 @@
 //  * edit the file /etc/apache2/site-available/default.conf (or something like this) and change Allow Override on your /var/www dir to "All"
 //  * restart your server: apache2ctl restart 
 require_once('controller/var.php');
-require_once('dao/UserDao.php');
+require_once('dao/messageDao.php');
+require_once('model/message.php');
 
-matchUser('fred', 'fred');
+//var_dump(getAllMessage());
+
+createMessage(null, 'Voici le premier poulpe', time(),6, 1);
+var_dump(getAllMessage());
+
 //include_once("view/login.php");
