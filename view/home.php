@@ -36,15 +36,15 @@
 	        		type : "GET",
 	        		data: { },
 	        		success: function(data){
+		        		
 	        			data = $.parseJSON(data);
 	        			var stationsList = [];
-	        			for(var i = 0, j = data.lenght; i<j; ++i){
-		        				var a = ++i;
-		        				var b = i++;
-		        				alert(data[i].nom_gare);
+	        			for(var i = 0, j = data.length; i<j; ++i){
 								stationsList.push(data[i].nom_gare);
-		        			}
-	    	            stationsList = stationsList.sort();
+		        		}
+
+						stationsList.sort();
+		        		
 	    	            $('#station').typeahead({source: stationsList, items:5});
 	        			
 		        	}
