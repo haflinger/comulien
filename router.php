@@ -24,7 +24,7 @@ function __autoload($class){
 $urls = array(
     "/" => "Index",
   "/Login" => "Login",//example of a new line
-  "/Json" => "Json"
+  "/ListeGaresJson" => "ListeGaresJson"
     //"/(.+)" => "AController"
 );
 

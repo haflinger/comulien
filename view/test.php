@@ -34,7 +34,6 @@ body {
 <script type="text/javascript">
 
 			var listeUIC = null;
-			var listeTrains = null;
 
 			function callback() {
 			    setTimeout(function() {
@@ -76,24 +75,6 @@ body {
 		        			for(var i = 0, j = listeUIC.length; i<j; ++i){
 								if(listeUIC[i].nom_gare == txt){
 									$( "#test" ).css('display', 'inline');
-
-									$.ajax({
-						        		async: false,
-						        		url: "/webdev/hackaton/comulien/ListeGaresJson",
-						        		type : "GET",
-						        		data: { },
-						        		success: function(data){        		
-						        			listeTrains = $.parseJSON(data);
-						        			var nomTrains = [];
-						        			for(var i = 0, j = listeTrains.length; i<j; ++i){
-						        					nomTrains.push(listeTrains[i].nom_gare);
-							        		}
-						        			listeTrains.sort();
-											for(var k=0, l = listeTrains.length; k < l; k++){
-												$( "#trains" ).append('<option value="' + listeTrains. + '">' + itemTexte + '</option>');
-											}
-							        	}
-						        	});	
 									
 									break;
 								}
@@ -133,7 +114,7 @@ body {
 					class="search-query" />
 				<button type="submit" class="btn">Go!</button>
 			</div>
-			<div id="trains" style="display:none">
+			<div id="test" style="display:none">
 				<select id="trains">
 				
 				</select>

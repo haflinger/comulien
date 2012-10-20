@@ -1,7 +1,7 @@
 <?php
 require_once 'dao/GareDao.php';
 
-class Json extends AController{
+class ListeGaresJson extends AController{
 	
 	function GET($matches){
 		echo $this->listeGares();
