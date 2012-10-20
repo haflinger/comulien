@@ -1,7 +1,7 @@
 <?php
 
-require_once 'model/User.php';
-require_once 'model/dbConnect.php';
+require_once '../model/User.php';
+require_once '../model/dbConnect.php';
 
 function getUserById($id){
 	$connexion = dbConnect::getInstance();
