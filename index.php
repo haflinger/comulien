@@ -1,4 +1,3 @@
-
 <?php
 //Added this as a temporary solution to make the link with view.
 
