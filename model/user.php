@@ -80,14 +80,14 @@ class User {
 		return $this->role;
 	}
 	
-	public function __construct(){
-	}
-	
-	public function __construct($login,$password,$email,$role){
+	public function __construct($id,$login,$password,$email,$nbmessage,$nbok,$role){
+		$this->id_user = $id;
 		$this->login = $login;
 		$this->password = $password;
 		$this->email = $email;
-		$this->$role = $role;
+		$this->nb_message = $nbmessage;
+		$this->nb_ok = $nbok;
+		$this->role = $role;
 	}
 	
 	public function addMsg(){

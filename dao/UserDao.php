@@ -5,8 +5,15 @@ require_once '../model/dbConnect.php';
 
 function getUserById($id){
 	$connexion = dbConnect::getInstance();
-	$user = self::$connexion->ExecuteSelect('SELECT iduser,idrole,login,password,email,nbmessage,nbok,dateinscription FROM user WHERE id=' . $id );
-	return $user;
+	
+	$array = $connexion->ExecuteSelect('SELECT * FROM user WHERE IDUSER =' . $id );
+
+//	$user = new User();
+//	$user->init($sql['IDUSER'], $sql['IDROLE'], $sql['LOGIN'], $sql['PASSWORD'], $sql['NBMESSAGE'], $sql['NBOK'], $sql['IDROLE']);
+
+	
+	return $array;
+
 }
 
 function getAllUsers(){

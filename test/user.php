@@ -1,8 +1,12 @@
 <?php
-require_once 'dao/UserDao.php';
 
-$user = getUserById(2);
+require_once '../model/dbConnect.php';
 
-echo print_r($user);
+require_once '../dao/UserDao.php';
+
+$user = getUserById(1);
+
+print_r($user);
+
 
 ?>
