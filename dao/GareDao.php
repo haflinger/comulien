@@ -13,7 +13,7 @@ class GareDAO{
         $gares = array();
         foreach($garesSQL as $gareSQL)
         {
-            $gares[] = new Gare($gareSQL['IDGARE'], $gareSQL['NOMGARE'])
+            $gares[] = new Gare($gareSQL['IDGARE'], $gareSQL['NOMGARE']);
         }
         
         return $gares;
