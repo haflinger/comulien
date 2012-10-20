@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Sam 20 Octobre 2012 à 12:08
+-- Généré le : Sam 20 Octobre 2012 à 14:16
 -- Version du serveur: 5.5.16
 -- Version de PHP: 5.3.8
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `gare`
 --
 
+DROP TABLE IF EXISTS `gare`;
 CREATE TABLE IF NOT EXISTS `gare` (
   `IDGARE` varchar(255) NOT NULL,
   `NOMGARE` varchar(255) DEFAULT NULL,
@@ -553,12 +554,14 @@ INSERT INTO `gare` (`IDGARE`, `NOMGARE`) VALUES
 -- Structure de la table `message`
 --
 
+DROP TABLE IF EXISTS `message`;
 CREATE TABLE IF NOT EXISTS `message` (
   `IDMESSAGE` bigint(4) NOT NULL AUTO_INCREMENT,
   `IDMESSAGE_REPONDRE` bigint(4) DEFAULT NULL,
   `IDUSER` bigint(4) NOT NULL,
   `IDTRAIN` bigint(4) NOT NULL,
   `LBLMESSAGE` varchar(255) DEFAULT NULL,
+  `datemessage` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`IDMESSAGE`),
   KEY `I_FK_MESSAGE_MESSAGE` (`IDMESSAGE_REPONDRE`),
   KEY `I_FK_MESSAGE_USER` (`IDUSER`),
@@ -571,6 +574,7 @@ CREATE TABLE IF NOT EXISTS `message` (
 -- Structure de la table `role`
 --
 
+DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
   `IDROLE` bigint(4) NOT NULL AUTO_INCREMENT,
   `LBLROLE` varchar(128) DEFAULT NULL,
@@ -594,6 +598,7 @@ INSERT INTO `role` (`IDROLE`, `LBLROLE`, `TYPEROLE`, `IMAGEROLE`) VALUES
 -- Structure de la table `train`
 --
 
+DROP TABLE IF EXISTS `train`;
 CREATE TABLE IF NOT EXISTS `train` (
   `IDTRAIN` bigint(4) NOT NULL AUTO_INCREMENT,
   `NOTRAIN` varchar(128) DEFAULT NULL,
@@ -606,15 +611,16 @@ CREATE TABLE IF NOT EXISTS `train` (
 -- Structure de la table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `IDUSER` bigint(4) NOT NULL AUTO_INCREMENT,
   `IDROLE` bigint(4) NOT NULL,
   `LOGIN` varchar(128) DEFAULT NULL,
   `PASSWORD` varchar(128) DEFAULT NULL,
   `EMAIL` varchar(128) DEFAULT NULL,
-  `NBMESSAGE` bigint(4) DEFAULT NULL,
-  `NBOK` bigint(4) DEFAULT NULL,
-  `DATEINSCRIPTION` date DEFAULT NULL,
+  `NBMESSAGE` bigint(4) DEFAULT '0',
+  `NBOK` bigint(4) DEFAULT '0',
+  `DATEINSCRIPTION` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`IDUSER`),
   KEY `I_FK_USER_ROLE` (`IDROLE`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
@@ -624,15 +630,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`IDUSER`, `IDROLE`, `LOGIN`, `PASSWORD`, `EMAIL`, `NBMESSAGE`, `NBOK`, `DATEINSCRIPTION`) VALUES
-(1, 2, 'fred', 'fred', 'fredo.ndm@gmail.com', NULL, NULL, '0000-00-00'),
-(2, 2, 'alex', 'alex', 'alexsolex@gmail.com', NULL, NULL, '0000-00-00'),
-(3, 2, 'manu', 'manu', 'lamainrouge@gmail.com', NULL, NULL, '0000-00-00'),
-(4, 2, 'lolo', 'lolo', 'lolo@gmail.com', NULL, NULL, '0000-00-00'),
-(5, 2, 'will', 'will', 'will@gmail.com', NULL, NULL, '0000-00-00'),
-(6, 1, 'jc', 'jc', 'jc@gmail.com', NULL, NULL, '0000-00-00'),
-(7, 1, 'laurent', 'laurent', 'laurent@gmail.com', NULL, NULL, '0000-00-00'),
-(8, 1, 'poulpe', 'poulpe', 'poulpe@gmail.com', NULL, NULL, '0000-00-00'),
-(9, 3, 'romain', 'romain', 'romain@gmail.com', NULL, NULL, '0000-00-00');
+(1, 2, 'fred', 'fred', 'fredo.ndm@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(2, 2, 'alex', 'alex', 'alexsolex@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(3, 2, 'manu', 'manu', 'lamainrouge@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(4, 2, 'lolo', 'lolo', 'lolo@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(5, 2, 'will', 'will', 'will@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(6, 1, 'jc', 'jc', 'jc@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(7, 1, 'laurent', 'laurent', 'laurent@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(8, 1, 'poulpe', 'poulpe', 'poulpe@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(9, 3, 'romain', 'romain', 'romain@gmail.com', NULL, NULL, '0000-00-00 00:00:00');
 
 --
 -- Contraintes pour les tables exportées
