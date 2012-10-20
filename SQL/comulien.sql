@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Sam 20 Octobre 2012 à 14:16
+-- Généré le : Sam 20 Octobre 2012 à 19:13
 -- Version du serveur: 5.5.16
 -- Version de PHP: 5.3.8
 
@@ -630,15 +630,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`IDUSER`, `IDROLE`, `LOGIN`, `PASSWORD`, `EMAIL`, `NBMESSAGE`, `NBOK`, `DATEINSCRIPTION`) VALUES
-(1, 2, 'fred', 'fred', 'fredo.ndm@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(2, 2, 'alex', 'alex', 'alexsolex@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(3, 2, 'manu', 'manu', 'lamainrouge@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(4, 2, 'lolo', 'lolo', 'lolo@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(5, 2, 'will', 'will', 'will@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(6, 1, 'jc', 'jc', 'jc@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(7, 1, 'laurent', 'laurent', 'laurent@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(8, 1, 'poulpe', 'poulpe', 'poulpe@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
-(9, 3, 'romain', 'romain', 'romain@gmail.com', NULL, NULL, '0000-00-00 00:00:00');
+(1, 2, 'fred', '570a90bfbf8c7eab5dc5d4e26832d5b1', 'fredo.ndm@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(2, 2, 'alex', '534b44a19bf18d20b71ecc4eb77c572f', 'alexsolex@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(3, 2, 'manu', 'f13bb1bed03db9d68a7d9a48aafeec78', 'lamainrouge@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(4, 2, 'lolo', 'd6581d542c7eaf801284f084478b5fcc', 'lolo@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(5, 2, 'will', '18218139eec55d83cf82679934e5cd75', 'will@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(6, 1, 'jc', 'b7adde8a9eec8ce92b5ee0507ce054a4', 'jc@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(7, 1, 'laurent', '34a321664be49e31c2368f6f42798a98', 'laurent@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(8, 1, 'poulpe', ' f4e0d0452b352a5bf0a1a5f2a65cb88b', 'poulpe@gmail.com', NULL, NULL, '0000-00-00 00:00:00'),
+(9, 3, 'romain', '5026bc63b5418ffdb54f238db245ec01', 'romain@gmail.com', NULL, NULL, '0000-00-00 00:00:00');
 
 --
 -- Contraintes pour les tables exportées
