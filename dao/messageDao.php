@@ -31,16 +31,25 @@ function createMessage($idparent, $label, $date, $idProprietaire, $idTrain){
         //$connexion->ExecuteUpdate('UPDATE user SET NBMESSAGE = NBMESSAGE + 1 WHERE IDUSER = :IDUSER', $tabMod);
     }
 
-    function listeMessage($idTrain){
+    function listeMessageParent($idTrain){
         $connexion = dbConnect::getInstance();
-        $listeMess = $connexion->ExecuteSelect('SELECT * FROM message WHERE idtrain = ' . $idTrain . ' AND IDMESSAGE_REPONDRE = null' );
-        prepareListeMessage($listeMess);
+        $listeMessP = $connexion->ExecuteSelect('SELECT * FROM message WHERE idtrain = ' . $idTrain . ' AND IDMESSAGE_REPONDRE is null');
+        listeMessageEnfant($listeMessP, $idTrain);
     }
-    
-    function prepareListeMessage($listeM){
-        var_dump($listeM);
-        foreach ($listeM as $mess){
+    function listeMessageEnfant($listeMessP, $idTrain){
+        $connexion = dbConnect::getInstance();
+        $listeMessE = $connexion->ExecuteSelect('SELECT * FROM message WHERE idtrain = ' . $idTrain . ' AND IDMESSAGE_REPONDRE is not null');
+        prepareListeMessage($listeMessP, $listeMessE);
+    }    
+    function prepareListeMessage($listeP, $listeE){
+        $tabfinal = array();
+        foreach ($listeP as $messP){
             
+            foreach ($listeE as $messE) {
+                $messP[] = $messE;
+            }
+            $tabfinal[] = $messP;
         }
+       return $tabfinal;
     }
 ?>

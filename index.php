@@ -12,5 +12,6 @@ require_once('controller/var.php');
 require_once('dao/messageDao.php');
 require_once('model/message.php');
 
-listeMessage(1);
+listeMessageParent(1);
+
 
