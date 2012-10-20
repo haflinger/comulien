@@ -23,7 +23,7 @@ function __autoload($class){
 //using regular expression. If you don't know these, I'm nearby!
 $urls = array(
     "/" => "Index",
-//  "/mynewpage" => "Controllertouse", //example of a new line
+  "/logging" => "ControllerLogging", //example of a new line
     "/(.+)" => "AController"
 );
 
