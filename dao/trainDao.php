@@ -20,19 +20,22 @@ class trainDao {
     }
     
     public function getTrainByName($name){
-        $trainSQL = self::$connexion->ExecuteSelect('SELECT * FROM train WHERE NOTRAIN = ' . $name);
+        $trainSQL = self::$connexion->ExecuteSelectOne('SELECT * FROM train WHERE NOTRAIN = ' . $name);
         $train = new train($trainSQL['IDTRAIN'], $trainSQL['NOTRAIN']);
-        
         return $train;
     }
     
     public function getTrainsPourGare($idGare)
     {
-        //todo.......
+        //todo...
+        
     }
     
     public function createTrain($id, $nomTrain){
-        self::$connexion->ExecuteInsert("INSERT INTO train(NOTRAIN) VALUES ('" . $nomTrain . "')", array());
+        $tabData = array();
+        $tabData['idtrain'] = $id;
+        $tabData['notrain'] = $nomTrain;
+        self::$connexion->ExecuteInsert('INSERT INTO train(NOTRAIN) VALUES (:NOTRAIN )', $tabData);
     }
 }
 
