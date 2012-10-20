@@ -1,0 +1,4 @@
+ public function getUserById($id){
+        $user = self::$connexion->ExecuteSelect('SELECT nom, prenom, mail FROM user WHERE id=' . $id );
+         return $user;
+    }
