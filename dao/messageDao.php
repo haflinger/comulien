@@ -1,5 +1,5 @@
 <?php
-include_once(MODELEPATH . 'message.php');
+require_once(MODELEPATH . 'message.php');
 require_once(MODELEPATH . 'dbConnect.php');
 
 function getMessageById($id){

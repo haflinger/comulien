@@ -1,8 +1,8 @@
 <?php
 session_start();
-define ("MODELEPATH", 'model/');
-define ("CONTROLPATH", 'controler/');
-define ("CONTROLERSPATH", 'controlers/');
+define ("MODELEPATH", '../model/');
+define ("CONTROLPATH", 'controller/');
+define ("CONTROLERSPATH", 'controllers/');
 define ("VUEPATH", 'view/');
 define ("DAO", 'dao/');
 
