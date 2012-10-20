@@ -44,7 +44,7 @@ function createMessage($idparent, $label, $date, $idProprietaire, $idTrain){
     function prepareListeMessage($listeP, $listeE){
         $tabfinal = array();
         foreach ($listeP as $messP){
-            
+
             foreach ($listeE as $messE) {
                 $messP[] = $messE;
             }
