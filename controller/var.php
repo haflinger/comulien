@@ -5,7 +5,7 @@ define ("CONTROLPATH", 'controler/');
 define ("CONTROLERSPATH", 'controlers/');
 define ("VUEPATH", 'view/');
 
-require_once (MODELEPATH . 'dbConnect.php');
+require_once ('../controller/dbConnect.php');
 
 $connexion = dbConnect::getInstance();
 ?>
