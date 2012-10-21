@@ -1,9 +1,8 @@
 <?php
 require_once ('../controller/var.php');
 require_once ('../dao/messageDao.php');
+require_once ('../model/message.php');
 
-$test = listeMessageParent(1);
-
-var_dump($test);
+var_dump(listeMessageParent(1));
 
 ?>

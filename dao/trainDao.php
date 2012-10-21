@@ -27,12 +27,7 @@ function getTrainByName($name){
         return $train;
     }
     
-function getTrainsPourGare($idGare)
-    {
-        //todo...
-        
-    }
-    
+
 function createTrain($id, $nomTrain){
         $connexion = dbConnect::getInstance();
         $tabData = array();
