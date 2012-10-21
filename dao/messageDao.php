@@ -34,24 +34,19 @@ function createMessage($idparent, $label, $date, $idProprietaire, $idTrain){
     function listeMessageParent($idTrain){
         $connexion = dbConnect::getInstance();
         $listeMessP = $connexion->ExecuteSelect('SELECT * FROM message WHERE idtrain = ' . $idTrain . ' AND IDMESSAGE_REPONDRE is null');
-        $test = listeMessageEnfant($listeMessP, $idTrain);
-        return $test;
+        return prepareListeMessage($listeMessP);
     }
-    function listeMessageEnfant($listeMessP, $idTrain){
+    function listeMessageEnfant($idParent){
         $connexion = dbConnect::getInstance();
-        $listeMessE = $connexion->ExecuteSelect('SELECT * FROM message WHERE idtrain = ' . $idTrain . ' AND IDMESSAGE_REPONDRE is not null');
-        $test = prepareListeMessage($listeMessP, $listeMessE);
-        return $test;
+        $listeMessE = $connexion->ExecuteSelect('SELECT * FROM message WHERE IDMESSAGE_REPONDRE = ' . $idParent);
+        return $listeMessE;
     }    
-    function prepareListeMessage($listeP, $listeE){
+    function prepareListeMessage($listeP){
         $tabfinal = array();
         foreach ($listeP as $messP){
-
-            foreach ($listeE as $messE) {
-                $messP[] = $messE;
-            }
+            $messP[6] = listeMessageEnfant($messP['IDMESSAGE']);
             $tabfinal[] = $messP;
         }
-         var_dump($tabfinal);  
+         return $tabfinal;  
     }
 ?>
