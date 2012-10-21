@@ -15,8 +15,8 @@ class train {
     private $notrain;
     
     public function __construct($idtrain, $notrain) {
-        $this->idmessage = $idtrain;
-        $this->lblmessage = $notrain;
+        $this->idtrain = $idtrain;
+        $this->notrain = $notrain;
     }
     
     public function getIdtrain(){
@@ -26,7 +26,7 @@ class train {
         return $this->notrain;
     }
     public function setIdtrain($id){
-        $this->idmessage = $id;
+        $this->idtrain = $id;
     }
     public function setNotrain($num){
         $this->notrain = $num;

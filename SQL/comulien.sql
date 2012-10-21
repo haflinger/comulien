@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Sam 20 Octobre 2012 à 23:10
+-- Généré le : Dim 21 Octobre 2012 à 02:18
 -- Version du serveur: 5.5.16
 -- Version de PHP: 5.3.8
 
@@ -564,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   KEY `I_FK_MESSAGE_MESSAGE` (`IDMESSAGE_REPONDRE`),
   KEY `I_FK_MESSAGE_USER` (`IDUSER`),
   KEY `I_FK_MESSAGE_TRAIN` (`IDTRAIN`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `message`
@@ -573,7 +573,10 @@ CREATE TABLE IF NOT EXISTS `message` (
 INSERT INTO `message` (`IDMESSAGE`, `IDMESSAGE_REPONDRE`, `IDUSER`, `IDTRAIN`, `LBLMESSAGE`, `DATEMESSAGE`) VALUES
 (5, NULL, 6, 1, 'Voici le premier poulpe', '0000-00-00 00:00:00'),
 (6, 5, 6, 1, 'Bravo pour ce poulpe', '2012-10-20 22:44:34'),
-(7, 5, 11, 1, 'C''est moi le poulpe', '2012-10-20 22:44:34');
+(7, 5, 11, 1, 'C''est moi le poulpe', '2012-10-20 22:44:34'),
+(8, NULL, 6, 3, 'Test sur le train numéro 3', '2012-10-21 01:16:20'),
+(9, NULL, 3, 5, 'Testr sur le train numéro 5', '2012-10-21 01:16:20'),
+(10, 8, 4, 3, 'Validation du message', '2012-10-21 01:17:51');
 
 -- --------------------------------------------------------
 
@@ -608,14 +611,18 @@ CREATE TABLE IF NOT EXISTS `train` (
   `IDTRAIN` bigint(4) NOT NULL AUTO_INCREMENT,
   `NOTRAIN` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`IDTRAIN`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `train`
 --
 
 INSERT INTO `train` (`IDTRAIN`, `NOTRAIN`) VALUES
-(1, '96124');
+(1, '96124'),
+(2, '830456'),
+(3, '830654'),
+(4, '96234'),
+(5, '96780');
 
 -- --------------------------------------------------------
 

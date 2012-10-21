@@ -31,7 +31,6 @@ function getTrainByName($name){
 function createTrain($id, $nomTrain){
         $connexion = dbConnect::getInstance();
         $tabData = array();
-        $tabData['idtrain'] = $id;
         $tabData['notrain'] = $nomTrain;
         $connexion->ExecuteInsert('INSERT INTO train(NOTRAIN) VALUES (:NOTRAIN )', $tabData);
     }
