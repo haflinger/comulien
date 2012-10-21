@@ -28,7 +28,7 @@ function getTrainByName($name){
     }
     
 
-function createTrain($id, $nomTrain){
+function createTrain($nomTrain){
         $connexion = dbConnect::getInstance();
         $tabData = array();
         $tabData['notrain'] = $nomTrain;
