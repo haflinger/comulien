@@ -6,6 +6,8 @@
 
 	$trainsXML = $dom->getElementsByTagName('train');
 	$trains = array();
+	
+	$count = 0;
 	foreach($trainsXML as $trainXML)
 	{
 		$train['date'] = $trainXML->getElementsByTagName('date')->item(0)->nodeValue;
@@ -13,6 +15,9 @@
 		$train['mission'] = $trainXML->getElementsByTagName('miss')->item(0)->nodeValue;
 		$train['terminusUIC'] = $trainXML->getElementsByTagName('term')->item(0)->nodeValue;
 		$trains[] = $train;
+		
+		$count++;
+		if($count == 5){ break;}
 	}
 		
 	$json = json_encode($trains);

@@ -24,18 +24,15 @@ body {
 <!--  AutoCompletion -->
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-<script type="text/javascript"
-	src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
-
-
-<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+	<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+	<script type="text/javascript" src="view/js/jquery.jcookie.min.js"></script>
+	<script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
 <!--  Integration de l'autocompletion -->
 <script type="text/javascript">
 
 			var listeUIC = null;
-			var listeTrains = null;
-
+			
 			function callback() {
 			    setTimeout(function() {
 			        $( "#img_accueil" ).removeAttr( "style" ).hide().fadeIn();
@@ -75,23 +72,25 @@ body {
 							var txt = $('#station').val();
 		        			for(var i = 0, j = listeUIC.length; i<j; ++i){
 								if(listeUIC[i].nom_gare == txt){
-									$( "#test" ).css('display', 'inline');
-
+									$( "#choix_trains" ).css('display', 'inline');
 									$.ajax({
 						        		async: false,
-						        		url: "/webdev/hackaton/comulien/ListeGaresJson",
-						        		type : "GET",
-						        		data: { },
-						        		success: function(data){        		
-						        			listeTrains = $.parseJSON(data);
-						        			var nomTrains = [];
-						        			for(var i = 0, j = listeTrains.length; i<j; ++i){
-						        					nomTrains.push(listeTrains[i].nom_gare);
-							        		}
-						        			listeTrains.sort();
-											for(var k=0, l = listeTrains.length; k < l; k++){
-												$( "#trains" ).append('<option value="' + listeTrains. + '">' + itemTexte + '</option>');
+						        		url: "/webdev/hackaton/comulien/controllers/RecuperationTrainsPourGare.php",
+						        		type : "POST",
+						        		data: { uicGare : listeUIC[i].id_gare},
+						        		success: function(data){ 
+						        			$( "#loading" ).css('display', 'inline');
+						        			$( "#trains" ).html('');      		
+						        			var listeTrains = $.parseJSON(data);
+											for(var k = 0, l = listeTrains.length; k < l; k++){
+												$( "#trains" ).append('<option value="' + listeTrains[k].num + '">' + listeTrains[k].date + ' ' +listeTrains[k].mission + ' ' + listeTrains[k].terminusUIC + '</option>');
+												
 											}
+											$( "#trains" ).change(function(){
+												var num = $( "#trains option:selected" ).val();
+												document.location.href="/webdev/hackaton/comulien/controller/RecuperationTrainPourChat.php?numtrain=" + num; 
+												});
+											$( "#loading" ).css('display', 'none');
 							        	}
 						        	});	
 									
@@ -133,7 +132,10 @@ body {
 					class="search-query" />
 				<button type="submit" class="btn">Go!</button>
 			</div>
-			<div id="trains" style="display:none">
+			<div id="choix_trains" style="display:none">
+				<div id="loading">
+					<p id="loading_text">Chargement...</p>
+				</div>
 				<select id="trains">
 				
 				</select>
