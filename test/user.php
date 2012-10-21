@@ -5,8 +5,8 @@ require_once('../model/dbConnect.php');
 require_once('../dao/trainDao.php');
 require_once('../model/train.php');
 
+createTrain('12345');
 
-createUser(3, 'Frederic', 'bob', 'mail@sncf.fr');
 
 
 ?>

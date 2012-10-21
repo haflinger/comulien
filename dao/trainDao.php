@@ -32,7 +32,8 @@ function createTrain($nomTrain){
         $connexion = dbConnect::getInstance();
         $tabData = array();
         $tabData['notrain'] = $nomTrain;
-        $connexion->ExecuteInsert('INSERT INTO train(NOTRAIN) VALUES (:NOTRAIN )', $tabData);
+        var_dump($tabData);
+        $connexion->ExecuteInsert('INSERT INTO train(NOTRAIN) VALUES (:NOTRAIN)', $tabData);
     }
 
 ?>
