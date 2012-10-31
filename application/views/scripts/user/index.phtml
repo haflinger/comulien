@@ -1,0 +1,13 @@
+<h3>Liste des utilisateurs</h3>
+<table>
+    <tr>
+        <th>nom</th>
+        <th>email</th>
+    </tr>
+    <?php foreach ($this->users as $item) : ?>
+        <tr>
+            <td><?php echo $item->name; ?></td>
+            <td><?php echo $item->email; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>

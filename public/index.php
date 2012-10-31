@@ -27,24 +27,24 @@ $config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini', 'pr
 $registry = Zend_Registry::getInstance();
 $registry->set('config', $config);
 
-$config = new Zend_Config(
-                array(
-                    'db' => array(
-                        'adapter' => 'PDO_MYSQL',
-                        'params' => array(
-                            'host' => 'localhost',
-                            'dbname' => 'comulien',
-                            'username' => 'root',
-                            'password' => '',
-                            'charset' => 'utf8',
-                            'driver_options' => array('1002' => 'SET NAMES utf8')
-                        )
-                    )
+
+// Bootsy - C'est ici qu'on définit l'adapter par defaut. on va chercher les infos dans le ficher de configs/application.ini
+$db = Zend_Db::factory($config->database->adapter, array(
+            'host'              => $config->database->params->host,
+            'username'          => $config->database->params->username,
+            'password'          => $config->database->params->password,
+            'dbname'            => $config->database->params->dbname,
+            // j'ai rajouté ces infos pour être sur que tout part en utf8 dans la base       
+            'charset'           => 'utf8',
+            'driver_options'    => array('1002' => 'SET NAMES utf8')
                 )
 );
 
+// placons la connexion dans un registre global à l'application
+$registry = Zend_Registry::getInstance();
+$registry->set('db', $db);
 
-$db = Zend_Db::factory($config->db);
+// en faire la connexion par defaut
 Zend_Db_Table::setDefaultAdapter($db);
 
 $application->bootstrap()
