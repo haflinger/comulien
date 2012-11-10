@@ -31,9 +31,19 @@ INSERT INTO evenement(titreevent,lblevent,idorga,datedebut,datefin,delaipersiste
 	'Un évènement de test pour la team Poulpe',
 	(SELECT idorga FROM organisme WHERE UPPER(nomorga)='LES POULPES TEAM'),
 	NOW(),
-	'2012-12-09 21:27:43',
+	'2012-12-09 21:27:43', -- l'évènement se termine le 9 12 2012
 	60,
 	NULL);
+
+INSERT INTO evenement(titreevent,lblevent,idorga,datedebut,datefin,delaipersistence,logo)
+	VALUES ('Train 8140 POPI',
+	'Train à Destination de Paris-Saint-Lazare',
+	(SELECT idorga FROM organisme WHERE UPPER(nomorga)='TRANSILIEN'),
+	NOW(),
+	NOW()+INTERVAL 1 DAY,
+	60, -- l'évènement est accessible 60min après la date de fin
+	NULL);
+
 SELECT * FROM evenement;
 
 -- création d'utilisateurs
@@ -68,6 +78,14 @@ INSERT INTO message(iduser_emettre,idmessage_repondre,idevent,lblmessage,dateemi
 	NOW(), -- émis le : maintenant
 	0 -- type de message 
 	);
+INSERT INTO message(iduser_emettre,idmessage_repondre,idevent,lblmessage,dateemission,idtypemsg) 
+	VALUES ( (SELECT iduser FROM USER WHERE login='alexsolex') , -- récupérer l'id de l'utilisateur qui émet
+	NULL,
+	2, -- évènement id 2 : Train 8140 POPI
+	'Bonjour à tous, y''a quelqu''un dans ce train ?', -- le message
+	NOW(), -- émis le : maintenant
+	0 -- type de message 
+	);	
 	
 -- approbation d'un message
 INSERT INTO apprecier(idmessage,iduser,evaluation) 
@@ -90,10 +108,10 @@ WHERE idevent=1
 AND estActifMsg=TRUE
 AND idMessage_repondre IS NULL; -- sans idmessage_repondre
 
--- liste des utilisateurs avec pouvoirs pour l'évènement
+-- liste des utilisateurs avec pouvoirs pour l'évènement id=1
 SELECT u.login,r.lblrole,o.nomorga
  FROM privilegier p 
  INNER JOIN role r ON p.idrole=r.idrole
  INNER JOIN USER u ON u.iduser=p.iduser
  INNER JOIN organisme o ON o.idorga=p.idorga
- WHERE p.idorga=2;
+ WHERE p.idorga= (SELECT idorga FROM evenement WHERE idevent=1);
