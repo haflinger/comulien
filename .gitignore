@@ -1,2 +1,2 @@
-/application/configs/application.ini
 *.bak
+.DS_Store
