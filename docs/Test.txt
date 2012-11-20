@@ -3,5 +3,5 @@ Manu
 Essai
 fredo
 boulet
-cafÃ© ?
-Nan c'est trop tard !
+café ?
+modif depuis netbeans
