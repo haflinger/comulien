@@ -41,7 +41,7 @@ $db = Zend_Db::factory($config->database->adapter, array(
 );
 
 // placons la connexion dans un registre global à l'application
-$registry = Zend_Registry::getInstance();
+//$registry = Zend_Registry::getInstance(); // alex - la variable $registry est déclarée 2 fois
 $registry->set('db', $db);
 
 // en faire la connexion par defaut
