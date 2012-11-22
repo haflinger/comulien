@@ -3,8 +3,6 @@
 class TypeMessageController extends Zend_Controller_Action
 {
     
-    protected $model;
-
     public function init()
     {
         /* Initialize action controller here */

@@ -1,0 +1,15 @@
+<h3>Liste des profils</h3>
+<table>
+    <tr>
+        <th>nomProfil</th>
+        <th>typeProfil</th>
+        <th>iconeProfil</th>
+    </tr>
+    <?php foreach($this->profils as $profil) : ?>
+        <tr>
+            <td><?php echo $profil->NOMPROFIL; ?></td>
+            <td><?php echo $profil->TYPEPROFIL; ?></td>
+            <td><?php echo $profil->ICONEPROFIL; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
