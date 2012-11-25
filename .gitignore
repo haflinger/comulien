@@ -1,7 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /application/configs/
 /library/
 =======
 /application/configs/application.ini
 *.bak
+>>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
+=======
+*.bak
+.DS_Store
 >>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
