@@ -17,7 +17,17 @@
         <controllerFile controllerName="Train">
           <actionMethod actionName="index"/>
         </controllerFile>
+<<<<<<< HEAD
         <controllerFile controllerName="Test">
+=======
+        <controllerFile controllerName="TypeMessage">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Profil">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Utilisateur">
+>>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
@@ -27,6 +37,7 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="User"/>
         </dbTableDirectory>
+        <modelFile modelName="Profil"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -44,7 +55,17 @@
           <viewControllerScriptsDirectory forControllerName="Train">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+<<<<<<< HEAD
           <viewControllerScriptsDirectory forControllerName="Test">
+=======
+          <viewControllerScriptsDirectory forControllerName="TypeMessage">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Profil">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Utilisateur">
+>>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
