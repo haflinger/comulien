@@ -2,206 +2,207 @@
 Changements :
 2012/11/19 : 
   - changement des libellé des clés étrangères IdUser dans la table Message provenant de la table utilisateur
-
+2012/11/25 : 
+  - renommage des tables et des champs en utilisant la notation camelcase
 */
-DROP DATABASE IF EXISTS COMULIEN;
+DROP DATABASE IF EXISTS `comulien`;
 
-CREATE DATABASE IF NOT EXISTS COMULIEN;
-USE COMULIEN;
+CREATE DATABASE IF NOT EXISTS `comulien`;
+USE `comulien`;
 # -----------------------------------------------------------------------------
-#       TABLE : UTILISATEUR
+#       TABLE : utilisateur
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS UTILISATEUR
+CREATE TABLE IF NOT EXISTS `utilisateur`
  (
-   IDUSER BIGINT(4) NOT NULL AUTO_INCREMENT ,
-   LOGINUSER VARCHAR(128) NOT NULL  ,
-   PSWUSER VARCHAR(128) NOT NULL  ,
-   EMAILUSER VARCHAR(128) NOT NULL  ,
-   DATEINSCRIPTIONUSER DATETIME NOT NULL  ,
-   NOMUSER VARCHAR(128) NULL  ,
-   PRENOMUSER VARCHAR(128) NULL  ,
-   NBMSGUSER BIGINT(4) NULL  
+   `idUser` BIGINT(4) NOT NULL AUTO_INCREMENT ,
+   `loginUser` VARCHAR(128) NOT NULL  ,
+   `pswUser` VARCHAR(128) NOT NULL  ,
+   `emailUser` VARCHAR(128) NOT NULL  ,
+   `dateInscriptionUser` DATETIME NOT NULL  ,
+   `nomUser` VARCHAR(128) NULL  ,
+   `prenomUser` VARCHAR(128) NULL  ,
+   `nbMsgUser` BIGINT(4) NULL  
       DEFAULT 0,
-   NBAPPROUVUSER BIGINT(4) NULL  ,
-   ESTACTIFUSER BOOL NULL  
+   `nbApprouverUser` BIGINT(4) NULL  ,
+   `estActifUser` BOOL NULL  
       DEFAULT TRUE
-   , PRIMARY KEY (IDUSER) 
+   , PRIMARY KEY (`idUser`) 
  ) 
  COMMENT = "";
 
 # -----------------------------------------------------------------------------
-#       TABLE : EVENEMENT
+#       TABLE : evenement
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS EVENEMENT
+CREATE TABLE IF NOT EXISTS `evenement`
  (
-   IDEVENT BIGINT(4) NOT NULL AUTO_INCREMENT ,
-   IDORGA BIGINT(4) NOT NULL  ,
-   TITREEVENT CHAR(100) NOT NULL  ,
-   NUMEVENT VARCHAR(255) NOT NULL  ,
-   DESCEVENT VARCHAR(255) NULL  ,
-   LOGOEVENT VARCHAR(128) NULL  ,
-   DATEDEBUTEVENT DATETIME NOT NULL  ,
-   DATEFINEVENT DATETIME NULL  ,
-   DELAIPERSISTENCE INTEGER(2) NULL  
-   , PRIMARY KEY (IDEVENT) 
+   `idEvent` BIGINT(4) NOT NULL AUTO_INCREMENT ,
+   `idOrga` BIGINT(4) NOT NULL  ,
+   `titreEvent` CHAR(100) NOT NULL  ,
+   `numEvent` VARCHAR(255) NOT NULL  ,
+   `descEvent` VARCHAR(255) NULL  ,
+   `logoEvent` VARCHAR(128) NULL  ,
+   `dateDebutEvent` DATETIME NOT NULL  ,
+   `dateFinEvent` DATETIME NULL  ,
+   `delaiPersistence` INTEGER(2) NULL  
+   , PRIMARY KEY (`idEvent`) 
  ) 
  COMMENT = "";
 
 # -----------------------------------------------------------------------------
-#       TABLE : PROFIL
+#       TABLE : profil
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS PROFIL
+CREATE TABLE IF NOT EXISTS `profil`
  (
-   IDPROFIL BIGINT(4) NOT NULL  ,
-   NOMPROFIL VARCHAR(128) NOT NULL  ,
-   TYPEPROFIL BIGINT(4) NULL  ,
-   ICONEPROFIL VARCHAR(255) NULL  
-   , PRIMARY KEY (IDPROFIL) 
+   `idProfil` BIGINT(4) NOT NULL  ,
+   `nomProfil` VARCHAR(128) NOT NULL  ,
+   `typeProfil` BIGINT(4) NULL  ,
+   `iconeProfil` VARCHAR(255) NULL  
+   , PRIMARY KEY (`idProfil`) 
  ) 
  COMMENT = "";
 
 # -----------------------------------------------------------------------------
-#       TABLE : MESSAGE
+#       TABLE : message
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS MESSAGE
+CREATE TABLE IF NOT EXISTS `message`
  (
-   IDMESSAGE BIGINT(4) NOT NULL AUTO_INCREMENT ,
-   IDUSER_EMETTRE BIGINT(4) NOT NULL  ,
-   IDTYPEMSG INTEGER(2) NOT NULL  ,
-   IDEVENT BIGINT(4) NOT NULL  ,
-   LBLMESSAGE VARCHAR(255) NOT NULL  ,
-   IDPROFIL BIGINT(4) NULL  ,
-   IDUSER_MODERER BIGINT(4) NULL  ,
-   IDMESSAGE_REPONSE BIGINT(4) NULL  ,
-   DATEEMISSIONMSG DATETIME NULL  ,
-   DATEACTIVITEMSG DATETIME NULL  ,
-   ESTACTIFMSG BOOL NULL  
+   `idMessage` BIGINT(4) NOT NULL AUTO_INCREMENT ,
+   `idUser_emettre` BIGINT(4) NOT NULL  ,
+   `idTypeMsg` INTEGER(2) NOT NULL  ,
+   `idEvent` BIGINT(4) NOT NULL  ,
+   `lblMessage` VARCHAR(255) NOT NULL  ,
+   `idProfil` BIGINT(4) NULL  ,
+   `idUser_moderer` BIGINT(4) NULL  ,
+   `idMessage_reponse` BIGINT(4) NULL  ,
+   `dateEmissionMsg` DATETIME NULL  ,
+   `dateActiviteMsg` DATETIME NULL  ,
+   `estActifMsg` BOOL NULL  
       DEFAULT TRUE
-   , PRIMARY KEY (IDMESSAGE) 
+   , PRIMARY KEY (`idMessage`) 
  ) 
  COMMENT = "";
 
 # -----------------------------------------------------------------------------
-#       TABLE : ORGANISME
+#       TABLE : organisme
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS ORGANISME
+CREATE TABLE IF NOT EXISTS `organisme`
  (
-   IDORGA BIGINT(4) NOT NULL AUTO_INCREMENT ,
-   NOMORGA VARCHAR(128) NULL  ,
-   DESCORGA VARCHAR(255) NULL  ,
-   LOGOORGA VARCHAR(128) NULL  
-   , PRIMARY KEY (IDORGA) 
+   `idOrga` BIGINT(4) NOT NULL AUTO_INCREMENT ,
+   `nomOrga` VARCHAR(128) NULL  ,
+   `descOrga` VARCHAR(255) NULL  ,
+   `logoOrga` VARCHAR(128) NULL  
+   , PRIMARY KEY (`idOrga`) 
  ) 
  COMMENT = "";
 
 # -----------------------------------------------------------------------------
-#       TABLE : TYPEMESSAGE
+#       TABLE : typeMessage
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS TYPEMESSAGE
+CREATE TABLE IF NOT EXISTS `typeMessage`
  (
-   IDTYPEMSG INTEGER(2) NOT NULL  ,
-   LBLTYPEMSG VARCHAR(128) NULL  
-   , PRIMARY KEY (IDTYPEMSG) 
+   `idTypeMsg` INTEGER(2) NOT NULL  ,
+   `lblTypeMsg` VARCHAR(128) NULL  
+   , PRIMARY KEY (`idTypeMsg`) 
  ) 
  COMMENT = "";
 
 # -----------------------------------------------------------------------------
-#       TABLE : DISTINGUER
+#       TABLE : distinguer
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS DISTINGUER
+CREATE TABLE IF NOT EXISTS `distinguer`
  (
-   IDUSER BIGINT(4) NOT NULL  ,
-   IDORGA BIGINT(4) NOT NULL  ,
-   IDPROFIL BIGINT(4) NOT NULL  ,
-   DROITMODERATION BOOL NULL  
+   `idUser` BIGINT(4) NOT NULL  ,
+   `idOrga` BIGINT(4) NOT NULL  ,
+   `idProfil` BIGINT(4) NOT NULL  ,
+   `droitModeration` BOOL NULL  
       DEFAULT FALSE,
-   NOMFONCTION VARCHAR(50) NULL  
-   , PRIMARY KEY (IDUSER,IDORGA) 
+   `nomFonction` VARCHAR(50) NULL  
+   , PRIMARY KEY (`idUser`,`idOrga`) 
  ) 
  COMMENT = "";
 
 # -----------------------------------------------------------------------------
-#       TABLE : APPRECIER
+#       TABLE : apprecier
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS APPRECIER
+CREATE TABLE IF NOT EXISTS `apprecier`
  (
-   IDMESSAGE BIGINT(4) NOT NULL  ,
-   IDUSER BIGINT(4) NOT NULL  ,
-   EVALUATION CHAR(32) NULL  
-   , PRIMARY KEY (IDMESSAGE,IDUSER) 
+   `idMessage` BIGINT(4) NOT NULL  ,
+   `idUser` BIGINT(4) NOT NULL  ,
+   `evaluation` CHAR(32) NULL  
+   , PRIMARY KEY (`idMessage`,`idUser`) 
  ) 
  COMMENT = "";
 
 
 # -----------------------------------------------------------------------------
-#       CREATION DES REFERENCES DE TABLE
+#       CREATION DES REFERENCES DE table
 # -----------------------------------------------------------------------------
 
 
-ALTER TABLE EVENEMENT 
-  ADD FOREIGN KEY FK_EVENEMENT_ORGANISME (IDORGA)
-      REFERENCES ORGANISME (IDORGA) ;
+ALTER TABLE `evenement` 
+  ADD FOREIGN KEY FK_EVENEMENT_ORGANISME (`idOrga`)
+      REFERENCES `organisme` (`idOrga`) ;
+
+
+ALTER TABLE `message`
+  ADD FOREIGN KEY FK_MESSAGE_PROFIL (`idProfil`)
+      REFERENCES `profil` (`idProfil`) ;
+
+
+ALTER TABLE `message` 
+  ADD FOREIGN KEY FK_MESSAGE_UTILISATEURMODERER (`idUser_moderer`)
+      REFERENCES `utilisateur` (`idUser`) ;
 
 
 ALTER TABLE MESSAGE 
-  ADD FOREIGN KEY FK_MESSAGE_PROFIL (IDPROFIL)
-      REFERENCES PROFIL (IDPROFIL) ;
+  ADD FOREIGN KEY FK_MESSAGE_TYPEMESSAGE (`idTypeMsg`)
+      REFERENCES `typeMessage` (`idTypeMsg`) ;
 
 
-ALTER TABLE MESSAGE 
-  ADD FOREIGN KEY FK_MESSAGE_UTILISATEUR (IDUSER_MODERER)
-      REFERENCES UTILISATEUR (IDUSER) ;
+ALTER TABLE `message`
+  ADD FOREIGN KEY FK_MESSAGE_MESSAGE (`idMessage_reponse`)
+      REFERENCES `message` (`idMessage`) ;
 
 
-ALTER TABLE MESSAGE 
-  ADD FOREIGN KEY FK_MESSAGE_TYPEMESSAGE (IDTYPEMSG)
-      REFERENCES TYPEMESSAGE (IDTYPEMSG) ;
+ALTER TABLE `message`
+  ADD FOREIGN KEY FK_MESSAGE_UTILISATEUREMETTRE (`idUser_emettre`)
+      REFERENCES `utilisateur` (`idUser`) ;
 
 
-ALTER TABLE MESSAGE 
-  ADD FOREIGN KEY FK_MESSAGE_MESSAGE (IDMESSAGE_REPONSE)
-      REFERENCES MESSAGE (IDMESSAGE) ;
-
-
-ALTER TABLE MESSAGE 
-  ADD FOREIGN KEY FK_MESSAGE_UTILISATEUR1 (IDUSER_EMETTRE)
-      REFERENCES UTILISATEUR (IDUSER) ;
-
-
-ALTER TABLE MESSAGE 
-  ADD FOREIGN KEY FK_MESSAGE_EVENEMENT (IDEVENT)
-      REFERENCES EVENEMENT (IDEVENT) ;
+ALTER TABLE `message` 
+  ADD FOREIGN KEY FK_MESSAGE_EVENEMENT (`idEvent`)
+      REFERENCES `evenement` (`idEvent`) ;
 
 
 ALTER TABLE DISTINGUER 
-  ADD FOREIGN KEY FK_DISTINGUER_UTILISATEUR (IDUSER)
-      REFERENCES UTILISATEUR (IDUSER) ;
+  ADD FOREIGN KEY FK_DISTINGUER_UTILISATEUR (`idUser`)
+      REFERENCES `utilisateur` (`idUser`) ;
 
 
-ALTER TABLE DISTINGUER 
-  ADD FOREIGN KEY FK_DISTINGUER_PROFIL (IDPROFIL)
-      REFERENCES PROFIL (IDPROFIL) ;
+ALTER TABLE `distinguer`
+  ADD FOREIGN KEY FK_DISTINGUER_PROFIL (`idProfil`)
+      REFERENCES `profil` (`idProfil`) ;
 
 
-ALTER TABLE DISTINGUER 
-  ADD FOREIGN KEY FK_DISTINGUER_ORGANISME (IDORGA)
-      REFERENCES ORGANISME (IDORGA) ;
+ALTER TABLE `distinguer` 
+  ADD FOREIGN KEY FK_DISTINGUER_ORGANISME (`idOrga`)
+      REFERENCES `organisme` (`idOrga`) ;
 
 
-ALTER TABLE APPRECIER 
-  ADD FOREIGN KEY FK_APPRECIER_MESSAGE (IDMESSAGE)
-      REFERENCES MESSAGE (IDMESSAGE) ;
+ALTER TABLE `apprecier`
+  ADD FOREIGN KEY FK_APPRECIER_MESSAGE (`idMessage`)
+      REFERENCES `message` (`idMessage`) ;
 
 
-ALTER TABLE APPRECIER 
-  ADD FOREIGN KEY FK_APPRECIER_UTILISATEUR (IDUSER)
-      REFERENCES UTILISATEUR (IDUSER) ;
+ALTER TABLE `apprecier` 
+  ADD FOREIGN KEY FK_APPRECIER_UTILISATEUR (`idUser`)
+      REFERENCES `utilisateur` (`idUser`) ;
 
