@@ -1,0 +1,12 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Profil</b> and script/action name <b>index</b></p>
+</div>
+Profil Entries: <br />
+<dl>
+    <?php foreach ($this->entries as $entry): ?>
+    <dt><?php echo $this->escape($entry->nomProfil) ?></dt>
+    <dd><?php echo $this->escape($entry->typeProfil) ?></dd>
+    <dd><?php echo $this->escape($entry->iconeProfil) ?></dd>
+    <?php endforeach ?>
+</dl>

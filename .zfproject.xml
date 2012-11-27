@@ -14,6 +14,12 @@
         <controllerFile controllerName="Profil">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Typemessage">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Utilisateur">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory>
@@ -24,9 +30,15 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Profil"/>
+          <dbTableFile dbTableName="Typemessage"/>
+          <dbTableFile dbTableName="Utilisateur"/>
         </dbTableDirectory>
         <modelFile modelName="ProfilMapper"/>
         <modelFile modelName="Profil"/>
+        <modelFile modelName="TypemessageMapper"/>
+        <modelFile modelName="Typemessage"/>
+        <modelFile modelName="UtilisateurMapper"/>
+        <modelFile modelName="Utilisateur"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -39,6 +51,12 @@
             <viewScriptFile forActionName="error"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Profil">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Typemessage">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Utilisateur">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

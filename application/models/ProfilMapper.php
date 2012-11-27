@@ -32,7 +32,7 @@ class Application_Model_ProfilMapper
             'iconeProfil' => $profil->getIconeProfil(),
         );
  
-        if (null === ($idProfil = $profil->getId())) {
+        if (null === ($idProfil = $profil->getIdProfil())) {
             unset($data['idProfil']);
             $this->getDbTable()->insert($data);
         } else {
