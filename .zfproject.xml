@@ -17,6 +17,9 @@
         <controllerFile controllerName="Train">
           <actionMethod actionName="index"/>
         </controllerFile>
+<<<<<<< HEAD
+        <controllerFile controllerName="Test">
+=======
         <controllerFile controllerName="TypeMessage">
           <actionMethod actionName="index"/>
         </controllerFile>
@@ -24,6 +27,7 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Utilisateur">
+>>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
@@ -51,6 +55,9 @@
           <viewControllerScriptsDirectory forControllerName="Train">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+<<<<<<< HEAD
+          <viewControllerScriptsDirectory forControllerName="Test">
+=======
           <viewControllerScriptsDirectory forControllerName="TypeMessage">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
@@ -58,6 +65,7 @@
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Utilisateur">
+>>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
