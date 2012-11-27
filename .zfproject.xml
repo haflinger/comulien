@@ -11,32 +11,21 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
-        <controllerFile controllerName="User">
-          <actionMethod actionName="index"/>
-        </controllerFile>
-        <controllerFile controllerName="Train">
-          <actionMethod actionName="index"/>
-        </controllerFile>
-<<<<<<< HEAD
-        <controllerFile controllerName="Test">
-=======
-        <controllerFile controllerName="TypeMessage">
-          <actionMethod actionName="index"/>
-        </controllerFile>
         <controllerFile controllerName="Profil">
-          <actionMethod actionName="index"/>
-        </controllerFile>
-        <controllerFile controllerName="Utilisateur">
->>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
-      <layoutsDirectory enabled="false"/>
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
       <modelsDirectory>
         <dbTableDirectory>
-          <dbTableFile dbTableName="User"/>
+          <dbTableFile dbTableName="Profil"/>
         </dbTableDirectory>
+        <modelFile modelName="ProfilMapper"/>
         <modelFile modelName="Profil"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
@@ -49,23 +38,7 @@
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="User">
-            <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Train">
-            <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-<<<<<<< HEAD
-          <viewControllerScriptsDirectory forControllerName="Test">
-=======
-          <viewControllerScriptsDirectory forControllerName="TypeMessage">
-            <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Profil">
-            <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Utilisateur">
->>>>>>> branch 'master' of https://github.com/haflinger/comulien.git
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

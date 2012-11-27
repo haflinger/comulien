@@ -10,9 +10,8 @@ class ProfilController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
-        $profils = new Application_Model_DbTable_Profil();
-        $this->view->profils = $profils->fetchAll();
+        $Profil = new Application_Model_ProfilMapper();
+        $this->view->entries = $Profil->fetchAll();
     }
 
 
