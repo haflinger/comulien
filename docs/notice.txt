@@ -14,3 +14,9 @@ COMULIEN : système de discussion entre organisateurs et utilisateurs d'évènem
   Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec
   ce programme ; si ce n’est pas le cas, consultez :
   <http://www.gnu.org/licenses/>.
+  
+  Team Poulpe :
+    - Alexsolex (alexsolex (a) gmail p com) : Développeur
+    - Manu (email@mail.fr) : Développeur
+    - Fred (email@mail.fr) : Développeur
+    - Laurent (email@mail.fr) : Designer
