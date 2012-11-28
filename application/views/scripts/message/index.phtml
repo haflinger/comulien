@@ -1,0 +1,13 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Message</b> and script/action name <b>index</b></p>
+</div>
+Message Entries: <br />
+<dl>
+    <?php foreach ($this->entries as $entry): ?>
+    <dt><?php echo $this->escape($entry->dateEmissionMsg) ?></dt>
+    <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
+    <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
+    <dd><?php echo $this->escape($entry->estActifMsg) ?></dd>
+    <?php endforeach ?>
+</dl>

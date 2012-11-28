@@ -1,0 +1,16 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Evenement</b> and script/action name <b>index</b></p>
+</div>
+Evenement Entries: <br />
+<dl>
+    <?php foreach ($this->entries as $entry): ?>
+    <dt><?php echo $this->escape($entry->titreEvent) ?></dt>
+    <dd><?php echo $this->escape($entry->numEvent) ?></dd>
+    <dd><?php echo $this->escape($entry->descEvent) ?></dd>
+    <dd><?php echo $this->escape($entry->logoEvent) ?></dd>
+    <dd><?php echo $this->escape($entry->dateDebutEvent) ?></dd>
+    <dd><?php echo $this->escape($entry->dateFinEvent) ?></dd>
+    <dd><?php echo $this->escape($entry->delaiPersistence) ?></dd>
+    <?php endforeach ?>
+</dl>
