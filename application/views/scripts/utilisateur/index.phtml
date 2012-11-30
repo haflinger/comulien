@@ -5,6 +5,7 @@
 Utilisateur Entries: <br />
 <dl>
     <?php foreach ($this->entries as $entry): ?>
+    <dd><img src="<?php echo $this->escape($entry->getGravatar()) ?>" alt="" /></dd>
     <dt><?php echo $this->escape($entry->loginUser) ?></dt>
     <dd><?php echo $this->escape($entry->pswUser) ?></dd>
     <dd><?php echo $this->escape($entry->emailUser) ?></dd>

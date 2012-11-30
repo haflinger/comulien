@@ -13,7 +13,7 @@ class UtilisateurController extends Zend_Controller_Action
         $Utilisateur = new Application_Model_UtilisateurMapper();
         $this->view->entries = $Utilisateur->fetchAll();
     }
-
+    
 
 }
 
