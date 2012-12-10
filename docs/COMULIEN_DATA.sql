@@ -23,7 +23,7 @@ insert  into `profil`(`idProfil`,`nomProfil`,`typeProfil`,`iconeProfil`) values 
 
 /*Data for the table `typemessage` */
 
-insert  into `typemessage`(`idTypeMsg`,`lblTypeMsg`) values (0,'Défaut');
+insert  into `typeMessage`(`idTypeMsg`,`lblTypeMsg`) values (0,'Défaut');
 
 /*Data for the table `organisme` */
 

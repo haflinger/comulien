@@ -162,7 +162,7 @@ ALTER TABLE `message`
       REFERENCES `utilisateur` (`idUser`) ;
 
 
-ALTER TABLE MESSAGE 
+ALTER TABLE `message` 
   ADD FOREIGN KEY FK_MESSAGE_TYPEMESSAGE (`idTypeMsg`)
       REFERENCES `typeMessage` (`idTypeMsg`) ;
 
@@ -182,7 +182,7 @@ ALTER TABLE `message`
       REFERENCES `evenement` (`idEvent`) ;
 
 
-ALTER TABLE DISTINGUER 
+ALTER TABLE `distinguer` 
   ADD FOREIGN KEY FK_DISTINGUER_UTILISATEUR (`idUser`)
       REFERENCES `utilisateur` (`idUser`) ;
 
