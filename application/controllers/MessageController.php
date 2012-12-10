@@ -10,7 +10,7 @@ class MessageController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $Message = new Application_Model_MessageMapper();
+        $Message = new Application_Model_DbTable_Message();
         $this->view->entries = $Message->fetchAll();
     }
 

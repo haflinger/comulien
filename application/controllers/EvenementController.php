@@ -10,7 +10,7 @@ class EvenementController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $Evenement = new Application_Model_EvenementMapper();
+        $Evenement = new Application_Model_DbTable_Evenement();
         $this->view->entries = $Evenement->fetchAll();
     }
 
