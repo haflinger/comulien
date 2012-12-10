@@ -12,5 +12,7 @@ Evenement Entries: <br />
     <dd><?php echo $this->escape($entry->dateDebutEvent) ?></dd>
     <dd><?php echo $this->escape($entry->dateFinEvent) ?></dd>
     <dd><?php echo $this->escape($entry->delaiPersistence) ?></dd>
+    <dd><?php if($entry->idOrga != null) echo 'Organisme : ' . $this->escape($entry->getOrga()->nomOrga)?></dd>
+   
     <?php endforeach ?>
 </dl>
