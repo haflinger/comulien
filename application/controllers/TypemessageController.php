@@ -10,7 +10,7 @@ class TypemessageController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $typemessage = new Application_Model_TypemessageMapper();
+        $typemessage = new Application_Model_DbTable_Typemessage();
         $this->view->entries = $typemessage->fetchAll();
     }
 
