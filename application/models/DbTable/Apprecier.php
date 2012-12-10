@@ -5,15 +5,15 @@ class Application_Model_DbTable_Apprecier extends Zend_Db_Table_Abstract
 
     protected $_name = 'apprecier';
     protected $_referenceMap = array(
-        'Oeuvre' => array(
-            'columns' => 'IDCREATION',
-            'refTableClass' => 'Application_Model_DbTable_Oeuvre',
-            'refColumns' => 'IDCREATION'
+        'Message' => array(
+            'columns' => 'idMessage',
+            'refTableClass' => 'Application_Model_DbTable_Message',
+            'refColumns' => 'idMessage'
         ),
-        'Auteur' => array(
-            'columns' => 'IDAUTEUR',
-            'refTableClass' => 'Application_Model_DbTable_Auteur',
-            'refColumns' => 'IDAUTEUR'
+        'Utilisateur' => array(
+            'columns' => 'idUser',
+            'refTableClass' => 'Application_Model_DbTable_Utilisateur',
+            'refColumns' => 'idUser'
         )
     );
 
