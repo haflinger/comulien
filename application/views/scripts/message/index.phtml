@@ -9,5 +9,7 @@ Message Entries: <br />
     <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
     <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
     <dd><?php echo $this->escape($entry->estActifMsg) ?></dd>
+    <dd><?php if($entry->idEvent != null) echo 'Evenement : ' . $this->escape($entry->getEvent()->titreEvent)?></dd>
+   
     <?php endforeach ?>
 </dl>
