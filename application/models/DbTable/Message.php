@@ -15,6 +15,21 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
             'columns'           => 'idTypeMsg',
             'refTableClass'     => 'Application_Model_DbTable_Typemessage',
             'refColumns'        => 'idTypeMsg'
+        ),
+        'caracteriser' => array(
+            'columns'           => 'idProfil',
+            'refTableClass'     => 'Application_Model_DbTable_Profil',
+            'refColumns'        => 'idProfil'
+        ),
+        'emettre' => array(
+            'columns'           => 'idUser_emettre',
+            'refTableClass'     => 'Application_Model_DbTable_Utilisateur',
+            'refColumns'        => 'idUser'
+        ),
+        'moderer' => array(
+            'columns'           => 'idUser_moderer',
+            'refTableClass'     => 'Application_Model_DbTable_Utilisateur',
+            'refColumns'        => 'idUser'
         ));
 
 }

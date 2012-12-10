@@ -10,7 +10,7 @@ class OrganismeController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $organisme = new Application_Model_OrganismeMapper();
+        $organisme = new Application_Model_DbTable_Organisme();
         $this->view->entries = $organisme->fetchAll();
     }
 

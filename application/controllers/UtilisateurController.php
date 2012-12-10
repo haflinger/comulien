@@ -10,7 +10,7 @@ class UtilisateurController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $Utilisateur = new Application_Model_UtilisateurMapper();
+        $Utilisateur = new Application_Model_DbTable_Utilisateur();
         $this->view->entries = $Utilisateur->fetchAll();
     }
     

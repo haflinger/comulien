@@ -4,6 +4,9 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
 {
     private $event = null;
     private $type = null;
+    private $profil = null;
+    private $emetteur = null;
+    private $moderateur = null;
      /**
      * @return l'évènement lié au message
      */
@@ -26,6 +29,46 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
             if(!$this->type)
             $this->type = $this->findParentRow('Application_Model_DbTable_Typemessage');
             return $this->type;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }   
+    }
+     /**
+     * @return le profil du message
+     */
+    public function getProfil()
+    {
+        try {
+            if(!$this->profil)
+            $this->profil = $this->findParentRow('Application_Model_DbTable_Profil');
+            return $this->profil;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }   
+    }
+    
+    /**
+     * @return l'emetteur du message
+     */
+    public function getUserEmettre()
+    {
+        try {
+            if(!$this->emetteur)
+            $this->emetteur = $this->findParentRow('Application_Model_DbTable_Utilisateur');
+            return $this->emetteur;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }   
+    }
+    /**
+     * @return le moderateur du message
+     */
+    public function getUserModerer()
+    {
+        try {
+            if(!$this->moderateur)
+            $this->moderateur = $this->findParentRow('Application_Model_DbTable_Utilisateur');
+            return $this->moderateur;
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }   
