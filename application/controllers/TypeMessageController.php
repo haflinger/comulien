@@ -1,6 +1,6 @@
 <?php
 
-class TypemessageController extends Zend_Controller_Action
+class TypeMessageController extends Zend_Controller_Action
 {
 
     public function init()
@@ -10,7 +10,7 @@ class TypemessageController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $typemessage = new Application_Model_DbTable_Typemessage();
+        $typemessage = new Application_Model_DbTable_TypeMessage();
         $this->view->entries = $typemessage->fetchAll();
     }
 

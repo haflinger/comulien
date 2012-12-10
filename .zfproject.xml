@@ -14,7 +14,7 @@
         <controllerFile controllerName="Profil">
           <actionMethod actionName="index"/>
         </controllerFile>
-        <controllerFile controllerName="Typemessage">
+        <controllerFile controllerName="TypeMessage">
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Utilisateur">
@@ -39,25 +39,14 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Profil"/>
-          <dbTableFile dbTableName="Typemessage"/>
+          <dbTableFile dbTableName="TypeMessage"/>
           <dbTableFile dbTableName="Utilisateur"/>
           <dbTableFile dbTableName="Organisme"/>
           <dbTableFile dbTableName="Evenement"/>
           <dbTableFile dbTableName="Message"/>
           <dbTableFile dbTableName="Apprecier"/>
         </dbTableDirectory>
-        <modelFile modelName="ProfilMapper"/>
-        <modelFile modelName="Profil"/>
-        <modelFile modelName="TypemessageMapper"/>
-        <modelFile modelName="Typemessage"/>
-        <modelFile modelName="UtilisateurMapper"/>
-        <modelFile modelName="Utilisateur"/>
-        <modelFile modelName="Organisme"/>
-        <modelFile modelName="OrganismeMapper"/>
-        <modelFile modelName="Evenement"/>
-        <modelFile modelName="EvenementMapper"/>
-        <modelFile modelName="Message"/>
-        <modelFile modelName="MessageMapper"/>
+        
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -72,7 +61,7 @@
           <viewControllerScriptsDirectory forControllerName="Profil">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Typemessage">
+          <viewControllerScriptsDirectory forControllerName="TypeMessage">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Utilisateur">
