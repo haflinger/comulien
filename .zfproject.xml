@@ -45,8 +45,8 @@
           <dbTableFile dbTableName="Evenement"/>
           <dbTableFile dbTableName="Message"/>
           <dbTableFile dbTableName="Apprecier"/>
+          <dbTableFile dbTableName="Distinguer"/>
         </dbTableDirectory>
-        
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
