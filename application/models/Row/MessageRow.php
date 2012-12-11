@@ -7,6 +7,7 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
     private $profil = null;
     private $emetteur = null;
     private $moderateur = null;
+    private $utilisateurs = null;
      /**
      * @return l'évènement lié au message
      */
@@ -72,6 +73,19 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }   
+    }
+    
+    /**
+     * @return retourne les auteurs
+     */
+    public function getUtilisateurs()
+    {
+        if (!$this->utilisateurs) {
+            $this->utilisateurs = $this->findManyToManyRowset(
+                'Application_Model_DbTable_Utilisateur',   // match table
+                'Application_Model_DbTable_Apprecier');  // join table
+        }
+        return $this->utilisateurs;
     }
 }
 
