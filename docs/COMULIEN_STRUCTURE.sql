@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `apprecier`
  (
    `idMessage` BIGINT(4) NOT NULL  ,
    `idUser` BIGINT(4) NOT NULL  ,
-   `evaluation` CHAR(32) NULL  
+   `evaluation` INT(32) NOT NULL  
    , PRIMARY KEY (`idMessage`,`idUser`) 
  ) 
  COMMENT = "";
