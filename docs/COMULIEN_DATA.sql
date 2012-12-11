@@ -47,7 +47,7 @@ insert  into `message`(`idMessage`,`idUser_emettre`,`idTypeMsg`,`idEvent`,`lblMe
 
 /*Data for the table `apprecier` */
 
-insert  into `apprecier`(`idMessage`,`idUser`,`evaluation`) values (1,2,'+'),(3,2,'-'),(3,8,'-'),(3,10,'+'),(5,10,'+');
+insert  into `apprecier`(`idMessage`,`idUser`,`evaluation`) values (1,2,-1),(3,2,1),(3,8,1),(3,10,-1),(5,10,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
