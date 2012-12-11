@@ -767,14 +767,14 @@ class Zend_Matrixcode_Qrcode extends Zend_Matrixcode_Abstract
 
 		if($w * $w - 3 == 1) {
 			$x = $y = $aPattern[0];
-			$this->_setSingleAlignmentPattern(&$matrix, $x, $y);
+			$this->_setSingleAlignmentPattern($matrix, $x, $y);
 			return;
 		}
 	
 		$cx = $aPattern[0];
 		for($x=1; $x < $w-1; $x++) {
-			$this->_setSingleAlignmentPattern(&$matrix, 6, $cx);
-			$this->_setSingleAlignmentPattern(&$matrix, $cx, 6);
+			$this->_setSingleAlignmentPattern($matrix, 6, $cx);
+			$this->_setSingleAlignmentPattern($matrix, $cx, 6);
 			$cx += $d;
 		}
 
@@ -782,7 +782,7 @@ class Zend_Matrixcode_Qrcode extends Zend_Matrixcode_Abstract
 		for($y=0; $y < $w-1; $y++) {
 			$cx = $aPattern[0];
 			for($x=0; $x < $w-1; $x++) {
-				$this->_setSingleAlignmentPattern(&$matrix, $cx, $cy);
+				$this->_setSingleAlignmentPattern($matrix, $cx, $cy);
 				$cx += $d;
 			}
 			$cy += $d;
