@@ -1,13 +1,21 @@
 <?php
 
+/**
+ * Description of DistinguerRow
+ *
+ * @author Fred H
+ */
 class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
 {
-    private $event = null;
-    private $type = null;
-    private $profil = null;
-    private $emetteur = null;
-    private $moderateur = null;
-    private $utilisateurs = null;
+    protected $event = null;
+    protected $type = null;
+    protected $profil = null;
+    protected $emetteur = null;
+    protected $moderateur = null;
+    protected $utilisateurs = null;
+    protected $apprecier = null;
+    
+    
      /**
      * @return l'évènement lié au message
      */
@@ -76,7 +84,7 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
     }
     
     /**
-     * @return retourne les auteurs
+     * @return les utilisateurs qui ont appréciés le message
      */
     public function getUtilisateurs()
     {
@@ -86,6 +94,18 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
                 'Application_Model_DbTable_Apprecier');  // join table
         }
         return $this->utilisateurs;
+    }
+    
+       /**
+     * @return les appreciations
+     */
+    public function getAppreciers()
+    {
+        if (!$this->apprecier) {
+            $this->apprecier = $this->findDependentRowset(
+                'Application_Model_DbTable_Apprecier');  // join table
+        }
+        return $this->apprecier;
     }
 }
 

@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * Description of DistinguerRow
+ *
+ * @author Fred H
+ */
 class QrcodeController extends Zend_Controller_Action
 {
     public $code_params = array('text'            => 'http://www.google.com', 

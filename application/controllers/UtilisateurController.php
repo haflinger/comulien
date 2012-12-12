@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of DistinguerRow
+ *
+ * @author Fred H
+ */
 class UtilisateurController extends Zend_Controller_Action
 {
 

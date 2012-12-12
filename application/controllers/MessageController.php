@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of DistinguerRow
+ *
+ * @author Fred H
+ */
 class MessageController extends Zend_Controller_Action
 {
 

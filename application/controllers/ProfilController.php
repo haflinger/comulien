@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of DistinguerRow
+ *
+ * @author Fred H
+ */
 class ProfilController extends Zend_Controller_Action
 {
 

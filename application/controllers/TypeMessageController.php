@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Description of DistinguerRow
+ *
+ * @author Fred H
+ */
+
 class TypeMessageController extends Zend_Controller_Action
 {
 

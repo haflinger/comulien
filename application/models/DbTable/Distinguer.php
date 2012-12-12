@@ -2,8 +2,9 @@
 
 class Application_Model_DbTable_Distinguer extends Zend_Db_Table_Abstract
 {
-
     protected $_name = 'distinguer';
+    protected $_rowClass = 'Application_Model_Row_DistinguerRow';
+    protected $_rowsetClass = 'Application_Model_Rowset_DistinguerRowset';
     protected $_referenceMap = array(
         'Profil' => array(
             'columns' => 'idProfil',

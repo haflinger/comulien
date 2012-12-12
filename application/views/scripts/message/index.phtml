@@ -5,6 +5,7 @@
 Message Entries: <br />
 <dl>
     <?php foreach ($this->entries as $entry): ?>
+    <p>---------------------------------------------------------------------------------</p>
     <dt><?php echo $this->escape($entry->dateEmissionMsg) ?></dt>
     <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
     <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
@@ -14,12 +15,14 @@ Message Entries: <br />
     <dd><?php if($entry->idProfil != null) echo 'Type du profil : ' . $this->escape($entry->getProfil()->nomProfil)?></dd>
     <dd><?php if($entry->idUser_emettre != null) echo 'Emetteur : ' . $this->escape($entry->getUserEmettre()->nomUser)?></dd>
     <dd><?php if($entry->idUser_moderer != null) echo 'Moderateur : ' . $this->escape($entry->getUserModerer()->nomUser)?></dd>
-    <?php 
-    //Recherche et affiche les utilisateurs qui ont appréciés le message
-    $util = $entry->getUtilisateurs()->getAsArray(); 
-     foreach ($util as $utilisateur){
-         echo '<dd>Message apprécié par : ' . $utilisateur->loginUser . '</dd>'; 
-     } 
+     <?php 
+     echo 'Liste des utilisateurs qui ont appréciés : <br/>';
+    //Recherche et affiche les utilisateurs d'un message
+    $app = $entry->getAppreciers();
+     foreach ($app as $appreciation){
+         echo '<dd>Utilisateur : ' . $appreciation->getUser()->loginUser . 
+                 ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
+     }
      ?>
     <?php endforeach ?>
 </dl>

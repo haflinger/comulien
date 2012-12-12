@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Description of DistinguerRow
+ *
+ * @author Fred H
+ */
 class EvenementController extends Zend_Controller_Action
 {
 

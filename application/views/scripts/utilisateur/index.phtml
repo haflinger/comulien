@@ -5,8 +5,9 @@
 Utilisateur Entries: <br />
 <dl>
     <?php foreach ($this->entries as $entry): ?>
-    <dd><img src="<?php echo $this->escape($entry->getGravatar()) ?>" alt="" /></dd>
+    <p>---------------------------------------------------------------------------------</p>
     <dt><?php echo $this->escape($entry->loginUser) ?></dt>
+    <dd><img src="<?php echo $this->escape($entry->getGravatar()) ?>" alt="" /></dd>
     <dd><?php echo $this->escape($entry->pswUser) ?></dd>
     <dd><?php echo $this->escape($entry->emailUser) ?></dd>
     <dd><?php echo $this->escape($entry->dateInscriptionUser) ?></dd>
@@ -15,5 +16,33 @@ Utilisateur Entries: <br />
     <dd><?php echo $this->escape($entry->nbMsgUser) ?></dd>
     <dd><?php echo $this->escape($entry->nbApprouverUser) ?></dd>
     <dd><?php echo $this->escape($entry->estActifUser) ?></dd>
+    <?php 
+     echo 'Liste des messages émis : <br/>';
+    //Recherche et affiche les messages
+    $mess = $entry->getMessagesEmis();
+     foreach ($mess as $message){
+         echo '<dd>Message : ' . $message->lblMessage . '</dd>'; 
+     }
+     ?>
+     <?php 
+     echo 'Liste des messages appréciés : <br/>';
+    //Recherche et affiche les messages
+    $app = $entry->getAppreciers();
+     foreach ($app as $appreciation){
+         echo '<dd>Message : ' . $appreciation->getMessage()->lblMessage . 
+                 ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
+     }
+     ?>
+    <?php 
+     echo 'Liste des organismes : <br/>';
+    //Recherche et affiche les utilisateurs d'un organisme
+    $dist = $entry->getDistinctions();
+     foreach ($dist as $distinction){
+         echo '<dd>Organisme : ' . $distinction->getOrganisme()->nomOrga . 
+                 ' - Profil : ' . $distinction->getProfil()->nomProfil . 
+                 ' - Droit modération : ' . $distinction->droitModeration . 
+                 ' - Fonction : ' . $distinction->nomFonction . '</dd>'; 
+     }
+     ?>
     <?php endforeach ?>
 </dl>

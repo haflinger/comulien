@@ -5,6 +5,7 @@
 Evenement Entries: <br />
 <dl>
     <?php foreach ($this->entries as $entry): ?>
+    <p>---------------------------------------------------------------------------------</p>
     <dt><?php echo $this->escape($entry->titreEvent) ?></dt>
     <dd><?php echo $this->escape($entry->numEvent) ?></dd>
     <dd><?php echo $this->escape($entry->descEvent) ?></dd>

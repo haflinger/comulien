@@ -5,8 +5,20 @@
 Organisme Entries: <br />
 <dl>
     <?php foreach ($this->entries as $entry): ?>
+    <p>---------------------------------------------------------------------------------</p>
     <dt><?php echo $this->escape($entry->nomOrga) ?></dt>
     <dd><?php echo $this->escape($entry->descOrga) ?></dd>
     <dd><?php echo $this->escape($entry->logoOrga) ?></dd>
+     <?php 
+     echo 'Liste des utilisateurs : <br/>';
+    //Recherche et affiche les utilisateurs d'un organisme
+    $dist = $entry->getDistinctions();
+     foreach ($dist as $distinction){
+         echo '<dd>Utilisateur : ' . $distinction->getUser()->loginUser . 
+                 ' - Profil : ' . $distinction->getProfil()->nomProfil . 
+                 ' - Droit modération : ' . $distinction->droitModeration . 
+                 ' - Fonction : ' . $distinction->nomFonction . '</dd>'; 
+     }
+     ?>
     <?php endforeach ?>
 </dl>
