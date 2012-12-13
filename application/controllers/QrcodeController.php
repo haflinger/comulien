@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Description of DistinguerRow
+ * Description of QrcodeController
  *
- * @author Fred H
+ * @author AlexSolex
  */
 class QrcodeController extends Zend_Controller_Action
 {

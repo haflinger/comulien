@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of DistinguerRow
+ * Description of MessageController
  *
  * @author Fred H
  */
