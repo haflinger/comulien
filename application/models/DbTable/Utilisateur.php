@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of DistinguerRow
- *
- * @author Fred H
- */
 class Application_Model_DbTable_Utilisateur extends Zend_Db_Table_Abstract
 {
 

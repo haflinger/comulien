@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of DistinguerRow
+ * Description of ProfilRow
  *
  * @author Fred H
  */
