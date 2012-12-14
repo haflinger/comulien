@@ -24,6 +24,5 @@ class EvenementController extends Zend_Controller_Action
         $this->view->entries = $Evenement->fetchAll();
     }
 
-
 }
 
