@@ -17,16 +17,15 @@ CREATE TABLE IF NOT EXISTS `utilisateur`
  (
    `idUser` BIGINT(4) NOT NULL AUTO_INCREMENT ,
    `loginUser` VARCHAR(128) NOT NULL  ,
-   `pswUser` VARCHAR(128) NOT NULL  ,
+   `pswUser` CHAR(32) NOT NULL  ,
+   `salt` CHAR(20) NOT NULL,
    `emailUser` VARCHAR(128) NOT NULL  ,
    `dateInscriptionUser` DATETIME NOT NULL  ,
    `nomUser` VARCHAR(128) NULL  ,
    `prenomUser` VARCHAR(128) NULL  ,
-   `nbMsgUser` BIGINT(4) NULL  
-      DEFAULT 0,
-   `nbApprouverUser` BIGINT(4) NULL  ,
-   `estActifUser` BOOL NULL  
-      DEFAULT TRUE
+   `nbMsgUser` BIGINT(4) NOT NULL DEFAULT 0,
+   `nbApprouverUser` BIGINT(4) NOT NULL DEFAULT 0  ,
+   `estActifUser` BOOLEAN NOT NULL DEFAULT TRUE
    , PRIMARY KEY (`idUser`) 
  ) 
  COMMENT = "";
