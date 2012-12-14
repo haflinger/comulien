@@ -79,6 +79,9 @@ class Application_Model_Row_UtilisateurRow extends Zend_Db_Table_Row_Abstract
     
     //getGravatar : récupère si il existe, l'avatar correspondant à l'adresse email sur le service gravatar
     public function getGravatar(){
+        //TODO : cette fonction est déjà prévue par Zend  ...
+        //  par le biais d'un helper à utiliser dans les vues : echo $this->gravatar('example@example.com');
+        //  voir http://framework.zend.com/manual/1.12/fr/zend.view.helpers.html
         $email = $this->emailUser;
         $default = "http://www.comulien.com/avatar.jpg"; //TODO : trouver un avatar par défaut
         $size = 40;
