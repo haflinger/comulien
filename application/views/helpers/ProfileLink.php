@@ -7,9 +7,10 @@ class Zend_View_Helper_ProfileLink extends Zend_View_Helper_Abstract {
         $helperUrl = new Zend_View_Helper_Url ( );
         $auth = Zend_Auth::getInstance ();
         if ($auth->hasIdentity ()) {
-            $username = $auth->getIdentity ()->loginUser . ' ' . strtoupper ( substr ( $auth->getIdentity ()->loginUser, 0, 1 ) ) . '.';
+            $username = $auth->getIdentity ()->loginUser;// . ' ' . strtoupper ( substr ( $auth->getIdentity ()->loginUser, 0, 1 ) ) . '.';
             $logoutLink = $helperUrl->url ( array ('action' => 'logout', 'controller' => 'login' ) );
-            return 'Salut ' . $username . ' (<a href="' . $logoutLink . '">Logout</a>)';
+            $ProfileLink = $helperUrl->url ( array ('action' => 'profilprive', 'controller' => 'utilisateur' ) );
+            return '<a href="'.$ProfileLink.'" alt="Voir mon profil">'.$username . '</a> (<a href="' . $logoutLink . '">Logout</a>)';
         }
         $loginLink = $helperUrl->url ( array ('action' => 'login', 'controller' => 'login' ) );
         return '<a href="' . $loginLink . '">Login</a>';

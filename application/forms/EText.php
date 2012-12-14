@@ -1,13 +1,8 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of EText
- *
+ * Créer un contrôle de formulaire en étendant Zend_Form_Element_Text
  * @author alexsolex
  */
 class Application_Form_EText extends Zend_Form_Element_Text {

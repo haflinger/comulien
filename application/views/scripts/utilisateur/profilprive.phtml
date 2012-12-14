@@ -1,0 +1,46 @@
+<?php $user=$this->user; ?>
+<br /><br />
+<div id="view-content">
+	<h1>Votre profil privé</h1>
+        <a href="<?php echo $this->profilPublicLink; ?>" alt="voir mon profil public">Voir mon profil public</a>
+
+<h2>Vos Infos personnelles</h2>
+<ul>
+    <li><?php echo $this->escape($user->loginUser) ?></li>
+    <li><img src="<?php echo $this->escape($user->getGravatar()) ?>" alt="<?php echo $this->escape($user->loginUser) ?>" /></li>
+    <li><?php echo $this->escape($user->pswUser) ?></li>
+    <li>Email : <?php echo $this->escape($user->emailUser) ?></li>
+    <li>Date d'inscription : <?php echo $this->escape($user->dateInscriptionUser) ?></li>
+    <li>Nom : <?php echo $this->escape($user->nomUser) ?></li>
+    <li>Prénom : <?php echo $this->escape($user->prenomUser) ?></li>
+    <li>Nombre de messages émis : <?php echo $this->escape($user->nbMsgUser) ?></li>
+    <li>Nombre de messages approuvés : <?php echo $this->escape($user->nbApprouverUser) ?></li>
+    <li>Actif : <?php echo $this->escape($user->estActifUser)==1?'oui':'non' ?></li>
+</ul>
+<h2>Rôles dans les organismes</h2>
+<ul><?php 
+    $dist = $user->getDistinctions();
+     foreach ($dist as $distinction){
+         echo '<li>Organisme : ' . $distinction->getOrganisme()->nomOrga . '</li>'.
+                 '<ul>'.
+                 '<li>Profil : ' . $distinction->getProfil()->nomProfil . '</li>'.
+                 '<li>Droit modération : ';
+         echo  ($distinction->droitModeration==1)?'oui':'non' ;
+         echo '</li>'. 
+                 '<li>Fonction : ' . $distinction->nomFonction . '</li></ul>'; 
+         echo '</li>';
+     }
+     ?>
+</ul>
+<h2>Dans l'évènement :</h2>
+<ul>    
+    <?php 
+    $mess = $user->getMessagesEmis();
+    echo '<li>Nb de messages émis : ' . count($mess). '</li>';
+    //Recherche et affiche les messages
+    $app = $user->getAppreciers();
+    echo '<li>Nb de messages appréciés : ' . count($app). '</li>';
+    ?>
+</ul>
+
+</div>
