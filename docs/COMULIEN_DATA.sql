@@ -32,16 +32,16 @@ insert  into `organisme`(`idOrga`,`nomOrga`,`descOrga`,`logoOrga`) values (1,'Le
 /*Data for the table `utilisateur` */
 
 insert  into `utilisateur`(`idUser`,`loginUser`,`pswUser`,`salt`,`emailUser`,`dateInscriptionUser`,`nomUser`,`prenomUser`,`nbMsgUser`,`nbApprouverUser`,`estActifUser`) values
-(1,'alex','pswalex','','alex@mail.fr','2012-11-14 18:57:34','Alexandre','Solex',0,0,1),
-(2,'fred','pswfred','','fred@mail.fr','2012-11-14 18:57:52','Frédéric',NULL,0,0,1),
-(3,'manu','pswmanu','','manu@mail.fr','2012-11-14 18:58:05',NULL,NULL,0,0,1),
-(4,'laurent','pswlaurent','','laurent@mail.fr','2012-11-14 18:58:13',NULL,NULL,0,0,1),
-(5,'comulien','pswcomulien','','comulien@mail.fr','2012-11-14 18:58:23',NULL,NULL,0,0,1),
-(6,'jc','pswjc','jc@mail.fr','','2012-11-14 18:58:23',NULL,NULL,0,0,1),
-(7,'bénédicte','pswbenedicte','','benedicte@mail.fr','2012-11-14 18:58:23',NULL,NULL,0,0,1),
-(8,'guillaume','pswguillaume','','guillaume@mail.fr','2012-11-14 18:58:23',NULL,NULL,0,0,1),
-(9,'inactif','pswinactif','','inactif@mail.fr','2012-11-14 19:12:11',NULL,NULL,0,0,0),
-(10,'lambda','pswlambda','','lambda@mail.fr','2012-11-14 19:21:20','toto',NULL,0,0,1);
+(1,'alex','beb9748212d961bd8e99e59bf10eb573','','alex@mail.fr','2012-11-14 18:57:34','Alexandre','Solex',0,0,1),
+(2,'fred','b795892405d279d4687ed90d6dfd906b','','fred@mail.fr','2012-11-14 18:57:52','Frédéric',NULL,0,0,1),
+(3,'manu','d183f55556f9aac10044839e0d2c4557','','manu@mail.fr','2012-11-14 18:58:05',NULL,NULL,0,0,1),
+(4,'laurent','d0fa4ed3c0ce524821537cc8d84a478a','','laurent@mail.fr','2012-11-14 18:58:13',NULL,NULL,0,0,1),
+(5,'comulien','371d93dc80e33bb3837a1b73e71b780e','','comulien@mail.fr','2012-11-14 18:58:23',NULL,NULL,0,0,1),
+(6,'jc','3bfd7db3174cb78eed3ec886e32a02c9','','jc@mail.fr','2012-11-14 18:58:23',NULL,NULL,0,0,1),
+(7,'bénédicte','469454b74bf6d0896cba0fe8901b090c','','benedicte@mail.fr','2012-11-14 18:58:23',NULL,NULL,0,0,1),
+(8,'guillaume','469f41d575114522d5aa7e0181d9998d','','guillaume@mail.fr','2012-11-14 18:58:23',NULL,NULL,0,0,1),
+(9,'inactif','f3514e9851ab349014052b47ea324c13','','inactif@mail.fr','2012-11-14 19:12:11',NULL,NULL,0,0,0),
+(10,'lambda','b2230db520fed5a457f68841c319c796','','lambda@mail.fr','2012-11-14 19:21:20','toto',NULL,0,0,1);
 
 /*Data for the table `distinguer` */
 

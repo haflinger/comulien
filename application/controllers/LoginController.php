@@ -46,6 +46,7 @@ class LoginController extends Zend_Controller_Action
         $form = new Application_Form_Login();
         //on passe le formulaire à la vue
         $this->view->formLogin = $form;
+        
         // on vérifie qu'il y ai des données postées et on les valide
         if ($this->_request->isPost()) {
             $formData = $this->_request->getPost();
@@ -59,7 +60,7 @@ class LoginController extends Zend_Controller_Action
                 $authAdapter->setTableName ( 'utilisateur' ) //table des utilisateurs
                         ->setIdentityColumn ( 'loginUser' ) //champ des identifiants
                         ->setCredentialColumn ( 'pswUser' ) //champ des mdp
-                        ->setCredentialTreatment ( '?' ) //'MD5(?)' pour le hashage MD5
+                        ->setCredentialTreatment ( 'MD5(?)' ) //'MD5(?)' pour le hashage MD5
                         ->setIdentity ( $login ) //le login à vérifier
                         ->setCredential ( $password ); //le psw à vérifier
                 //lancement de la tentative d'authentification
