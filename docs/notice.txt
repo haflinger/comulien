@@ -16,7 +16,7 @@ COMULIEN : système de discussion entre organisateurs et utilisateurs d'évènem
   <http://www.gnu.org/licenses/>.
   
   Team Poulpe :
-    - Alexsolex (alexsolex (a) gmail p com) : Développeur
+    - Alexsolex (alexsolex+poulpe (a) gmail p com) : Développeur
     - Manu (email@mail.fr) : Développeur
     - Fred (email@mail.fr) : Développeur
     - Laurent (email@mail.fr) : Designer
