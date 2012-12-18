@@ -1,0 +1,10 @@
+<br /><br />
+<div id="view-content">
+    <h1>Liste des messages de l'évènement</h1>
+    <?php 
+    foreach ($this->evenement->findDependentRowset('Application_Model_DbTable_Message') as $message) {
+        echo $message->lblMessage;
+    } ?>
+
+    
+</div>
