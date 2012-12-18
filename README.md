@@ -1,4 +1,13 @@
-COMULIEN : système de discussion entre organisateurs et utilisateurs d'évènements
+comulien
+=====================
+Système de discussion entre producteurs et consommateurs d'évènements
+* Copyright (c) 2012, Team Poulpe [http://www.comulien.fr](http://www.comulien.fr)
+* Author: FredoHorn, ManuThe, BootsyMayField, Haflinger, alexsolex®, [@comulien](http://twitter.com/comulien)
+* Licensed under the GPL License.
+
+License:
+------
+COMULIEN : 
   Copyright (C) 2012 Team Poulpe — Tous droits réservés.
   
   Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le
@@ -15,8 +24,20 @@ COMULIEN : système de discussion entre organisateurs et utilisateurs d'évènem
   ce programme ; si ce n’est pas le cas, consultez :
   <http://www.gnu.org/licenses/>.
   
-  Team Poulpe :
-    - Alexsolex (alexsolex+poulpe (a) gmail p com) : Développeur
-    - Manu (email@mail.fr) : Développeur
-    - Fred (email@mail.fr) : Développeur
-    - Laurent (email@mail.fr) : Designer
+  __Team Poulpe__ :
+- Alexsolex (alexsolex+poulpe (a) gmail p com) : Développeur
+- Manu (email@mail.fr) : Développeur
+- Fred (email@mail.fr) : Développeur
+- Laurent (email@mail.fr) : Designer
+
+Usage:
+------
+No Usage Yet
+
+ToDo:
+-----
+- everything ...
+
+Notes:
+------
+This service is in Work In Progress mode
