@@ -19,18 +19,37 @@
         </controllerFile>
         <controllerFile controllerName="Utilisateur">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="inscrire"/>
+          <actionMethod actionName="authentifier"/>
+          <actionMethod actionName="modifier"/>
         </controllerFile>
         <controllerFile controllerName="Organisme">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="editerEvenement"/>
+          <actionMethod actionName="creerEvenement"/>
+          <actionMethod actionName="gererEvenement"/>
+          <actionMethod actionName="supprimerEvenement"/>
         </controllerFile>
         <controllerFile controllerName="Evenement">
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Message">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="listerTous"/>
+          <actionMethod actionName="organisateur"/>
+          <actionMethod actionName="reponses"/>
+          <actionMethod actionName="approuver"/>
+          <actionMethod actionName="envoyer"/>
+          <actionMethod actionName="repondre"/>
+          <actionMethod actionName="moderer"/>
+          <actionMethod actionName="voirReponses"/>
+          <actionMethod actionName="gererEvenement"/>
+          <actionMethod actionName="creerEvenement"/>
         </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory>
+        <formFile formName="User"/>
+      </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
           <layoutScriptFile layoutName="layout"/>
@@ -75,6 +94,66 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Message">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="listerTous"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="organisateur"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="reponses"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="approuver"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="envoyer"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="repondre"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="moderer"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="voirReponses"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="gererEvenement"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="creerEvenement"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Organisme">
+            <viewScriptFile forActionName="editerEvenement"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Organisme">
+            <viewScriptFile forActionName="creerEvenement"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Organisme">
+            <viewScriptFile forActionName="gererEvenement"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Organisme">
+            <viewScriptFile forActionName="supprimerEvenement"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Utilisateur">
+            <viewScriptFile forActionName="inscrire"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Utilisateur">
+            <viewScriptFile forActionName="authentifier"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Utilisateur">
+            <viewScriptFile forActionName="modifier"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Evenement">
+            <viewScriptFile forActionName="checkout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Message">
+            <viewScriptFile forActionName="reponses"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Utilisateur">
+            <viewScriptFile forActionName="deconnecter"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

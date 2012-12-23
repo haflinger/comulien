@@ -5,6 +5,7 @@
 Evenement Entries: <br />
 <dl>
     <?php foreach ($this->entries as $entry): ?>
+    <?php //var_dump($entry) ?>
     <p>---------------------------------------------------------------------------------</p>
     <dt><a href="<?php echo $this->url(array('controller' => 'evenement','action'=>'checkin','id'=>$entry->idEvent)); ?>" alt=""><?php echo $this->escape($entry->titreEvent) ?></a></dt>
     <dd><?php echo $this->escape($entry->numEvent) ?></dd>

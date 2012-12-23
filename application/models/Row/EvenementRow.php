@@ -14,6 +14,7 @@ class Application_Model_Row_EvenementRow extends Zend_Db_Table_Row_Abstract
      */
     public function getOrga()
     {
+        //return var_dump($this);
         try {
             if(!$this->orga)
             $this->orga = $this->findParentRow('Application_Model_DbTable_Organisme');

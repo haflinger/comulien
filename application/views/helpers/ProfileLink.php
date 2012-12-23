@@ -8,11 +8,13 @@ class Zend_View_Helper_ProfileLink extends Zend_View_Helper_Abstract {
         $auth = Zend_Auth::getInstance ();
         if ($auth->hasIdentity ()) {
             $username = $auth->getIdentity ()->loginUser;// . ' ' . strtoupper ( substr ( $auth->getIdentity ()->loginUser, 0, 1 ) ) . '.';
-            $logoutLink = $helperUrl->url ( array ('action' => 'logout', 'controller' => 'login' ) );
-            $ProfileLink = $helperUrl->url ( array ('action' => 'profilprive', 'controller' => 'utilisateur' ) );
-            return '<a href="'.$ProfileLink.'" alt="Voir mon profil">'.$username . '</a> (<a href="' . $logoutLink . '">Logout</a>)';
+            $lienDeconnexion = $helperUrl->url ( array ('action' => 'deconnecter', 'controller' => 'utilisateur' ) );
+            $lienProfil = $helperUrl->url ( array ('action' => 'modifier', 'controller' => 'utilisateur' ) );
+            $retourHelper ='<a href="'.$lienProfil.'" alt="Voir mon profil">'.$username . '</a> (<a href="' . $lienDeconnexion . '">Logout</a>)';
+        }else{
+            $lienConnexion = $helperUrl->url ( array ('action' => 'authentifier', 'controller' => 'utilisateur' ) );
+            $retourHelper = '<a href="' . $lienConnexion . '">Login</a>';
         }
-        $loginLink = $helperUrl->url ( array ('action' => 'login', 'controller' => 'login' ) );
-        return '<a href="' . $loginLink . '">Login</a>';
+        return $retourHelper;
     }
 }

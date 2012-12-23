@@ -2,9 +2,14 @@
 
 /**
  * Description of OrganismeController
- *
+ * 
  * @author Fred H
+ *
+ *
+ *
+ *
  */
+
 class OrganismeController extends Zend_Controller_Action
 {
 
@@ -17,6 +22,26 @@ class OrganismeController extends Zend_Controller_Action
     {
         $organisme = new Application_Model_DbTable_Organisme();
         $this->view->entries = $organisme->fetchAll();
+    }
+
+    public function editerEvenementAction()
+    {
+        // action body
+    }
+
+    public function creerEvenementAction()
+    {
+        // action body
+    }
+
+    public function gererEvenementAction()
+    {
+        // action body
+    }
+
+    public function supprimerEvenementAction()
+    {
+        // action body
     }
 
 

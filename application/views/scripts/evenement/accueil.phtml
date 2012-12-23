@@ -1,8 +1,26 @@
+<?php
+$evenement = $this->evenement;
+$helperUrl = new Zend_View_Helper_Url ( );
+$lienListerTous = $helperUrl->url ( array ('action' => 'lister-tous', 'controller' => 'message' ) ); 
+$lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisateur', 'controller' => 'message' ) ); 
+//var_dump($this->getEngine());
+?>
 <div id="view-content">
-    <h1>Accueil de l'évènement '<?php echo $this->evenement->titreEvent ?>'</h1>
-    
-    <p>TODO</p>
-    
+   <h1>ici la vue de l'accueil</h1>
+    <div>
+        <h1><?php echo $evenement->titreEvent ?></h1>
+        <?php if($evenement->idOrga != null)
+            echo '<h2>Organisme : \'' . $this->escape($evenement->getOrga()->nomOrga).'\'</h2>' 
+        ?>
+        <img src="<?php echo $this->escape($evenement->logoEvent) ?>" alt="logo" />
+        <p><?php echo $this->escape($evenement->descEvent) ?></p>
+        <p>Du <?php echo $this->escape($evenement->dateDebutEvent) ?> au <?php echo $this->escape($evenement->dateFinEvent) ?></p>
+    </div>
+    <div>
+        <a href="<?php echo $lienListerOrganisateur ?>" alt="">Annonces organisateurs</a>        
+    </div>
+    <div>
+        <a href="<?php echo $lienListerTous ?>" alt="">Voir les messages</a>                
+    </div>
 
-    
 </div>
