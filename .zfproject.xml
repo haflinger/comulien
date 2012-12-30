@@ -49,6 +49,7 @@
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="User"/>
+        <formFile formName="EcrireMessage"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>

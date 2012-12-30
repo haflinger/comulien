@@ -1,4 +1,30 @@
+<?php $messages = $this->messages; ?>
 <br /><br />
 <div id="view-content">
-	<p>View script for controller <b>Message</b> and script/action name <b>organisateur</b></p>
+	<p>View script for controller <b>Message</b> and script/action name <b>lister-organisateur</b></p>
 </div>
+Message Entries: <br />
+<dl>
+    <?php foreach ($this->messages as $entry): ?>
+    
+    <p>---------------------------------------------------------------------------------</p>
+    <dt><?php echo $this->escape($entry->dateEmissionMsg) ?></dt>
+    <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
+    <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
+    <dd><?php echo $this->escape($entry->estActifMsg) ?></dd>
+    <dd><?php if($entry->idEvent != null) echo 'Evenement : ' . $this->escape($entry->getEvent()->titreEvent)?></dd>
+    <dd><?php if($entry->idTypeMsg != null) echo 'Type du message : ' . $this->escape($entry->getType()->lblTypeMsg)?></dd>
+    <dd><?php if($entry->idProfil != null) echo 'Type du profil : ' . $this->escape($entry->getProfil()->nomProfil)?></dd>
+    <dd><?php if($entry->idUser_emettre != null) echo 'Emetteur : ' . $this->escape($entry->getUserEmettre()->nomUser)?></dd>
+    <dd><?php if($entry->idUser_moderer != null) echo 'Moderateur : ' . $this->escape($entry->getUserModerer()->nomUser)?></dd>
+     <?php 
+     echo 'Liste des utilisateurs qui ont appréciés : <br/>';
+    //Recherche et affiche les utilisateurs d'un message
+    $app = $entry->getAppreciers();
+     foreach ($app as $appreciation){
+         echo '<dd>Utilisateur : ' . $appreciation->getUser()->loginUser . 
+                 ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
+     }
+     ?>
+    <?php endforeach ?>
+</dl>

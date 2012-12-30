@@ -1,26 +1,31 @@
 <?php
 $evenement = $this->evenement;
+$organisateur = $this->organisateur;
 $helperUrl = new Zend_View_Helper_Url ( );
 $lienListerTous = $helperUrl->url ( array ('action' => 'lister-tous', 'controller' => 'message' ) ); 
 $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisateur', 'controller' => 'message' ) ); 
 //var_dump($this->getEngine());
 ?>
 <div id="view-content">
-   <h1>ici la vue de l'accueil</h1>
-    <div>
-        <h1><?php echo $evenement->titreEvent ?></h1>
-        <?php if($evenement->idOrga != null)
-            echo '<h2>Organisme : \'' . $this->escape($evenement->getOrga()->nomOrga).'\'</h2>' 
-        ?>
-        <img src="<?php echo $this->escape($evenement->logoEvent) ?>" alt="logo" />
-        <p><?php echo $this->escape($evenement->descEvent) ?></p>
-        <p>Du <?php echo $this->escape($evenement->dateDebutEvent) ?> au <?php echo $this->escape($evenement->dateFinEvent) ?></p>
-    </div>
-    <div>
-        <a href="<?php echo $lienListerOrganisateur ?>" alt="">Annonces organisateurs</a>        
-    </div>
-    <div>
-        <a href="<?php echo $lienListerTous ?>" alt="">Voir les messages</a>                
-    </div>
-
+  <h1><?php echo $evenement->titreEvent ?></h1>
+  <fieldset>
+      <legend>Organisme</legend>
+      <ul>
+          <li>Nom : <?php echo $this->escape($organisateur->nomOrga) ?></li>
+          <li>Logo : <img src="<?php echo $this->escape($organisateur->logoOrga) ?>" alt="logo <?php echo $this->escape($organisateur->nomOrga) ?>"</li>
+          <li>Description : <?php echo $this->escape($organisateur->descOrga) ?></li>
+      </ul>
+      <a href="<?php echo $lienListerOrganisateur ?>" alt="">Annonces organisateurs</a>
+  </fieldset>
+  <fieldset>
+      <legend>Evènement</legend>
+      <ul>
+          <li></li>
+          <li>Logo : <img src="<?php echo $this->escape($evenement->logoEvent) ?>" alt="logo Evènement" /></li>
+          <li>Description : <?php echo $this->escape($evenement->descEvent) ?></li>
+          <li><?php echo $this->datesEvenement($evenement->dateDebutEvent,$evenement->dateFinEvent,$evenement->delaiPersistence) ?></li>
+      </ul>
+      <a href="<?php echo $lienListerTous ?>" alt="">Voir les messages</a>                
+  </fieldset>
+  
 </div>

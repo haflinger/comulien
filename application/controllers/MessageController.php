@@ -12,10 +12,24 @@
 
 class MessageController extends Zend_Controller_Action
 {
-
+    private $_evenement;
+    
     public function init()
     {
-        /* Initialize action controller here */
+        $bulleNamespace = new Zend_Session_Namespace('bulle');
+        //session active ?
+        if (isset($bulleNamespace->checkedInEvent)) {
+            $this->_evenement = $bulleNamespace->checkedInEvent;
+            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
+            //  soient mémorisées dans la session
+            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
+            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
+        }
+        else
+        {
+            $this->_evenement = null;
+            //$this->view->evenement = $bulleNamespace->checkedInEvent;
+        }
     }
 
     public function indexAction()
@@ -26,12 +40,16 @@ class MessageController extends Zend_Controller_Action
 
     public function listerTousAction()
     {
-        $defaultNamespace = new Zend_Session_Namespace('bulle');
-        if (isset($defaultNamespace->checkedInEvent)){
+        //création d'une instance du formulaire
+        $form = new Application_Form_EcrireMessage();
+        //on passe le formulaire à la vue
+        $this->view->formEcrireMessage = $form;
+        
+        if (!is_null($this->_evenement)){
             //si la session contient un evenement
-            $evenement = $defaultNamespace->checkedInEvent;
             $Message = new Application_Model_DbTable_Message();
-            $this->view->messages = $Message->fetchAll('idEvent='.$evenement->idEvent);
+            $messagesTous = $Message->messagesTous($this->_evenement);
+            $this->view->messages = $messagesTous;//$Message->fetchAll('idEvent='.$this->_evenement->idEvent);
         }else{
             //TODO : pas d'évènement en session : que faire ? redirection sur le checkin ?
         }
@@ -40,7 +58,15 @@ class MessageController extends Zend_Controller_Action
 
     public function listerOrganisateurAction()
     {
-        // action body
+        if (!is_null($this->_evenement)){
+            //si la session contient un evenement
+            $Message = new Application_Model_DbTable_Message();
+            $messagesOrganisateurs = $Message->messagesOrganisateur($this->_evenement);
+            $this->view->messages = $messagesOrganisateurs;
+            
+        }else{
+            //TODO : pas d'évènement en session : que faire ? redirection sur le checkin ?
+        }
     }
 
     public function reponsesAction()
@@ -55,7 +81,54 @@ class MessageController extends Zend_Controller_Action
 
     public function envoyerAction()
     {
-        // action body
+        /**
+         * Envoyer un message et vérifier le message à persister 
+         */
+        // on vérifie qu'il y ai des données postées et on les valide
+        if ($this->_request->isPost()) {
+            $form = new Application_Form_EcrireMessage();
+            $formData = $this->_request->getPost();
+            if ($form->isValid($formData)) {
+                //on récupère les données du formulaire
+                $message = $form->getValue('message');
+                $profil = $form->getValue('choixProfil');
+                $this->view->message=$message;
+                $this->view->profil=$profil;
+                //TODO : à continuer pour persister le message
+                //TODO : choisir la navigation à donner après l'envoi du message
+                $auth = Zend_Auth::getInstance ();
+                if ($auth->hasIdentity ()) {
+                    $idUser = $auth->getIdentity ()->idUser;
+                }else{
+                    //TODO
+                    $this->view->message='erreur d\'identité';
+                    return ;
+                }
+                $table = new Application_Model_DbTable_Message();
+                //$dateheure = DateTime::format('y-m-d H:i:s u');
+                $dateheure = Date('y-m-d H:i:s u');
+                $data = array(
+                    'idUser_emettre' => $idUser,//todo : récupérer l'id de l'utilisateur avec zend_auth
+                    'idTypeMsg' => 0,//inutilisé pour le moment mais obligatoire
+                    'idEvent' => $this->_evenement->idEvent,
+                    'lblMessage' => $message,
+                    'idProfil' => $profil,
+                    'dateEmissionMsg' => $dateheure,
+                    'dateActiviteMsg' => $dateheure,
+                    );
+                $table->insert($data);
+                
+                
+            }
+            else{
+                //todo
+                $this->view->message='formulaire invalide';
+            }
+        }else{
+            //todo
+             
+        }
+        
     }
 
     public function repondreAction()
@@ -68,16 +141,7 @@ class MessageController extends Zend_Controller_Action
         // action body
     }
 
-    public function gererEvenementAction()
-    {
-        // action body
-    }
-
-    public function creerEvenementAction()
-    {
-        // action body
-    }
-
-
+    
+    
 }
 

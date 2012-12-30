@@ -1,7 +1,16 @@
+<?php $messages = $this->messages; ?>
 <br /><br />
 <div id="view-content">
-	<p>View script for controller <b>Message</b> and script/action name <b>listerTous</b></p>
-       <?php foreach ($this->messages as $entry): ?>
+	<p>View script for controller <b>Message</b> and script/action name <b>lister-tous</b></p>
+</div>
+<div>
+    <?php echo $this->formEcrireMessage ?>
+</div>
+
+Message Entries: <br />
+<dl>
+    <?php foreach ($this->messages as $entry): ?>
+    
     <p>---------------------------------------------------------------------------------</p>
     <dt><?php echo $this->escape($entry->dateEmissionMsg) ?></dt>
     <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
@@ -22,4 +31,4 @@
      }
      ?>
     <?php endforeach ?>
-</div>
+</dl>
