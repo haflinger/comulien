@@ -31,6 +31,19 @@ class Application_Form_EcrireMessage extends Zend_Form
             'MultiOptions' => $lesProfils,
             ) );
         
+        //
+        // essai du captcha
+        // ( http://framework.zend.com/manual/1.12/fr/zend.captcha.adapters.html )
+        // Un captcha
+//        $this->addElement('captcha', 'captcha', array(
+//            'label'      => 'Veuillez saisir la lettre:',
+//            'required'   => true,
+//            'captcha'    => array(
+//                'captcha' => 'Figlet',
+//                'wordLen' => 1,
+//                'timeout' => 300
+//            )
+//        ));
 
 
         $submit = new Zend_Form_Element_Submit ( 'submit' );

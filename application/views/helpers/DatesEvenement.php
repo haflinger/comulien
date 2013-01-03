@@ -12,21 +12,10 @@ class Zend_View_Helper_DatesEvenement extends Zend_View_Helper_Abstract {
      * 
      */
     public function datesEvenement($dateDebut,$dateFin,$delaiPersistence) {
-        $helperUrl = new Zend_View_Helper_Url ( );
-        $comulienNamespace = new Zend_Session_Namespace('bulle');
-        return "Du ".$dateDebut." au ".$dateFin." avec ".$delaiPersistence." minutes de persistence";
-        if (isset($comulienNamespace->checkedInEvent))
-        {
-            $event = $comulienNamespace->checkedInEvent;
-            $accueilLink = $helperUrl->url ( array ('action' => 'accueil', 'controller' => 'evenement' , null) );
-            $checkoutLink = $helperUrl->url ( array ('action' => 'checkout', 'controller' => 'evenement' ) );
-            return '<a href="'.$accueilLink.'" alt="Accueil Evenement">'.'Accueil '.$event->titreEvent.'</a> | <a href="'.$checkoutLink.'" alt="checkout">checkout</a>';
-        }
-        else
-        {
-            $accueilLink = $helperUrl->url ( array ('action' => 'liste', 'controller' => 'evenement' ) );
-            return 'Vous n\'êtes pas dans un évènement <a href="'.$accueilLink.'" alt="Accueil Evenement">Liste des évènements</a>';
-        }
-        
+        $chaineDateDebut = new DateTime(trim($dateDebut));
+        $chaineDateFin = new DateTime(trim($dateFin));
+        $formatDate = 'd/m/Y à H:i:s';
+        return "Du ".$chaineDateDebut->format($formatDate)." au ".$chaineDateFin->format($formatDate)." ( +".$delaiPersistence." min. )";
     }
+    
 }

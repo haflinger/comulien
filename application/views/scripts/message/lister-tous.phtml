@@ -12,7 +12,7 @@ Message Entries: <br />
     <?php foreach ($this->messages as $entry): ?>
     
     <p>---------------------------------------------------------------------------------</p>
-    <dt><?php echo $this->escape($entry->dateEmissionMsg) ?></dt>
+    <dt><?php echo $this->escape($this->dateMessage($entry->dateEmissionMsg)) ?></dt>
     <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
     <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
     <dd><?php echo $this->escape($entry->estActifMsg) ?></dd>
