@@ -25,7 +25,32 @@ class Application_Form_EcrireMessage extends Zend_Form
         // combobox de sélection du profil à utiliser
         // 
         //TODO : besoin de récupérer les différents profils de l'utilisateur dans l'organisme
-        $lesProfils = array ('0'=>'','1'=>'Organisateur','2'=>'Corporate','3'=>'Annonceur'); // todo 
+        //récupération de l'idUser depuis l'authentification
+        $auth = Zend_Auth::getInstance ();
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+        }else{
+            //TODO
+            $this->view->message='erreur d\'identité';
+            return ;
+        }
+        //récupération de l'idOrga de l'évènement en session
+        $bulleNamespace = new Zend_Session_Namespace('bulle');
+        //session active ?
+        if (isset($bulleNamespace->checkedInEvent)) {
+            $event = $bulleNamespace->checkedInEvent;
+            $IDorga = $event->idOrga;
+        }
+        else
+        {
+            $this->view->message='erreur d\'identité';
+            return ;
+            //$this->view->evenement = $bulleNamespace->checkedInEvent;
+        }
+        //récupération des distinction de l'utilisateur dans l'organisme
+        $distinguer = new Application_Model_DbTable_Distinguer();
+        $lesProfils = $distinguer->getProfils($idUser, $IDorga);
+        //$lesProfils = array ('0'=>'Utilisateur','1'=>'Organisateur','2'=>'Corporate','3'=>'Annonceur'); // todo 
         $profil = new Zend_Form_Element_Select('choixProfil',array(
             'label'        => 'Profil à utiliser :',
             'MultiOptions' => $lesProfils,

@@ -90,11 +90,16 @@ class MessageController extends Zend_Controller_Action
             $formData = $this->_request->getPost();
             if ($form->isValid($formData)) {
                 //on récupère les données du formulaire
+                //faire du contrôle de saisie :
+                // $profil doit faire partie des profils de l'utilisateur dans cet organisme
+                // $message ne doit pas être vide, de taille limitée ...
                 $message = $form->getValue('message');
                 $profil = $form->getValue('choixProfil');
+                if ($profil=='0') {
+                    $profil = null;
+                }
                 $this->view->message=$message;
                 $this->view->profil=$profil;
-                //TODO : à continuer pour persister le message
                 //TODO : choisir la navigation à donner après l'envoi du message
                 $auth = Zend_Auth::getInstance ();
                 if ($auth->hasIdentity ()) {

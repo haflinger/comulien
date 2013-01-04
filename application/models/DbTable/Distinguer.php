@@ -22,6 +22,37 @@ class Application_Model_DbTable_Distinguer extends Zend_Db_Table_Abstract
             'refColumns' => 'idOrga'
         )
     );
-
+    
+    public function getProfils($IDuser,$IDorga){
+        $select = $this->select()
+                ->setIntegrityCheck(false)
+                ->from(array('d'=>'distinguer'),'d.idProfil')
+                ->join(array('p'=>'profil'),
+                        'd.idProfil = p.idProfil',
+                        'p.nomProfil')
+                ->where('idUser=?',$IDuser)  
+                ->where('idOrga=?',$IDorga)
+                ->order('idUser ASC');
+        $result = $this->fetchAll($select);
+        $dist = array(0=>'Utilisateur');
+ 
+        while ($result->valid()) {
+            $d = $result->current();
+            $dist[$d->idProfil] = $d->nomProfil;  
+            $result->next();
+        }
+ 
+        $result->rewind();
+ 
+        return $dist;
+//        
+//        $retour = array(0=>'Utilisateur');
+//        $retour[1]='autre';
+//        foreach ($result as $key=>$value) {
+//            $retour[] = $value[1];
+//        }
+//        return $retour;
+//        return $result;
+    }
 }
 

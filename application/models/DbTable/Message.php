@@ -46,7 +46,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
     }
     
     public function messagesTous(Application_Model_Row_EvenementRow $evenement){
-         $select = $this->select()
+        $select = $this->select()
                      ->where('idEvent=?',$evenement->idEvent)  //dans l'évènement
                      ->where('estActifMsg=1')                  //seuls les messages actifs
                      ->order('dateActiviteMsg DESC');          //classés par date d'activité la plus récente en premier
