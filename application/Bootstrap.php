@@ -15,5 +15,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
     }
     
+    /**
+     * initialisation de la journalisation
+     */
+    protected function _initLogging()
+    {
+        $logger = new Zend_Log();
+        // récupérer et filtrer sur le niveau de log
+        $optionLevel = (int) $this->_options["logging"]["level"];
+        $filter = new Zend_Log_Filter_Priority($optionLevel);
+        $logger->addFilter($filter);
+        // ajouter un rédacteur qui écrit dans le fichier défini
+        $optionPath = $this->_options["logging"]["filename"];
+        $writer = new Zend_Log_Writer_Stream($optionPath);
+        $logger->addWriter($writer);
+        Zend_Registry::set("cml_logger", $logger);
+    }
 }
 

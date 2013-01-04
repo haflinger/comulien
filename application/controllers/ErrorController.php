@@ -26,6 +26,19 @@ class ErrorController extends Zend_Controller_Action
                 $this->getResponse()->setHttpResponseCode(500);
                 $priority = Zend_Log::CRIT;
                 $this->view->message = 'Application error';
+                /*
+                 journalisation de l'erreur
+                */
+                $logger = Zend_Registry::get("cml_logger");
+                // logger le type d'exception et sa trace
+                $logger->err($errors->exception->getMessage());
+                $logger->err($errors->exception->getTraceAsString());
+                // rediriger la sortie var_dump dans le fichier de log
+                ob_start();
+                var_export($errors->request->getParams());
+                $formatedParams = ob_get_contents();
+                ob_end_clean();
+                $logger->err($formatedParams);
                 break;
         }
         
