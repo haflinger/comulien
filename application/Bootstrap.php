@@ -7,7 +7,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     //      Cette vérification sera commune à bon nombre de pages
     protected function _initDoctype()
     {
-        Zend_Session::start();
         $this->bootstrap('view');
         $view = $this->getResource('view');
         $view->doctype('XHTML1_STRICT');
