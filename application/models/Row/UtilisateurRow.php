@@ -89,5 +89,21 @@ class Application_Model_Row_UtilisateurRow extends Zend_Db_Table_Row_Abstract
         return $grav_url;
 
     }
+    
+    public function estModerateur($Event){
+        //solution n'utilisant que les méthodes du UtilisateurRow
+        //autre solution à tester : faire une requête si possible dans le row, 
+        // ou sinon faire une requête dans le dbtable
+        $orgaID = $Event->idOrga;
+        $distinctions = $this->getDistinctions();
+        $moderateur = false;
+        foreach ($distinctions as $dist){
+            $org = $dist->getOrganisme()->idOrga;
+            if ($org==$orgaID) {
+                $moderateur = $dist->droitModeration=='1';
+            }
+        }
+        return $moderateur;
+    }
 }
 

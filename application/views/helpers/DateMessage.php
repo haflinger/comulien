@@ -36,31 +36,6 @@ class Zend_View_Helper_DateMessage extends Zend_View_Helper_Abstract {
         else{
             return 'Il y a '.floor($diff).' jours';
         }
-        //$months = floor(((($diff /60)/60)/24)/30);
-        //$interval = $mdate->subDate($maintenant)->get();
-//        $dtDate = new DateTime(trim($dateMessage));
-//        $dtMaintenant = new DateTime();
-//        $interval = $dtDate->diff($dtMaintenant);
-//        if (interval<60) { // de l'ordre de la seconde
-//            $pre = '' ;
-//            $suf = ' seconde' ;
-//            $format = 's';
-//        } elseif (interval < 60*60 ) { // de l'ordre de la minute
-//            $pre = '' ;
-//            $suf = '' ;
-//            $format = 'i';
-//        } elseif (interval < 60*60*60 ) { //de l'ordre de l'heure
-//            $pre = '' ;
-//            $suf = '' ;
-//            $format = 'H';
-//        } elseif (interval < 60*60*60*24 ) { //de l'ordre de la journée
-//            $pre = '' ;
-//            $suf = '' ;
-//            $format = 's';
-//        }
-//    
-//        $format = 'H:i:s';
-        //return $dtDate->format($format);
         return $interval;
     }
 }

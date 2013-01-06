@@ -53,5 +53,38 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         $result = $this->fetchAll($select);
         return $result;
     }
+    
+    /**
+     * Récupère un message mentionné par son ID
+     * @param type $id
+     */
+    public function getMessage($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow(array('idMessage = ?'=>$id));
+        if (!$row) {
+           throw new Exception("Could not find row $id");
+        }
+        return $row;
+    }
+    /**
+     * change l'état d'activité du message
+     * @param int $idMessage l'identifiant du message
+     * @param UtilisateurRow $moderateur l'utilisateur qui procède à la modération
+     * @param int $actif 1 ou 0 selon que l'on souhaite activer ou désactiver le message
+     */
+    public function modererMessage($idMessage,$idUser,$actif){
+        //todo : réfléchir sur l'utilité/le besoin de modérer en appelant une procédure stockée
+        $data = array (
+            'estActifMsg'=>$actif,
+            'idUser_Moderer'=>($actif=='0') ? $idUser : null,
+            );
+        $where = array();
+        $where['idMessage = ?'] = $idMessage;
+        
+        $this->update($data, $where);
+
+               
+    }
 }
 

@@ -14,6 +14,8 @@ Message Entries: <br />
     <p>---------------------------------------------------------------------------------</p>
     <dt><?php echo $this->escape($this->dateMessage($entry->dateEmissionMsg)) ?></dt>
     <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
+    <!-- si l'utilisateur a le droit de modération pour l'organisme -->
+    <dd><?php echo $this->moderationMessage($entry->idMessage) ?></dd>
     <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
     <dd><?php echo $this->escape($entry->estActifMsg) ?></dd>
     <dd><?php if($entry->idEvent != null) echo 'Evenement : ' . $this->escape($entry->getEvent()->titreEvent)?></dd>

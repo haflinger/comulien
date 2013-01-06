@@ -45,14 +45,6 @@ class Application_Model_DbTable_Distinguer extends Zend_Db_Table_Abstract
         $result->rewind();
  
         return $dist;
-//        
-//        $retour = array(0=>'Utilisateur');
-//        $retour[1]='autre';
-//        foreach ($result as $key=>$value) {
-//            $retour[] = $value[1];
-//        }
-//        return $retour;
-//        return $result;
     }
 }
 
