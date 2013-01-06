@@ -110,10 +110,11 @@ class MessageController extends Zend_Controller_Action
                     $this->view->message='erreur d\'identité';
                     return ;
                 }
-                //TODO : mettre l'insertion du message dans le model
+                
+                //insertion du message
                 $table = new Application_Model_DbTable_Message();
-                //$dateheure = DateTime::format('y-m-d H:i:s u');
-                $dateheure = Date('y-m-d H:i:s u');
+                
+                $dateheure = Date('y-m-d H:i:s u');//TODO : utiliser zend_date pour générer une date
                 $data = array(
                     'idUser_emettre' => $idUser,//todo : récupérer l'id de l'utilisateur avec zend_auth
                     'idTypeMsg' => 0,//inutilisé pour le moment mais obligatoire
@@ -123,7 +124,8 @@ class MessageController extends Zend_Controller_Action
                     'dateEmissionMsg' => $dateheure,
                     'dateActiviteMsg' => $dateheure,
                     );
-                $table->insert($data);
+                
+                $table->posterMessage($data);
                 
                 
             }
