@@ -49,7 +49,24 @@ class MessageController extends Zend_Controller_Action
         if (!is_null($this->_evenement)){
             //si la session contient un evenement
             $Message = new Application_Model_DbTable_Message();
-            $messagesTous = $Message->messagesTous($this->_evenement);
+            
+            //Récupération du droit de modération de l'utilisateur dans l'évènement
+            $auth = Zend_Auth::getInstance ();
+            $moderateur = false;
+            if ($auth->hasIdentity ()) {
+                $idUser = $auth->getIdentity ()->idUser;
+                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+                $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
+                
+                $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
+            }
+            
+            $showActifOnly = true;
+            if(!$moderateur){
+                $showActifOnly = false;
+            }
+            
+            $messagesTous = $Message->messagesTous($this->_evenement,$showActifOnly);
             $this->view->messages = $messagesTous;//$Message->fetchAll('idEvent='.$this->_evenement->idEvent);
         }else{
             //TODO : pas d'évènement en session : que faire ? redirection sur le checkin ?
@@ -198,6 +215,7 @@ class MessageController extends Zend_Controller_Action
 
         //modération du message
         $table->modererMessage($idMessage,$idUser,$actif);
+        
         $chActif = ($actif=='1') ? 'ré-' : 'dés';
         $this->view->retour = 'Le message #'.$idMessage.' a été '.$chActif .'activé !';
         

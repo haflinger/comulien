@@ -34,22 +34,30 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
             'refColumns'        => 'idUser'
         ));
 
-    public function messagesOrganisateur(Application_Model_Row_EvenementRow $evenement)
+    public function messagesOrganisateur(Application_Model_Row_EvenementRow $evenement, $showActifOnly = true)
     {
         $select = $this->select()
                      ->where('idEvent=?',$evenement->idEvent)   //dans l'évènement
                      ->where('idProfil=1')                      //les organisateurs
-                     ->where('estActifMsg=1')                   //seuls les messages actifs
                      ->order('dateEmissionMsg DESC');           //classés par date d'émission les plus récents en premier
+        //les messages actifs seulement ?
+        if ($showActifOnly) {
+            $select->where('estActifMsg=1');              //seuls les messages actifs
+        }
         $result = $this->fetchAll($select);
         return $result;
     }
     
-    public function messagesTous(Application_Model_Row_EvenementRow $evenement){
+    public function messagesTous(Application_Model_Row_EvenementRow $evenement, $showActifOnly = true){
         $select = $this->select()
-                     ->where('idEvent=?',$evenement->idEvent)  //dans l'évènement
-                     ->where('estActifMsg=1')                  //seuls les messages actifs
-                     ->order('dateActiviteMsg DESC');          //classés par date d'activité la plus récente en premier
+                ->where('idEvent=?',$evenement->idEvent) //dans l'évènement
+                ->order('dateActiviteMsg DESC');         //classés par date d'activité la plus récente en premier
+                
+        //les messages actifs seulement ?
+        if ($showActifOnly) {
+            $select->where('estActifMsg=1');              //seuls les messages actifs
+        }
+        
         $result = $this->fetchAll($select);
         return $result;
     }
