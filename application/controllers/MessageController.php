@@ -94,7 +94,31 @@ class MessageController extends Zend_Controller_Action
 
     public function approuverAction()
     {
-        // action body
+        //récupération des paramètres
+        $idMessage = $this->getRequest()->getParam('message');
+        $appreciation = $this->getRequest()->getParam('appreciation');
+        
+        //vérification du paramètre appreciation
+        if ($appreciation=='ok') {
+            $note = 1;            
+        }elseif ($appreciation=='nok') {
+            $note = -1;
+        }else{
+            throw new HttpInvalidParamException("l'appreciation doit être 'ok' ou 'nok'");
+        }
+        
+        //vérification du paramètre message
+        $table = new Application_Model_DbTable_Message();
+        $message = $table->getMessage($idMessage);
+        
+        //récupération de l'utilisateur en session
+        $utilisateur = $this->getUserFromAuth();
+        
+        //approuver le message
+        $table->apprecierMessage($message,$utilisateur,$note);
+        $this->view->info = array('message'=>$message,
+            'utilisateur'=>$utilisateur,
+            'note'=>$note);        
     }
 
     public function envoyerAction()
@@ -221,7 +245,21 @@ class MessageController extends Zend_Controller_Action
         
     }
 
-    
+    /**
+     * Récupère l'utilisateur en session ou null si pas d'utilisateur connecté
+     * @return UtilisateurRow l'utilisateur en session
+     */
+    public function getUserFromAuth(){
+        $auth = Zend_Auth::getInstance ();
+        $utilisateur = null;
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+            $utilisateur = $tableUtilisateur->find($idUser)->current();
+        }
+        return $utilisateur;
+        
+    }
     
 }
 

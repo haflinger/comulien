@@ -96,5 +96,23 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
     public function posterMessage($data){
         $this->insert($data);
     }
+    
+    public function apprecierMessage(Application_Model_Row_MessageRow $message, Application_Model_Row_UtilisateurRow $utilisateur, $note){
+        //TODO
+        //2 possibilités :
+        //A/ tout par le code
+        //B/ appeler une procédure stockée
+        //
+        //A/ tout faire par le code :
+        //1/ récupérer le coupe idMessage/idUser dans la table apprecier
+        //2/ si le couple existe récupérer 'evaluation' et ajouter la note (+1 ou -1)
+        //      2-1/ si la note = 0 : on supprime le couple idMessage/idUser dans la table apprecier
+        //2bis/ si le couple n'existe pas, l'insérer avec la valeur note (+1 ou -1)
+        //3/ Mettre à jour la date d'activité du message 
+        //
+        //insérer dans la table apprecier le coupe $message->idMessage / $utilisateur->idUser
+      
+        return;
+    }
 }
 
