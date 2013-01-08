@@ -31,7 +31,7 @@ class Application_Form_EcrireMessage extends Zend_Form
             $idUser = $auth->getIdentity ()->idUser;
         }else{
             //TODO
-            $this->view->message='erreur d\'identité';
+            //$this->view->message='erreur d\'identité';
             return ;
         }
         //récupération de l'idOrga de l'évènement en session
@@ -43,7 +43,7 @@ class Application_Form_EcrireMessage extends Zend_Form
         }
         else
         {
-            $this->view->message='erreur d\'identité';
+            //$this->view->message='erreur d\'identité';
             return ;
             //$this->view->evenement = $bulleNamespace->checkedInEvent;
         }

@@ -14,9 +14,9 @@ Message Entries: <br />
     <p>---------------------------------------------------------------------------------</p>
     <dt><?php echo $this->escape($this->dateMessage($entry->dateEmissionMsg)) ?></dt>
     <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
-    <dd><?php echo $this->moderationMessage($entry->idMessage) ?></dd>
+    <dd><?php echo $this->notationMessage($entry->idMessage) ?></dd>
     <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
-    <dd><?php echo $this->escape($entry->estActifMsg)=='1'?'Message Actif':'Message inactif' ?> : 
+    <dd><?php echo ($entry->estActifMsg=='1')?'Message Actif':'Message inactif' ?> : 
         <?php echo $this->moderationMessage($entry->idMessage) ?></dd>
     <dd><?php if($entry->idEvent != null) echo 'Evenement : ' . $this->escape($entry->getEvent()->titreEvent)?></dd>
     <dd><?php if($entry->idTypeMsg != null) echo 'Type du message : ' . $this->escape($entry->getType()->lblTypeMsg)?></dd>

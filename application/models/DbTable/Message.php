@@ -48,14 +48,14 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
     
-    public function messagesTous(Application_Model_Row_EvenementRow $evenement, $showActifOnly = true){
+    public function messagesTous(Application_Model_Row_EvenementRow $evenement, $showAll ){
         $select = $this->select()
                 ->where('idEvent=?',$evenement->idEvent) //dans l'évènement
                 ->order('dateActiviteMsg DESC');         //classés par date d'activité la plus récente en premier
                 
         //les messages actifs seulement ?
-        if ($showActifOnly) {
-            $select->where('estActifMsg=1');              //seuls les messages actifs
+        if (!$showAll) {
+            $idMessage;$select->where('estActifMsg=?','1'); //seuls les messages actifs
         }
         
         $result = $this->fetchAll($select);
@@ -95,6 +95,24 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
     
     public function posterMessage($data){
         $this->insert($data);
+    }
+    
+    public function apprecierMessage(Application_Model_Row_MessageRow $message, Application_Model_Row_UtilisateurRow $utilisateur, $note){
+        //TODO
+        //2 possibilités :
+        //A/ tout par le code
+        //B/ appeler une procédure stockée
+        //
+        //A/ tout faire par le code :
+        //1/ récupérer le coupe idMessage/idUser dans la table apprecier
+        //2/ si le couple existe récupérer 'evaluation' et ajouter la note (+1 ou -1)
+        //      2-1/ si la note = 0 : on supprime le couple idMessage/idUser dans la table apprecier
+        //2bis/ si le couple n'existe pas, l'insérer avec la valeur note (+1 ou -1)
+        //3/ Mettre à jour la date d'activité du message 
+        //
+        //insérer dans la table apprecier le coupe $message->idMessage / $utilisateur->idUser
+      
+        return;
     }
 }
 

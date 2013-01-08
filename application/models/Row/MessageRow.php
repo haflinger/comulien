@@ -107,5 +107,13 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
         }
         return $this->apprecier;
     }
+    
+    
+    public function getAppreciation($idUser)
+    {
+        $matchTable = new Application_Model_DbTable_Utilisateur();
+        $intersectionTable = new Application_Model_DbTable_Apprecier();
+        //$this->findManyToManyRowset($matchTable, $intersectionTable, $callerRefRule, $matchRefRule, $select)
+    }
 }
 
