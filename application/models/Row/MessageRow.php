@@ -107,7 +107,7 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
         }
         return $this->apprecier;
     }
-    
+   
     
     public function getAppreciation($idUser)
     {
@@ -124,6 +124,14 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
 //        $appreciation = $appreciationRow->evaluation;
 //        return $appreciation;
 
+    }
+    
+    public function getNote(){
+        $note = 0;
+        foreach ($this->getAppreciers() as $appreciation) {
+            $note += $appreciation->evaluation;
+        }
+        return $note;
     }
 }
 

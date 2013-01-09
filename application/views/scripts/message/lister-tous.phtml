@@ -15,6 +15,7 @@ Message Entries: <br />
     <dt><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></dt>
     <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
     <dd><?php echo $this->notationMessage($entry->idMessage) ?></dd>
+    <dd><?php echo 'note : '.$entry->getNote() ?></dd>
     <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
     <dd><?php echo ($entry->estActifMsg=='1')?'Message Actif':'Message inactif' ?> : 
         <?php echo $this->moderationMessage($entry->idMessage) ?></dd>
