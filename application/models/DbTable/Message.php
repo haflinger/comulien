@@ -55,7 +55,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                 
         //les messages actifs seulement ?
         if (!$showAll) {
-            $idMessage;$select->where('estActifMsg=?','1'); //seuls les messages actifs
+            $select->where('estActifMsg=?','1'); //seuls les messages actifs
         }
         
         $result = $this->fetchAll($select);
@@ -98,20 +98,47 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
     }
     
     public function apprecierMessage(Application_Model_Row_MessageRow $message, Application_Model_Row_UtilisateurRow $utilisateur, $note){
-        //TODO
-        //2 possibilités :
-        //A/ tout par le code
-        //B/ appeler une procédure stockée
-        //
-        //A/ tout faire par le code :
-        //1/ récupérer le coupe idMessage/idUser dans la table apprecier
-        //2/ si le couple existe récupérer 'evaluation' et ajouter la note (+1 ou -1)
-        //      2-1/ si la note = 0 : on supprime le couple idMessage/idUser dans la table apprecier
-        //2bis/ si le couple n'existe pas, l'insérer avec la valeur note (+1 ou -1)
-        //3/ Mettre à jour la date d'activité du message 
-        //
-        //insérer dans la table apprecier le coupe $message->idMessage / $utilisateur->idUser
-      
+        
+       //on va écrire dans la base selon les situations 
+        //on instancie la table 'apprecier'
+        $table = new Application_Model_DbTable_Apprecier();
+        //on créé un jeu de données
+        $data = array(
+            'idUser'=>$utilisateur->idUser,
+            'idMessage'=>$message->idMessage,
+            'evaluation'=>$note
+                );
+        //on créé la clause where (pour les update et fetch
+        $where = array();
+        $where['idUser = ?'] = $data['idUser'];
+        $where['idMessage = ?'] = $data['idMessage'];
+
+        //on teste l'existence d'une entrée
+        if( is_null($table->fetchRow($where)) ){
+            //la note 0 n'insère ni n'update rien
+            if ($note==0) {
+                //passe
+            }else{
+                //une note et pas d'entrée dans la table : on insère
+                $table->insert($data);
+            }
+        }else{
+            if ($note==0) {
+                //note vide, on supprime
+                $table->delete($where);
+            }else{
+                //une note et une entrée dans la table : on update
+                $table->update($data, $where);
+            }
+            
+        }
+        
+        //TODO il faut actualiser la date d'activité du message lorsque note=1
+        if ($note==1) {
+            $maintenant = Zend_Date::now();
+            $message->dateActiviteMsg = $maintenant->toString('YYYY-MM-DD HH:mm:ss S');
+            $message->save();
+        }
         return;
     }
 }

@@ -99,12 +99,14 @@ class MessageController extends Zend_Controller_Action
         $appreciation = $this->getRequest()->getParam('appreciation');
         
         //vérification du paramètre appreciation
-        if ($appreciation=='ok') {
+        if ($appreciation=='1') {
             $note = 1;            
-        }elseif ($appreciation=='nok') {
+        }elseif ($appreciation=='-1') {
             $note = -1;
+        }elseif ($appreciation=='0') {
+            $note = 0;
         }else{
-            throw new HttpInvalidParamException("l'appreciation doit être 'ok' ou 'nok'");
+            throw new HttpInvalidParamException("l'appreciation doit être '-1' ou '0' ou '1'");
         }
         
         //vérification du paramètre message
@@ -116,9 +118,8 @@ class MessageController extends Zend_Controller_Action
         
         //approuver le message
         $table->apprecierMessage($message,$utilisateur,$note);
-        $this->view->info = array('message'=>$message,
-            'utilisateur'=>$utilisateur,
-            'note'=>$note);        
+        $this->view->info = 'Appréciation déposée ! (message : '.$message->idMessage.', appreciation : '.$note.')';
+                  
     }
 
     public function envoyerAction()
