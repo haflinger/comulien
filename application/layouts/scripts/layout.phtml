@@ -9,14 +9,12 @@
     <body>
     <div id="header" style="background-color: #EEEEEE; height: 30px;">
         <div id="header-logo" style="float: left">
+            <img src="<?php echo $this->baseUrl();?>/images/icone_comulien.png" alt="comulien" width="28" height="23" />
             <b>Comulien</b>
         </div>
         <div id="header-navigation" style="float: right">
-<!--            <a href="<?php echo $this->url(
-                array('controller'=>'Profil'),
-                'default',
-                true) ?>">-->
-             <?php echo $this->accueilEventLink() ?></a>
+             <?php echo $this->accueilEventLink() ?>
+            
         </div>
     </div>
 
