@@ -5,27 +5,21 @@ $helperUrl = new Zend_View_Helper_Url ( );
 $lienListerTous = $helperUrl->url ( array ('action' => 'lister-tous', 'controller' => 'message' ) ); 
 $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisateur', 'controller' => 'message' ) ); 
 //var_dump($this->getEngine());
+$comulienNamespace = new Zend_Session_Namespace('bulle');
+$event = $comulienNamespace->checkedInEvent;
 ?>
 <div id="view-content">
-  <h1><?php echo $evenement->titreEvent ?></h1>
-  <fieldset>
-      <legend>Organisme</legend>
-      <ul>
-          <li>Nom : <?php echo $this->escape($organisateur->nomOrga) ?></li>
-          <li>Logo : <img src="<?php echo $this->escape($organisateur->logoOrga) ?>" alt="logo <?php echo $this->escape($organisateur->nomOrga) ?>"</li>
-          <li>Description : <?php echo $this->escape($organisateur->descOrga) ?></li>
-      </ul>
-      <a href="<?php echo $lienListerOrganisateur ?>" alt="">Annonces organisateurs</a>
-  </fieldset>
-  <fieldset>
-      <legend>Evènement</legend>
-      <ul>
-          <li></li>
-          <li>Logo : <img src="<?php echo $this->escape($evenement->logoEvent) ?>" alt="logo Evènement" /></li>
-          <li>Description : <?php echo $this->escape($evenement->descEvent) ?></li>
-          <li><?php echo $this->datesEvenement($evenement->dateDebutEvent,$evenement->dateFinEvent,$evenement->delaiPersistence) ?></li>
-      </ul>
-      <a href="<?php echo $lienListerTous ?>" alt="">Voir les messages</a>                
-  </fieldset>
+          <div id="nomOrga"><p><?php echo $this->escape($organisateur->nomOrga) ?></p></div>
+          <div id="logoOrga"><img src="<?php echo $this->escape($organisateur->logoOrga) ?>" alt="logo" /></div>
+          <div>Description : <?php echo $this->escape($organisateur->descOrga) ?>
+          <p><a href="<?php echo $lienListerOrganisateur ?>" alt="">Voir les annonces organisateurs</a></p><div>
+
+  <p>Vous présente</p>
+          <div id="nomEvent"><?php echo $event->titreEvent ?> </div>
+          <div id="logoOrga"><img src="<?php echo $this->escape($evenement->logoEvent) ?>" alt="logo Evènement" /></div>
+          <div>Description : <?php echo $this->escape($evenement->descEvent) ?>
+          <p><?php echo $this->datesEvenement($evenement->dateDebutEvent,$evenement->dateFinEvent,$evenement->delaiPersistence) ?></p>
+      <p><a href="<?php echo $lienListerTous ?>" alt="">Voir les messages</a></p></div>
+
   
 </div>

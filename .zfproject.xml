@@ -156,6 +156,15 @@
           <viewControllerScriptsDirectory forControllerName="Utilisateur">
             <viewScriptFile forActionName="deconnecter"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Header">
+            <viewScriptFile forActionName="header"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="header">
+            <viewScriptFile forActionName="header"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Footer">
+            <viewScriptFile forActionName="footer"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>

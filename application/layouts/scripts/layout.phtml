@@ -4,25 +4,12 @@
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <title>Comulien</title>
-      <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+      <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/main.css') ?>
+      
     </head>
     <body>
-    <div id="header" style="background-color: #EEEEEE; height: 30px;">
-        <div id="header-logo" style="float: left">
-            <b>Comulien</b>
-        </div>
-        <div id="header-navigation" style="float: right">
-<!--            <a href="<?php echo $this->url(
-                array('controller'=>'Profil'),
-                'default',
-                true) ?>">-->
-             <?php echo $this->accueilEventLink() ?></a>
-        </div>
-    </div>
-
-        <div id="header-navigation" style="float: right">        <?php echo $this->profileLink() ?>    </div>
-     
+    <?php echo $this->render('header/header.phtml'); ?>
     <?php echo $this->layout()->content ?>
-     
+    <?php echo $this->render('footer/footer.phtml'); ?>
     </body>
     </html>
