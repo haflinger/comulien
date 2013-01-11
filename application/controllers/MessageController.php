@@ -42,10 +42,11 @@ class MessageController extends Zend_Controller_Action
     public function listerTousAction()
     {
         //création d'une instance du formulaire
-        $form = new Application_Form_EcrireMessage();
+        $formEcrire = new Application_Form_EcrireMessage();
+        $formModerer = new Application_Form_Moderer();
         //on passe le formulaire à la vue
-        $this->view->formEcrireMessage = $form;
-        
+        $this->view->formEcrireMessage = $formEcrire;
+        $this->view->formModererMessage = $formModerer;
         if (!is_null($this->_evenement)){
             //si la session contient un evenement
             $Message = new Application_Model_DbTable_Message();
@@ -214,9 +215,18 @@ class MessageController extends Zend_Controller_Action
             $this->view->retour = 'Je ne pense pas que vous aillez le droit de faire cela dans cet évènement !';
             return;
         }
-        
+        $form = new Application_Form_Moderer();
         //récupération de l'id du message à modérer
-        $idMessage = $this->getRequest()->getParam('message');
+        if ($this->_request->isPost()) {
+            $formData = $this->_request->getPost();
+            if ($form->isValid($formData)) {
+                //on récupère les données du formulaire
+                //$this->view->retour = $formData;
+                $idMessage = $formData['hiddenIdMessage'];
+            }
+        }
+        //$idMessage = $formData->getValue('hiddenIdMessage');
+//        $idMessage = $this->getRequest()->getParam('message');
         if (is_null($idMessage)) {
             $logger->info('Demande de modération sans id de message à modérer');
             $this->view->retour = 'Il n\'y a aucun message à modérer';
