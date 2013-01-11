@@ -126,3 +126,486 @@
   'message' => '54',
   'module' => 'default',
 )
+2013-01-08T21:49:12+00:00 ERR (3): script 'header.phtml' not found in path (C:\wamp\www\comuZend\application/layouts/scripts/;C:/wamp/www/comuZend/application/views\scripts/)
+2013-01-08T21:49:12+00:00 ERR (3): #0 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('header.phtml')
+#1 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(11): Zend_View_Abstract->render('header.phtml')
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#4 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#5 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#8 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#11 {main}
+2013-01-08T21:49:12+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'accueil',
+  'module' => 'default',
+  'layoutFullContent' => '    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+        <div id="header">',
+  'layoutContent' => '<div id="view-content">
+  <h1>Bulle permanente</h1>
+  <fieldset>
+      <legend>Organisme</legend>
+      <ul>
+          <li>Nom : Les Poulpes Team</li>
+          <li>Logo : <img src="poulpe.png" alt="logo Les Poulpes Team"</li>
+          <li>Description : la team des dév comulien</li>
+      </ul>
+      <a href="/comuZend/public/message/lister-organisateur" alt="">Annonces organisateurs</a>
+  </fieldset>
+  <fieldset>
+      <legend>Evènement</legend>
+      <ul>
+          <li></li>
+          <li>Logo : <img src="comulien.png" alt="logo Evènement" /></li>
+          <li>Description : bulle sans fin</li>
+          <li>Du 14/11/2012 à 19:50:31 au 08/01/2013 à 21:49:12 ( + min. )</li>
+      </ul>
+      <a href="/comuZend/public/message/lister-tous" alt="">Voir les messages</a>                
+  </fieldset>
+  
+</div>
+',
+)
+2013-01-08T21:49:42+00:00 ERR (3): script 'views/header.phtml' not found in path (C:\wamp\www\comuZend\application/layouts/scripts/;C:/wamp/www/comuZend/application/views\scripts/)
+2013-01-08T21:49:42+00:00 ERR (3): #0 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('views/header.ph...')
+#1 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(11): Zend_View_Abstract->render('views/header.ph...')
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#4 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#5 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#8 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#11 {main}
+2013-01-08T21:49:42+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'accueil',
+  'module' => 'default',
+  'layoutFullContent' => '    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+        <div id="header">',
+  'layoutContent' => '<div id="view-content">
+  <h1>Bulle permanente</h1>
+  <fieldset>
+      <legend>Organisme</legend>
+      <ul>
+          <li>Nom : Les Poulpes Team</li>
+          <li>Logo : <img src="poulpe.png" alt="logo Les Poulpes Team"</li>
+          <li>Description : la team des dév comulien</li>
+      </ul>
+      <a href="/comuZend/public/message/lister-organisateur" alt="">Annonces organisateurs</a>
+  </fieldset>
+  <fieldset>
+      <legend>Evènement</legend>
+      <ul>
+          <li></li>
+          <li>Logo : <img src="comulien.png" alt="logo Evènement" /></li>
+          <li>Description : bulle sans fin</li>
+          <li>Du 14/11/2012 à 19:50:31 au 08/01/2013 à 21:49:42 ( + min. )</li>
+      </ul>
+      <a href="/comuZend/public/message/lister-tous" alt="">Voir les messages</a>                
+  </fieldset>
+  
+</div>
+',
+)
+2013-01-08T21:52:33+00:00 ERR (3): script '/header.phtml' not found in path (C:\wamp\www\comuZend\application/layouts/scripts/;C:/wamp/www/comuZend/application/views\scripts/)
+2013-01-08T21:52:33+00:00 ERR (3): #0 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('/header.phtml')
+#1 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(11): Zend_View_Abstract->render('/header.phtml')
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#4 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#5 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#8 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#11 {main}
+2013-01-08T21:52:33+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'liste',
+  'module' => 'default',
+  'layoutFullContent' => '    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+        <div id="header">',
+  'layoutContent' => '<br /><br />
+<div id="view-content">
+	<p>Ceci est la page d\'accueil <b>Evenement</b> accessible par une <b>URL</b></p>
+</div>
+Evenement Entries: <br />
+<dl>
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/1" alt="">Bulle permanente</a></dt>
+    <dd>AZERT12345</dd>
+    <dd>bulle sans fin</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-14 19:50:31</dd>
+    <dd></dd>
+    <dd></dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/2" alt="">Bulle à venir</a></dt>
+    <dd>AZERT23456</dd>
+    <dd>débute dans une semaine</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-21 19:50:31</dd>
+    <dd>2012-11-28 19:50:31</dd>
+    <dd>0</dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/3" alt="">Train POPI</a></dt>
+    <dd>ABCD987654</dd>
+    <dd>Paris Saint Lazare à Mantes</dd>
+    <dd>ligneJ.png</dd>
+    <dd>2012-11-19 08:53:00</dd>
+    <dd>2012-11-19 09:12:00</dd>
+    <dd>60</dd>
+    <dd>Organisme : transilien</dd>
+   
+    </dl>',
+)
+2013-01-08T22:02:14+00:00 ERR (3): script 'index.phtml' not found in path (C:\wamp\www\comuZend\application/layouts/scripts/;C:/wamp/www/comuZend/application/views\scripts/)
+2013-01-08T22:02:14+00:00 ERR (3): #0 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('index.phtml')
+#1 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(18): Zend_View_Abstract->render('index.phtml')
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#4 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#5 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#8 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#11 {main}
+2013-01-08T22:02:14+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'liste',
+  'module' => 'default',
+  'layoutFullContent' => '    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+
+    <div id="header" style="background-color: #EEEEEE; height: 30px;">
+        <div id="header-logo" style="float: left">
+            <b>Comulien</b>
+        </div>
+        <div id="header-navigation" style="float: right">
+             Vous n\'êtes pas dans un évènement <a href="/comuZend/public/evenement/liste" alt="Accueil Evenement">Liste des évènements</a>            ',
+  'layoutContent' => '<br /><br />
+<div id="view-content">
+	<p>Ceci est la page d\'accueil <b>Evenement</b> accessible par une <b>URL</b></p>
+</div>
+Evenement Entries: <br />
+<dl>
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/1" alt="">Bulle permanente</a></dt>
+    <dd>AZERT12345</dd>
+    <dd>bulle sans fin</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-14 19:50:31</dd>
+    <dd></dd>
+    <dd></dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/2" alt="">Bulle à venir</a></dt>
+    <dd>AZERT23456</dd>
+    <dd>débute dans une semaine</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-21 19:50:31</dd>
+    <dd>2012-11-28 19:50:31</dd>
+    <dd>0</dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/3" alt="">Train POPI</a></dt>
+    <dd>ABCD987654</dd>
+    <dd>Paris Saint Lazare à Mantes</dd>
+    <dd>ligneJ.png</dd>
+    <dd>2012-11-19 08:53:00</dd>
+    <dd>2012-11-19 09:12:00</dd>
+    <dd>60</dd>
+    <dd>Organisme : transilien</dd>
+   
+    </dl>',
+)
+2013-01-08T22:03:40+00:00 ERR (3): script 'header.phtml' not found in path (C:\wamp\www\comuZend\application/layouts/scripts/;C:/wamp/www/comuZend/application/views\scripts/)
+2013-01-08T22:03:40+00:00 ERR (3): #0 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('header.phtml')
+#1 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(18): Zend_View_Abstract->render('header.phtml')
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#4 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#5 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#8 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#11 {main}
+2013-01-08T22:03:40+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'liste',
+  'module' => 'default',
+  'layoutFullContent' => '    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+
+    <div id="header" style="background-color: #EEEEEE; height: 30px;">
+        <div id="header-logo" style="float: left">
+            <b>Comulien</b>
+        </div>
+        <div id="header-navigation" style="float: right">
+             Vous n\'êtes pas dans un évènement <a href="/comuZend/public/evenement/liste" alt="Accueil Evenement">Liste des évènements</a>            ',
+  'layoutContent' => '<br /><br />
+<div id="view-content">
+	<p>Ceci est la page d\'accueil <b>Evenement</b> accessible par une <b>URL</b></p>
+</div>
+Evenement Entries: <br />
+<dl>
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/1" alt="">Bulle permanente</a></dt>
+    <dd>AZERT12345</dd>
+    <dd>bulle sans fin</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-14 19:50:31</dd>
+    <dd></dd>
+    <dd></dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/2" alt="">Bulle à venir</a></dt>
+    <dd>AZERT23456</dd>
+    <dd>débute dans une semaine</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-21 19:50:31</dd>
+    <dd>2012-11-28 19:50:31</dd>
+    <dd>0</dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/3" alt="">Train POPI</a></dt>
+    <dd>ABCD987654</dd>
+    <dd>Paris Saint Lazare à Mantes</dd>
+    <dd>ligneJ.png</dd>
+    <dd>2012-11-19 08:53:00</dd>
+    <dd>2012-11-19 09:12:00</dd>
+    <dd>60</dd>
+    <dd>Organisme : transilien</dd>
+   
+    </dl>',
+)
+2013-01-08T22:04:04+00:00 ERR (3): script 'header.phtml' not found in path (C:\wamp\www\comuZend\application/layouts/scripts/;C:/wamp/www/comuZend/application/views\scripts/)
+2013-01-08T22:04:04+00:00 ERR (3): #0 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('header.phtml')
+#1 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(18): Zend_View_Abstract->render('header.phtml')
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#4 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#5 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#8 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#11 {main}
+2013-01-08T22:04:04+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'liste',
+  'module' => 'default',
+  'layoutFullContent' => '    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+
+    <div id="header" style="background-color: #EEEEEE; height: 30px;">
+        <div id="header-logo" style="float: left">
+            <b>Comulien</b>
+        </div>
+        <div id="header-navigation" style="float: right">
+             Vous n\'êtes pas dans un évènement <a href="/comuZend/public/evenement/liste" alt="Accueil Evenement">Liste des évènements</a>            ',
+  'layoutContent' => '<br /><br />
+<div id="view-content">
+	<p>Ceci est la page d\'accueil <b>Evenement</b> accessible par une <b>URL</b></p>
+</div>
+Evenement Entries: <br />
+<dl>
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/1" alt="">Bulle permanente</a></dt>
+    <dd>AZERT12345</dd>
+    <dd>bulle sans fin</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-14 19:50:31</dd>
+    <dd></dd>
+    <dd></dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/2" alt="">Bulle à venir</a></dt>
+    <dd>AZERT23456</dd>
+    <dd>débute dans une semaine</dd>
+    <dd>comulien.png</dd>
+    <dd>2012-11-21 19:50:31</dd>
+    <dd>2012-11-28 19:50:31</dd>
+    <dd>0</dd>
+    <dd>Organisme : Les Poulpes Team</dd>
+   
+            <p>---------------------------------------------------------------------------------</p>
+    <dt><a href="/comuZend/public/evenement/checkin/id/3" alt="">Train POPI</a></dt>
+    <dd>ABCD987654</dd>
+    <dd>Paris Saint Lazare à Mantes</dd>
+    <dd>ligneJ.png</dd>
+    <dd>2012-11-19 08:53:00</dd>
+    <dd>2012-11-19 09:12:00</dd>
+    <dd>60</dd>
+    <dd>Organisme : transilien</dd>
+   
+    </dl>',
+)
+2013-01-10T01:33:41+00:00 ERR (3): Specified column "titreevent" is not in the row
+2013-01-10T01:33:41+00:00 ERR (3): #0 C:\wamp\www\comuZend\application\views\scripts\header\header.phtml(2): Zend_Db_Table_Row_Abstract->__get('titreevent')
+#1 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#2 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:/wamp/www/com...')
+#3 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(11): Zend_View_Abstract->render('header/header.p...')
+#4 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#5 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#6 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#7 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#8 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#9 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#10 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#13 {main}
+2013-01-10T01:33:41+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'accueil',
+  'module' => 'default',
+  'layoutFullContent' => '<div id="header">
+    <div id="titre"><a>    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+    ',
+  'layoutContent' => '<div id="view-content">
+  <h1>Bulle permanente</h1>
+  <fieldset>
+      <legend>Organisme</legend>
+      <ul>
+          <li>Nom : Les Poulpes Team</li>
+          <li>Logo : <img src="poulpe.png" alt="logo Les Poulpes Team"</li>
+          <li>Description : la team des dév comulien</li>
+      </ul>
+      <a href="/comuZend/public/message/lister-organisateur" alt="">Annonces organisateurs</a>
+  </fieldset>
+  <fieldset>
+      <legend>Evènement</legend>
+      <ul>
+          <li></li>
+          <li>Logo : <img src="comulien.png" alt="logo Evènement" /></li>
+          <li>Description : bulle sans fin</li>
+          <li>Du 14/11/2012 à 19:50:31 au 10/01/2013 à 01:33:41 ( + min. )</li>
+      </ul>
+      <a href="/comuZend/public/message/lister-tous" alt="">Voir les messages</a>                
+  </fieldset>
+  
+</div>
+',
+)
+2013-01-11T02:14:31+00:00 ERR (3): Plugin by name 'CheckoutEventLink' was not found in the registry; used paths:
+Zend_View_Helper_: Zend/View/Helper/;C:\wamp\www\comuZend\application/views/helpers/;C:/wamp/www/comuZend/application/views\helpers/
+2013-01-11T02:14:31+00:00 ERR (3): #0 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(1182): Zend_Loader_PluginLoader->load('CheckoutEventLi...')
+#1 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(618): Zend_View_Abstract->_getPlugin('helper', 'checkoutEventLi...')
+#2 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(344): Zend_View_Abstract->getHelper('checkoutEventLi...')
+#3 C:\wamp\www\comuZend\application\views\scripts\header\header.phtml(11): Zend_View_Abstract->__call('checkoutEventLi...', Array)
+#4 C:\wamp\www\comuZend\application\views\scripts\header\header.phtml(11): Zend_View->checkoutEventLink()
+#5 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#6 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:/wamp/www/com...')
+#7 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(11): Zend_View_Abstract->render('header/header.p...')
+#8 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#9 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#10 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#11 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#12 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#13 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#14 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#15 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#16 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#17 {main}
+2013-01-11T02:14:31+00:00 ERR (3): array (
+  'controller' => 'evenement',
+  'action' => 'accueil',
+  'module' => 'default',
+  'layoutFullContent' => '<div id="header">
+        <div id="titre"><a>Bulle permanente</a></div>
+    <ul>
+        <li><a href="/comuZend/public/evenement/accueil" ><img alt="home" src="/comuZend/public /images/home.png"/></a></li>
+        <li><a href="/comuZend/public/utilisateur/authentifier" ><img alt="home" src="/comuZend/public /images/key.png"/></a></li>
+        <li><a href="    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/css/main.css" media="screen" rel="stylesheet" type="text/css" />      
+    </head>
+    <body>
+    ',
+  'layoutContent' => '<div id="view-content">
+          <div id="nomOrga"><p>Les Poulpes Team</p></div>
+          <div id="logoOrga"><img src="poulpe.png" alt="logo" /></div>
+          <div>Description : la team des dév comulien          <p><a href="/comuZend/public/message/lister-organisateur" alt="">Voir les annonces organisateurs</a></p><div>
+
+  <p>Vous présente</p>
+          <div id="nomEvent">Bulle permanente </div>
+          <div id="logoOrga"><img src="comulien.png" alt="logo Evènement" /></div>
+          <div>Description : bulle sans fin          <p>Du 14/11/2012 à 19:50:31 au 11/01/2013 à 02:14:31 ( + min. )</p>
+      <p><a href="/comuZend/public/message/lister-tous" alt="">Voir les messages</a></p></div>
+
+  
+</div>
+',
+)

@@ -1,0 +1,20 @@
+/* 
+    Document   : main
+    Created on : 8 janv. 2013, 22:33:28
+    Author     : Fred H
+    Description:background-color: #E5E8ED
+        Purpose of the stylesheet follows.
+*/
+*{margin:0px; font-family: sans-serif}
+body{font-family: sans-serif; font-size: 14px;margin:0px}
+#header{font-size: 20px; color: white; background-color: #5A6571;margin:0px}
+#header li{display:inline; text-decoration: none}
+#header ul{text-align: right}
+#titre {margin:2px;float: left}
+#footer{color: white; background-color: #5A6571;}
+#footer p {text-align: right}
+img{height:25px; width: 25px; margin: 2px}
+
+#nomOrga{font-size: 20px; text-align: center;}
+#logoOrga{float:right}
+#nomEvent{font-size: 20px; text-align: center;}

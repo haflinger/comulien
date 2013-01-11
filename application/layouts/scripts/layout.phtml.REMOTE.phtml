@@ -1,0 +1,26 @@
+    <!-- application/layouts/scripts/layout.phtml -->
+    <?php echo $this->doctype() ?>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+    </head>
+    <body>
+    <div id="header" style="background-color: #EEEEEE; height: 30px;">
+        <div id="header-logo" style="float: left">
+            <img src="<?php echo $this->baseUrl();?>/images/icone_comulien.png" alt="comulien" width="28" height="23" />
+            <b>Comulien</b>
+        </div>
+        <div id="header-navigation" style="float: right">
+             <?php echo $this->accueilEventLink() ?>
+            
+        </div>
+    </div>
+
+        <div id="header-navigation" style="float: right">        <?php echo $this->profileLink() ?>    </div>
+     
+    <?php echo $this->layout()->content ?>
+     
+    </body>
+    </html>

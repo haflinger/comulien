@@ -9,15 +9,18 @@ class Zend_View_Helper_AccueilEventLink extends Zend_View_Helper_Abstract {
         $comulienNamespace = new Zend_Session_Namespace('bulle');
         if (isset($comulienNamespace->checkedInEvent))
         {
-            $event = $comulienNamespace->checkedInEvent;
+            //$event = $comulienNamespace->checkedInEvent;
             $accueilLink = $helperUrl->url ( array ('action' => 'accueil', 'controller' => 'evenement' , null) );
-            $checkoutLink = $helperUrl->url ( array ('action' => 'checkout', 'controller' => 'evenement' ) );
-            return '<a href="'.$accueilLink.'" alt="Accueil Evenement">'.'Accueil '.$event->titreEvent.'</a> | <a href="'.$checkoutLink.'" alt="checkout">checkout</a>';
-        }
+            //$checkoutLink = $helperUrl->url ( array ('action' => 'checkout', 'controller' => 'evenement' ) );
+            //return '<a href="'.$accueilLink.'" alt="Accueil Evenement">'.'Accueil '.$event->titreEvent.'</a><a href="'.$checkoutLink.'" alt="checkout">checkout</a>';
+            return $accueilLink;
+            
+       }
         else
         {
-            $accueilLink = $helperUrl->url ( array ('action' => 'liste', 'controller' => 'evenement' ) );
-            return 'Vous n\'êtes pas dans un évènement <a href="'.$accueilLink.'" alt="Accueil Evenement">Liste des évènements</a>';
+           $accueilLink = $helperUrl->url ( array ('action' => 'liste', 'controller' => 'evenement' ) );
+           //return '<a href="'.$accueilLink.'" alt="Accueil Evenement">Liste des évènements</a>';
+           return $accueilLink;
         }
         
     }

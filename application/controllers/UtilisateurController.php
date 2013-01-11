@@ -158,9 +158,8 @@ class UtilisateurController extends Zend_Controller_Action
         //suppression des informations de l'utilisateur
         Zend_Auth::getInstance ()->clearIdentity ();
         //redirection vers le controlleur index, action index
-        $this->_helper->redirector ( 'index', 'index' );
+        $this->_helper->redirector ( 'accueil', 'evenement' );
     }
-
 
 }
 

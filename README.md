@@ -2,7 +2,7 @@ comulien
 =====================
 Système de discussion entre producteurs et consommateurs d'évènements
 * Copyright (c) 2012, Team Poulpe [http://www.comulien.fr](http://www.comulien.fr)
-* Author: FredoHorn, ManuThe, BootsyMayField, Haflinger, alexsolex®, [@comulien](http://twitter.com/comulien)
+* Author: FredoHorn, ManuThe, BootsyMayField, Haflinger, alexsolex®, Will [@comulien](http://twitter.com/comulien)
 * Licensed under the GPL License.
 
 License:
@@ -26,9 +26,10 @@ COMULIEN :
   
   __Team Poulpe__ :
 - Alexsolex (alexsolex+poulpe (a) gmail p com) : Développeur
-- Manu (email@mail.fr) : Développeur
-- Fred (email@mail.fr) : Développeur
-- Laurent (email@mail.fr) : Designer
+- Fred (email@mail.fr) : Développeur / Designer
+- Manu
+- Laurent
+- JC
 
 Usage:
 ------
@@ -36,7 +37,8 @@ No Usage Yet
 
 ToDo:
 -----
-- everything ...
+- us : working
+- you : waiting...
 
 Notes:
 ------
