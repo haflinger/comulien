@@ -31,6 +31,13 @@ class UtilisateurController extends Zend_Controller_Action
 //            }
 //        }
     }
+    public function testAction()
+    {
+        //récupérer l'user session
+        $user = $this->getUserFromAuth();
+        
+        $this->view->test = $user->getRole("");
+    }
     public function indexAction()
     {
         $Utilisateur = new Application_Model_DbTable_Utilisateur();
@@ -159,6 +166,18 @@ class UtilisateurController extends Zend_Controller_Action
         Zend_Auth::getInstance ()->clearIdentity ();
         //redirection vers le controlleur index, action index
         $this->_helper->redirector ( 'accueil', 'evenement' );
+    }
+    
+    public static function getUserFromAuth(){
+        $auth = Zend_Auth::getInstance ();
+        $utilisateur = null;
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+            $utilisateur = $tableUtilisateur->find($idUser)->current();
+        }
+        return $utilisateur;
+        
     }
 
 }

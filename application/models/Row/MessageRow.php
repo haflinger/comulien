@@ -108,23 +108,7 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
         return $this->apprecier;
     }
    
-    
-    public function getAppreciation($idUser)
-    {
-//        $apprecierTable = new Application_Model_DbTable_Apprecier();
-//        $appreciationRowset = $this->findManyToManyRowset(
-//                'Application_Model_DbTable_Utilisateur', 
-//                'Application_Model_DbTable_Apprecier',
-//                'Message',
-//                'Utilisateur',
-//                $apprecierTable->select()->where('idUser = ?',$idUser)
-//                );
-//        
-//        $appreciationRow = $appreciationRowset->current();
-//        $appreciation = $appreciationRow->evaluation;
-//        return $appreciation;
 
-    }
     
     public function getNote(){
         $note = 0;

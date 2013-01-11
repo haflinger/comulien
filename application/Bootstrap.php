@@ -30,5 +30,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $logger->addWriter($writer);
         Zend_Registry::set("cml_logger", $logger);
     }
+    
+     protected function _initAcl()
+    {
+        // plugin Acl/Auth
+        $acl_ini = APPLICATION_PATH . '/configs/acl.ini' ;
+        $acl     = new Application_Plugin_AclIni($acl_ini);
+        Zend_Controller_Front::getInstance()->registerPlugin(new Application_Plugin_PluginAuth($acl));
+        Zend_Registry::set('Zend_Acl', $acl);
+    }
 }
 
