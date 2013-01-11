@@ -221,7 +221,6 @@ class MessageController extends Zend_Controller_Action
             $formData = $this->_request->getPost();
             if ($form->isValid($formData)) {
                 //on récupère les données du formulaire
-                //$this->view->retour = $formData;
                 $idMessage = $formData['hiddenIdMessage'];
             }
         }
