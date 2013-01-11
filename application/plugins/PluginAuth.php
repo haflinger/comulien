@@ -49,11 +49,11 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
             $idUser = $this->_auth->getIdentity()->idUser;
             $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
             $user = $tableUtilisateur->find($idUser)->current();
-            
-            $role = 'corporate';
+            //TODO : pour le moment quoiqu'il arrive, connecté ou pas, on a le role 'dev'
+            $role = 'dev';
         } else {
             // no = guest user
-            $role = 'anonyme';
+            $role = 'dev';
         }
 
         $module = $request->getModuleName();
