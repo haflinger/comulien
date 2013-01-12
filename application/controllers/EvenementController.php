@@ -91,6 +91,15 @@ class EvenementController extends Zend_Controller_Action
             $this->view->organisateur = $organisateur;
             //$this->view->messagesOrganisateurs = $messagesOrga;
             $this->view->evenement = $evenement;
+            
+            $helperUrl = new Zend_View_Helper_Url ( );
+            $lienListerTous = $helperUrl->url ( array ('action' => 'lister-tous', 'controller' => 'message' ) ); 
+            $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisateur', 'controller' => 'message' ) ); 
+//var_dump($this->getEngine());
+            $this->view->lienListerTous = $lienListerTous;
+            $this->view->lienListerOrganisateur = $lienListerOrganisateur;
+            $comulienNamespace = new Zend_Session_Namespace('bulle');
+            $this->view->event = $comulienNamespace->checkedInEvent;
         }
     }
     

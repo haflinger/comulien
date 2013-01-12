@@ -34,7 +34,7 @@ class Zend_View_Helper_DateMessage extends Zend_View_Helper_Abstract {
             return 'hier';
         }
         else{
-            return 'Il y a '.floor($diff).' jours';
+            return floor($diff).' jours';
         }
         return $interval;
     }

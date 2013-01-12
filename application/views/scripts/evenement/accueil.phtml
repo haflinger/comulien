@@ -1,25 +1,30 @@
 <?php
+/*inutile
 $evenement = $this->evenement;
-$organisateur = $this->organisateur;
-$helperUrl = new Zend_View_Helper_Url ( );
+$organisateur = $this->organisateur;*/ 
+
+//Code déplacé dans l'action du cointroleur
+/*$helperUrl = new Zend_View_Helper_Url ( );
 $lienListerTous = $helperUrl->url ( array ('action' => 'lister-tous', 'controller' => 'message' ) ); 
 $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisateur', 'controller' => 'message' ) ); 
 //var_dump($this->getEngine());
 $comulienNamespace = new Zend_Session_Namespace('bulle');
-$event = $comulienNamespace->checkedInEvent;
+$event = $comulienNamespace->checkedInEvent;*/
 ?>
 <div id="view-content">
-          <div id="nomOrga"><p><?php echo $this->escape($organisateur->nomOrga) ?></p></div>
-          <div id="logoOrga"><img src="<?php echo $this->escape($organisateur->logoOrga) ?>" alt="logo" /></div>
-          <div>Description : <?php echo $this->escape($organisateur->descOrga) ?>
-          <p><a href="<?php echo $lienListerOrganisateur ?>" alt="">Voir les annonces organisateurs</a></p><div>
-
-  <p>Vous présente</p>
-          <div id="nomEvent"><?php echo $event->titreEvent ?> </div>
-          <div id="logoOrga"><img src="<?php echo $this->escape($evenement->logoEvent) ?>" alt="logo Evènement" /></div>
-          <div>Description : <?php echo $this->escape($evenement->descEvent) ?>
-          <p><?php echo $this->datesEvenement($evenement->dateDebutEvent,$evenement->dateFinEvent,$evenement->delaiPersistence) ?></p>
-      <p><a href="<?php echo $lienListerTous ?>" alt="">Voir les messages</a></p></div>
-
+    <div class="acceuilBlock">
+          <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
+          <div id="logoOrga"><img src="<?php echo $this->escape($this->organisateur->logoOrga) ?>" alt="logo organisme" /></div>
+          <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
+          <p><a href="<?php echo $this->lienListerOrganisateur ?>" alt="">Voir les annonces organisateurs</a></p>
+    </div>
+    <div id="present"><p>Vous présente</p></div>
+    <div class="acceuilBlock">
+          <div id="nomEvent"><?php echo $this->event->titreEvent ?> </div>
+          <div id="logoEvent"><img src="<?php echo $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></div>
+          <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>
+          <p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p>
+          <p><a href="<?php echo $this->lienListerTous ?>" alt="">Voir les messages</a></p>
+    </div>
   
 </div>
