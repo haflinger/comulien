@@ -15,9 +15,10 @@ class EvenementController extends Zend_Controller_Action
         //session active ?
         if (isset($bulleNamespace->checkedInEvent)) {
             $this->_evenement = $bulleNamespace->checkedInEvent;
-            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
-            //  soient mémorisées dans la session
-            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
+            //  
+            //lors de la sauvegarde en session le EvenementRow est sérialisé, et par sécurité passe en mode 'déconnecté'
+            // pour l'utiliser à nouveau comme un objet row, il faut le reconnecter en utilisant setTable
+            //http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
             $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
         }
         else
