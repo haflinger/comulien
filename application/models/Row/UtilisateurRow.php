@@ -107,17 +107,30 @@ class Application_Model_Row_UtilisateurRow extends Zend_Db_Table_Row_Abstract
     }
     
     
-    public function getProfils($Event){
+    public function getProfils($idOrga){
         //cette méthode devrait servir pour les ACL
         //Les rôles à retourner seront :
         // anonyme, identifie, utilisateur, corporate, organisateur 
-        $orgaID = $Event;//->idOrga;
         $tableDistinguer = new Application_Model_DbTable_Distinguer();
         $select = $tableDistinguer->select()
                 ->where('idUser = ?' ,$this->idUser)
-                ->where('idOrga = ?' ,$orgaID);
+                ->where('idOrga = ?' ,$idOrga);
         return $tableDistinguer->fetchAll($select);
         
+    }
+    
+    public function getRole($idOrga){
+        $profils = $this->getProfils($idOrga);
+        $role = 'visiteur';
+        if ($profils->count()>0) {
+            $role = 'identifie';
+            //TODO : préciser s'il s'agit d'un corp ou orga
+            //  (attention le cas ou l'utilisateur est à la fois corp ou orga)
+        }
+        else{
+            $role = 'utilisateur';
+        }
+        return $role;
     }
 }
 

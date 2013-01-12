@@ -79,27 +79,18 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
 //            $request->setActionName(self::FAIL_EVENT_ACTION);
             $role = 'visiteur';
         }else {
-            
-        // is the user authenticated
-        if ($this->_auth->hasIdentity()) {
-            // yes ! we get his role
-            $idUser = $this->_auth->getIdentity()->idUser;
-            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-            $user = $tableUtilisateur->find($idUser)->current();
+            $role = 'utilisateur';
 
-            $profils = $user->getProfils($this->_evenement->idOrga);
-            if ($profils->count()>0) {
-                $role = 'identifie';
-                //TODO : préciser s'il s'agit d'un corp ou orga
-                //  (attention le cas ou l'utilisateur est à la fois corp ou orga)
+            // is the user authenticated
+            if ($this->_auth->hasIdentity()) {
+                // yes ! we get his role
+                $idUser = $this->_auth->getIdentity()->idUser;
+                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+                $user = $tableUtilisateur->find($idUser)->current();
+
+                //$profils = $user->getProfils($this->_evenement->idOrga);
+                $role = $user->getRole($this->_evenement->idOrga);
             }
-            else{
-                $role = 'utilisateur';
-            }
-        } else {
-            // no = guest user
-            $role = 'visiteur';
-        }
         }
         //DEBUG : role=dev pour debugger
         //$role = 'dev';
