@@ -74,10 +74,10 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         $this->getEvenement();
 
         if (is_null($this->_evenement)) {
-            $request->setModuleName(self::FAIL_EVENT_MODULE);
-            $request->setControllerName(self::FAIL_EVENT_CONTROLLER);
-            $request->setActionName(self::FAIL_EVENT_ACTION);
-            
+//            $request->setModuleName(self::FAIL_EVENT_MODULE);
+//            $request->setControllerName(self::FAIL_EVENT_CONTROLLER);
+//            $request->setActionName(self::FAIL_EVENT_ACTION);
+            $role = 'visiteur';
         }else {
             
         // is the user authenticated
