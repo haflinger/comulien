@@ -1,13 +1,13 @@
-
-<div class="ecriremessage">
-    <?php echo $this->formEcrireMessage ?>
-</div>
+<!--TODO
+- Modifier l'image par défaut de gravatar
+- Mettre en place le menu de like, unlike, tweet, facebook....
+-->
+<div class="vide"></div>
 <?php foreach ($this->messages as $entry): ?>
 <div class="message">
     <!--<div class="avatar"><img alt="avatar" src="<?php echo $this->baseUrl() ?> /images/avatar.png"/></div>-->
     <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
     <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div>
-    <!--gravatar-->
     <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
     <div class="nbMessage">4</div>
     <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div></br>
@@ -35,5 +35,12 @@
                  ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
      }
      ?>-->
-</div>    
+</div>  
+<div class="menuMessage">
+    
+</div>
+
     <?php endforeach ?>
+<div class="ecriremessage">
+    <?php echo $this->formEcrireMessage ?>
+</div>

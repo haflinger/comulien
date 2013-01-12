@@ -15,11 +15,11 @@ class Application_Form_EcrireMessage extends Zend_Form
         //
         $message = new Zend_Form_Element_Textarea('message');
         $message->setAllowEmpty(false);
-        $message->setLabel('Votre message');
+        $message->setAttrib('placeholder', 'Votre message');
         $message->setRequired(true);
         //$message->addValidator('StringLength',array(0,10)); //todo à vérifier
-        $message->setAttrib('cols', 35)
-                ->setAttrib('rows', 4);
+        $message->setAttrib('cols', 10)
+                ->setAttrib('rows', 1);
         
         //
         // combobox de sélection du profil à utiliser
@@ -52,7 +52,6 @@ class Application_Form_EcrireMessage extends Zend_Form
         $lesProfils = $distinguer->getProfils($idUser, $IDorga);
         //$lesProfils = array ('0'=>'Utilisateur','1'=>'Organisateur','2'=>'Corporate','3'=>'Annonceur'); // todo 
         $profil = new Zend_Form_Element_Select('choixProfil',array(
-            'label'        => 'Profil à utiliser :',
             'MultiOptions' => $lesProfils,
             ) );
         

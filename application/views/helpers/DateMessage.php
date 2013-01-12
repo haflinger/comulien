@@ -19,15 +19,15 @@ class Zend_View_Helper_DateMessage extends Zend_View_Helper_Abstract {
         $diff = $maintenant->sub($mdate)->get();//->toValue();
     
         if ($diff<60) {
-            return 'Il y a '.$diff.' sec';
+            return $diff.' sec';
         }
         $diff = $diff/60;//diff en minutes
         if ($diff<60) {
-            return 'Il y a '.floor($diff).'min';
+            return floor($diff).'min';
         }
         $diff = $diff/60;//diff en heures
         if ($diff<24) {
-            return 'Il y a '.floor($diff).' heures';
+            return floor($diff).' heures';
         }
         $diff = $diff/24; //diff en jours
         if ($diff<2 && $diff>1) {

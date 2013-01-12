@@ -34,10 +34,13 @@ body{
         border-bottom-right-radius:28px;
     } 
 #header{
+        position: fixed;
+        width : 100%;
         font-size: 20px; 
         color: white; 
         background-color: #5A6571;
         margin:0px;
+        z-index: 10;
     }    
 #header li{
         display:inline; 
@@ -69,6 +72,12 @@ body{
         margin: 1px;
         padding:5px 5px 5px 2px;
         size: 300px;
+        z-index: 1;
+    }
+.menuMessage{
+        height:50px;
+        width:100%;
+        visibility:hidden;
     }
 .ecriremessage{
         background-color: #E5E8ED;
@@ -78,6 +87,7 @@ body{
 .dateMessage{
        position: relative;
        float: right;
+       z-index: 1;
     }
 .nomUser{
        font-weight: bold;
@@ -114,6 +124,7 @@ body{
         border-bottom-left-radius:75px;
         border-bottom-right-radius:75px;
     }
+
 @media screen and (max-width: 480px){
     #titre {
         margin:2px;
@@ -123,12 +134,17 @@ body{
         height:25px; 
         width: 25px; 
         margin: 2px;
+        z-index: 1;
     }
     #nomOrga{
         font-size: 20px;
     }
     #nomEvent{
         font-size: 20px;
+    }
+    .vide{
+       height: 34px;
+       width: 100%;
     }
 }
 
@@ -142,11 +158,16 @@ body{
         height:50px; 
         width: 50px; 
         margin: 2px;
+        z-index: 1;
     }
     #nomOrga{
         font-size: 30px;
     }
     #nomEvent{
         font-size: 30px;
+    }
+    .vide{
+       height: 63px;
+       width: 100%;
     }
 }
