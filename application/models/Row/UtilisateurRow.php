@@ -106,16 +106,18 @@ class Application_Model_Row_UtilisateurRow extends Zend_Db_Table_Row_Abstract
         return $moderateur;
     }
     
-    /**
-     * Récupère le rôle de l'utilisateur dans l'organisme
-     * @param Application_Model_Row_OrganismeRow $organisme
-     * @throws Zend_Exception
-     */
-    public function getRole($organisme){
+    
+    public function getProfils($Event){
         //cette méthode devrait servir pour les ACL
         //Les rôles à retourner seront :
         // anonyme, identifie, utilisateur, corporate, organisateur 
-        throw new Zend_Exception('TODO');
+        $orgaID = $Event;//->idOrga;
+        $tableDistinguer = new Application_Model_DbTable_Distinguer();
+        $select = $tableDistinguer->select()
+                ->where('idUser = ?' ,$this->idUser)
+                ->where('idOrga = ?' ,$orgaID);
+        return $tableDistinguer->fetchAll($select);
+        
     }
 }
 

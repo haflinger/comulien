@@ -16,12 +16,17 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     private $_acl;
 
     /**
+     * l'évènement en cours
+     * @var rowset evenement 
+     */
+    private $_evenement = null;
+    /**
      * Chemin de redirection lors de l'échec d'authentification
      */
 
     const FAIL_AUTH_MODULE = 'default';
     const FAIL_AUTH_ACTION = 'login';
-    const FAIL_AUTH_CONTROLLER = 'utilisateur';
+    const FAIL_AUTH_CONTROLLER = 'login';
 
     /**
      * Chemin de redirection lors de l'échec de contrôle des privilèges
@@ -30,32 +35,74 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     const FAIL_ACL_ACTION = 'index';
     const FAIL_ACL_CONTROLLER = 'index';
 
+    const FAIL_EVENT_MODULE = 'default';
+    const FAIL_EVENT_ACTION = 'index';
+    const FAIL_EVENT_CONTROLLER = 'index';
     /**
      * Constructeur
      */
     public function __construct(Zend_Acl $acl) {
         $this->_acl = $acl;
         $this->_auth = Zend_Auth::getInstance();
+        
     }
-
+    
+    public function getEvenement(){
+        $bulleNamespace = new Zend_Session_Namespace('bulle');
+        //session active ?
+        if (isset($bulleNamespace->checkedInEvent)) {
+            $this->_evenement = $bulleNamespace->checkedInEvent;
+        
+        
+            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
+            //  soient mémorisées dans la session
+            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
+            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
+        }
+        else
+        {
+            $this->_evenement = null;
+            
+        }
+    }
+    
     /**
      * Vérifie les autorisations
      * Utilise _request et _response hérités et injectés par le FC
      */
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
+        $this->getEvenement();
+
+        if (is_null($this->_evenement)) {
+            $request->setModuleName(self::FAIL_EVENT_MODULE);
+            $request->setControllerName(self::FAIL_EVENT_CONTROLLER);
+            $request->setActionName(self::FAIL_EVENT_ACTION);
+            
+        }else {
+            
         // is the user authenticated
         if ($this->_auth->hasIdentity()) {
             // yes ! we get his role
             $idUser = $this->_auth->getIdentity()->idUser;
             $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
             $user = $tableUtilisateur->find($idUser)->current();
-            //TODO : pour le moment quoiqu'il arrive, connecté ou pas, on a le role 'dev'
-            $role = 'dev';
+
+            $profils = $user->getProfils($this->_evenement->idOrga);
+            if ($profils->count()>0) {
+                $role = 'identifie';
+                //TODO : préciser s'il s'agit d'un corp ou orga
+                //  (attention le cas ou l'utilisateur est à la fois corp ou orga)
+            }
+            else{
+                $role = 'utilisateur';
+            }
         } else {
             // no = guest user
-            $role = 'dev';
+            $role = 'visiteur';
         }
-
+        }
+        //DEBUG : role=dev pour debugger
+        //$role = 'dev';
         $module = $request->getModuleName();
         $controller = $request->getControllerName();
         $action = $request->getActionName();
