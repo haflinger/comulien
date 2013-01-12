@@ -52,7 +52,7 @@ class Application_Form_EcrireMessage extends Zend_Form
         $this->setMethod('post');
 
         // l'action utilisée pour l'envoi du message
-        $this->setAction($privilegeAction);
+        $this->setAction(self::PRIVILEGE_ACTION);
         //
         //zone de texte pour la saisie du message
         //
