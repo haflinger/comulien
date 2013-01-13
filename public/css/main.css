@@ -33,6 +33,8 @@ body{
         border-bottom-left-radius:6px;
         border-bottom-right-radius:28px;
     } 
+
+#lientitre {color:white;text-decoration: none}
 #header{
         position: fixed;
         width : 100%;
@@ -56,29 +58,49 @@ body{
 #footer p {
         text-align: right;
     }
-#logoOrga{
-       position: relative;
-       float: right;
+#logoOrga im{
+       text-align: left;
+       height:45px; 
+       width: 45px;
     }
-#logoEvent{
-       position: relative;
-       float: right;
+#logoEvent im{
+       text-align: left;
+       height:45px; 
+        width: 45px;
     }
 #present{
         text-align: center;
     }     
 .message{
         background-color: #A2A9AF;
-        margin: 1px;
+        margin: 1px 1px 0px 1px;
         padding:5px 5px 5px 2px;
-        size: 300px;
         z-index: 1;
     }
 .menuMessage{
-        height:30px;
+        padding: 2px;
+        margin: 0px 1px 0px 1px;
+        height: 35px;
         width:100%;
-        visibility:hidden;
+        background-color: #E5E8ED;
+        -moz-box-shadow:inset 0px 5px 5px #636363;
+        -webkit-box-shadow:inset 0px 5px 5px #636363;
+        box-shadow:inset 0px 5px 5px #636363;
     }
+ .menuMessage li{
+     position: relative;
+     text-decoration: none;
+     display: inline;
+ }
+ .icone{
+     position: relative;
+     float: left;
+     height: 30px;
+     width: 30px;
+     margin: 5px 5% 0px 5%;
+     vertical-align: middle;
+ }
+.moderation{position: relative;text-align: center; margin: 0px 5px 0px 0px}    
 .ecriremessage{
         padding: 0px 2px 0px 2px;
         position: fixed;
@@ -89,20 +111,23 @@ body{
         z-index:10;
     }
 
-dd #messageBox{margin:0px;width:97%;height: 20px}
-dt dd #choixProfil{margin:0px;position:relative;float:left;}
-dd{display: inline}
-
-dt dd #envoyer{margin:0px;position:relative;float:left;}
+dd #messageBox{margin:0px;position:relative;width:50%;height: 20px}
+dt dd #choixProfil{margin:0px;position:relative;float:right;}
+dt dd #envoyer{margin:0px;position:relative;float:right;}
 #vide{height: 100px}
+
 .dateMessage{
        position: relative;
        float: right;
+       color: gold;
        z-index: 1;
     }
 .nomUser{
        font-weight: bold;
-       color: white;
+       color: gold;
+    }
+    .lblMessage{
+        color:white;
     }
 .avatar img{
         position: relative;
@@ -117,23 +142,9 @@ dt dd #envoyer{margin:0px;position:relative;float:left;}
         height: 25px;
         line-height:25px;
         width: 25px;
-        background-color: #FD9308;
-        font-weight: bold;
-        color: white;
+        color: gold;
         text-align: center;
-        border:hidden 0px #13359c;
-        -moz-border-radius-topleft: 75px;
-        -moz-border-radius-topright:75px;
-        -moz-border-radius-bottomleft:75px;
-        -moz-border-radius-bottomright:75px;
-        -webkit-border-top-left-radius:75px;
-        -webkit-border-top-right-radius:75px;
-        -webkit-border-bottom-left-radius:75px;
-        -webkit-border-bottom-right-radius:75px;
-        border-top-left-radius:75px;
-        border-top-right-radius:75px;
-        border-bottom-left-radius:75px;
-        border-bottom-right-radius:75px;
+       
     }
 
 @media screen and (max-width: 480px){

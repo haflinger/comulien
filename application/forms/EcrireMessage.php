@@ -18,6 +18,7 @@ class Application_Form_EcrireMessage extends Zend_Form
         else
         {
             return ;
+        
         }
 //        
         // récupération de l'utilisateur
@@ -90,8 +91,7 @@ class Application_Form_EcrireMessage extends Zend_Form
 //        ));
 
 
-        $submit = new Zend_Form_Element_Submit ( 'submit' );
-        $submit ->setLabel ( 'Envoyer' );
+        $submit = new Zend_Form_Element_Submit ( 'envoyer' );
         $elements = array ($message, $profil, $submit );
         $this->addElements ( $elements );
 

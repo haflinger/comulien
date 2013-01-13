@@ -5,7 +5,7 @@
             $event = $comulienNamespace->checkedInEvent->titreEvent;}
             else {$event = 'Comulien';}
     ?>
-    <div id="titre"><a><?php echo $event ?></a></div>
+    <div id="titre"><a id="lientitre" href="<?php echo $this->accueilEventLink(); ?>"><?php echo $event ?></a></div>
     <ul>
         <li><a href="<?php echo $this->accueilEventLink(); ?>" ><img alt="home" src="<?php echo $this->baseUrl() ?> /images/home.png"/></a></li>
         <li><a href="<?php echo $this->profileLink(); ?>" ><img alt="home" src="<?php echo $this->baseUrl() ?> /images/key.png"/></a></li>

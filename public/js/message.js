@@ -1,6 +1,13 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+function afficher_cacher(id)
+{
+        if(document.getElementById(id).style.display=="none")
+        {
+                document.getElementById(id).style.display="";
+        }
+        else
+        {
+                document.getElementById(id).style.display="none";
+        }
+        return true;
+}
 
