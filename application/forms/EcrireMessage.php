@@ -29,7 +29,7 @@ class Application_Form_EcrireMessage extends Zend_Form
 //            $user = $tableUtilisateur->find($idUser)->current();
         }else{
             //TODO
-            return ;
+            return null;
         }
 //        
 //        //Détermination du rôle de l'utilisateur dans l'organisme

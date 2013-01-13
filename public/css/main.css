@@ -102,30 +102,37 @@ body{
  }
 .moderation{position: relative;text-align: center; margin: 0px 5px 0px 0px}    
 
-.menuEcrire{
-    padding: 0px 2px 0px 2px;
-    position: fixed;
-    top: 100%;
-    margin: -40px 0 0 0;
-    width: 100%;
-    background-color: #5A6571;
-    z-index:10;
-}
-/*.ecriremessage{
+#menuEcrire{
         padding: 0px 2px 0px 2px;
         position: fixed;
         top: 100%;
-        margin: -114px 0 0 0;
+        margin: -20px 0 0 0;
         width: 100%;
         background-color: #5A6571;
-        z-index:10;
-    }*/
+        z-index: 9;
+    }
+.bulle{
+     position: relative;
+     float: left;
+     height: 20px;
+     width: 20px;
+     margin: 0px;
+ }
+#ecrireMessage{
+        padding: 0px 2px 0px 2px;
+        position: fixed;
+        top: 100%;
+        margin: -135px 0 0 0;
+        width: 100%;
+        background-color: #5A6571;
+        z-index: 10;
+    }
 
 dd #message{margin:0px;position:relative;width:50%;height: 20px}
 dt dd #choixProfil{margin:0px;position:relative;float:right;}
 dt dd #envoyer{margin:0px;position:relative;float:right;}
 #vide{
-    height: 100px;
+    height: 20px;
     width:100%;
 }
 
