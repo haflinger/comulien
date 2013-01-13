@@ -1,7 +1,4 @@
-
-<!--<div class="ecriremessage">
-    <?php echo $this->formEcrireMessage ?>
-</div>
+<!--
 TODO
 - Modifier l'image par défaut de gravatar
 - Mettre en place le menu de like, unlike, tweet, facebook....
@@ -14,7 +11,7 @@ TODO
     <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
     <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div>
     <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
-    <div class="nbMessage"><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/></div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/>--><span>4</span></div>
     <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div></br>
 </div>  
 <div class="menuMessage" id="message<?php echo $this->escape($entry->idMessage) ?>" >
@@ -37,18 +34,21 @@ TODO
  </script>
     <?php endforeach ?>
  <!-- Test si l'utilisateur est bien loggé -->
-    <?php $auth = Zend_Auth::getInstance ();
-        if ($auth->hasIdentity ()) {
+    <?php  if (!is_null($this->fromEcrireModérateur)) {
            echo '<div class="ecriremessage">';
            echo $this->formEcrireMessage ;
            echo '</div>';
            echo '<div id="vide"></div>';
         }
-     ?>    
-    
+     ?>      
    
     
     
+ 
+ 
+ 
+ 
+ 
     <!--ANCIEN CODE QUI PEUT SERVIR
     
     <div><?php echo $this->notationMessage($entry->idMessage) ?></div>

@@ -54,6 +54,7 @@ body{
 #footer{
         color: white; 
         background-color: #5A6571;
+        width: 100%
     }
 #footer p {
         text-align: right;
@@ -81,7 +82,6 @@ body{
         padding: 2px;
         margin: 0px 1px 0px 1px;
         height: 35px;
-        width:100%;
         background-color: #E5E8ED;
         -moz-box-shadow:inset 0px 5px 5px #636363;
         -webkit-box-shadow:inset 0px 5px 5px #636363;
@@ -111,10 +111,13 @@ body{
         z-index:10;
     }
 
-dd #messageBox{margin:0px;position:relative;width:50%;height: 20px}
+dd #message{margin:0px;position:relative;width:50%;height: 20px}
 dt dd #choixProfil{margin:0px;position:relative;float:right;}
 dt dd #envoyer{margin:0px;position:relative;float:right;}
-#vide{height: 100px}
+#vide{
+    height: 100px;
+    width:100%;
+}
 
 .dateMessage{
        position: relative;
@@ -126,7 +129,7 @@ dt dd #envoyer{margin:0px;position:relative;float:right;}
        font-weight: bold;
        color: gold;
     }
-    .lblMessage{
+.lblMessage{
         color:white;
     }
 .avatar img{
@@ -137,16 +140,20 @@ dt dd #envoyer{margin:0px;position:relative;float:right;}
         margin: 2px;
     }
 .nbMessage{
-        position: relative;
+        background-image: url(images/message.png);
         float: right;
         height: 25px;
         line-height:25px;
         width: 25px;
-        color: gold;
+        color: white;
         text-align: center;
+        z-index:1;
        
     }
-
+.nbMessage span{
+        top:5px;
+        z-index:2;
+    }
 @media screen and (max-width: 480px){
     #titre {
         margin:2px;
