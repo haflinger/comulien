@@ -81,7 +81,6 @@ class MessageController extends Zend_Controller_Action
             }
             else
             {
-                $this->view->formEcrireMessage = null;
                    $this->view->formEcrireMessage = null;
             }
 
@@ -153,8 +152,6 @@ class MessageController extends Zend_Controller_Action
         if ($this->_request->isPost()) {
             $form = new Application_Form_EcrireMessage();
             $formData = $this->_request->getPost();
-//            $this->view->message = $formData;
-//            return;
             if ($form->isValid($formData)) {
                 //on récupère les données du formulaire
                 //faire du contrôle de saisie :

@@ -82,7 +82,6 @@ class MessageController extends Zend_Controller_Action
             else
             {
                 $this->view->formEcrireMessage = null;
-                   $this->view->formEcrireMessage = null;
             }
 
 
