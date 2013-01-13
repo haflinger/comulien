@@ -56,15 +56,12 @@ class Application_Form_EcrireMessage extends Zend_Form
         //
         //zone de texte pour la saisie du message
         //
-        $message = new Zend_Form_Element_Textarea('message');
+        $message = new Zend_Form_Element_Textarea('messageBox');
         $message->setAllowEmpty(false);
         $message->setAttrib('placeholder','Votre message');
-        $message->setAttrib('placeholder', 'Votre message');
         $message->setRequired(true);
         
         //$message->addValidator('StringLength',array(0,10)); //todo à vérifier
-        $message->setAttrib('cols', 10)
-                ->setAttrib('rows', 1);
         
         //
         // combobox de sélection du profil à utiliser
@@ -75,8 +72,7 @@ class Application_Form_EcrireMessage extends Zend_Form
 
         //création d'un élément de formulaire de sélection du profil
         $profil = new Zend_Form_Element_Select('choixProfil',array(
-            'MultiOptions' => $lesProfils,
-            'class'=>'maclasse'
+            'MultiOptions' => $lesProfils
             ) );
         
         //
@@ -95,9 +91,7 @@ class Application_Form_EcrireMessage extends Zend_Form
 
 
         $submit = new Zend_Form_Element_Submit ( 'submit' );
-        $submit->setAttrib ( 'id', 'submitbutton' )
-                ->setLabel ( 'Envoyer' );
-
+        $submit ->setLabel ( 'Envoyer' );
         $elements = array ($message, $profil, $submit );
         $this->addElements ( $elements );
 

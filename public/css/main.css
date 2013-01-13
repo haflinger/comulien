@@ -75,15 +75,26 @@ body{
         z-index: 1;
     }
 .menuMessage{
-        height:50px;
+        height:30px;
         width:100%;
         visibility:hidden;
     }
 .ecriremessage{
-        background-color: #E5E8ED;
-
-        size: 300px;
+        padding: 0px 2px 0px 2px;
+        position: fixed;
+        top: 100%;
+        margin: -114px 0 0 0;
+        width: 100%;
+        background-color: #5A6571;
+        z-index:10;
     }
+
+dd #messageBox{margin:0px;width:97%;height: 20px}
+dt dd #choixProfil{margin:0px;position:relative;float:left;}
+dd{display: inline}
+
+dt dd #envoyer{margin:0px;position:relative;float:left;}
+#vide{height: 100px}
 .dateMessage{
        position: relative;
        float: right;
