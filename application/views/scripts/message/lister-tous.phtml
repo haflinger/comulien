@@ -35,17 +35,23 @@ TODO
  </script>
     <?php endforeach ?>
  <!-- Test si l'utilisateur est bien loggé -->
-    <?php  if (!is_null($this->fromEcrireModérateur)) {?>
-           <div id="menuEcrire">
-               
+    <?php  if (!is_null($this->formEcrireMessage)) {?>
+           <div id="menuEcrire" onclick="javascript:afficher_cacher('ecrireMessage');">
+               <img class="bulle" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/><span>Ecrire un message</span>
            </div>
-           <div id="ecriremessage">;
+           <div id="ecrireMessage">
            <?php echo $this->formEcrireMessage ; ?>
-           </div>;
-           <div id="vide"></div>;
+               <div onclick="javascript:afficher_cacher('ecrireMessage');"> <p>Fermer le formulaire</p></div>
+           </div>
+           
      <?php   }
      ?>      
-   
+ <!-- Appel de la fonction pour cacher le formulaire -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher('ecrireMessage');
+ //-->
+ </script>
     
     
  

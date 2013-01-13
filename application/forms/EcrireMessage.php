@@ -30,6 +30,7 @@ class Application_Form_EcrireMessage extends Zend_Form
         }else{
             //TODO
             return ;
+
         }
 
         // La méthode HTTP d'envoi du formulaire
