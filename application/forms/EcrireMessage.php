@@ -30,24 +30,7 @@ class Application_Form_EcrireMessage extends Zend_Form
             //TODO
             return ;
         }
-//        
-//        //Détermination du rôle de l'utilisateur dans l'organisme
-//        if (!is_null($user)) {
-//            $role = $user->getRole($IDorga);
-//        }else{
-//            $role = 'visiteur';
-//        }
-//        
-//        //définition 
-//        $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
-//        $privilegeAction = self::PRIVILEGE_ACTION;//'envoyer';
-//        $ACL = Zend_Registry::get('Zend_Acl');
-//        if(!$ACL->isAllowed($role, $resourceController, $privilegeAction))
-//        {
-//            $this->addError($role);
-//            return ;
-//        }
-        
+
         // La méthode HTTP d'envoi du formulaire
         $this->setMethod('post');
 

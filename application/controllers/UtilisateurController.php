@@ -186,8 +186,28 @@ class UtilisateurController extends Zend_Controller_Action
             $Utilisateur = new Application_Model_DbTable_Utilisateur();
             $this->view->user = $Utilisateur->find($id)->current();
         } else { //sinon : on redirige sur monProfil
-            $this->_helper->redirector ( 'profilprive');
+           // $this->_helper->redirector ( 'profilprive');
         }
+        
+        //////
+        $formInscription =  new Application_Form_InscrireUtilisateur();
+        $user = self::getUserFromAuth();
+        if (is_null($user)) {
+            //TODO faire une redirection
+            return;
+        }
+        
+        $formData = array(
+            'login'=>$user->loginUser,
+            'email'=>$user->emailUser,
+            'password'=>'',
+            'nom'=>$user->nomUser,
+            'prenom'=>$user->prenomUser
+        );
+        $formInscription->populate($formData);
+        $this->view->formInscription = $formInscription;
+    }
+    
 //
 //        //ATTENTION cette action permet de voir le profil complet de l'utilisateur
 //       // dont l'id est passé en paramètres
@@ -205,7 +225,7 @@ class UtilisateurController extends Zend_Controller_Action
 //           //pas de session, on redirige sur le login
 //           $this->_helper->redirector ( 'authentifier', 'utilisateur' );
 //       }
-   }
+   
     
     public function deconnecterAction()
     {
