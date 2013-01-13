@@ -48,10 +48,17 @@ class UtilisateurController extends Zend_Controller_Action
     }
     public function testAction()
     {
-        //récupérer l'user session
-        $user = $this->getUserFromAuth();
+        $auth = Zend_Auth::getInstance ();
+        $utilisateur = null;
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+            $utilisateur = $tableUtilisateur->find($idUser)->current();
+            
+        }
         
-        $this->view->test = $user->getProfils($this->_evenement)->toArray();
+        //$this->view->test = $user->getProfils($this->_evenement)->toArray();
+        $this->view->test = $utilisateur->getRole($this->_evenement->idOrga);
     }
     public function indexAction()
     {
@@ -98,7 +105,32 @@ class UtilisateurController extends Zend_Controller_Action
 
     public function inscrireAction()
     {
-        // action body
+        $formInscription =  new Application_Form_InscrireUtilisateur();
+        $this->view->formInscription = $formInscription;
+        
+        //si le formulaire est posté
+        if ($this->getRequest()->isPost()) {
+        //on récupère les données postées
+            $formData = $this->getRequest()->getPost();
+            //si les données postées sont valides 
+            if ($formInscription->isValid($formData)) {
+                //on récupère les données qui nous intéressent
+                $login = $formInscription->getValue('login');
+                $email = $formInscription->getValue('email');
+                $password = $formInscription->getValue('password');
+                $nom = $formInscription->getValue('nom');
+                $prenom = $formInscription->getValue('prenom');
+                //insertion du nouvel utilisateur
+                //instance du model 'Utilisateur'
+                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+                //utilisation de la function addUser du modele
+                $tableUtilisateur->addUser($login, $email, $password, $nom, $prenom);
+
+                //éventuellle redirection
+                $this->_forward('authentifier','utilisateur');
+            }
+        }
+    
     }
 
     public function authentifierAction()

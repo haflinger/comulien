@@ -112,7 +112,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         if (!$this->_acl->has($resource)) {
             $resource = null;
         }
-
+//$role='visiteur';
         // contrôle si l'utilisateur est autorisé
         if (!$this->_acl->isAllowed($role, $resource, $action)) {
             // l'utilisateur n'est pas autorisé à accéder à cette ressource
