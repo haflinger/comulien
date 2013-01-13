@@ -18,6 +18,7 @@ class Application_Form_EcrireMessage extends Zend_Form
         else
         {
             return ;
+
         }
 //        
         // récupération de l'utilisateur
@@ -38,15 +39,13 @@ class Application_Form_EcrireMessage extends Zend_Form
         $this->setAction(self::PRIVILEGE_ACTION);
         //
         //zone de texte pour la saisie du message
-        //
+        //TODO : modifié textarea + son nom
         $message = new Zend_Form_Element_Textarea('message');
         $message->setAllowEmpty(false);
         $message->setAttrib('placeholder','Votre message');
         $message->setRequired(true);
         
         //$message->addValidator('StringLength',array(0,10)); //todo à vérifier
-        $message->setAttrib('cols', 35)
-                ->setAttrib('rows', 4);
         
         //
         // combobox de sélection du profil à utiliser
@@ -57,9 +56,7 @@ class Application_Form_EcrireMessage extends Zend_Form
 
         //création d'un élément de formulaire de sélection du profil
         $profil = new Zend_Form_Element_Select('choixProfil',array(
-            'label'        => 'Profil à utiliser :',
-            'MultiOptions' => $lesProfils,
-            'class'=>'maclasse'
+            'MultiOptions' => $lesProfils
             ) );
         
         //
@@ -77,10 +74,7 @@ class Application_Form_EcrireMessage extends Zend_Form
 //        ));
 
 
-        $submit = new Zend_Form_Element_Submit ( 'submit' );
-        $submit->setAttrib ( 'id', 'submitbutton' )
-                ->setLabel ( 'Envoyer' );
-
+        $submit = new Zend_Form_Element_Submit ( 'envoyer' );
         $elements = array ($message, $profil, $submit );
         $this->addElements ( $elements );
 

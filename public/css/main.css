@@ -33,11 +33,16 @@ body{
         border-bottom-left-radius:6px;
         border-bottom-right-radius:28px;
     } 
+
+#lientitre {color:white;text-decoration: none}
 #header{
+        position: fixed;
+        width : 100%;
         font-size: 20px; 
         color: white; 
         background-color: #5A6571;
         margin:0px;
+        z-index: 10;
     }    
 #header li{
         display:inline; 
@@ -49,39 +54,83 @@ body{
 #footer{
         color: white; 
         background-color: #5A6571;
+        width: 100%
     }
 #footer p {
         text-align: right;
     }
-#logoOrga{
-       position: relative;
-       float: right;
+#logoOrga im{
+       text-align: left;
+       height:45px; 
+       width: 45px;
     }
-#logoEvent{
-       position: relative;
-       float: right;
+#logoEvent im{
+       text-align: left;
+       height:45px; 
+        width: 45px;
     }
 #present{
         text-align: center;
     }     
 .message{
         background-color: #A2A9AF;
-        margin: 1px;
+        margin: 1px 1px 0px 1px;
         padding:5px 5px 5px 2px;
-        size: 300px;
+        z-index: 1;
     }
-.ecriremessage{
+.menuMessage{
+        padding: 2px;
+        margin: 0px 1px 0px 1px;
+        height: 35px;
         background-color: #E5E8ED;
-
-        size: 300px;
+        -moz-box-shadow:inset 0px 5px 5px #636363;
+        -webkit-box-shadow:inset 0px 5px 5px #636363;
+        box-shadow:inset 0px 5px 5px #636363;
     }
+ .menuMessage li{
+     position: relative;
+     text-decoration: none;
+     display: inline;
+ }
+ .icone{
+     position: relative;
+     float: left;
+     height: 30px;
+     width: 30px;
+     margin: 5px 5% 0px 5%;
+     vertical-align: middle;
+ }
+.moderation{position: relative;text-align: center; margin: 0px 5px 0px 0px}    
+.ecriremessage{
+        padding: 0px 2px 0px 2px;
+        position: fixed;
+        top: 100%;
+        margin: -114px 0 0 0;
+        width: 100%;
+        background-color: #5A6571;
+        z-index:10;
+    }
+
+dd #message{margin:0px;position:relative;width:50%;height: 20px}
+dt dd #choixProfil{margin:0px;position:relative;float:right;}
+dt dd #envoyer{margin:0px;position:relative;float:right;}
+#vide{
+    height: 100px;
+    width:100%;
+}
+
 .dateMessage{
        position: relative;
        float: right;
+       color: gold;
+       z-index: 1;
     }
 .nomUser{
        font-weight: bold;
-       color: white;
+       color: gold;
+    }
+.lblMessage{
+        color:white;
     }
 .avatar img{
         position: relative;
@@ -91,28 +140,19 @@ body{
         margin: 2px;
     }
 .nbMessage{
-        position: relative;
+        background-image: url(images/message.png);
         float: right;
         height: 25px;
         line-height:25px;
         width: 25px;
-        background-color: #FD9308;
-        font-weight: bold;
         color: white;
         text-align: center;
-        border:hidden 0px #13359c;
-        -moz-border-radius-topleft: 75px;
-        -moz-border-radius-topright:75px;
-        -moz-border-radius-bottomleft:75px;
-        -moz-border-radius-bottomright:75px;
-        -webkit-border-top-left-radius:75px;
-        -webkit-border-top-right-radius:75px;
-        -webkit-border-bottom-left-radius:75px;
-        -webkit-border-bottom-right-radius:75px;
-        border-top-left-radius:75px;
-        border-top-right-radius:75px;
-        border-bottom-left-radius:75px;
-        border-bottom-right-radius:75px;
+        z-index:1;
+       
+    }
+.nbMessage span{
+        top:5px;
+        z-index:2;
     }
 @media screen and (max-width: 480px){
     #titre {
@@ -123,12 +163,17 @@ body{
         height:25px; 
         width: 25px; 
         margin: 2px;
+        z-index: 1;
     }
     #nomOrga{
         font-size: 20px;
     }
     #nomEvent{
         font-size: 20px;
+    }
+    .vide{
+       height: 34px;
+       width: 100%;
     }
 }
 
@@ -142,11 +187,16 @@ body{
         height:50px; 
         width: 50px; 
         margin: 2px;
+        z-index: 1;
     }
     #nomOrga{
         font-size: 30px;
     }
     #nomEvent{
         font-size: 30px;
+    }
+    .vide{
+       height: 63px;
+       width: 100%;
     }
 }

@@ -1,18 +1,57 @@
+<!--
+TODO
+- Modifier l'image par défaut de gravatar
+- Mettre en place le menu de like, unlike, tweet, facebook....
+-->
 
-<div class="ecriremessage">
-    <?php echo $this->formEcrireMessage ?>
-</div>
+<div class="vide"></div>
 <?php foreach ($this->messages as $entry): ?>
-<div class="message">
+<div class="message" onclick="javascript:afficher_cacher('message<?php echo $this->escape($entry->idMessage) ?>');">
     <!--<div class="avatar"><img alt="avatar" src="<?php echo $this->baseUrl() ?> /images/avatar.png"/></div>-->
     <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
     <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div>
-    <!--gravatar-->
     <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
-    <div class="nbMessage">4</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/>--><span>4</span></div>
     <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div></br>
+</div>  
+<div class="menuMessage" id="message<?php echo $this->escape($entry->idMessage) ?>" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/rep.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/plus.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/moins.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/twit.png"/></a></li>
+        
+    </ul>
+    <!--<div class="moderation"><?php echo $this->notationMessage($entry->idMessage) ?></div>-->
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher('message<?php echo $this->escape($entry->idMessage) ?>');
+ //-->
+ </script>
+    <?php endforeach ?>
+ <!-- Test si l'utilisateur est bien loggé -->
+    <?php  if (!is_null($this->fromEcrireModérateur)) {
+           echo '<div class="ecriremessage">';
+           echo $this->formEcrireMessage ;
+           echo '</div>';
+           echo '<div id="vide"></div>';
+        }
+     ?>      
+   
     
-    <!--<div><?php echo $this->notationMessage($entry->idMessage) ?></div>
+    
+ 
+ 
+ 
+ 
+ 
+    <!--ANCIEN CODE QUI PEUT SERVIR
+    
+    <div><?php echo $this->notationMessage($entry->idMessage) ?></div>
     <div><?php echo 'note : '.$entry->getNote() ?></div>
     <div><?php echo $this->moderationMessage($entry->idMessage) ?></div>
     <dd><?php if($entry->idTypeMsg != null) echo 'Type du message : ' . $this->escape($entry->getType()->lblTypeMsg)?></dd>
@@ -35,5 +74,5 @@
                  ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
      }
      ?>-->
-</div>    
-    <?php endforeach ?>
+
+ 
