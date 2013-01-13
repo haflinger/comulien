@@ -180,14 +180,14 @@ class UtilisateurController extends Zend_Controller_Action
         //ATTENTION cette action permet de voir le profil complet de l'utilisateur
         // dont l'id est passé en paramètres
         //TODO : revoir le comportement lors de l'utilisation réelle
-        $id = $this->getRequest()->getParam('id');// utilisateur/profil/id/1
-        if ($id!=null) { 
-            //un id en paramètres : on l'utilise
-            $Utilisateur = new Application_Model_DbTable_Utilisateur();
-            $this->view->user = $Utilisateur->find($id)->current();
-        } else { //sinon : on redirige sur monProfil
-           // $this->_helper->redirector ( 'profilprive');
-        }
+//        $id = $this->getRequest()->getParam('id');// utilisateur/profil/id/1
+//        if ($id!=null) { 
+//            //un id en paramètres : on l'utilise
+//            $Utilisateur = new Application_Model_DbTable_Utilisateur();
+//            $this->view->user = $Utilisateur->find($id)->current();
+//        } else { //sinon : on redirige sur monProfil
+//           // $this->_helper->redirector ( 'profilprive');
+//        }
         
         //////
         $formInscription =  new Application_Form_InscrireUtilisateur();

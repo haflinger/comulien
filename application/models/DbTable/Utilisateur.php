@@ -21,5 +21,17 @@ class Application_Model_DbTable_Utilisateur extends Zend_Db_Table_Abstract
         );
         $this->insert($data);
     }
+    
+    public function updateUserInfos($id,$login, $email, $password, $nom , $prenom)
+    {
+        $data = array(
+            'loginUser'=>$login,
+            'emailUser'=>$email,
+            'pswUser'=>$prenom,
+            'nomUser'=>$nom,
+            'prenomUser'=>$prenom
+        );
+        $table->insert($data);
+    }
 }
 
