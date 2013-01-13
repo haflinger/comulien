@@ -13,7 +13,8 @@
 class MessageController extends Zend_Controller_Action
 {
     private $_evenement;
-    
+    const PRIVILEGE_ACTION = 'envoyer';
+    const RESOURCE_CONTROLLER = 'message';
     public function init()
     {
         $bulleNamespace = new Zend_Session_Namespace('bulle');
@@ -41,19 +42,14 @@ class MessageController extends Zend_Controller_Action
 
     public function listerTousAction()
     {
-        //création d'une instance du formulaire
-        $formEcrire = new Application_Form_EcrireMessage();
-        $formModerer = new Application_Form_Moderer();
-        //on passe le formulaire à la vue
-        $this->view->formEcrireMessage = $formEcrire;
-        $this->view->formModererMessage = $formModerer;
+        
         if (!is_null($this->_evenement)){
             //si la session contient un evenement
-            $Message = new Application_Model_DbTable_Message();
             
             //Récupération du droit de modération de l'utilisateur dans l'évènement
             $auth = Zend_Auth::getInstance ();
             $moderateur = false;
+            $UtilisateurActif = null;
             if ($auth->hasIdentity ()) {
                 $idUser = $auth->getIdentity ()->idUser;
                 $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
@@ -62,13 +58,37 @@ class MessageController extends Zend_Controller_Action
                 $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
             }
             
-            $showAll = false;
-            if($moderateur){
-                $showAll = true;
-            }
+            //passe à la vue le droit de l'utilisateur à modérer
+            $this->view->moderateur = $moderateur;
             
-            $messagesTous = $Message->messagesTous($this->_evenement,$showAll);
-            $this->view->messages = $messagesTous;//$Message->fetchAll('idEvent='.$this->_evenement->idEvent);
+            //vérification du droit d'écrire un message
+            
+            //Détermination du rôle de l'utilisateur dans l'organisme
+            if (!is_null($UtilisateurActif)) {
+                $role = $UtilisateurActif->getRole($this->_evenement->idOrga);
+            }else{
+                $role = 'visiteur';
+            }
+
+            //définition 
+            $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
+            $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
+            $ACL = Zend_Registry::get('Zend_Acl');
+            if($ACL->isAllowed($role, $resourceController, $privilegeAction))
+            {
+                $formEcrire = new Application_Form_EcrireMessage();
+                $this->view->formEcrireMessage = $formEcrire;
+            }
+            else
+            {
+                   $this->view->formEcrireMessage = 'Vous n\'êtes pas authorisé à écrire';
+            }
+
+
+            //récupération des messages
+            $tableMessage = new Application_Model_DbTable_Message();
+            $messagesTous = $tableMessage->messagesTous($this->_evenement,$moderateur);
+            $this->view->messages = $messagesTous;
         }else{
             //TODO : pas d'évènement en session : que faire ? redirection sur le checkin ?
         }
