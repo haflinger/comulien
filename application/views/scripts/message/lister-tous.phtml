@@ -21,7 +21,7 @@ TODO
         <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/moins.png"/></a></li>
         <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/face.png"/></a></li>
         <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/twit.png"/></a></li>
-        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/suppr.png"/></a></li>
+        <?php if($this->moderateur){ ?> <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/suppr.png"/></a></li> <?php }?>
         
     </ul>
     <!--<div class="moderation"><?php echo $this->notationMessage($entry->idMessage) ?></div>-->

@@ -81,7 +81,7 @@ class MessageController extends Zend_Controller_Action
             }
             else
             {
-                   $this->view->formEcrireMessage = 'Vous n\'êtes pas authorisé à écrire';
+                   $this->view->formEcrireMessage = null;
             }
 
 
