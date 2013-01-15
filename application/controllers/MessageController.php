@@ -192,6 +192,10 @@ class MessageController extends Zend_Controller_Action
                 
                 $table->posterMessage($data);
                 
+                //message posté ! on redirige sur les messages 
+                
+                $this->_helper->redirector ( 'lister-tous', 'message' , null );
+                
                 
             }
             else{
