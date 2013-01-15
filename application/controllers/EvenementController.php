@@ -2,13 +2,16 @@
 
 /**
  * Description of EvenementController
- *
+ * 
  * @author Fred H
+ *
  */
+
 class EvenementController extends Zend_Controller_Action
 {
+
     private $_evenement = null;
-    
+
     public function init()
     {
         $bulleNamespace = new Zend_Session_Namespace('bulle');
@@ -27,10 +30,11 @@ class EvenementController extends Zend_Controller_Action
             //$this->view->evenement = $bulleNamespace->checkedInEvent;
         }
     }
-   
+
     /**
      * index : gère la situation lors de l'arrivée dans l'évènement
      * par défaut : affiche l'accueil de l'évènement
+     *
      */
     public function indexAction()
     {
@@ -40,7 +44,7 @@ class EvenementController extends Zend_Controller_Action
          */
         $this->_helper->redirector ( 'liste' );//, 'evenement' );
     }
-    
+
     public function listeAction()
     {
         /**
@@ -50,7 +54,7 @@ class EvenementController extends Zend_Controller_Action
         $Evenement = new Application_Model_DbTable_Evenement();
         $this->view->entries = $Evenement->fetchAll();
     }
-     
+
     public function checkinAction()
     {
         /**
@@ -74,8 +78,7 @@ class EvenementController extends Zend_Controller_Action
             $this->_helper->redirector ( 'liste', 'evenement' );
         }
     }
-    
-   
+
     public function accueilAction()
     {
         /**
@@ -103,8 +106,8 @@ class EvenementController extends Zend_Controller_Action
             $this->view->event = $comulienNamespace->checkedInEvent;
         }
     }
-    
-     public function checkoutAction()
+
+    public function checkoutAction()
     {
         /*
          * checkout de l'évènement
@@ -114,20 +117,27 @@ class EvenementController extends Zend_Controller_Action
         $this->_helper->redirector ( 'index', 'index' );
     }
 
-    //----------------------------------------------------
-    //----------------------------------------------------
-
-
     /**
      * Mémorise l'évènement fourni en paramètres dans la session
      * @param type $Evenement : l'évènement dans lequel l'utilisateur s'inscrit
+     *
      */
-    private function setEvent($Evenement) {
+    private function setEvent($Evenement)
+    {
         $bulleNamespace = new Zend_Session_Namespace('bulle');
         $bulleNamespace->checkedInEvent = $Evenement;
         $this->_evenement = $Evenement;
         
     }
+
+    /**
+     * 
+     */
+    public function defautAction()
+    {
+        $this->view->message = 'Désolé, vous n\'êtes pas dans un évènement';
+    }
+
 
 }
 
