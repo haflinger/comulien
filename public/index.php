@@ -30,7 +30,7 @@ $application = new Zend_Application(
 );
 
 Zend_Session::start();
-
+Zend_Controller_Front::getInstance()->registerPlugin(new Application_Plugin_EvenementPlugin());
 $application->bootstrap()
             ->run();
 ?>

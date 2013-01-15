@@ -46,6 +46,7 @@ class UtilisateurController extends Zend_Controller_Action
 //            }
 //        }
     }
+    
     public function testAction()
     {
         $auth = Zend_Auth::getInstance ();
@@ -60,6 +61,7 @@ class UtilisateurController extends Zend_Controller_Action
         //$this->view->test = $user->getProfils($this->_evenement)->toArray();
         $this->view->test = $utilisateur->getRole($this->_evenement->idOrga);
     }
+    
     public function indexAction()
     {
         $Utilisateur = new Application_Model_DbTable_Utilisateur();
@@ -133,6 +135,88 @@ class UtilisateurController extends Zend_Controller_Action
     
     }
 
+    public function modifierAction()
+    {
+        //ATTENTION cette action permet de voir le profil complet de l'utilisateur
+        // dont l'id est passé en paramètres
+        //TODO : revoir le comportement lors de l'utilisation réelle
+//        $id = $this->getRequest()->getParam('id');// utilisateur/profil/id/1
+//        if ($id!=null) { 
+//            //un id en paramètres : on l'utilise
+//            $Utilisateur = new Application_Model_DbTable_Utilisateur();
+//            $this->view->user = $Utilisateur->find($id)->current();
+//        } else { //sinon : on redirige sur monProfil
+//           // $this->_helper->redirector ( 'profilprive');
+//        }
+        
+        //////
+        $formInscription =  new Application_Form_InscrireUtilisateur();
+        $this->view->formInscription = null; //valeur par défaut. Sera rempli avec les besoins
+        
+        //si le formulaire est posté
+        if ($this->getRequest()->isPost()) {
+        //on récupère les données postées
+            $formData = $this->getRequest()->getPost();
+            //si les données postées sont valides 
+            if ($formInscription->isValid($formData)) {
+                //on récupère les données qui nous intéressent
+                $login = $formInscription->getValue('login');
+                $email = $formInscription->getValue('email');
+                $password = $formInscription->getValue('password');
+                $nom = $formInscription->getValue('nom');
+                $prenom = $formInscription->getValue('prenom');
+                //insertion du nouvel utilisateur
+                //instance du model 'Utilisateur'
+                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+                //utilisation de la function addUser du modele
+                $tableUtilisateur->addUser($login, $email, $password, $nom, $prenom);
+                //TODO : renvoyer sur une page de confirmation ?
+                $this->_helper->redirector ( 'profilprive');
+            }
+        }  
+        else //la requête n'est pas post
+        {
+            //on affiche le formulaire d'inscription prérempli
+            $user = self::getUserFromAuth();
+            if (is_null($user)) {
+                //si il n'y a pas d'utilisateur en session
+                $this->_helper->redirector ( 'authentifier');
+            }
+            
+            $formData = array(
+                'login'=>$user->loginUser,
+                'email'=>$user->emailUser,
+                'password'=>'',
+                'nom'=>$user->nomUser,
+                'prenom'=>$user->prenomUser
+                    );
+            $formInscription->populate($formData);
+            $this->view->formInscription = $formInscription;
+            
+        }
+            
+    }
+    
+//
+//        //ATTENTION cette action permet de voir le profil complet de l'utilisateur
+//       // dont l'id est passé en paramètres
+//       //TODO : revoir le comportement lors de l'utilisation réelle
+//
+//       $auth = Zend_Auth::getInstance ();
+//       if ($auth->hasIdentity ()) {
+//           //on prend l'id de l'utilisateur en session
+//           $idUser = $auth->getIdentity ()->idUser;
+//           $Utilisateur = new Application_Model_DbTable_Utilisateur();
+//           $this->view->user = $Utilisateur->find($idUser)->current();
+//           $helperUrl = new Zend_View_Helper_Url ( );
+//           $this->view->profilPublicLink = $helperUrl->url ( array ('action' => 'profilpublic', 'controller' => 'utilisateur','id'=>$idUser ),'default',true );
+//       }else{
+//           //pas de session, on redirige sur le login
+//           $this->_helper->redirector ( 'authentifier', 'utilisateur' );
+//       }
+   
+    
+
     public function authentifierAction()
     {
         //création d'une instance du formulaire
@@ -166,7 +250,8 @@ class UtilisateurController extends Zend_Controller_Action
                     // - écriture dans le stockage des infos de l'utilisateur (sans le mot de passe)
                     $storage->write ( $authAdapter->getResultRowObject ( null, 'password' ) );
                     // - et finalement on redirige l'utilisateur sur la page principale de l'application
-                    $this->_helper->redirector ( 'modifier', 'utilisateur' );
+                    //TODO : rediriger sur la page qui précède l'authentification
+                    $this->_helper->redirector ( 'accueil', 'evenement' );
                 } else {
                     //NOK : on affiche une erreur
                     $form->addError ( 'Il n\'existe pas d\'utilisateur avec ce mot de passe' );
@@ -174,58 +259,6 @@ class UtilisateurController extends Zend_Controller_Action
             }
         }
     }
-
-    public function modifierAction()
-    {
-        //ATTENTION cette action permet de voir le profil complet de l'utilisateur
-        // dont l'id est passé en paramètres
-        //TODO : revoir le comportement lors de l'utilisation réelle
-//        $id = $this->getRequest()->getParam('id');// utilisateur/profil/id/1
-//        if ($id!=null) { 
-//            //un id en paramètres : on l'utilise
-//            $Utilisateur = new Application_Model_DbTable_Utilisateur();
-//            $this->view->user = $Utilisateur->find($id)->current();
-//        } else { //sinon : on redirige sur monProfil
-//           // $this->_helper->redirector ( 'profilprive');
-//        }
-        
-        //////
-        $formInscription =  new Application_Form_InscrireUtilisateur();
-        $user = self::getUserFromAuth();
-        if (is_null($user)) {
-            //TODO faire une redirection
-            return;
-        }
-        
-        $formData = array(
-            'login'=>$user->loginUser,
-            'email'=>$user->emailUser,
-            'password'=>'',
-            'nom'=>$user->nomUser,
-            'prenom'=>$user->prenomUser
-        );
-        $formInscription->populate($formData);
-        $this->view->formInscription = $formInscription;
-    }
-    
-//
-//        //ATTENTION cette action permet de voir le profil complet de l'utilisateur
-//       // dont l'id est passé en paramètres
-//       //TODO : revoir le comportement lors de l'utilisation réelle
-//
-//       $auth = Zend_Auth::getInstance ();
-//       if ($auth->hasIdentity ()) {
-//           //on prend l'id de l'utilisateur en session
-//           $idUser = $auth->getIdentity ()->idUser;
-//           $Utilisateur = new Application_Model_DbTable_Utilisateur();
-//           $this->view->user = $Utilisateur->find($idUser)->current();
-//           $helperUrl = new Zend_View_Helper_Url ( );
-//           $this->view->profilPublicLink = $helperUrl->url ( array ('action' => 'profilpublic', 'controller' => 'utilisateur','id'=>$idUser ),'default',true );
-//       }else{
-//           //pas de session, on redirige sur le login
-//           $this->_helper->redirector ( 'authentifier', 'utilisateur' );
-//       }
-   
     
     public function deconnecterAction()
     {
