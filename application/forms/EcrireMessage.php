@@ -42,7 +42,7 @@ class Application_Form_EcrireMessage extends Zend_Form
         //
         //zone de texte pour la saisie du message
         //TODO : modifié textarea + son nom
-        $message = new Zend_Form_Element_Textarea('message');
+        $message = new Zend_Form_Element_Text('message');
         $message->setAllowEmpty(false);
         $message->setAttrib('placeholder','Votre message');
         $message->setRequired(true);

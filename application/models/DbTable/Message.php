@@ -75,6 +75,19 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         }
         return $row;
     }
+    
+    /**
+     * Récupère les réponses d'un message passé par ID
+     * @param type $id
+     */
+    public function getReponses($id){
+        $id= (int)$id;
+        $rowset = $this->fetchAll(array('idMessage_reponse = ?'=>$id));
+        if(!rowset){
+            throw  new Exception("Aucune réponse trouvée");
+        }
+        return $rowset;
+    }
     /**
      * change l'état d'activité du message
      * @param int $idMessage l'identifiant du message

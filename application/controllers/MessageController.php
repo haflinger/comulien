@@ -90,12 +90,21 @@ class MessageController extends Zend_Controller_Action
             $tableMessage = new Application_Model_DbTable_Message();
             $messagesTous = $tableMessage->messagesTous($this->_evenement,$moderateur);
             $this->view->messages = $messagesTous;
+            
+            
         }else{
             //TODO : pas d'évènement en session : que faire ? redirection sur le checkin ?
         }
         
     }
-
+    
+    public function listerReponse($id){
+        //récupération des réponses au message
+            $tableMessage = new Application_Model_DbTable_Message();
+            $reponses = $tableMessage->getReponses($id);
+            $this->view->messages = $reponses;
+    }
+    
     public function listerOrganisateurAction()
     {
         if (!is_null($this->_evenement)){

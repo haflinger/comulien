@@ -11,21 +11,21 @@ $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisat
 $comulienNamespace = new Zend_Session_Namespace('bulle');
 $event = $comulienNamespace->checkedInEvent;*/
 ?>
-<div class="vide"></div>
+
 <div id="view-content">
     <div class="acceuilBlock">
           <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
-          <div id="logoOrga"><img src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></div>
+          <div id="logoOrga"><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></div>
           <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
-          <p><a href="<?php echo $this->lienListerOrganisateur ?>" alt="">Voir les annonces organisateurs</a></p>
+          <div><p><a href="<?php echo $this->lienListerOrganisateur ?>" alt="">Voir les annonces organisateurs</a></p></div>
     </div>
     <div id="present"><p>Vous présente</p></div>
     <div class="acceuilBlock">
           <div id="nomEvent"><?php echo $this->event->titreEvent ?> </div>
-          <div id="logoEvent"><img src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></div>
+          <div id="logoEvent"><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></div>
           <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>
-          <p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p>
-          <p><a href="<?php echo $this->lienListerTous ?>" alt="">Voir les messages</a></p>
+          <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
+          <div><p><a href="<?php echo $this->lienListerTous ?>" alt="">Voir les messages</a></p></div>
     </div>
   
 </div>
