@@ -1,5 +1,6 @@
 <?php
-
+//pour afficher plus d'erreurs
+error_reporting(E_ALL|E_STRICT);
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
@@ -28,9 +29,13 @@ $application = new Zend_Application(
         )
     
 );
-
+//lancement de la session
 Zend_Session::start();
+
+//Enregistrement du plugin de gestion de l'évènement
 Zend_Controller_Front::getInstance()->registerPlugin(new Application_Plugin_EvenementPlugin());
+
+//lancement du bootstrap
 $application->bootstrap()
             ->run();
 ?>

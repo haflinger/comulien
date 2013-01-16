@@ -9,12 +9,12 @@ class Application_Form_InscrireUtilisateur extends Zend_Form
        $this->setMethod('post') //method du formulaire
             ->setName('register'); //nom du formulaire
 
-        $elm_login = new Zend_form_element_Text('login');//nom de l'input
+        $elm_login = new Zend_Form_Element_Text('login');//nom de l'input
         $elm_login ->setLabel('Login')//label de l'input login
                 ->setRequired(true)//vérifie que le login n'est pas vide
                 ->addFilter('StripTags');//Enlève les caractères HTML
 
-        $elm_email = new Zend_form_element_Text('email');
+        $elm_email = new Zend_Form_Element_Text('email');
         $elm_email ->setLabel('Email')
                 ->setRequired(true)//vérifie que email n'est pas vide
                 ->addFilter('StripTags')//Enlève les caractères HTML
@@ -24,12 +24,12 @@ class Application_Form_InscrireUtilisateur extends Zend_Form
         $elm_pwd->setLabel('Password')
                 ->setRequired(true);
 
-        $elm_nom = new Zend_form_element_Text('nom');//nom de l'input
+        $elm_nom = new Zend_Form_Element_Text('nom');//nom de l'input
         $elm_nom ->setLabel('Nom')//label de l'input login
                 ->setRequired(false)//vérifie que le login n'est pas vide
                 ->addFilter('StripTags');//Enlève les caractères HTML
         
-        $elm_prenom = new Zend_form_element_Text('prenom');//nom de l'input
+        $elm_prenom = new Zend_Form_Element_Text('prenom');//nom de l'input
         $elm_prenom ->setLabel('Prenom')//label de l'input login
                 ->setRequired(false)//vérifie que le login n'est pas vide
                 ->addFilter('StripTags');//Enlève les caractères HTML
