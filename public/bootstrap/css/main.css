@@ -16,6 +16,39 @@ body{
     font-size: 16px;
     margin:0px;
 }
+/*header*/
+#lientitre {color:black;text-decoration: none}
+.nav{display: inline}
+#btn_newMessage{float:right}
+#message{width:93%}
+#choixProfil{margin:0px auto}
+#envoyer{margin:0px auto}
+.infos{margin:0px; padding:0px}
+/*Tous les message*/
+
+.dateMessage{
+       color: #66CCFF;
+       text-align:right;
+       z-index: 1;
+    }
+.nomUser{
+       font-weight: bold;
+       color: #66CCFF;
+    }
+.lblMessage{
+        color: black;
+        font-size: 12px;
+    }
+.avatar img{
+        position: relative;
+        float: left;
+        margin: 0px;
+    }
+.nbMessage{
+        color: black;
+        text-align:right;
+        z-index:1;
+    }
 .navbar{margin:0px}
 .accordion-group{background-color: #FFFFFF;}
 .acceuilBlock{
@@ -26,7 +59,7 @@ body{
         
     } 
 
-#lientitre {color:black;text-decoration: none}
+
 
 #logoOrga im{
        text-align: left;
@@ -48,31 +81,4 @@ body{
         text-align: center;
     }     
 
-.message{
-        background:-webkit-gradient(linear, 62% 34%, 62% 73%, from(#302E2E), to(#5F605D));
-    }
-
-.dateMessage{
-       color: #66CCFF;
-       z-index: 1;
-    }
-.nomUser{
-       font-weight: bold;
-       color: #66CCFF;
-    }
-.lblMessage{
-        color: black;
-        font-size: 12px;
-    }
-.avatar img{
-        position: relative;
-        float: left;
-        margin: 0px;
-    }
-.nbMessage{
-        color: black;
-        text-align: center;
-        z-index:1;
-       
-    }
 

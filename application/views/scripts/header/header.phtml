@@ -1,9 +1,13 @@
 
     <?php   $comulienNamespace = new Zend_Session_Namespace('bulle');
             if (isset($comulienNamespace->checkedInEvent))
-             {   
-            $event = $comulienNamespace->checkedInEvent->titreEvent;}
-            else {$event = 'Comulien';}
+            {   
+                $event = $comulienNamespace->checkedInEvent->titreEvent;
+            }
+            else 
+            {
+                $event = 'Comulien';
+            }
     ?>    
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -14,13 +18,36 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="<?php echo $this->accueilEventLink(); ?>"><?php echo $event ?></a>
-          <div class="nav-collapse collapse">
+          <!--Mise en place de la fenetre modal si utilisateur identifié-->
+            <?php  if (!is_null($this->formEcrireMessage)) {?>
+                <div class="modal hide" id="infos">
+                    <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+                        <h3>Poster un message</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ecrireMessage">
+                            <?php echo $this->formEcrireMessage ; ?>
+                        </div>
+                    </div>
+                    <div class="modal-footer"> <a class="btn btn-info" data-dismiss="modal">Annuler</a> </div>
+                </div> 
+                <a class="btn " id="btn_newMessage" data-toggle="modal" href="#infos" >Nouveau message</a>
+             <?php   }?>
+          <div class="nav-collapse collapse pull-right">
             <ul class="nav">
               <li><a href="<?php echo $this->accueilEventLink(); ?>">Accueil</a></li>
-              <li><a href="<?php echo $this->profileLink(); ?>">Connexion</a></li>
+              <!-- Test si l'utilisateur est loggé-->
+              <?php if(isset($_SESSION['Zend_Auth'])){
+                  $nomLien = 'Déconnexion';
+              }
+              else
+              {
+                  $nomLien = 'Connexion'; 
+              }
+              ?>
+              <li><a href="<?php echo $this->profileLink(); ?>"><?php echo $nomLien;?></a></li>
               <li><a href="<?php echo $this->checkoutLink(); ?>">CheckOut</a></li>
             </ul>
-             
           </div><!--/.nav-collapse -->
         </div>
       </div>
