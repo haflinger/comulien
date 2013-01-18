@@ -32,6 +32,7 @@
         </controllerFile>
         <controllerFile controllerName="Evenement">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="sans"/>
         </controllerFile>
         <controllerFile controllerName="Message">
           <actionMethod actionName="index"/>
@@ -164,6 +165,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Footer">
             <viewScriptFile forActionName="footer"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Evenement">
+            <viewScriptFile forActionName="sans"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

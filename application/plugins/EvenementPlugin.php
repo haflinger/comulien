@@ -39,23 +39,65 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
         $front = Zend_Controller_Front::getInstance();
         $default = $front->getDefaultModule();
         
+        $message = null;
         
-        if (is_null($this->_evenement ) ){
-            if ( $module == $default && 
-                    //tous les cas qui redirigent si pas d'évènement
-                    ($controller=='evenement' && $action=='accueil') || 
-                    ($controller!='evenement' && $controller!='utilisateur') ||
-                    ($controller=='index' && $action=='index') 
+        
+        if ( $module == $default && 
+                //tous les cas qui redirigent si pas d'évènement
+                ($controller=='evenement' && $action=='accueil') || 
+                ($controller!='evenement' && $controller!='utilisateur') ||
+                ($controller=='index' && $action=='index') 
+            ) 
+        {
+            if (is_null($this->_evenement ) ){
+                //pour toutes ces actions, l'utilisateur doit avoir check un évènement
+                //pour tous ces cas, sans évènement en session, on redirige sur la page par défaut
+                $message = 'Vous devez être dans un évènement pour pouvoir continuer !';
+                $this->setRedirection($request, $message);
+                return;
+                
+            } 
+            else{
+                //l'utilisateur a check dans un évènement, il faut vérifier les dates d'activité
+                //vérifions un évènement passé (datefin+duree<datemaintenant)
+                $maintenant = Zend_Date::now();
+                $dateDebut = new Zend_Date($this->_evenement->dateDebutEvent,'yyyy-MM-dd HH:mm:ss S');
+                $dateFin = new Zend_Date($this->_evenement->dateFinEvent,'yyyy-MM-dd HH:mm:ss S');
+                if ($maintenant < $dateDebut ){
+                    $message = 'Désolé ! Cet évènement commence le '.$dateDebut->toString('yyyy-MM-dd HH:mm:ss S');
+                    $this->setRedirection($request,$message);
+                    //suppression de l'event en session
+                    $this->checkout();
+                    return;
+                }
+                elseif (!is_null($this->_evenement->dateFinEvent) && ($maintenant > $dateFin) )
+                {
+                    $message = 'Désolé mais cet évènement s\'est terminé le '.$dateDebut->toString('dd/MM/yyyy à HH:mm:ss');    
+                    $this->setRedirection($request,$message);
+                    //suppression de l'event en session
+                    $this->checkout();
+                    return;
+                }
+                else{
                     
-                ) {
-                //pour tous ces cas, sans checkin, on redirige sur la page par défaut de l'évènement
-
-                $request->setModuleName($module);
-                $request->setControllerName('evenement');
-                $request->setActionName('defaut');
-                $front->returnResponse();
+                    return;
+                } 
+                
+                 
             }
+            
         }
+
+//        if (!is_null($message)) {
+//            $request->setParam('infoDefautEvenement',$message);
+//
+//            $request->setModuleName($module);
+//            $request->setControllerName('evenement');
+//            $request->setActionName('defaut');
+//            $front->returnResponse();       
+//        }
+//        
+        
         
 //        
 //        $front = Zend_Controller_Front::getInstance();
@@ -66,6 +108,21 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
 //        $request->setModuleName($module);
 //        $request->setControllerName($controller);
 //        $request->setActionName($action);
+    }
+    
+    public function setRedirection($request,$message){
+        $front = Zend_Controller_Front::getInstance();
+        $defaultModule = $front->getDefaultModule();
+        $request->setParam('infoDefautEvenement',$message);
+        $request->setModuleName($defaultModule);
+        $request->setControllerName('evenement');
+        $request->setActionName('defaut');
+        $front->returnResponse();       
+    }
+    
+    public function checkout(){
+        $defaultNamespace = new Zend_Session_Namespace('bulle');
+        unset($defaultNamespace->checkedInEvent);
     }
 }
 ?>
