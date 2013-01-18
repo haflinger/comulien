@@ -135,7 +135,8 @@ class EvenementController extends Zend_Controller_Action
      */
     public function defautAction()
     {
-        $this->view->message = 'Désolé, vous n\'êtes pas dans un évènement';
+        $info = $this->_request->getParam('infoDefautEvenement','Désolé, vous n\'êtes pas dans un évènement');
+        $this->view->message = $info;
     }
 
 
