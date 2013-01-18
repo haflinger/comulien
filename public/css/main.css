@@ -29,25 +29,10 @@ body{
         width : 100%;
         font-size: 20px; 
         color: white; 
-        background-color: #FFFF66;
-        -moz-box-shadow:inset 0px -3px 10px #000000;
-        -webkit-box-shadow:inset 0px -3px 10px #000000;
-        box-shadow:inset 0px -3px 10px #000000;
+        background-color: buttonface;
         margin:0px;
         z-index: 10;
-        border:hidden 5px #000000;
-        -moz-border-radius-topleft: 0px;
-        -moz-border-radius-topright:0px;
-        -moz-border-radius-bottomleft:28px;
-        -moz-border-radius-bottomright:28px;
-        -webkit-border-top-left-radius:0px;
-        -webkit-border-top-right-radius:0px;
-        -webkit-border-bottom-left-radius:28px;
-        -webkit-border-bottom-right-radius:28px;
-        border-top-left-radius:0px;
-        border-top-right-radius:0px;
-        border-bottom-left-radius:28px;
-        border-bottom-right-radius:28px;
+
     }    
 #header li{
         display:inline; 
@@ -85,21 +70,27 @@ body{
 #present{
         text-align: center;
     }     
+#content{
+        background-color: ghostwhite;
+        margin: 0px auto 0px auto;
+        width: 95%;
+        border: #636363;
+    }
 .message{
         /*background:-webkit-gradient(linear, 62% 34%, 62% 73%, from(#302E2E), to(#5F605D));*/
-        background-image: url(../images/carbone.jpg);
+        
         margin: 1px 1px 0px 1px;
         padding:5px 5px 5px 2px;
         z-index: 1;
     }
 .menuMessage{
         padding: 2px;
-        margin: 0px 20px 1px 20px;
+        margin: 0px 5px 1px 5px;
         height: 35px;
-        background-color: #CCCCCC;
-        -moz-box-shadow:inset 0px 5px 5px #636363;
-        -webkit-box-shadow:inset 0px 5px 5px #636363;
-        box-shadow:inset 0px 5px 5px #636363;
+        background-color: ghostwhite;
+        -moz-box-shadow:inset 0px 3px 3px #636363;
+        -webkit-box-shadow:inset 0px 3px 3px #636363;
+        box-shadow:inset 0px 3px 3px #636363;
         border:hidden 5px #000000;
         -moz-border-radius-topleft: 0px;
         -moz-border-radius-topright:0px;
@@ -143,7 +134,10 @@ body{
      margin: 12px 2% 0px -3px;
      vertical-align: middle;
  }
-.moderation{position: relative;text-align: center; margin: 0px 5px 0px 0px}    
+.moderation{position: relative;
+           text-align: center; 
+           margin: 0px 5px 0px 0px
+}    
 
 #menuEcrire{
         padding: 0px 2px 0px 2px;
@@ -151,24 +145,10 @@ body{
         top: 100%;
         margin: -25px 0 0 0;
         width: 100%;
-        background-color: #FFFF66;
-        -moz-box-shadow:inset 0px 3px 4px #000000;
-        -webkit-box-shadow:inset 0px 3px 4px #000000;
-        box-shadow:inset 0px 3px 4px #000000;
+        background-color: graytext;
+        
         z-index: 9;
-        border:hidden 9px #000000;
-        -moz-border-radius-topleft: 28px;
-        -moz-border-radius-topright:28px;
-        -moz-border-radius-bottomleft:0px;
-        -moz-border-radius-bottomright:0px;
-        -webkit-border-top-left-radius:28px;
-        -webkit-border-top-right-radius:28px;
-        -webkit-border-bottom-left-radius:0px;
-        -webkit-border-bottom-right-radius:0px;
-        border-top-left-radius:28px;
-        border-top-right-radius:28px;
-        border-bottom-left-radius:0px;
-        border-bottom-right-radius:0px;
+        
     }
 #menuEcrireLien{
      margin: 0px auto;
@@ -185,7 +165,7 @@ body{
         top: 100%;
         margin: -118px 0 0 0;
         width: 100%;
-        background-color: #FFFF66;
+        background-color: ghostwhite;
         -moz-box-shadow:inset 0px 3px 4px #000000;
         -webkit-box-shadow:inset 0px 3px 4px #000000;
         box-shadow:inset 0px 3px 4px #000000;
@@ -225,7 +205,7 @@ dt dd .envoyer{margin:0px auto; width: 50px}
        color: #66CCFF;
     }
 .lblMessage{
-        color: white;
+        color: black;
         font-size: 12px;
     }
 .avatar img{
@@ -236,12 +216,11 @@ dt dd .envoyer{margin:0px auto; width: 50px}
         margin: 2px;
     }
 .nbMessage{
-        background-image: url(images/message.png);
         float: right;
         height: 25px;
         line-height:25px;
         width: 25px;
-        color: #FFFF66;
+        color: black;
         text-align: center;
         z-index:1;
        

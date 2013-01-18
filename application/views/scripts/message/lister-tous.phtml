@@ -3,7 +3,7 @@ TODO
 - Modifier l'image par défaut de gravatar
 -->
 
-
+<div id="content">
 <?php foreach ($this->messages as $entry): ?>
 <!--Affiche le message-->
 <div class="message" onclick="javascript:afficher_cacher('message<?php echo $this->escape($entry->idMessage) ?>');">
@@ -48,6 +48,8 @@ TODO
  //-->
  </script>
     <?php endforeach ?>
+ 
+</div>
  <!-- Test si l'utilisateur est bien loggé -->
     <?php  if (!is_null($this->formEcrireMessage)) {?>
            <div id="menuEcrire" onclick="javascript:afficher_cacher('ecrireMessage');">
