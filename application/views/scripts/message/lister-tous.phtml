@@ -1,67 +1,78 @@
 <!--
 TODO
 - Modifier l'image par défaut de gravatar
-- Mettre en place le menu de like, unlike, tweet, facebook....
 -->
 
-<div class="vide"></div>
+<div class="container-fluid">
+    <div id="monaccordeon">
 <?php foreach ($this->messages as $entry): ?>
-<div class="message" onclick="javascript:afficher_cacher('message<?php echo $this->escape($entry->idMessage) ?>');">
-    <!--<div class="avatar"><img alt="avatar" src="<?php echo $this->baseUrl() ?> /images/avatar.png"/></div>-->
-    <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
-    <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div>
-    <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
-    <div class="nbMessage"><!--<img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/>--><span>4</span></div>
-    <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div></br>
-</div>  
-<div class="menuMessage" id="message<?php echo $this->escape($entry->idMessage) ?>" >
-    <ul>
-        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/rep.png"/></a></li>
-        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/plus.png"/></a></li>
-        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/moins.png"/></a></li>
-        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/face.png"/></a></li>
-        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/twit.png"/></a></li>
-        <li><a href="" ><img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/suppr.png"/></a></li>
-        
-    </ul>
-    <!--<div class="moderation"><?php echo $this->notationMessage($entry->idMessage) ?></div>-->
-</div>
+            <!--Affiche le message-->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" href="#menu<?php echo $entry->idMessage; ?>" data-parent="#monaccordeon" data-toggle="collapse">
+                <div class="row well-small">
+                      <div class="span2">
+                          <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
+                      </div>
+                      <div class="span8">
+                          <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
+                          <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div>
+                      </div>  
+                      <div class="span2">
+                          <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div>
+                          <div class="nbMessage"><!--<img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/>--><span>23</span></div>
+                      </div>
+                </div>
+            
+            </a></div>
+                <div id="menu<?php echo $entry->idMessage; ?>" class="collapse">
+                    <div id="monaccordeon">
+                
+                <nav class="navbar">
+                    <div class="navbar-inner">
+                      <div class="container">
+                        <ul class="nav">
+                             <?php 
+                                //Recherche et affiche le nombre de plus et de moins d'un message
+                                $app = $entry->getAppreciers();
+                                $plus = 0;
+                                $moins = 0;
+                                foreach ($app as $appreciation){
+                                    if($appreciation->evaluation > 0){
+                                        $plus++;
+                                    }
+                                    else{
+                                        $moins++;
+                                    }    
+                                }
+                             ?>
+                          <li> <a href="#">Répondre</a> </li>
+                          <li class="divider-vertical"></li>
+                          <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>">+ <?php echo $plus ?></a> </li>
+                          <li> <a href="<?php echo$this->unlikeMessage($entry->idMessage);?>">- <?php echo $moins ?></a> </li>
 
- <!-- Appel de la fonction pour cacher les menus des messages -->
- <script type="text/javascript">
- //<!--
-    afficher_cacher('message<?php echo $this->escape($entry->idMessage) ?>');
- //-->
- </script>
-    <?php endforeach ?>
- <!-- Test si l'utilisateur est bien loggé -->
-    <?php  if (!is_null($this->formEcrireMessage)) {?>
-           <div id="menuEcrire" onclick="javascript:afficher_cacher('ecrireMessage');">
-               <img class="bulle" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/><span>Ecrire un message</span>
-           </div>
-           <div id="ecrireMessage">
-           <?php echo $this->formEcrireMessage ; ?>
-               <div onclick="javascript:afficher_cacher('ecrireMessage');"> <p>Fermer le formulaire</p></div>
-           </div>
-           
-     <?php   }
-     ?>      
- <!-- Appel de la fonction pour cacher le formulaire -->
- <script type="text/javascript">
- //<!--
-    afficher_cacher('ecrireMessage');
- //-->
- </script>
-    
-    
+                          <?php if($this->moderateur){ ?> 
+                          <li class="divider-vertical"></li>
+                          <li> <a href="<?php echo $this->moderationMessage($entry->idMessage) ?>">Modérer</a> </li><?php }?>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+             
+            </div>
+         </div>
+             <?php endforeach ?>
+</div></div>
  
- 
- 
- 
- 
+
+
     <!--ANCIEN CODE QUI PEUT SERVIR
-    
-    <div><?php echo $this->notationMessage($entry->idMessage) ?></div>
+                <?php  if (!is_null($this->formEcrireMessage)) {?>
+                    <div id="ecrireMessage">
+                     <?php echo $this->formEcrireMessage ; ?>
+                    </div>
+              <?php   }?> 
+   
     <div><?php echo 'note : '.$entry->getNote() ?></div>
     <div><?php echo $this->moderationMessage($entry->idMessage) ?></div>
     <dd><?php if($entry->idTypeMsg != null) echo 'Type du message : ' . $this->escape($entry->getType()->lblTypeMsg)?></dd>

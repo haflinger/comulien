@@ -1,0 +1,78 @@
+/* 
+    Document   : main
+    Created on : 8 janv. 2013, 22:33:28
+    Author     : Fred H
+    Description:background-color: #E5E8ED
+        Purpose of the stylesheet follows.
+*/
+
+*{
+    margin:0px; 
+    font-family: sans-serif;
+}
+body{
+    background-color: #F9F6F4;
+    font-family: sans-serif; 
+    font-size: 16px;
+    margin:0px;
+}
+.navbar{margin:0px}
+.accordion-group{background-color: #FFFFFF;}
+.acceuilBlock{
+        background-color: #A2A9AF;
+        margin: 20px;
+        padding:5px;
+        height: 100px;
+        
+    } 
+
+#lientitre {color:black;text-decoration: none}
+
+#logoOrga im{
+       text-align: left;
+       height:45px; 
+       width: 45px;
+    }
+#logoEvent im{
+    text-align: left;
+    height:45px; 
+    width: 45px;
+    }
+.logo{
+    height: 60px;
+    width: 60px;
+    position: relative;
+    float: right;
+}
+#present{
+        text-align: center;
+    }     
+
+.message{
+        background:-webkit-gradient(linear, 62% 34%, 62% 73%, from(#302E2E), to(#5F605D));
+    }
+
+.dateMessage{
+       color: #66CCFF;
+       z-index: 1;
+    }
+.nomUser{
+       font-weight: bold;
+       color: #66CCFF;
+    }
+.lblMessage{
+        color: black;
+        font-size: 12px;
+    }
+.avatar img{
+        position: relative;
+        float: left;
+        margin: 0px;
+    }
+.nbMessage{
+        color: black;
+        text-align: center;
+        z-index:1;
+       
+    }
+

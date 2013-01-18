@@ -3,11 +3,24 @@
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="user-scalable=no, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, width=device-width">
       <title>Comulien</title>
-      <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/css/main.css') ?>
-      <script type="text/javascript" src="<?php echo $this->baseUrl() . '/js/message.js' ?>"> </script>
+      <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/bootstrap/css/bootstrap.min.css') ?>
+      <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/bootstrap/css/main.css') ?>
+      <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+      <?php echo $this->headLink()->appendStylesheet($this->baseUrl() . '/bootstrap/css/bootstrap-responsive.min.css') ?>
+      <link rel="shortcut icon" href="<?php echo $this->baseUrl() . '/bootstrap/' ?>ico/favicon.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $this->baseUrl() . '/bootstrap/' ?>ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $this->baseUrl() . '/bootstrap/' ?>ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="<?php echo $this->baseUrl() . '/bootstrap/' ?>ico/apple-touch-icon-57-precomposed.png">
+   
     </head>
     <body>
+        
     <?php echo $this->render('header/header.phtml'); ?>
     <?php echo $this->layout()->content ?>
     <?php echo $this->render('footer/footer.phtml'); ?>
