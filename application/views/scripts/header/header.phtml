@@ -1,15 +1,28 @@
-<div id="header">
+
     <?php   $comulienNamespace = new Zend_Session_Namespace('bulle');
             if (isset($comulienNamespace->checkedInEvent))
              {   
             $event = $comulienNamespace->checkedInEvent->titreEvent;}
             else {$event = 'Comulien';}
-    ?>
-    <div id="titre"><a id="lientitre" href="<?php echo $this->accueilEventLink(); ?>"><?php echo $event ?></a></div>
-    <div id="menuPrincipal"><ul>
-        <li><a href="<?php echo $this->accueilEventLink(); ?>" ><img alt="home" src="<?php echo $this->baseUrl() ?> /images/home.png"/></a></li>
-        <li><a href="<?php echo $this->profileLink(); ?>" ><img alt="home" src="<?php echo $this->baseUrl() ?> /images/key.png"/></a></li>
-        <li><a href="<?php echo $this->checkoutLink(); ?>" ><img alt="home" src="<?php echo $this->baseUrl() ?> /images/exit.png"/></a></li>
-    </ul></div>
-</div>  
-<div class="vide"></div>
+    ?>    
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="<?php echo $this->accueilEventLink(); ?>"><?php echo $event ?></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="<?php echo $this->accueilEventLink(); ?>">Accueil</a></li>
+              <li><a href="<?php echo $this->profileLink(); ?>">Connexion</a></li>
+              <li><a href="<?php echo $this->checkoutLink(); ?>">CheckOut</a></li>
+            </ul>
+             
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+  

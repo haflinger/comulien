@@ -787,3 +787,370 @@ Zend_View_Helper_: Zend/View/Helper/;C:\wamp\www\comuZend\application/views/help
   'action' => 'lister-tous',
   'module' => 'default',
 )
+2013-01-17T20:58:59+00:00 ERR (3): appendStylesheet requires at least one argument
+2013-01-17T20:58:59+00:00 ERR (3): #0 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(12): Zend_View_Helper_HeadLink->__call('appendStyleshee...', Array)
+#1 C:\wamp\www\comuZend\application\layouts\scripts\layout.phtml(12): Zend_View_Helper_HeadLink->appendStylesheet()
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:\wamp\www\com...')
+#4 C:\wamp\www\comuZend\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#5 C:\wamp\www\comuZend\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#8 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#11 {main}
+2013-01-17T20:58:59+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'lister-tous',
+  'module' => 'default',
+  'layoutFullContent' => '    <!-- application/layouts/scripts/layout.phtml -->
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Comulien</title>
+      <link href="/comuZend/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />      <link href="/comuZend/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/comuZend/public/bootstrap/css/bootstrap-responsive.min.css" media="screen" rel="stylesheet" type="text/css" />    </head>
+    <body>
+        
+    ',
+  'layoutContent' => '<!--
+TODO
+- Modifier l\'image par défaut de gravatar
+-->
+
+<div id="content">
+<!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message14\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/d5a6ee76052f30da3fa2cff20b5d9819?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">hier</div>
+    <div class="nomUser">Frédéric</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Test redirection</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message14" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/14/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/14/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message14\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message13\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/d5a6ee76052f30da3fa2cff20b5d9819?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">2 jours</div>
+    <div class="nomUser">Frédéric</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Bonjour, il neige</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message13" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/13/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/13/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message13\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message12\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/d5a6ee76052f30da3fa2cff20b5d9819?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">4 jours</div>
+    <div class="nomUser">Frédéric</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">fredus</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message12" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/12/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/12/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message12\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message11\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/d5a6ee76052f30da3fa2cff20b5d9819?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">5 jours</div>
+    <div class="nomUser">Frédéric</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">fred</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message11" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/11/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/11/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message11\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message10\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/649d9c1bc7cc2a7dff700ff21b84be8f?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">5 jours</div>
+    <div class="nomUser">Béné</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Encore pour le scroll, youhou ça marche</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message10" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/10/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/10/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message10\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message9\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/1d1df1eaece6d5dfe9b3c57cc5361441?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">5 jours</div>
+    <div class="nomUser">jean-C</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Encore pour le scroll</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message9" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/9/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/9/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message9\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message8\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/1d1df1eaece6d5dfe9b3c57cc5361441?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">5 jours</div>
+    <div class="nomUser">jean-C</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Test de nouveau message pour le scroll encore mieux</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message8" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/8/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/8/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message8\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message7\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/2d93ff4d94fe892099b4b84ead8eee24?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">5 jours</div>
+    <div class="nomUser">laurent</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Test de nouveau message pour le scroll</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message7" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/7/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/7/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message7\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message6\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/d5a6ee76052f30da3fa2cff20b5d9819?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">9 jours</div>
+    <div class="nomUser">Frédéric</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Test d\'écriture</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message6" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/6/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/6/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">0</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message6\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message2\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/d5a6ee76052f30da3fa2cff20b5d9819?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">59 jours</div>
+    <div class="nomUser">Frédéric</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Salut ! C\'est parti pour des tests !</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message2" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/2/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/2/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">1</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message2\');
+ //-->
+ </script>
+    <!--Affiche le message-->
+<div class="message" onclick="javascript:afficher_cacher(\'message1\');">
+    <div class="avatar"><img src="http://www.gravatar.com/avatar/4c65f7fb8156eabd64a6f0cfa93058c8?s=80&amp;d=mm&amp;r=g" /> </div>
+    <div class="dateMessage">59 jours</div>
+    <div class="nomUser">Alexandre</div>
+    <div class="nbMessage"><!--<img class="icone" alt="home" src="/comuZend/public /images/message.png"/>--><span>23</span></div>
+    <div class="lblMessage">Bonjour à tous, bienvenue dans cette bulle permanente</div></br>
+</div>  
+<!--Affiche le menu du message-->
+<div class="menuMessage" id="message1" >
+    <ul>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/rep.png"/></a></li>
+                 <li><a href="/comuZend/public/message/approuver/message/1/appreciation/1" alt=\'\'><img class="icone" alt="home" src="/comuZend/public /images/plus.png"/><div id="plus">0</div></a></li>
+        <li><a href="/comuZend/public/message/approuver/message/1/appreciation/-1" ><img class="icone" alt="home" src="/comuZend/public /images/moins.png"/><div id="moins">1</div></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/face.png"/></a></li>
+        <li><a href="" ><img class="icone" alt="home" src="/comuZend/public /images/twit.png"/></a></li>
+            </ul>
+</div>
+
+ <!-- Appel de la fonction pour cacher les menus des messages -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'message1\');
+ //-->
+ </script>
+     
+</div>
+ <!-- Test si l\'utilisateur est bien loggé -->
+          
+ <!-- Appel de la fonction pour cacher le formulaire -->
+ <script type="text/javascript">
+ //<!--
+    afficher_cacher(\'ecrireMessage\');
+ //-->
+ </script>
+    
+    
+ 
+ 
+ 
+ 
+ 
+    <!--ANCIEN CODE QUI PEUT SERVIR
+    
+   
+    <div>note : -1</div>
+    <div>/comuZend/public/message/moderer/message/1</div>
+    <dd>Type du message : Défaut</dd>
+    -->
+    
+    <!--
+    <dd>2012-11-19 00:00:00</dd>
+    <dd>Message Actif : 
+    
+            </dd>
+    <dd>Evenement : Bulle permanente</dd>
+     <dd>Type du profil : Organisateur</dd>
+     <dd></dd>
+     Liste des utilisateurs qui ont appréciés : <br/><dd>Utilisateur : fred - Appréciation : -1</dd>-->
+
+ 
+',
+)
+2013-01-17T23:25:16+00:00 ERR (3): Unrecognized method 'idMessage()'
+2013-01-17T23:25:16+00:00 ERR (3): #0 C:\wamp\www\comuZend\application\views\scripts\message\lister-tous.phtml(9): Zend_Db_Table_Row_Abstract->__call('idMessage', Array)
+#1 C:\wamp\www\comuZend\application\views\scripts\message\lister-tous.phtml(9): Application_Model_Row_MessageRow->idMessage()
+#2 C:\wamp\www\comuZend\library\Zend\View.php(108): include('C:\wamp\www\com...')
+#3 C:\wamp\www\comuZend\library\Zend\View\Abstract.php(888): Zend_View->_run('C:/wamp/www/com...')
+#4 C:\wamp\www\comuZend\library\Zend\Controller\Action\Helper\ViewRenderer.php(900): Zend_View_Abstract->render('message/lister-...')
+#5 C:\wamp\www\comuZend\library\Zend\Controller\Action\Helper\ViewRenderer.php(921): Zend_Controller_Action_Helper_ViewRenderer->renderScript('message/lister-...', NULL)
+#6 C:\wamp\www\comuZend\library\Zend\Controller\Action\Helper\ViewRenderer.php(960): Zend_Controller_Action_Helper_ViewRenderer->render()
+#7 C:\wamp\www\comuZend\library\Zend\Controller\Action\HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#8 C:\wamp\www\comuZend\library\Zend\Controller\Action.php(527): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#9 C:\wamp\www\comuZend\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('listerTousActio...')
+#10 C:\wamp\www\comuZend\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#11 C:\wamp\www\comuZend\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#12 C:\wamp\www\comuZend\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#13 C:\wamp\www\comuZend\public\index.php(35): Zend_Application->run()
+#14 {main}
+2013-01-17T23:25:16+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'lister-tous',
+  'module' => 'default',
+)
