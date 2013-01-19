@@ -1,6 +1,6 @@
 <?php
 
-class Form_Example extends Twitter_Form
+class Application_Form_Example extends Twitter_Form
 {
 	public function init()
 	{
