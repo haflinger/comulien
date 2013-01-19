@@ -10,15 +10,15 @@ class Zend_View_Helper_AccueilEventLink extends Zend_View_Helper_Abstract {
         if (isset($comulienNamespace->checkedInEvent))
         {
             //$event = $comulienNamespace->checkedInEvent;
-            $accueilLink = $helperUrl->url ( array ('action' => 'accueil', 'controller' => 'evenement' , null) );
-            //$checkoutLink = $helperUrl->url ( array ('action' => 'checkout', 'controller' => 'evenement' ) );
+            $accueilLink = $helperUrl->url ( array ('action' => 'accueil', 'controller' => 'evenement') , 'default',true);
+            //$checkoutLink = $helperUrl->url ( array ('action' => 'checkout', 'controller' => 'evenement', 'default',true);
             //return '<a href="'.$accueilLink.'" alt="Accueil Evenement">'.'Accueil '.$event->titreEvent.'</a><a href="'.$checkoutLink.'" alt="checkout">checkout</a>';
             return $accueilLink;
             
        }
         else
         {
-           $accueilLink = $helperUrl->url ( array ('action' => 'liste', 'controller' => 'evenement' ) );
+           $accueilLink = $helperUrl->url ( array ('action' => 'liste', 'controller' => 'evenement' ), 'default',true);
            //return '<a href="'.$accueilLink.'" alt="Accueil Evenement">Liste des évènements</a>';
            return $accueilLink;
         }
