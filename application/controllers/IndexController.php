@@ -16,7 +16,8 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
-        
+        $form = new Application_Form_Example();
+        $this->view->form = $form;
     }
 
 

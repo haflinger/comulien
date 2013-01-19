@@ -64,7 +64,7 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
                 $dateDebut = new Zend_Date($this->_evenement->dateDebutEvent,'yyyy-MM-dd HH:mm:ss S');
                 $dateFin = new Zend_Date($this->_evenement->dateFinEvent,'yyyy-MM-dd HH:mm:ss S');
                 if ($maintenant < $dateDebut ){
-                    $message = 'Désolé ! Cet évènement commence le '.$dateDebut->toString('yyyy-MM-dd HH:mm:ss S');
+                    $message = 'Désolé ! Cet évènement commence le '.$dateDebut->toString('dd/MM/yyyy à HH:mm:ss');
                     $this->setRedirection($request,$message);
                     //suppression de l'event en session
                     $this->checkout();
