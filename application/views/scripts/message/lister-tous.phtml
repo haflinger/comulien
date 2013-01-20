@@ -24,7 +24,7 @@ TODO
                         </div>
                     </a>
                     </div>
-                    <div id="menu<?php echo $entry->idMessage; ?>" class="collapse">
+                    <div id="menu<?php echo $entry->idMessage; ?>" class="collapse menuMessage">
                         <div id="monaccordeon">
                             <nav class="navbar">
                                 <div class="navbar-inner">
@@ -44,11 +44,11 @@ TODO
                                                 }    
                                             }
                                          ?>
-                                        <li> <a href="#">Répondre</a> </li>
+                                        <li> <a href="#"><i class="icon-edit"></i> Répondre</a> </li>
                                         <li class="divider-vertical"></li>
-                                        <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>">+ <?php echo $plus ?></a> </li>
+                                        <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>"><i class="icon-thumbs-up"></i> <?php echo $plus ?></a> </li>
                                         <li class="divider-vertical"></li>
-                                        <li> <a href="<?php echo$this->unlikeMessage($entry->idMessage);?>">- <?php echo $moins ?></a> </li>
+                                        <li> <a href="<?php echo$this->unlikeMessage($entry->idMessage);?>"><i class="icon-thumbs-down"></i>  <?php echo $moins ?></a> </li>
                                         <li class="divider-vertical"></li>
                                         <li><a href="http://www.facebook.com">Facebook</a></li>
                                         <li class="divider-vertical"></li>
