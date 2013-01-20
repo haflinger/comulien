@@ -2,7 +2,7 @@
 
 /**
  * gère l'évènement
- * !! INUTILISE POUR LE MOMENT !!
+ * TODO : documentation
  * */
 class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract {
 
@@ -82,32 +82,9 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
                     
                     return;
                 } 
-                
-                 
             }
-            
         }
 
-//        if (!is_null($message)) {
-//            $request->setParam('infoDefautEvenement',$message);
-//
-//            $request->setModuleName($module);
-//            $request->setControllerName('evenement');
-//            $request->setActionName('defaut');
-//            $front->returnResponse();       
-//        }
-//        
-        
-        
-//        
-//        $front = Zend_Controller_Front::getInstance();
-//        $refAction = $front->getRequest()->getActionName();
-//        $refController = $front->getRequest()->getControllerName();
-//        $refModule = $front->getModuleControllerDirectoryName();
-//        
-//        $request->setModuleName($module);
-//        $request->setControllerName($controller);
-//        $request->setActionName($action);
     }
     
     public function setRedirection($request,$message){

@@ -96,10 +96,20 @@ class UtilisateurController extends Zend_Controller_Action
         // dont l'id est passé en paramètres
         //TODO : revoir le comportement lors de l'utilisation réelle
         $id = $this->getRequest()->getParam('id');// utilisateur/profil/id/1
-        if ($id!=null) { 
+        $validator = new Zend_Validate_Digits();
+
+        if ($id!=null ) { 
             //un id en paramètres : on l'utilise
-            $Utilisateur = new Application_Model_DbTable_Utilisateur();
-            $this->view->user = $Utilisateur->find($id)->current();
+            if ( $validator->isValid($id) && $id>0 ){
+                $Utilisateur = new Application_Model_DbTable_Utilisateur();
+                $user = $Utilisateur->find($id)->current();
+                $this->view->user = $user;
+            }
+            else
+            {
+                //TODO : gérer les cas d'erreur : redirection sur une page d'erreur ? ou autre... ???
+                $this->view->user = null;
+            }
         } else { //sinon : on redirige sur monProfil
             $this->_helper->redirector ( 'profilprive');
         }

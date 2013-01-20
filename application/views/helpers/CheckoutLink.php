@@ -17,7 +17,7 @@ class Zend_View_Helper_CheckoutLink extends Zend_View_Helper_Abstract {
         if (isset($comulienNamespace->checkedInEvent))
         {
             //$event = $comulienNamespace->checkedInEvent;
-            $checkoutLink = $helperUrl->url ( array ('action' => 'checkout', 'controller' => 'evenement' ) );
+            $checkoutLink = $helperUrl->url ( array ('action' => 'checkout', 'controller' => 'evenement' ), 'default',true);
             return $checkoutLink;
             
         }
