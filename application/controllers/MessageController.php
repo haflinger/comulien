@@ -12,25 +12,28 @@
 
 class MessageController extends Zend_Controller_Action
 {
-    private $_evenement;
+    private $_evenement = null;
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
     public function init()
     {
-        $bulleNamespace = new Zend_Session_Namespace('bulle');
-        //session active ?
-        if (isset($bulleNamespace->checkedInEvent)) {
-            $this->_evenement = $bulleNamespace->checkedInEvent;
-            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
-            //  soient mémorisées dans la session
-            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
-            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
+        if (Zend_Registry::isRegistered('checkedInEvent')) {
+            $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
-        else
-        {
-            $this->_evenement = null;
-            //$this->view->evenement = $bulleNamespace->checkedInEvent;
-        }
+//        $bulleNamespace = new Zend_Session_Namespace('bulle');
+//        //session active ?
+//        if (isset($bulleNamespace->checkedInEvent)) {
+//            $this->_evenement = $bulleNamespace->checkedInEvent;
+//            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
+//            //  soient mémorisées dans la session
+//            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
+//            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
+//        }
+//        else
+//        {
+//            $this->_evenement = null;
+//            //$this->view->evenement = $bulleNamespace->checkedInEvent;
+//        }
     }
 
     
@@ -42,80 +45,64 @@ class MessageController extends Zend_Controller_Action
 
     public function listerTousAction()
     {
-        
-        if (!is_null($this->_evenement)){
-            //si la session contient un evenement
-            
-            //Récupération du droit de modération de l'utilisateur dans l'évènement
-            $auth = Zend_Auth::getInstance ();
-            $moderateur = false;
-            $UtilisateurActif = null;
-            if ($auth->hasIdentity ()) {
-                $idUser = $auth->getIdentity ()->idUser;
-                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-                $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
-                
-                $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
-            }
-            
-            //passe à la vue le droit de l'utilisateur à modérer
-            $this->view->moderateur = $moderateur;
-            
-            //vérification du droit d'écrire un message
-            
-            //Détermination du rôle de l'utilisateur dans l'organisme
-            if (!is_null($UtilisateurActif)) {
-                $role = $UtilisateurActif->getRole($this->_evenement->idOrga);
-            }else{
-                $role = 'visiteur';
-            }
+        //Récupération du droit de modération de l'utilisateur dans l'évènement
+        $auth = Zend_Auth::getInstance ();
+        $moderateur = false;
+        $UtilisateurActif = null;
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+            $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
 
-            //définition 
-            $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
-            $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
-            $ACL = Zend_Registry::get('Zend_Acl');
-            if($ACL->isAllowed($role, $resourceController, $privilegeAction))
-            {
-                $formEcrire = new Application_Form_EcrireMessage();
-                $this->view->formEcrireMessage = $formEcrire;
-            }
-            else
-            {
-                $this->view->formEcrireMessage = null;
-                   $this->view->formEcrireMessage = null;
-            }
-
-
-            //récupération des messages
-            $tableMessage = new Application_Model_DbTable_Message();
-            $messagesTous = $tableMessage->messagesTous($this->_evenement,$moderateur);
-            $this->view->messages = $messagesTous;
-            
-            
-        }else{
-            //TODO : pas d'évènement en session : que faire ? redirection sur le checkin ?
+            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
         }
-        
+
+        //passe à la vue le droit de l'utilisateur à modérer
+        $this->view->moderateur = $moderateur;
+
+        //vérification du droit d'écrire un message
+
+        //Détermination du rôle de l'utilisateur dans l'organisme
+        if (!is_null($UtilisateurActif)) {
+            $role = $UtilisateurActif->getRole($this->_evenement->idOrga);
+        }else{
+            $role = 'visiteur';
+        }
+
+        //définition 
+        $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
+        $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
+        $ACL = Zend_Registry::get('Zend_Acl');
+        if($ACL->isAllowed($role, $resourceController, $privilegeAction))
+        {
+            $formEcrire = new Application_Form_EcrireMessage();
+            $this->view->formEcrireMessage = $formEcrire;
+        }
+        else
+        {
+            $this->view->formEcrireMessage = null;            
+        }
+
+        //récupération des messages
+        $tableMessage = new Application_Model_DbTable_Message();
+        $messagesTous = $tableMessage->messagesTous($this->_evenement,$moderateur);
+        $this->view->messages = $messagesTous;
     }
     
     public function listerReponse($id){
+        //TODO
         //récupération des réponses au message
-            $tableMessage = new Application_Model_DbTable_Message();
-            $reponses = $tableMessage->getReponses($id);
-            $this->view->messages = $reponses;
+        $tableMessage = new Application_Model_DbTable_Message();
+        $reponses = $tableMessage->getReponses($id);
+        $this->view->messages = $reponses;
     }
     
     public function listerOrganisateurAction()
     {
-        if (!is_null($this->_evenement)){
-            //si la session contient un evenement
-            $Message = new Application_Model_DbTable_Message();
-            $messagesOrganisateurs = $Message->messagesOrganisateur($this->_evenement);
-            $this->view->messages = $messagesOrganisateurs;
-            
-        }else{
-            //TODO : pas d'évènement en session : que faire ? redirection sur le checkin ?
-        }
+        //si la session contient un evenement
+        $Message = new Application_Model_DbTable_Message();
+        $messagesOrganisateurs = $Message->messagesOrganisateur($this->_evenement);
+        $this->view->messages = $messagesOrganisateurs;
     }
 
     public function reponsesAction()
@@ -126,6 +113,7 @@ class MessageController extends Zend_Controller_Action
     public function approuverAction()
     {
         //récupération des paramètres
+        //TODO : controle des paramètres
         $idMessage = $this->getRequest()->getParam('message');
         $appreciation = $this->getRequest()->getParam('appreciation');
         
@@ -149,8 +137,11 @@ class MessageController extends Zend_Controller_Action
         
         //approuver le message
         $table->apprecierMessage($message,$utilisateur,$note);
+        
         $this->view->info = 'Appréciation déposée ! (message : '.$message->idMessage.', appreciation : '.$note.')';
-                  
+//        $bulleNamespace = new Zend_Session_Namespace('bulle');
+//        $this->view->retour = $bulleNamespace->retour;
+        $this->view->user = $utilisateur;
     }
 
     public function envoyerAction()
@@ -167,7 +158,6 @@ class MessageController extends Zend_Controller_Action
             if ($form->isValid($formData)) {
                 //on récupère les données du formulaire
                 //faire du contrôle de saisie :
-                // $profil doit faire partie des profils de l'utilisateur dans cet organisme
                 // $message ne doit pas être vide, de taille limitée ...
                 $message = $form->getValue('message');
                 $profil = $form->getValue('choixProfil');
@@ -187,6 +177,7 @@ class MessageController extends Zend_Controller_Action
                 }
                 
                 //insertion du message
+                //TODO passer cette partie dans le modèle
                 $table = new Application_Model_DbTable_Message();
                 
                 $dateheure = Date('y-m-d H:i:s u');//TODO : utiliser zend_date pour générer une date
@@ -201,6 +192,8 @@ class MessageController extends Zend_Controller_Action
                     );
                 
                 $table->posterMessage($data);
+                //TODO : $table->posterMessage($idUser,$idTypeMsg,$this->_evenement->idEvent,$message,$profil)
+                //pour remplacer l'envoi d'un array
                 
                 //message posté ! on redirige sur les messages 
                 

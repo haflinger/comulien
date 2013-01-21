@@ -21,7 +21,7 @@ $event = $comulienNamespace->checkedInEvent;*/
     </div>
     <div id="present"><p>Vous présente</p></div>
     <div class="acceuilBlock">
-          <div id="nomEvent"><?php echo $this->event->titreEvent ?> </div>
+          <div id="nomEvent"><?php echo $this->evenement->titreEvent ?> </div>
           <div id="logoEvent"><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></div>
           <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>
           <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>

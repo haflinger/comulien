@@ -11,7 +11,7 @@ class Application_Form_Login extends Zend_Form
          * $this->setAction('valider');
          * positionne la validation du formulaire vers l'action 'login' du controleur
          */
-        //$this->setAction('login');
+        $this->setAction('authentifier');
         
         $login = new Application_Form_EText ( 'form_user_add_name', 'login' );
         $password = new Zend_Form_Element_Password ( 'password' );

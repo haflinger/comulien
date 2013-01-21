@@ -16,35 +16,14 @@ class UtilisateurController extends Zend_Controller_Action
     
     public function init()
     {
-        $bulleNamespace = new Zend_Session_Namespace('bulle');
-        //session active ?
-        if (isset($bulleNamespace->checkedInEvent)) {
-            $this->_evenement = $bulleNamespace->checkedInEvent;
-            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
-            //  soient mémorisées dans la session
-            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
-            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
+        if (Zend_Registry::isRegistered('checkedInEvent')) {
+            $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
-        else
-        {
-            $this->_evenement = null;
-            //$this->view->evenement = $bulleNamespace->checkedInEvent;
-        }
+            
     }
     
     public function preDispatch() {
-//        //vérification si l'utilisateur est connecté 
-//        // afin de lui permettre de se déconnecter
-//        //TODO : faire un peu plus de description sur ce point
-//        if (Zend_Auth::getInstance ()->hasIdentity ()) { 
-//            if ('deconnecter' != $this->getRequest ()->getActionName ()) {
-//                $this->_helper->redirector ( 'index', 'utilisateur' );
-//            }
-//        } else {
-//            if ('deconnecter' == $this->getRequest ()->getActionName ()) {
-//                $this->_helper->redirector ( 'authentifier' );
-//            }
-//        }
+
     }
     
     public function testAction()
@@ -55,10 +34,8 @@ class UtilisateurController extends Zend_Controller_Action
             $idUser = $auth->getIdentity ()->idUser;
             $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
             $utilisateur = $tableUtilisateur->find($idUser)->current();
-            
         }
         
-        //$this->view->test = $user->getProfils($this->_evenement)->toArray();
         $this->view->test = $utilisateur->getRole($this->_evenement->idOrga);
     }
     
@@ -71,8 +48,6 @@ class UtilisateurController extends Zend_Controller_Action
     public function profilpriveAction()
     {
         //ATTENTION cette action permet de voir le profil complet de l'utilisateur
-        // dont l'id est passé en paramètres
-        //TODO : revoir le comportement lors de l'utilisation réelle
 
         $auth = Zend_Auth::getInstance ();
         if ($auth->hasIdentity ()) {
@@ -82,7 +57,7 @@ class UtilisateurController extends Zend_Controller_Action
             $this->view->user = $Utilisateur->find($idUser)->current();
             $helperUrl = new Zend_View_Helper_Url ( );
             $this->view->profilPublicLink = $helperUrl->url ( array ('action' => 'profilpublic', 'controller' => 'utilisateur','id'=>$idUser ),'default',true );
-            $this->view->lienModifier = $helperUrl->url ( array ('action' => 'profilpublic', 'controller' => 'utilisateur','id'=>$idUser ),'default',true );
+            $this->view->lienModifier = $helperUrl->url ( array ('action' => 'modifier', 'controller' => 'utilisateur'),'default',true );
         }else{
             //pas de session, on redirige sur le login
             $this->_helper->redirector ( 'authentifier', 'utilisateur');
@@ -94,7 +69,8 @@ class UtilisateurController extends Zend_Controller_Action
     {
         //ATTENTION cette action permet de voir le profil complet de l'utilisateur
         // dont l'id est passé en paramètres
-        //TODO : revoir le comportement lors de l'utilisation réelle
+        //TODO : revoir le comportement lors de l'utilisation réelle ...
+        // pour ne rendre que les informations non sensibles
         $id = $this->getRequest()->getParam('id');// utilisateur/profil/id/1
         $validator = new Zend_Validate_Digits();
 
@@ -147,19 +123,6 @@ class UtilisateurController extends Zend_Controller_Action
 
     public function modifierAction()
     {
-        //ATTENTION cette action permet de voir le profil complet de l'utilisateur
-        // dont l'id est passé en paramètres
-        //TODO : revoir le comportement lors de l'utilisation réelle
-//        $id = $this->getRequest()->getParam('id');// utilisateur/profil/id/1
-//        if ($id!=null) { 
-//            //un id en paramètres : on l'utilise
-//            $Utilisateur = new Application_Model_DbTable_Utilisateur();
-//            $this->view->user = $Utilisateur->find($id)->current();
-//        } else { //sinon : on redirige sur monProfil
-//           // $this->_helper->redirector ( 'profilprive');
-//        }
-        
-        //////
         $formInscription =  new Application_Form_InscrireUtilisateur();
         $this->view->formInscription = null; //valeur par défaut. Sera rempli avec les besoins
         
@@ -207,26 +170,6 @@ class UtilisateurController extends Zend_Controller_Action
             
     }
     
-//
-//        //ATTENTION cette action permet de voir le profil complet de l'utilisateur
-//       // dont l'id est passé en paramètres
-//       //TODO : revoir le comportement lors de l'utilisation réelle
-//
-//       $auth = Zend_Auth::getInstance ();
-//       if ($auth->hasIdentity ()) {
-//           //on prend l'id de l'utilisateur en session
-//           $idUser = $auth->getIdentity ()->idUser;
-//           $Utilisateur = new Application_Model_DbTable_Utilisateur();
-//           $this->view->user = $Utilisateur->find($idUser)->current();
-//           $helperUrl = new Zend_View_Helper_Url ( );
-//           $this->view->profilPublicLink = $helperUrl->url ( array ('action' => 'profilpublic', 'controller' => 'utilisateur','id'=>$idUser ),'default',true );
-//       }else{
-//           //pas de session, on redirige sur le login
-//           $this->_helper->redirector ( 'authentifier', 'utilisateur' );
-//       }
-   
-    
-
     public function authentifierAction()
     {
         //création d'une instance du formulaire
@@ -261,6 +204,9 @@ class UtilisateurController extends Zend_Controller_Action
                     $storage->write ( $authAdapter->getResultRowObject ( null, 'password' ) );
                     // - et finalement on redirige l'utilisateur sur la page principale de l'application
                     //TODO : rediriger sur la page qui précède l'authentification
+                    $bulleNamespace = new Zend_Session_Namespace('bulle');
+                    $redirection = $bulleNamespace->retour;
+                    //$this->_helper->redirector ( $redirection['action'],$redirection['controller'],$redirection['module'],$redirection['params'] );
                     $this->_helper->redirector ( 'accueil', 'evenement' );
                 } else {
                     //NOK : on affiche une erreur

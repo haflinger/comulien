@@ -2,7 +2,11 @@
 TODO
 - Modifier l'image par défaut de gravatar
 -->
-
+<?php  if (!is_null($this->formEcrireMessage)) {?>
+                    <div id="ecrireMessage">
+                     <?php echo $this->formEcrireMessage ; ?>
+                    </div>
+              <?php   }?> 
 <div class="container-fluid">
     <div id="monaccordeon">
 <?php foreach ($this->messages as $entry): ?>

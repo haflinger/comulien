@@ -20,6 +20,9 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
             //  soient mémorisées dans la session
             //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
             $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
+        
+            //inscrit l'évènement dans le registre
+            Zend_Registry::set('checkedInEvent',$this->_evenement );
         }
         else
         {
