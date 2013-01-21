@@ -13,15 +13,16 @@ class Application_Form_Login extends Zend_Form
          */
         $this->setAction('authentifier');
         
-        $login = new Application_Form_EText ( 'form_user_add_name', 'login' );
+        $login = new Application_Form_EText ('login' );
+        $login->setAttrib('placeholder','Identifiant');
         $password = new Zend_Form_Element_Password ( 'password' );
-        $password->setLabel ( 'form_user_add_password' )
+        $password->setAttrib('placeholder','Mot de passe')
                 ->addFilter ( 'StripTags' )
                 ->addFilter ( 'StringTrim' )
                 ->setRequired ( true );
 
         $submit = new Zend_Form_Element_Submit ( 'submit' );
-        $submit->setAttrib ( 'id', 'submitbutton' )->setLabel ( 'form_user_add_submit' );
+        $submit->setAttrib ( 'id', 'submitbutton' )->setLabel ( 'Connexion' );
 
         $elements = array ($login, $password, $submit );
         $this->addElements ( $elements );

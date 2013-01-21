@@ -1,8 +1,11 @@
 
-<div id="view-content">
-	<p>View script for controller <b>Utilisateur</b> and script/action name <b>authentifier</b></p>
+<div id="container-fluid">
+    <div class="row">
+    <div class="span4"></div>
+    <div class="span4">
         <?php if (isset($this->formLogin)){ ?>
-  <h2><?php echo $this->translate('view_user_add')?> : </h2>
-  <?php echo $this->formLogin; 
-}?>
+            <?php echo $this->formLogin; }?>
+    </div>
+    <div class="span4"></div>
+    </div>
 </div>

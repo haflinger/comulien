@@ -16,44 +16,20 @@ body{
     font-size: 16px;
     margin:0px;
 }
-.navbar{margin:0px}
-.accordion-group{background-color: #FFFFFF;}
-.acceuilBlock{
-        background-color: #A2A9AF;
-        margin: 20px;
-        padding:5px;
-        height: 100px;
-        
-    } 
-
+/*header*/
+.menuHeader{position: fixed}
 #lientitre {color:black;text-decoration: none}
-
-#logoOrga im{
-       text-align: left;
-       height:45px; 
-       width: 45px;
-    }
-#logoEvent im{
-    text-align: left;
-    height:45px; 
-    width: 45px;
-    }
-.logo{
-    height: 60px;
-    width: 60px;
-    position: relative;
-    float: right;
-}
-#present{
-        text-align: center;
-    }     
-
-.message{
-        background:-webkit-gradient(linear, 62% 34%, 62% 73%, from(#302E2E), to(#5F605D));
-    }
+.nav{display: inline}
+#btn_newMessage{float:right}
+#message{width:93%}
+#choixProfil{margin:0px auto}
+#envoyer{margin:0px auto}
+.infos{margin:0px; padding:0px}
+/*Tous les message*/
 
 .dateMessage{
        color: #66CCFF;
+       text-align:right;
        z-index: 1;
     }
 .nomUser{
@@ -71,8 +47,43 @@ body{
     }
 .nbMessage{
         color: black;
-        text-align: center;
+        text-align:right;
         z-index:1;
-       
     }
+.navbar{margin:0px}
+.menuMessage{
+    font-size: 13px;
+    padding: 1px;
+}
+.accordion-group{background-color: #FFFFFF;}
+.acceuilBlock{
+        background-color: #A2A9AF;
+        margin: 20px;
+        padding:5px;
+        height: 100px;
+        
+    } 
+
+
+
+#logoOrga im{
+       
+       height:50px; 
+       width: 50px;
+    }
+#logoEvent im{
+    
+    height:50px; 
+    width: 50px;
+    }
+.logo{
+    height: 60px;
+    width: 60px;
+    position: relative;
+    float: right;
+}
+#present{
+        text-align: center;
+    }     
+
 
