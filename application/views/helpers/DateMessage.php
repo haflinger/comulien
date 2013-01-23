@@ -27,14 +27,14 @@ class Zend_View_Helper_DateMessage extends Zend_View_Helper_Abstract {
         }
         $diff = $diff/60;//diff en heures
         if ($diff<24) {
-            return floor($diff).' heures';
+            return floor($diff).' h';
         }
         $diff = $diff/24; //diff en jours
         if ($diff<2 && $diff>1) {
             return 'hier';
         }
         else{
-            return floor($diff).' jours';
+            return floor($diff).' j';
         }
         return $interval;
     }

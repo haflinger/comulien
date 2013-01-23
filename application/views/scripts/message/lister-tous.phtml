@@ -9,15 +9,15 @@ TODO
                 <!--Affiche le message-->
                 <div class="accordion-group">
                     <div class="accordion-heading"> <a class="accordion-toggle" href="#menu<?php echo $entry->idMessage; ?>" data-parent="#monaccordeon" data-toggle="collapse">
-                        <div class="row well-small">
-                           <div class="span2">
+                        <div class="row-fluid">
+                           <div class="span1">
                               <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
                            </div>
-                           <div class="span8">
+                           <div class="span10">
                               <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
                               <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div>
                            </div>  
-                           <div class="span2">
+                           <div class="span1">
                               <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div>
                               <div class="nbMessage"><!--<img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/>--><span>23</span></div>
                            </div>
@@ -44,7 +44,7 @@ TODO
                                                 }    
                                             }
                                          ?>
-                                        <li> <a href="#"><i class="icon-edit"></i> Répondre</a> </li>
+                                        <li> <a href="<?php echo $entry->idMessage;?>"><i class="icon-edit"></i>Répondre</a> </li>
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>"><i class="icon-thumbs-up"></i> <?php echo $plus ?></a> </li>
                                         <li class="divider-vertical"></li>
