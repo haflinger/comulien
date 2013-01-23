@@ -1,5 +1,5 @@
 <?php
-//Zend_Session::start();
+
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
     //TODO : voir pour récupérer l'évènement dans la session

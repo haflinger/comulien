@@ -10,9 +10,9 @@ RewriteRule ^.*$ index.php [NC,L]
 #il faut spécifier la racine du site dans l'interface 1&1 par ex (compter 10min avant prise en compte)
 #Les répertoires application, library, public ... étant à la racine
 
-##Activation de la réécriture
-#RewriteEngine On
-##chemin de base pour la règle de réécriture
+#Activation de la réécriture
+RewriteEngine On
+#chemin de base pour la règle de réécriture
 #RewriteBase /
-##seuls les fichiers inclus dans le site ne sont pas redirigés
-#RewriteRule !\.(js|ico|txt|gif|jpg|png|css)$ index.php
+#seuls les fichiers inclus dans le site ne sont pas redirigés
+RewriteRule !\.(js|ico|txt|gif|jpg|png|css)$ index.php

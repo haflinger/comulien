@@ -16,6 +16,11 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     private $_acl;
 
     /**
+     *
+     * @var Zend_Logger logger principal
+     */
+    private $_logger;
+    /**
      * l'évènement en cours
      * @var rowset evenement 
      */
@@ -25,8 +30,8 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
      */
 
     const FAIL_AUTH_MODULE = 'default';
-    const FAIL_AUTH_ACTION = 'login';
-    const FAIL_AUTH_CONTROLLER = 'login';
+    const FAIL_AUTH_ACTION = 'authentifier';
+    const FAIL_AUTH_CONTROLLER = 'utilisateur';
 
     /**
      * Chemin de redirection lors de l'échec de contrôle des privilèges
@@ -35,48 +40,27 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     const FAIL_ACL_ACTION = 'index';
     const FAIL_ACL_CONTROLLER = 'index';
 
-    const FAIL_EVENT_MODULE = 'default';
-    const FAIL_EVENT_ACTION = 'index';
-    const FAIL_EVENT_CONTROLLER = 'index';
     /**
      * Constructeur
      */
     public function __construct(Zend_Acl $acl) {
         $this->_acl = $acl;
         $this->_auth = Zend_Auth::getInstance();
+        $this->_logger = Zend_Registry::get("cml_logger");
         
     }
     
-    public function getEvenement(){
-        $bulleNamespace = new Zend_Session_Namespace('bulle');
-        //session active ?
-        if (isset($bulleNamespace->checkedInEvent)) {
-            $this->_evenement = $bulleNamespace->checkedInEvent;
-        
-        
-            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
-            //  soient mémorisées dans la session
-            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
-            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
-        }
-        else
-        {
-            $this->_evenement = null;
-            
-        }
-    }
     
     /**
      * Vérifie les autorisations
      * Utilise _request et _response hérités et injectés par le FC
      */
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
-        $this->getEvenement();
-
+        
+        if(Zend_Registry::isRegistered('checkedInEvent')){
+            $this->_evenement = Zend_Registry::get('checkedInEvent');
+        }
         if (is_null($this->_evenement)) {
-//            $request->setModuleName(self::FAIL_EVENT_MODULE);
-//            $request->setControllerName(self::FAIL_EVENT_CONTROLLER);
-//            $request->setActionName(self::FAIL_EVENT_ACTION);
             $role = 'visiteur';
         }else {
             $role = 'utilisateur';
@@ -92,12 +76,21 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
                 $role = $user->getRole($this->_evenement->idOrga);
             }
         }
+        
         //DEBUG : role=dev pour debugger
         //$role = 'dev';
+        Zend_Registry::set('role',$role); //pour debugger avec ZFdebug
+        
         $module = $request->getModuleName();
         $controller = $request->getControllerName();
         $action = $request->getActionName();
-
+        
+        //$logger = Zend_Registry::get("cml_logger");
+        $this->_logger->err('-');
+        $this->_logger->err('entrée :');
+        $this->_logger->err($controller.'/'.$action);
+        $this->_logger->err('-');
+        
         $front = Zend_Controller_Front::getInstance();
         $default = $front->getDefaultModule();
 
@@ -112,13 +105,28 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         if (!$this->_acl->has($resource)) {
             $resource = null;
         }
+ 
 //$role='visiteur';
         // contrôle si l'utilisateur est autorisé
+        $this->_logger->err('isAllowed ? '.$role.','.$resource.','.$action);
         if (!$this->_acl->isAllowed($role, $resource, $action)) {
             // l'utilisateur n'est pas autorisé à accéder à cette ressource
             // on va le rediriger
             if (!$this->_auth->hasIdentity()) {
                 // il n'est pas identifié -> module de login
+                //TODO : à tester :
+                //  on passe un tableau contenant $module / $controller / $action / $params = $request->getParams()
+                //  dans le registre. Ainsi il sera possible de récupérer ses informations pour rediriger
+
+//                
+//                $bulleNamespace = new Zend_Session_Namespace('bulle');
+//                $bulleNamespace->retour = array('controller'=>$controller,'action'=>$action,'module'=>$module,'params'=>$request->getParams());
+//                
+//                $this->_logger = Zend_Registry::get("cml_logger");
+//                $this->_logger->err('retour en session');
+//                $this->_logger->err($controller.'/'.$action);
+//                $this->_  logger->err('-');
+
                 $module = self::FAIL_AUTH_MODULE;
                 $controller = self::FAIL_AUTH_CONTROLLER;
                 $action = self::FAIL_AUTH_ACTION;
@@ -129,6 +137,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
                 $action = self::FAIL_ACL_ACTION;
             }
         }
+        
 
         $request->setModuleName($module);
         $request->setControllerName($controller);

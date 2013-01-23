@@ -14,20 +14,23 @@ class EvenementController extends Zend_Controller_Action
 
     public function init()
     {
-        $bulleNamespace = new Zend_Session_Namespace('bulle');
-        //session active ?
-        if (isset($bulleNamespace->checkedInEvent)) {
-            $this->_evenement = $bulleNamespace->checkedInEvent;
-            //  
-            //lors de la sauvegarde en session le EvenementRow est sérialisé, et par sécurité passe en mode 'déconnecté'
-            // pour l'utiliser à nouveau comme un objet row, il faut le reconnecter en utilisant setTable
-            //http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
-            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
-        }
-        else
-        {
-            $this->_evenement = null;
-            //$this->view->evenement = $bulleNamespace->checkedInEvent;
+//        $bulleNamespace = new Zend_Session_Namespace('bulle');
+//        //session active ?
+//        if (isset($bulleNamespace->checkedInEvent)) {
+//            $this->_evenement = $bulleNamespace->checkedInEvent;
+//            //  
+//            //lors de la sauvegarde en session le EvenementRow est sérialisé, et par sécurité passe en mode 'déconnecté'
+//            // pour l'utiliser à nouveau comme un objet row, il faut le reconnecter en utilisant setTable
+//            //http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
+//            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
+//        }
+//        else
+//        {
+//            $this->_evenement = null;
+//            //$this->view->evenement = $bulleNamespace->checkedInEvent;
+//        }
+        if(Zend_Registry::isRegistered('checkedInEvent')){
+            $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
     }
 
@@ -62,7 +65,6 @@ class EvenementController extends Zend_Controller_Action
          * du checkin dans l'évènement et à la persistance en session de l'évènement checké
          * paramètre id : l'id de l'évènement
          */
-        //TODO : tester les dates de début et de fin de validité de l'évènement
         $idEvent = $this->getRequest()->getParam('id');
         if($idEvent!=null){ 
             $Evenement = new Application_Model_DbTable_Evenement();
@@ -84,27 +86,22 @@ class EvenementController extends Zend_Controller_Action
         /**
          * Accueil dans l'évènement
          */
-        if (!$this->_evenement) {
-            $this->_helper->redirector ( 'liste', 'evenement' );
-        }
-        else
-        {
-            $evenement = $this->_evenement;
-            $organisateur = $evenement->getOrga();
-            //$messagesOrga = $evenement->getMessagesOrga();
-            $this->view->organisateur = $organisateur;
-            //$this->view->messagesOrganisateurs = $messagesOrga;
-            $this->view->evenement = $evenement;
-            
-            $helperUrl = new Zend_View_Helper_Url ( );
-            $lienListerTous = $helperUrl->url ( array ('action' => 'lister-tous', 'controller' => 'message' ) ); 
-            $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisateur', 'controller' => 'message' ) ); 
-//var_dump($this->getEngine());
-            $this->view->lienListerTous = $lienListerTous;
-            $this->view->lienListerOrganisateur = $lienListerOrganisateur;
-            $comulienNamespace = new Zend_Session_Namespace('bulle');
-            $this->view->event = $comulienNamespace->checkedInEvent;
-        }
+        //L'évènement ne doit normalement pas être null puisque géré en amont par le plugin EvenementPlugin   
+        $evenement = Zend_Registry::get('checkedInEvent');
+        $this->view->evenement = $evenement;
+        
+        $organisateur = $evenement->getOrga();
+        $this->view->organisateur = $organisateur;
+
+        $helperUrl = new Zend_View_Helper_Url ( );
+        
+        $lienListerTous = $helperUrl->url ( array ('action' => 'lister-tous', 'controller' => 'message' ) ); 
+        $this->view->lienListerTous = $lienListerTous;
+        
+        $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisateur', 'controller' => 'message' ) ); 
+        $this->view->lienListerOrganisateur = $lienListerOrganisateur;
+        
+        
     }
 
     public function checkoutAction()
@@ -124,14 +121,19 @@ class EvenementController extends Zend_Controller_Action
      */
     private function setEvent($Evenement)
     {
+        //evènement dans la session
         $bulleNamespace = new Zend_Session_Namespace('bulle');
         $bulleNamespace->checkedInEvent = $Evenement;
+        //dans le registre
+        Zend_Registry::set('checkedInEvent',$Evenement);
+        //dans la donnée membre privé
         $this->_evenement = $Evenement;
         
     }
 
     /**
-     * 
+     * TODO : landing page pour informer sur un problème d'évènement
+     * utilisé par le evenementPlugin pour ses redirections
      */
     public function defautAction()
     {

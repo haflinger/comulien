@@ -50,7 +50,7 @@ class Application_Form_Example extends Twitter_Form
 			)
 		));
 
-		$this->addElement("multicheckbox", "multichecks", array(
+		$this->addElement("multiCheckbox", "multichecks", array(
 			"description" => "This is a nice thing.",
 			"label" => "Foobar",
 			"multiOptions" => array(
