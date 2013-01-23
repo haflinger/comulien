@@ -18,6 +18,40 @@ class Application_Plugin_AclIni extends Zend_Acl	{
 		}
 	}
 	
+        public function test(){
+            //WIP : refaire les rôles sans le ini
+            $this->addRole('visiteur');
+            $this->addRole('utilisateur','visiteur');
+            $this->addRole('identifie','utilisateur');  //regroupe pour le moment les corp et orga
+            $this->addRole('corporate','identifie');
+            $this->addRole('organisateur','identifie');
+            $this->addRole('dev');
+            
+            $this->addResource('resource');
+            $this->addResource('evenement');
+            $this->addResource('index');
+            $this->addResource('login');
+            $this->addResource('message');
+            $this->addResource('organisme');
+            $this->addResource('profil');
+            $this->addResource('qrcode');
+            $this->addResource('typemessage');
+            $this->addResource('utilisateur');
+            
+            $this->allow('visiteur','evenement','checkin');
+            $this->allow('visiteur','evenement','accueil');
+            $this->allow('visiteur','evenement','checkout');
+            $this->allow('visiteur','evenement','defaut');
+            $this->allow('visiteur','evenement','liste');
+            
+            $this->allow('visiteur','message','lister-tous');
+            $this->allow('visiteur','message','lister-organisateur');
+            
+            
+            
+            
+            
+        }
 	protected function _setRoles($roles)	{
 		foreach ($roles as $role => $parents)	{
 			if (empty($parents))	{
