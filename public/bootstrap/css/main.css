@@ -13,7 +13,7 @@
 body{
     background-color: #F9F6F4;
     font-family: sans-serif; 
-    font-size: 16px;
+    font-size: 12px;
     margin:0px;
 }
 /*header*/
@@ -21,10 +21,12 @@ body{
 #lientitre {color:black;text-decoration: none}
 .nav{display: inline}
 #btn_newMessage{float:right}
-#message{width:93%}
 #choixProfil{margin:0px auto}
 #envoyer{margin:0px auto}
 .infos{margin:0px; padding:0px}
+/*Acceuil*/
+
+
 /*Tous les message*/
 
 .dateMessage{
@@ -50,7 +52,7 @@ body{
         text-align:right;
         z-index:1;
     }
-.navbar{margin:0px}
+.navbar{margin:0px;}
 .menuMessage{
     font-size: 13px;
     padding: 1px;
