@@ -2272,53 +2272,175 @@ TODO
 2013-01-23T19:43:08+00:00 ERR (3): bootstrap/ico
 2013-01-23T19:43:08+00:00 ERR (3): -
 2013-01-23T19:43:08+00:00 ERR (3): isAllowed ? utilisateur,,ico
-2013-01-23T20:54:55+00:00 ERR (3): -
-2013-01-23T20:54:55+00:00 ERR (3): entrée :
-2013-01-23T20:54:55+00:00 ERR (3): message/lister-tous
-2013-01-23T20:54:55+00:00 ERR (3): -
-2013-01-23T20:54:55+00:00 ERR (3): isAllowed ? visiteur,message,lister-tous
-2013-01-23T20:54:55+00:00 ERR (3): -
-2013-01-23T20:54:55+00:00 ERR (3): entrée :
-2013-01-23T20:54:55+00:00 ERR (3): error/error
-2013-01-23T20:54:55+00:00 ERR (3): -
-2013-01-23T20:54:55+00:00 ERR (3): isAllowed ? visiteur,error,error
-2013-01-23T20:54:59+00:00 ERR (3): -
-2013-01-23T20:54:59+00:00 ERR (3): entrée :
-2013-01-23T20:54:59+00:00 ERR (3): message/lister-tous
-2013-01-23T20:54:59+00:00 ERR (3): -
-2013-01-23T20:54:59+00:00 ERR (3): isAllowed ? visiteur,message,lister-tous
-2013-01-23T20:54:59+00:00 ERR (3): -
-2013-01-23T20:54:59+00:00 ERR (3): entrée :
-2013-01-23T20:54:59+00:00 ERR (3): error/error
-2013-01-23T20:54:59+00:00 ERR (3): -
-2013-01-23T20:54:59+00:00 ERR (3): isAllowed ? visiteur,error,error
-2013-01-23T20:55:44+00:00 ERR (3): -
-2013-01-23T20:55:44+00:00 ERR (3): entrée :
-2013-01-23T20:55:44+00:00 ERR (3): index/index
-2013-01-23T20:55:44+00:00 ERR (3): -
-2013-01-23T20:55:44+00:00 ERR (3): isAllowed ? visiteur,index,index
-2013-01-23T20:55:44+00:00 ERR (3): -
-2013-01-23T20:55:44+00:00 ERR (3): entrée :
-2013-01-23T20:55:44+00:00 ERR (3): error/error
-2013-01-23T20:55:44+00:00 ERR (3): -
-2013-01-23T20:55:44+00:00 ERR (3): isAllowed ? visiteur,error,error
-2013-01-23T20:56:07+00:00 ERR (3): -
-2013-01-23T20:56:07+00:00 ERR (3): entrée :
-2013-01-23T20:56:07+00:00 ERR (3): evenement/index
-2013-01-23T20:56:07+00:00 ERR (3): -
-2013-01-23T20:56:07+00:00 ERR (3): isAllowed ? visiteur,evenement,index
-2013-01-23T20:56:07+00:00 ERR (3): -
-2013-01-23T20:56:07+00:00 ERR (3): entrée :
-2013-01-23T20:56:07+00:00 ERR (3): error/error
-2013-01-23T20:56:07+00:00 ERR (3): -
-2013-01-23T20:56:07+00:00 ERR (3): isAllowed ? visiteur,error,error
-2013-01-23T20:56:14+00:00 ERR (3): -
-2013-01-23T20:56:14+00:00 ERR (3): entrée :
-2013-01-23T20:56:14+00:00 ERR (3): evenement/index
-2013-01-23T20:56:14+00:00 ERR (3): -
-2013-01-23T20:56:14+00:00 ERR (3): isAllowed ? visiteur,evenement,index
-2013-01-23T20:56:14+00:00 ERR (3): -
-2013-01-23T20:56:14+00:00 ERR (3): entrée :
-2013-01-23T20:56:14+00:00 ERR (3): error/error
-2013-01-23T20:56:14+00:00 ERR (3): -
-2013-01-23T20:56:14+00:00 ERR (3): isAllowed ? visiteur,error,error
+2013-01-23T19:48:23+00:00 ERR (3): -
+2013-01-23T19:48:23+00:00 ERR (3): entrée :
+2013-01-23T19:48:23+00:00 ERR (3): message/approuver
+2013-01-23T19:48:23+00:00 ERR (3): -
+2013-01-23T19:48:23+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-23T19:48:23+00:00 ERR (3): -
+2013-01-23T19:48:23+00:00 ERR (3): entrée :
+2013-01-23T19:48:23+00:00 ERR (3): error/error
+2013-01-23T19:48:23+00:00 ERR (3): -
+2013-01-23T19:48:23+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-23T19:48:23+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-23T19:48:23+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-23T19:48:23+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+)
+2013-01-23T19:48:25+00:00 ERR (3): -
+2013-01-23T19:48:25+00:00 ERR (3): entrée :
+2013-01-23T19:48:25+00:00 ERR (3): bootstrap/ico
+2013-01-23T19:48:25+00:00 ERR (3): -
+2013-01-23T19:48:25+00:00 ERR (3): isAllowed ? utilisateur,,ico
+2013-01-23T19:56:44+00:00 ERR (3): -
+2013-01-23T19:56:44+00:00 ERR (3): entrée :
+2013-01-23T19:56:44+00:00 ERR (3): message/approuver
+2013-01-23T19:56:44+00:00 ERR (3): -
+2013-01-23T19:56:44+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-23T19:56:44+00:00 ERR (3): -
+2013-01-23T19:56:44+00:00 ERR (3): entrée :
+2013-01-23T19:56:44+00:00 ERR (3): bootstrap/ico
+2013-01-23T19:56:44+00:00 ERR (3): -
+2013-01-23T19:56:44+00:00 ERR (3): isAllowed ? utilisateur,,ico
+2013-01-23T19:57:05+00:00 ERR (3): -
+2013-01-23T19:57:05+00:00 ERR (3): entrée :
+2013-01-23T19:57:05+00:00 ERR (3): message/approuver
+2013-01-23T19:57:05+00:00 ERR (3): -
+2013-01-23T19:57:05+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-23T19:57:06+00:00 ERR (3): -
+2013-01-23T19:57:06+00:00 ERR (3): entrée :
+2013-01-23T19:57:06+00:00 ERR (3): evenement/accueil
+2013-01-23T19:57:06+00:00 ERR (3): -
+2013-01-23T19:57:06+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-23T19:57:07+00:00 ERR (3): -
+2013-01-23T19:57:07+00:00 ERR (3): entrée :
+2013-01-23T19:57:07+00:00 ERR (3): bootstrap/ico
+2013-01-23T19:57:07+00:00 ERR (3): -
+2013-01-23T19:57:07+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T19:57:10+00:00 ERR (3): -
+2013-01-23T19:57:10+00:00 ERR (3): entrée :
+2013-01-23T19:57:10+00:00 ERR (3): message/lister-tous
+2013-01-23T19:57:10+00:00 ERR (3): -
+2013-01-23T19:57:10+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-23T19:57:12+00:00 ERR (3): -
+2013-01-23T19:57:12+00:00 ERR (3): entrée :
+2013-01-23T19:57:12+00:00 ERR (3): bootstrap/ico
+2013-01-23T19:57:12+00:00 ERR (3): -
+2013-01-23T19:57:12+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T19:57:14+00:00 ERR (3): -
+2013-01-23T19:57:14+00:00 ERR (3): entrée :
+2013-01-23T19:57:14+00:00 ERR (3): message/approuver
+2013-01-23T19:57:14+00:00 ERR (3): -
+2013-01-23T19:57:14+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T19:57:15+00:00 ERR (3): -
+2013-01-23T19:57:15+00:00 ERR (3): entrée :
+2013-01-23T19:57:15+00:00 ERR (3): bootstrap/ico
+2013-01-23T19:57:15+00:00 ERR (3): -
+2013-01-23T19:57:15+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T19:57:54+00:00 ERR (3): -
+2013-01-23T19:57:54+00:00 ERR (3): entrée :
+2013-01-23T19:57:54+00:00 ERR (3): message/approuver
+2013-01-23T19:57:54+00:00 ERR (3): -
+2013-01-23T19:57:54+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T19:57:56+00:00 ERR (3): -
+2013-01-23T19:57:56+00:00 ERR (3): entrée :
+2013-01-23T19:57:56+00:00 ERR (3): bootstrap/ico
+2013-01-23T19:57:56+00:00 ERR (3): -
+2013-01-23T19:57:56+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T20:19:24+00:00 ERR (3): -
+2013-01-23T20:19:24+00:00 ERR (3): entrée :
+2013-01-23T20:19:24+00:00 ERR (3): message/approuver
+2013-01-23T20:19:24+00:00 ERR (3): -
+2013-01-23T20:19:24+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T20:19:26+00:00 ERR (3): -
+2013-01-23T20:19:26+00:00 ERR (3): entrée :
+2013-01-23T20:19:26+00:00 ERR (3): bootstrap/ico
+2013-01-23T20:19:26+00:00 ERR (3): -
+2013-01-23T20:19:26+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T20:20:37+00:00 ERR (3): -
+2013-01-23T20:20:37+00:00 ERR (3): entrée :
+2013-01-23T20:20:37+00:00 ERR (3): message/approuver
+2013-01-23T20:20:37+00:00 ERR (3): -
+2013-01-23T20:20:37+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T20:20:38+00:00 ERR (3): -
+2013-01-23T20:20:38+00:00 ERR (3): entrée :
+2013-01-23T20:20:38+00:00 ERR (3): bootstrap/ico
+2013-01-23T20:20:38+00:00 ERR (3): -
+2013-01-23T20:20:38+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T20:21:27+00:00 ERR (3): -
+2013-01-23T20:21:27+00:00 ERR (3): entrée :
+2013-01-23T20:21:27+00:00 ERR (3): message/approuver
+2013-01-23T20:21:27+00:00 ERR (3): -
+2013-01-23T20:21:27+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T20:21:28+00:00 ERR (3): -
+2013-01-23T20:21:28+00:00 ERR (3): entrée :
+2013-01-23T20:21:28+00:00 ERR (3): bootstrap/ico
+2013-01-23T20:21:28+00:00 ERR (3): -
+2013-01-23T20:21:28+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T20:57:26+00:00 ERR (3): -
+2013-01-23T20:57:26+00:00 ERR (3): entrée :
+2013-01-23T20:57:26+00:00 ERR (3): message/approuver
+2013-01-23T20:57:26+00:00 ERR (3): -
+2013-01-23T20:57:26+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T20:57:27+00:00 ERR (3): -
+2013-01-23T20:57:27+00:00 ERR (3): entrée :
+2013-01-23T20:57:27+00:00 ERR (3): bootstrap/ico
+2013-01-23T20:57:27+00:00 ERR (3): -
+2013-01-23T20:57:27+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T21:01:19+00:00 ERR (3): -
+2013-01-23T21:01:19+00:00 ERR (3): entrée :
+2013-01-23T21:01:19+00:00 ERR (3): message/approuver
+2013-01-23T21:01:19+00:00 ERR (3): -
+2013-01-23T21:01:19+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T21:01:20+00:00 ERR (3): -
+2013-01-23T21:01:20+00:00 ERR (3): entrée :
+2013-01-23T21:01:20+00:00 ERR (3): bootstrap/ico
+2013-01-23T21:01:20+00:00 ERR (3): -
+2013-01-23T21:01:20+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T21:01:30+00:00 ERR (3): -
+2013-01-23T21:01:30+00:00 ERR (3): entrée :
+2013-01-23T21:01:30+00:00 ERR (3): evenement/accueil
+2013-01-23T21:01:30+00:00 ERR (3): -
+2013-01-23T21:01:30+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-23T21:01:31+00:00 ERR (3): -
+2013-01-23T21:01:31+00:00 ERR (3): entrée :
+2013-01-23T21:01:31+00:00 ERR (3): bootstrap/ico
+2013-01-23T21:01:31+00:00 ERR (3): -
+2013-01-23T21:01:31+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T21:01:33+00:00 ERR (3): -
+2013-01-23T21:01:33+00:00 ERR (3): entrée :
+2013-01-23T21:01:33+00:00 ERR (3): message/lister-tous
+2013-01-23T21:01:33+00:00 ERR (3): -
+2013-01-23T21:01:33+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-23T21:01:35+00:00 ERR (3): -
+2013-01-23T21:01:35+00:00 ERR (3): entrée :
+2013-01-23T21:01:35+00:00 ERR (3): bootstrap/ico
+2013-01-23T21:01:35+00:00 ERR (3): -
+2013-01-23T21:01:35+00:00 ERR (3): isAllowed ? identifie,,ico
+2013-01-23T21:01:37+00:00 ERR (3): -
+2013-01-23T21:01:37+00:00 ERR (3): entrée :
+2013-01-23T21:01:37+00:00 ERR (3): message/approuver
+2013-01-23T21:01:37+00:00 ERR (3): -
+2013-01-23T21:01:37+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-23T21:01:38+00:00 ERR (3): -
+2013-01-23T21:01:38+00:00 ERR (3): entrée :
+2013-01-23T21:01:38+00:00 ERR (3): bootstrap/ico
+2013-01-23T21:01:38+00:00 ERR (3): -
+2013-01-23T21:01:38+00:00 ERR (3): isAllowed ? identifie,,ico
