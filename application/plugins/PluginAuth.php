@@ -16,6 +16,11 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     private $_acl;
 
     /**
+     *
+     * @var Zend_Logger logger principal
+     */
+    private $_logger;
+    /**
      * l'évènement en cours
      * @var rowset evenement 
      */
@@ -41,9 +46,8 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     public function __construct(Zend_Acl $acl) {
         $this->_acl = $acl;
         $this->_auth = Zend_Auth::getInstance();
-        if(Zend_Registry::isRegistered('checkedInEvent')){
-            $this->_evenement = Zend_Registry::get('checkedInEvent');
-        }
+        $this->_logger = Zend_Registry::get("cml_logger");
+        
     }
     
     
@@ -52,6 +56,10 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
      * Utilise _request et _response hérités et injectés par le FC
      */
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
+        
+        if(Zend_Registry::isRegistered('checkedInEvent')){
+            $this->_evenement = Zend_Registry::get('checkedInEvent');
+        }
         if (is_null($this->_evenement)) {
             $role = 'visiteur';
         }else {
@@ -68,17 +76,20 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
                 $role = $user->getRole($this->_evenement->idOrga);
             }
         }
+        
         //DEBUG : role=dev pour debugger
         //$role = 'dev';
+        Zend_Registry::set('role',$role); //pour debugger avec ZFdebug
+        
         $module = $request->getModuleName();
         $controller = $request->getControllerName();
         $action = $request->getActionName();
         
-        $logger = Zend_Registry::get("cml_logger");
-        $logger->err('-');
-        $logger->err('entrée :');
-        $logger->err($controller.'/'.$action);
-        $logger->err('-');
+        //$logger = Zend_Registry::get("cml_logger");
+        $this->_logger->err('-');
+        $this->_logger->err('entrée :');
+        $this->_logger->err($controller.'/'.$action);
+        $this->_logger->err('-');
         
         $front = Zend_Controller_Front::getInstance();
         $default = $front->getDefaultModule();
@@ -97,7 +108,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
  
 //$role='visiteur';
         // contrôle si l'utilisateur est autorisé
-        $logger->err('isAllowed ? '.$role.','.$resource.','.$action);
+        $this->_logger->err('isAllowed ? '.$role.','.$resource.','.$action);
         if (!$this->_acl->isAllowed($role, $resource, $action)) {
             // l'utilisateur n'est pas autorisé à accéder à cette ressource
             // on va le rediriger
@@ -111,10 +122,10 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
 //                $bulleNamespace = new Zend_Session_Namespace('bulle');
 //                $bulleNamespace->retour = array('controller'=>$controller,'action'=>$action,'module'=>$module,'params'=>$request->getParams());
 //                
-//                $logger = Zend_Registry::get("cml_logger");
-//                $logger->err('retour en session');
-//                $logger->err($controller.'/'.$action);
-//                $logger->err('-');
+//                $this->_logger = Zend_Registry::get("cml_logger");
+//                $this->_logger->err('retour en session');
+//                $this->_logger->err($controller.'/'.$action);
+//                $this->_  logger->err('-');
 
                 $module = self::FAIL_AUTH_MODULE;
                 $controller = self::FAIL_AUTH_CONTROLLER;

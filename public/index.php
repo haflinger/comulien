@@ -31,7 +31,7 @@ $application = new Zend_Application(
     
 );
 //lancement de la session
-Zend_Session::start();
+//Zend_Session::start();
 
 //Enregistrement du plugin de gestion de l'évènement
 Zend_Controller_Front::getInstance()->registerPlugin(new Application_Plugin_EvenementPlugin());
