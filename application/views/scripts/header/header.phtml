@@ -18,8 +18,9 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="<?php echo $this->accueilEventLink(); ?>"><?php echo $event ?></a>
-          <a class="btn " id="btn_newMessage" data-toggle="modal" href="#infos" ><i class="icon-edit"></i></a>
-          
+          <?php  if (!is_null($this->formEcrireMessage)) {?>
+             <a class="btn " id="btn_newMessage" data-toggle="modal" href="#infos" ><i class="icon-edit"></i></a>
+         <?php }?>
           <div class="nav-collapse collapse pull-right">
             <ul class="nav">
               <li><a href="<?php echo $this->accueilEventLink(); ?>">Accueil</a></li>
@@ -41,7 +42,7 @@
         
     </div>
 <!--Mise en place de la fenetre modal si utilisateur identifié-->
-<?php  if (!is_null($this->formEcrireMessage)) {?>
+<?php  if (!is_null($this->formEcrireMessage)) {?>        
     <div class="modal hide" id="infos">
         <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
             <h3>Poster un message</h3>

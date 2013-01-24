@@ -12,37 +12,21 @@ $comulienNamespace = new Zend_Session_Namespace('bulle');
 $event = $comulienNamespace->checkedInEvent;*/
 ?>
 
-<div class="container-fluid">    <div class="row well-small">s->lienListerOrganisateur ?>" >Annonces organisateurs<br/><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></i></a>
+<div class="container-fluid">    
     
-       <div id="btnAdmin">
-           <div class="span6 offset3">
-           <a class="btn " data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs<br/><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></i></a>
-           </div>
+       <div class="row well-small">
+       <div class="span6">
+           <a class="btn " id="btn_listeOrga" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs<br/><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></i></a>
        </div>
-    <div class="span12">
-       <div id="btnUtil">
-           <div class="span6 offset3">
-          <a class="btn " data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages<br/><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></i></a>
-           </div>  
-       </div>
-   
-    <div>
-      <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
-      <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
-    <div class="span12">
+       <div class="span6">
+          <a class="btn " id="btn_listeMess" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages<br/><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></i></a>
+       </div>  
     </div>
         <br/>
     <div>
       <div id="nomEvent"><p><?php echo $this->event->titreEvent ?></p> </div>
-      <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>
-    <div class="row well-small">
-       <div class="span6">
-           <a class="btn " id="btn_newMessage" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs<br/><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></i></a>
-       </div>
-       <div class="span6">
-          <a class="btn " id="btn_newMessage" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages<br/><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></i></a>
-       </div>  
-    </div>
+      
+    
     <div class="span12">
       <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
       <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
@@ -53,4 +37,5 @@ $event = $comulienNamespace->checkedInEvent;*/
       <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
     </div>
   
+</div>
 </div>

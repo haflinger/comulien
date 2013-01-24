@@ -18,7 +18,7 @@ header,
 hgroup,
 nav,
 section {
-  display: block;
+  display: none;
 }
 
 audio,
@@ -281,7 +281,7 @@ a:hover {
 [class*="span"] {
   float: left;
   min-height: 1px;
-  margin-left: 20px;
+  margin-left: 2px;
 }
 
 .container,
@@ -404,7 +404,7 @@ a:hover {
 }
 
 .row-fluid [class*="span"] {
-  display: block;
+  display: inline-block;
   float: left;
   width: 100%;
   min-height: 30px;
