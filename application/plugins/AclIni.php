@@ -38,6 +38,12 @@ class Application_Plugin_AclIni extends Zend_Acl	{
             $this->addResource('typemessage');
             $this->addResource('utilisateur');
             
+
+//allow.login = index,login,logout
+//allow.message = lister-tous,lister-organisateur
+//deny.message = approuver
+//allow.utilisateur = inscrire,profilpublic,authentifier,deconnecter
+//allow.error = null ; ATTENTION : pour les tests seulement !!
             $this->allow('visiteur','evenement','checkin');
             $this->allow('visiteur','evenement','accueil');
             $this->allow('visiteur','evenement','checkout');
@@ -47,6 +53,7 @@ class Application_Plugin_AclIni extends Zend_Acl	{
             $this->allow('visiteur','message','lister-tous');
             $this->allow('visiteur','message','lister-organisateur');
             
+            $this->allow('visiteur','login','lister-organisateur');
             
             
             

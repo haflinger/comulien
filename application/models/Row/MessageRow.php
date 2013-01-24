@@ -36,7 +36,7 @@ class Application_Model_Row_MessageRow extends Zend_Db_Table_Row_Abstract
     {
         try {
             if(!$this->type)
-            $this->type = $this->findParentRow('Application_Model_DbTable_Typemessage');
+            $this->type = $this->findParentRow('Application_Model_DbTable_TypeMessage');
             return $this->type;
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
