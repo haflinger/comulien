@@ -14,7 +14,6 @@ body{
     background-color: #F9F6F4;
     font-family: sans-serif; 
     font-size: 12px;
-    margin:0px;
 }
 /*header*/
 .menuHeader{position: fixed}
@@ -26,50 +25,11 @@ body{
 .infos{margin:0px; padding:0px}
 /*Acceuil*/
 
-
-/*Tous les message*/
-
-.dateMessage{
-       color: #66CCFF;
-       text-align:right;
-       z-index: 1;
-    }
-.nomUser{
-       font-weight: bold;
-       color: #66CCFF;
-    }
-.lblMessage{
-        color: black;
-        font-size: 12px;
-    }
-.avatar img{
-        position: relative;
-        float: left;
-        margin: 0px;
-    }
-.nbMessage{
-        color: black;
-        text-align:right;
-        z-index:1;
-    }
-.navbar{margin:0px;}
-.menuMessage{
-    font-size: 13px;
-    padding: 1px;
+a .btn {
+    margin: 0px;
 }
-.accordion-group{background-color: #FFFFFF;}
-.acceuilBlock{
-        background-color: #A2A9AF;
-        margin: 20px;
-        padding:5px;
-        height: 100px;
-        
-    } 
-
-
-
 #logoOrga im{
-       
+       text-align: center;
        height:50px; 
        width: 50px;
     }
@@ -84,8 +44,80 @@ body{
     position: relative;
     float: right;
 }
-#present{
-        text-align: center;
-    }     
+/*Tous les message*/
+
+.dateMessage{
+       position: relative;
+       float:right;
+       color: #66CCFF;
+       text-align:right;
+       z-index: 1;
+    }
+.nomUser{
+       position: relative;
+       float: left;
+       font-weight: bold;
+       color: #66CCFF;
+    }
+.lblMessage{
+        color: black;
+        font-size: 12px;
+    }
+.nomUser span{
+    text-align: right;
+    margin: 7px 0px 0px 0px;
+}
+.avatar img{
+        position: relative;
+        float: left;
+        margin: 7px 10px 0px 0px;
+        width:45px;
+        height:45px;
+    }
+.nbMessage{
+        position: relative;
+        float:right;
+        color: black;
+        text-align:right;
+        z-index:1;
+    }
+.navbar{margin:0px;}
+.menuMessage{
+    font-size: 13px;
+    padding: 1px;
+}
+.accordion-group{background-color: #FFFFFF;}
+
+/*Formulaire de message*/
+#message{
+    width:94%;
+    margin:0px;
+    height:60px;
+}
+#choixProfil-element{
+    margin:0px auto;
+    text-align: center;
+}
+#envoyer-element{
+    margin:0px auto;
+    text-align: center;
+}
+.modal-body{
+    margin:0px;
+}
+.modal-header{
+    margin:0px;
+}
+.modal-footer{
+    margin:0px;
+}
+
+dt #message-label{visibility: hidden}
+dt #choixProfil-label{visibility: hidden}
+dt #envoyer-label{visibility: hidden}
+form{margin:0px}
+dt, dl, dd{margin:0px}
+
+    
 
 
