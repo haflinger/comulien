@@ -110,6 +110,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
 //$role='visiteur';
         // contrôle si l'utilisateur est autorisé
         $this->_logger->err('isAllowed ? '.$role.','.$resource.','.$action);
+        $this->_logger->err(($this->_acl->isAllowed($role, $resource, $action))==true?"true":"false");
         if (!$this->_acl->isAllowed($role, $resource, $action)) {
             // l'utilisateur n'est pas autorisé à accéder à cette ressource
             // on va le rediriger

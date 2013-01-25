@@ -24,17 +24,14 @@ $event = $comulienNamespace->checkedInEvent;*/
     </div>
         <br/>
     <div>
-      
-      
+            
     
     <div class="span12">
       <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
       <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
     </div><br/>
     <div class="span12">
-      <div id="nomEvent"><p><?php echo $this->evenement->titreEvent ?></p> </div>
-      <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>
-      <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
+      <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>      <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
     </div>
   
 </div>
