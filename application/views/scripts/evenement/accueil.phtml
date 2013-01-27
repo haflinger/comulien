@@ -13,19 +13,17 @@ $event = $comulienNamespace->checkedInEvent;*/
 ?>
 
 <div class="container-fluid">    
-    
-       <div class="row well-small">
-       
-           <p><a class="btn" id="btn_listeOrga" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs<br/><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></i></a>
-           </p><br/>
-       
-           <p><a class="btn" id="btn_listeMess" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages<br/><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></i></a>
-   </p>
-    </div>
-        <br/>
+   <div id="logo_comulien">
+       <img  src="<?php  echo $this->baseUrl() ?> /images/logo_comulien.png" alt="logo organisme" />
+   </div>
+   <div id="pres_event">
+       <a id="btn_listeOrga" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs</a>
+       <a id="btn_listeMess" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages</a>
+   </div>
+</div>
+
+
     <div>
-            
-    
     <div class="span12">
       <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
       <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
@@ -34,5 +32,9 @@ $event = $comulienNamespace->checkedInEvent;*/
       <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>      <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
     </div>
   
+
 </div>
-</div>
+
+<img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></a>
+<img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></a>
+  

@@ -97,7 +97,7 @@
 
 @media (min-width: 1200px) {
   .row {
-    margin-left: -30px;
+    margin-left: 0px;
     *zoom: 1;
   }
   .row:before,
@@ -210,7 +210,7 @@
     float: left;
     width: 100%;
     min-height: 30px;
-    margin-left: ;
+    margin-left: 2.564102564102564%;
     *margin-left: 2.5109110747408616%;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -560,7 +560,7 @@
     float: left;
     width: 100%;
     min-height: 30px;
-    margin-left: 2px;
+    margin-left: 2.7624309392265194%;
     *margin-left: 2.709239449864817%;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -570,14 +570,14 @@
     margin-left: 0;
   }
   .row-fluid .controls-row [class*="span"] + [class*="span"] {
-    margin-left: 2px;
+    margin-left: 2.7624309392265194%;
   }
   .row-fluid .span12 {
-    *width: 100%;
+    width: 100%;
     *width: 99.94680851063829%;
   }
   .row-fluid .span11 {
-    *width: 91.43646408839778%;
+    width: 91.43646408839778%;
     *width: 91.38327259903608%;
   }
   .row-fluid .span10 {
@@ -788,14 +788,14 @@
 
 @media (max-width: 767px) {
   body {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom,
   .navbar-static-top {
-    margin-right: -20px;
-    margin-left: -20px;
+    margin-right: 0px;
+    margin-left: 0px;
   }
   .container-fluid {
     padding: 0;
@@ -938,11 +938,11 @@
 
 @media (max-width: 979px) {
   body {
-    padding-top: 0;
+    padding-top: 60px;
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom {
-    position: static;
+    position: fixed;
   }
   .navbar-fixed-top {
     margin-bottom: 20px;

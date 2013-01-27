@@ -24,12 +24,22 @@ body{
 #envoyer{margin:0px auto}
 .infos{margin:0px; padding:0px}
 /*Acceuil*/
-
-a .btn {
-    margin: 0px;
+#logo_comulien{
+    position: relative;
+    float: right;
+    margin: 0px auto;
+}
+#pres_event{
+    background-color: white;
+    margin: 0px auto;
+}
+#btn_listeOrga, #btn_listeMess{
+    position: relative;
+    float: left;
+    margin: 0px 20px 0px 0px;
+    width:97%;
 }
 #logoOrga im{
-       text-align: center;
        height:50px; 
        width: 50px;
     }
@@ -60,19 +70,9 @@ a .btn {
        color: #66CCFF;
     }
 .lblMessage{
+        position: relative;
         color: black;
         font-size: 12px;
-    }
-.nomUser span{
-    text-align: right;
-    margin: 7px 0px 0px 0px;
-}
-.avatar img{
-        position: relative;
-        float: left;
-        margin: 7px 10px 0px 0px;
-        width:45px;
-        height:45px;
     }
 .nbMessage{
         position: relative;
@@ -81,10 +81,18 @@ a .btn {
         text-align:right;
         z-index:1;
     }
+.avatar img{
+        position: relative;
+        float: left;
+        margin: 7px 10px 0px 0px;
+        width:45px;
+        height:45px;
+    }
+
 .navbar{margin:0px;}
 .menuMessage{
     font-size: 13px;
-    padding: 1px;
+    padding: 0px;
 }
 .accordion-group{background-color: #FFFFFF;}
 
