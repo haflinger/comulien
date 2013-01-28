@@ -200,3 +200,2199 @@
 2013-01-24T22:55:17+00:00 ERR (3): false
 =======
 >>>>>>> 63a57fb741ffe39902f70960256473975ff49567
+2013-01-24T22:58:03+00:00 ERR (3): -
+2013-01-24T22:58:03+00:00 ERR (3): entrée :
+2013-01-24T22:58:03+00:00 ERR (3): message/lister-organisateur
+2013-01-24T22:58:03+00:00 ERR (3): -
+2013-01-24T22:58:03+00:00 ERR (3): isAllowed ? identifie,message,lister-organisateur
+2013-01-24T22:58:03+00:00 ERR (3): true
+2013-01-24T22:58:05+00:00 ERR (3): -
+2013-01-24T22:58:05+00:00 ERR (3): entrée :
+2013-01-24T22:58:05+00:00 ERR (3): bootstrap/js
+2013-01-24T22:58:05+00:00 ERR (3): -
+2013-01-24T22:58:05+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T22:58:05+00:00 ERR (3): false
+2013-01-24T22:58:05+00:00 ERR (3): -
+2013-01-24T22:58:05+00:00 ERR (3): entrée :
+2013-01-24T22:58:05+00:00 ERR (3): bootstrap/img
+2013-01-24T22:58:05+00:00 ERR (3): -
+2013-01-24T22:58:05+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-24T22:58:05+00:00 ERR (3): false
+2013-01-24T22:58:07+00:00 ERR (3): -
+2013-01-24T22:58:07+00:00 ERR (3): entrée :
+2013-01-24T22:58:07+00:00 ERR (3): evenement/accueil
+2013-01-24T22:58:07+00:00 ERR (3): -
+2013-01-24T22:58:07+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-24T22:58:07+00:00 ERR (3): true
+2013-01-24T22:58:08+00:00 ERR (3): -
+2013-01-24T22:58:08+00:00 ERR (3): entrée :
+2013-01-24T22:58:08+00:00 ERR (3): bootstrap/img
+2013-01-24T22:58:08+00:00 ERR (3): -
+2013-01-24T22:58:08+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-24T22:58:08+00:00 ERR (3): false
+2013-01-24T22:58:09+00:00 ERR (3): -
+2013-01-24T22:58:09+00:00 ERR (3): entrée :
+2013-01-24T22:58:09+00:00 ERR (3): message/lister-tous
+2013-01-24T22:58:09+00:00 ERR (3): -
+2013-01-24T22:58:09+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-24T22:58:09+00:00 ERR (3): true
+2013-01-24T22:58:11+00:00 ERR (3): -
+2013-01-24T22:58:11+00:00 ERR (3): entrée :
+2013-01-24T22:58:11+00:00 ERR (3): bootstrap/js
+2013-01-24T22:58:11+00:00 ERR (3): -
+2013-01-24T22:58:11+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T22:58:11+00:00 ERR (3): false
+2013-01-24T22:58:12+00:00 ERR (3): -
+2013-01-24T22:58:12+00:00 ERR (3): entrée :
+2013-01-24T22:58:12+00:00 ERR (3): bootstrap/img
+2013-01-24T22:58:12+00:00 ERR (3): -
+2013-01-24T22:58:12+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-24T22:58:12+00:00 ERR (3): false
+2013-01-24T23:02:04+00:00 ERR (3): -
+2013-01-24T23:02:04+00:00 ERR (3): entrée :
+2013-01-24T23:02:04+00:00 ERR (3): evenement/accueil
+2013-01-24T23:02:04+00:00 ERR (3): -
+2013-01-24T23:02:04+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-24T23:02:04+00:00 ERR (3): true
+2013-01-24T23:02:05+00:00 ERR (3): -
+2013-01-24T23:02:05+00:00 ERR (3): entrée :
+2013-01-24T23:02:05+00:00 ERR (3): bootstrap/js
+2013-01-24T23:02:05+00:00 ERR (3): -
+2013-01-24T23:02:05+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:02:05+00:00 ERR (3): false
+2013-01-24T23:02:06+00:00 ERR (3): -
+2013-01-24T23:02:06+00:00 ERR (3): entrée :
+2013-01-24T23:02:06+00:00 ERR (3): evenement/accueil
+2013-01-24T23:02:06+00:00 ERR (3): -
+2013-01-24T23:02:06+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-24T23:02:06+00:00 ERR (3): true
+2013-01-24T23:02:06+00:00 ERR (3): -
+2013-01-24T23:02:06+00:00 ERR (3): entrée :
+2013-01-24T23:02:06+00:00 ERR (3): bootstrap/img
+2013-01-24T23:02:06+00:00 ERR (3): -
+2013-01-24T23:02:06+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-24T23:02:06+00:00 ERR (3): false
+2013-01-24T23:02:07+00:00 ERR (3): -
+2013-01-24T23:02:07+00:00 ERR (3): entrée :
+2013-01-24T23:02:07+00:00 ERR (3): bootstrap/js
+2013-01-24T23:02:07+00:00 ERR (3): -
+2013-01-24T23:02:07+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:02:07+00:00 ERR (3): false
+2013-01-24T23:02:08+00:00 ERR (3): -
+2013-01-24T23:02:08+00:00 ERR (3): entrée :
+2013-01-24T23:02:08+00:00 ERR (3): bootstrap/img
+2013-01-24T23:02:08+00:00 ERR (3): -
+2013-01-24T23:02:08+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-24T23:02:08+00:00 ERR (3): false
+2013-01-24T23:14:11+00:00 ERR (3): -
+2013-01-24T23:14:11+00:00 ERR (3): entrée :
+2013-01-24T23:14:11+00:00 ERR (3): message/approuver
+2013-01-24T23:14:11+00:00 ERR (3): -
+2013-01-24T23:15:26+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:16:44+00:00 ERR (3): false
+2013-01-24T23:16:51+00:00 ERR (3): -
+2013-01-24T23:16:51+00:00 ERR (3): entrée :
+2013-01-24T23:16:51+00:00 ERR (3): bootstrap/js
+2013-01-24T23:16:51+00:00 ERR (3): -
+2013-01-24T23:16:55+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:16:55+00:00 ERR (3): true
+2013-01-24T23:17:57+00:00 ERR (3): -
+2013-01-24T23:17:57+00:00 ERR (3): entrée :
+2013-01-24T23:17:57+00:00 ERR (3): message/approuver
+2013-01-24T23:17:57+00:00 ERR (3): -
+2013-01-24T23:17:57+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:17:57+00:00 ERR (3): true
+2013-01-24T23:20:57+00:00 ERR (3): -
+2013-01-24T23:20:57+00:00 ERR (3): entrée :
+2013-01-24T23:20:57+00:00 ERR (3): bootstrap/js
+2013-01-24T23:20:57+00:00 ERR (3): -
+2013-01-24T23:20:57+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:20:57+00:00 ERR (3): true
+2013-01-24T23:30:37+00:00 ERR (3): -
+2013-01-24T23:30:37+00:00 ERR (3): entrée :
+2013-01-24T23:30:37+00:00 ERR (3): message/approuver
+2013-01-24T23:30:37+00:00 ERR (3): -
+2013-01-24T23:30:37+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:30:37+00:00 ERR (3): true
+2013-01-24T23:30:44+00:00 ERR (3): -
+2013-01-24T23:30:44+00:00 ERR (3): entrée :
+2013-01-24T23:30:44+00:00 ERR (3): bootstrap/js
+2013-01-24T23:30:44+00:00 ERR (3): -
+2013-01-24T23:30:44+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:30:44+00:00 ERR (3): true
+2013-01-24T23:34:17+00:00 ERR (3): -
+2013-01-24T23:34:18+00:00 ERR (3): entrée :
+2013-01-24T23:34:19+00:00 ERR (3): message/approuver
+2013-01-24T23:34:20+00:00 ERR (3): -
+2013-01-24T23:34:41+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:35:08+00:00 ERR (3): true
+2013-01-24T23:35:52+00:00 ERR (3): -
+2013-01-24T23:35:52+00:00 ERR (3): entrée :
+2013-01-24T23:35:53+00:00 ERR (3): bootstrap/js
+2013-01-24T23:35:53+00:00 ERR (3): -
+2013-01-24T23:37:09+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:37:13+00:00 ERR (3): true
+2013-01-24T23:38:10+00:00 ERR (3): -
+2013-01-24T23:38:10+00:00 ERR (3): entrée :
+2013-01-24T23:38:10+00:00 ERR (3): utilisateur/deconnecter
+2013-01-24T23:38:10+00:00 ERR (3): -
+2013-01-24T23:38:10+00:00 ERR (3): isAllowed ? identifie,utilisateur,deconnecter
+2013-01-24T23:38:10+00:00 ERR (3): true
+2013-01-24T23:38:29+00:00 ERR (3): -
+2013-01-24T23:38:29+00:00 ERR (3): entrée :
+2013-01-24T23:38:29+00:00 ERR (3): evenement/accueil
+2013-01-24T23:38:29+00:00 ERR (3): -
+2013-01-24T23:38:29+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-24T23:38:29+00:00 ERR (3): true
+2013-01-24T23:38:43+00:00 ERR (3): -
+2013-01-24T23:38:43+00:00 ERR (3): entrée :
+2013-01-24T23:38:43+00:00 ERR (3): bootstrap/js
+2013-01-24T23:38:43+00:00 ERR (3): -
+2013-01-24T23:38:43+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-24T23:38:43+00:00 ERR (3): true
+2013-01-24T23:39:54+00:00 ERR (3): -
+2013-01-24T23:39:54+00:00 ERR (3): entrée :
+2013-01-24T23:39:54+00:00 ERR (3): message/lister-tous
+2013-01-24T23:39:54+00:00 ERR (3): -
+2013-01-24T23:39:54+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-24T23:39:54+00:00 ERR (3): true
+2013-01-24T23:40:18+00:00 ERR (3): -
+2013-01-24T23:40:18+00:00 ERR (3): entrée :
+2013-01-24T23:40:18+00:00 ERR (3): bootstrap/js
+2013-01-24T23:40:18+00:00 ERR (3): -
+2013-01-24T23:40:18+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-24T23:40:18+00:00 ERR (3): true
+2013-01-24T23:42:12+00:00 ERR (3): -
+2013-01-24T23:42:12+00:00 ERR (3): entrée :
+2013-01-24T23:42:12+00:00 ERR (3): evenement/accueil
+2013-01-24T23:42:12+00:00 ERR (3): -
+2013-01-24T23:42:12+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-24T23:42:12+00:00 ERR (3): true
+2013-01-24T23:45:54+00:00 ERR (3): -
+2013-01-24T23:45:54+00:00 ERR (3): entrée :
+2013-01-24T23:45:54+00:00 ERR (3): evenement/accueil
+2013-01-24T23:45:54+00:00 ERR (3): -
+2013-01-24T23:45:54+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-24T23:45:54+00:00 ERR (3): true
+2013-01-24T23:46:02+00:00 ERR (3): -
+2013-01-24T23:46:02+00:00 ERR (3): entrée :
+2013-01-24T23:46:02+00:00 ERR (3): bootstrap/js
+2013-01-24T23:46:02+00:00 ERR (3): -
+2013-01-24T23:46:02+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-24T23:46:02+00:00 ERR (3): true
+2013-01-24T23:46:32+00:00 ERR (3): -
+2013-01-24T23:46:32+00:00 ERR (3): entrée :
+2013-01-24T23:46:32+00:00 ERR (3): message/lister-tous
+2013-01-24T23:46:32+00:00 ERR (3): -
+2013-01-24T23:46:32+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-24T23:46:32+00:00 ERR (3): true
+2013-01-24T23:46:33+00:00 ERR (3): -
+2013-01-24T23:46:33+00:00 ERR (3): entrée :
+2013-01-24T23:46:33+00:00 ERR (3): bootstrap/js
+2013-01-24T23:46:33+00:00 ERR (3): -
+2013-01-24T23:46:33+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-24T23:46:33+00:00 ERR (3): true
+2013-01-24T23:46:44+00:00 ERR (3): -
+2013-01-24T23:46:44+00:00 ERR (3): entrée :
+2013-01-24T23:46:44+00:00 ERR (3): message/approuver
+2013-01-24T23:46:44+00:00 ERR (3): -
+2013-01-24T23:46:44+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-24T23:46:44+00:00 ERR (3): true
+2013-01-24T23:46:45+00:00 ERR (3): -
+2013-01-24T23:46:45+00:00 ERR (3): entrée :
+2013-01-24T23:46:45+00:00 ERR (3): bootstrap/js
+2013-01-24T23:46:45+00:00 ERR (3): -
+2013-01-24T23:46:45+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-24T23:46:45+00:00 ERR (3): true
+2013-01-24T23:46:51+00:00 ERR (3): -
+2013-01-24T23:46:51+00:00 ERR (3): entrée :
+2013-01-24T23:46:51+00:00 ERR (3): message/approuver
+2013-01-24T23:46:51+00:00 ERR (3): -
+2013-01-24T23:46:51+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-24T23:46:51+00:00 ERR (3): true
+2013-01-24T23:46:51+00:00 ERR (3): -
+2013-01-24T23:46:51+00:00 ERR (3): entrée :
+2013-01-24T23:46:51+00:00 ERR (3): evenement/accueil
+2013-01-24T23:46:51+00:00 ERR (3): -
+2013-01-24T23:46:51+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-24T23:46:51+00:00 ERR (3): true
+2013-01-24T23:46:52+00:00 ERR (3): -
+2013-01-24T23:46:52+00:00 ERR (3): entrée :
+2013-01-24T23:46:52+00:00 ERR (3): bootstrap/js
+2013-01-24T23:46:52+00:00 ERR (3): -
+2013-01-24T23:46:52+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:46:52+00:00 ERR (3): true
+2013-01-24T23:47:01+00:00 ERR (3): -
+2013-01-24T23:47:01+00:00 ERR (3): entrée :
+2013-01-24T23:47:01+00:00 ERR (3): message/lister-tous
+2013-01-24T23:47:01+00:00 ERR (3): -
+2013-01-24T23:47:01+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-24T23:47:01+00:00 ERR (3): true
+2013-01-24T23:47:03+00:00 ERR (3): -
+2013-01-24T23:47:03+00:00 ERR (3): entrée :
+2013-01-24T23:47:03+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:03+00:00 ERR (3): -
+2013-01-24T23:47:03+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:47:03+00:00 ERR (3): true
+2013-01-24T23:47:05+00:00 ERR (3): -
+2013-01-24T23:47:05+00:00 ERR (3): entrée :
+2013-01-24T23:47:05+00:00 ERR (3): message/approuver
+2013-01-24T23:47:05+00:00 ERR (3): -
+2013-01-24T23:47:05+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:47:05+00:00 ERR (3): true
+2013-01-24T23:47:07+00:00 ERR (3): -
+2013-01-24T23:47:07+00:00 ERR (3): entrée :
+2013-01-24T23:47:07+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:07+00:00 ERR (3): -
+2013-01-24T23:47:07+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:47:07+00:00 ERR (3): true
+2013-01-24T23:47:27+00:00 ERR (3): -
+2013-01-24T23:47:27+00:00 ERR (3): entrée :
+2013-01-24T23:47:27+00:00 ERR (3): message/approuver
+2013-01-24T23:47:27+00:00 ERR (3): -
+2013-01-24T23:47:27+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:47:27+00:00 ERR (3): true
+2013-01-24T23:47:28+00:00 ERR (3): -
+2013-01-24T23:47:28+00:00 ERR (3): entrée :
+2013-01-24T23:47:28+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:28+00:00 ERR (3): -
+2013-01-24T23:47:28+00:00 ERR (3): isAllowed ? identifie,bootstrap,js
+2013-01-24T23:47:28+00:00 ERR (3): -
+2013-01-24T23:47:28+00:00 ERR (3): entrée :
+2013-01-24T23:47:28+00:00 ERR (3): error/error
+2013-01-24T23:47:28+00:00 ERR (3): -
+2013-01-24T23:47:28+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-24T23:47:28+00:00 ERR (3): true
+2013-01-24T23:47:28+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:47:28+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('identifie', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:47:28+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:47:33+00:00 ERR (3): -
+2013-01-24T23:47:33+00:00 ERR (3): entrée :
+2013-01-24T23:47:33+00:00 ERR (3): message/approuver
+2013-01-24T23:47:33+00:00 ERR (3): -
+2013-01-24T23:47:33+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:47:33+00:00 ERR (3): true
+2013-01-24T23:47:34+00:00 ERR (3): -
+2013-01-24T23:47:34+00:00 ERR (3): entrée :
+2013-01-24T23:47:34+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:34+00:00 ERR (3): -
+2013-01-24T23:47:34+00:00 ERR (3): isAllowed ? identifie,bootstrap,js
+2013-01-24T23:47:34+00:00 ERR (3): -
+2013-01-24T23:47:34+00:00 ERR (3): entrée :
+2013-01-24T23:47:34+00:00 ERR (3): error/error
+2013-01-24T23:47:34+00:00 ERR (3): -
+2013-01-24T23:47:34+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-24T23:47:34+00:00 ERR (3): true
+2013-01-24T23:47:34+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:47:34+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('identifie', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:47:34+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:47:37+00:00 ERR (3): -
+2013-01-24T23:47:37+00:00 ERR (3): entrée :
+2013-01-24T23:47:37+00:00 ERR (3): evenement/accueil
+2013-01-24T23:47:37+00:00 ERR (3): -
+2013-01-24T23:47:37+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-24T23:47:37+00:00 ERR (3): true
+2013-01-24T23:47:38+00:00 ERR (3): -
+2013-01-24T23:47:38+00:00 ERR (3): entrée :
+2013-01-24T23:47:38+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:38+00:00 ERR (3): -
+2013-01-24T23:47:38+00:00 ERR (3): isAllowed ? identifie,bootstrap,js
+2013-01-24T23:47:38+00:00 ERR (3): -
+2013-01-24T23:47:38+00:00 ERR (3): entrée :
+2013-01-24T23:47:38+00:00 ERR (3): error/error
+2013-01-24T23:47:38+00:00 ERR (3): -
+2013-01-24T23:47:38+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-24T23:47:38+00:00 ERR (3): true
+2013-01-24T23:47:38+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:47:38+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('identifie', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:47:38+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:47:39+00:00 ERR (3): -
+2013-01-24T23:47:39+00:00 ERR (3): entrée :
+2013-01-24T23:47:39+00:00 ERR (3): message/lister-tous
+2013-01-24T23:47:39+00:00 ERR (3): -
+2013-01-24T23:47:39+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-24T23:47:39+00:00 ERR (3): true
+2013-01-24T23:47:41+00:00 ERR (3): -
+2013-01-24T23:47:41+00:00 ERR (3): entrée :
+2013-01-24T23:47:41+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:41+00:00 ERR (3): -
+2013-01-24T23:47:41+00:00 ERR (3): isAllowed ? identifie,bootstrap,js
+2013-01-24T23:47:41+00:00 ERR (3): -
+2013-01-24T23:47:41+00:00 ERR (3): entrée :
+2013-01-24T23:47:41+00:00 ERR (3): error/error
+2013-01-24T23:47:41+00:00 ERR (3): -
+2013-01-24T23:47:41+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-24T23:47:41+00:00 ERR (3): true
+2013-01-24T23:47:41+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:47:41+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('identifie', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:47:41+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:47:48+00:00 ERR (3): -
+2013-01-24T23:47:48+00:00 ERR (3): entrée :
+2013-01-24T23:47:48+00:00 ERR (3): utilisateur/deconnecter
+2013-01-24T23:47:48+00:00 ERR (3): -
+2013-01-24T23:47:48+00:00 ERR (3): isAllowed ? identifie,utilisateur,deconnecter
+2013-01-24T23:47:48+00:00 ERR (3): true
+2013-01-24T23:47:48+00:00 ERR (3): -
+2013-01-24T23:47:48+00:00 ERR (3): entrée :
+2013-01-24T23:47:48+00:00 ERR (3): evenement/accueil
+2013-01-24T23:47:48+00:00 ERR (3): -
+2013-01-24T23:47:48+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-24T23:47:48+00:00 ERR (3): true
+2013-01-24T23:47:49+00:00 ERR (3): -
+2013-01-24T23:47:49+00:00 ERR (3): entrée :
+2013-01-24T23:47:49+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:49+00:00 ERR (3): -
+2013-01-24T23:47:49+00:00 ERR (3): isAllowed ? utilisateur,bootstrap,js
+2013-01-24T23:47:49+00:00 ERR (3): -
+2013-01-24T23:47:49+00:00 ERR (3): entrée :
+2013-01-24T23:47:49+00:00 ERR (3): error/error
+2013-01-24T23:47:49+00:00 ERR (3): -
+2013-01-24T23:47:49+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-24T23:47:49+00:00 ERR (3): true
+2013-01-24T23:47:49+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:47:49+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('utilisateur', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:47:49+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:47:50+00:00 ERR (3): -
+2013-01-24T23:47:50+00:00 ERR (3): entrée :
+2013-01-24T23:47:50+00:00 ERR (3): message/lister-tous
+2013-01-24T23:47:50+00:00 ERR (3): -
+2013-01-24T23:47:50+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-24T23:47:50+00:00 ERR (3): true
+2013-01-24T23:47:51+00:00 ERR (3): -
+2013-01-24T23:47:51+00:00 ERR (3): entrée :
+2013-01-24T23:47:51+00:00 ERR (3): utilisateur/authentifier
+2013-01-24T23:47:51+00:00 ERR (3): -
+2013-01-24T23:47:51+00:00 ERR (3): isAllowed ? utilisateur,utilisateur,authentifier
+2013-01-24T23:47:51+00:00 ERR (3): true
+2013-01-24T23:47:52+00:00 ERR (3): -
+2013-01-24T23:47:52+00:00 ERR (3): entrée :
+2013-01-24T23:47:52+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:52+00:00 ERR (3): -
+2013-01-24T23:47:52+00:00 ERR (3): isAllowed ? utilisateur,bootstrap,js
+2013-01-24T23:47:52+00:00 ERR (3): -
+2013-01-24T23:47:52+00:00 ERR (3): entrée :
+2013-01-24T23:47:52+00:00 ERR (3): error/error
+2013-01-24T23:47:52+00:00 ERR (3): -
+2013-01-24T23:47:52+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-24T23:47:52+00:00 ERR (3): true
+2013-01-24T23:47:52+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:47:52+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('utilisateur', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:47:52+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:47:58+00:00 ERR (3): -
+2013-01-24T23:47:58+00:00 ERR (3): entrée :
+2013-01-24T23:47:58+00:00 ERR (3): utilisateur/authentifier
+2013-01-24T23:47:58+00:00 ERR (3): -
+2013-01-24T23:47:58+00:00 ERR (3): isAllowed ? utilisateur,utilisateur,authentifier
+2013-01-24T23:47:58+00:00 ERR (3): true
+2013-01-24T23:47:58+00:00 ERR (3): -
+2013-01-24T23:47:58+00:00 ERR (3): entrée :
+2013-01-24T23:47:58+00:00 ERR (3): evenement/accueil
+2013-01-24T23:47:58+00:00 ERR (3): -
+2013-01-24T23:47:58+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-24T23:47:58+00:00 ERR (3): true
+2013-01-24T23:47:59+00:00 ERR (3): -
+2013-01-24T23:47:59+00:00 ERR (3): entrée :
+2013-01-24T23:47:59+00:00 ERR (3): bootstrap/js
+2013-01-24T23:47:59+00:00 ERR (3): -
+2013-01-24T23:47:59+00:00 ERR (3): isAllowed ? identifie,bootstrap,js
+2013-01-24T23:47:59+00:00 ERR (3): -
+2013-01-24T23:47:59+00:00 ERR (3): entrée :
+2013-01-24T23:47:59+00:00 ERR (3): error/error
+2013-01-24T23:47:59+00:00 ERR (3): -
+2013-01-24T23:47:59+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-24T23:47:59+00:00 ERR (3): true
+2013-01-24T23:47:59+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:47:59+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('identifie', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:47:59+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:48:01+00:00 ERR (3): -
+2013-01-24T23:48:01+00:00 ERR (3): entrée :
+2013-01-24T23:48:01+00:00 ERR (3): message/lister-tous
+2013-01-24T23:48:01+00:00 ERR (3): -
+2013-01-24T23:48:01+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-24T23:48:01+00:00 ERR (3): true
+2013-01-24T23:48:03+00:00 ERR (3): -
+2013-01-24T23:48:03+00:00 ERR (3): entrée :
+2013-01-24T23:48:03+00:00 ERR (3): bootstrap/js
+2013-01-24T23:48:03+00:00 ERR (3): -
+2013-01-24T23:48:03+00:00 ERR (3): isAllowed ? identifie,bootstrap,js
+2013-01-24T23:48:03+00:00 ERR (3): -
+2013-01-24T23:48:03+00:00 ERR (3): entrée :
+2013-01-24T23:48:03+00:00 ERR (3): error/error
+2013-01-24T23:48:03+00:00 ERR (3): -
+2013-01-24T23:48:03+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-24T23:48:03+00:00 ERR (3): true
+2013-01-24T23:48:03+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:48:03+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('identifie', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:48:03+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:48:08+00:00 ERR (3): -
+2013-01-24T23:48:08+00:00 ERR (3): entrée :
+2013-01-24T23:48:08+00:00 ERR (3): message/approuver
+2013-01-24T23:48:08+00:00 ERR (3): -
+2013-01-24T23:48:08+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:48:08+00:00 ERR (3): true
+2013-01-24T23:48:09+00:00 ERR (3): -
+2013-01-24T23:48:09+00:00 ERR (3): entrée :
+2013-01-24T23:48:09+00:00 ERR (3): bootstrap/js
+2013-01-24T23:48:09+00:00 ERR (3): -
+2013-01-24T23:48:09+00:00 ERR (3): isAllowed ? identifie,bootstrap,js
+2013-01-24T23:48:09+00:00 ERR (3): -
+2013-01-24T23:48:09+00:00 ERR (3): entrée :
+2013-01-24T23:48:09+00:00 ERR (3): error/error
+2013-01-24T23:48:09+00:00 ERR (3): -
+2013-01-24T23:48:09+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-24T23:48:09+00:00 ERR (3): true
+2013-01-24T23:48:10+00:00 ERR (3): Resource 'bootstrap' not found
+2013-01-24T23:48:10+00:00 ERR (3): #0 C:\comulien\library\Zend\Acl.php(846): Zend_Acl->get('bootstrap')
+#1 C:\comulien\application\plugins\PluginAuth.php(116): Zend_Acl->isAllowed('identifie', 'bootstrap', 'js')
+#2 C:\comulien\library\Zend\Controller\Plugin\Broker.php(309): Application_Plugin_PluginAuth->preDispatch(Object(Zend_Controller_Request_Http))
+#3 C:\comulien\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#5 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#6 C:\comulien\public\index.php(42): Zend_Application->run()
+#7 {main}
+2013-01-24T23:48:10+00:00 ERR (3): array (
+  'controller' => 'bootstrap',
+  'action' => 'js',
+  'module' => 'default',
+)
+2013-01-24T23:49:00+00:00 ERR (3): -
+2013-01-24T23:49:00+00:00 ERR (3): entrée :
+2013-01-24T23:49:00+00:00 ERR (3): message/approuver
+2013-01-24T23:49:00+00:00 ERR (3): -
+2013-01-24T23:49:00+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-24T23:49:00+00:00 ERR (3): true
+2013-01-24T23:49:01+00:00 ERR (3): -
+2013-01-24T23:49:01+00:00 ERR (3): entrée :
+2013-01-24T23:49:01+00:00 ERR (3): bootstrap/js
+2013-01-24T23:49:01+00:00 ERR (3): -
+2013-01-24T23:49:01+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-24T23:49:01+00:00 ERR (3): true
+2013-01-25T13:43:45+00:00 ERR (3): -
+2013-01-25T13:43:45+00:00 ERR (3): entrée :
+2013-01-25T13:43:45+00:00 ERR (3): message/approuver
+2013-01-25T13:43:45+00:00 ERR (3): -
+2013-01-25T13:49:28+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-25T13:49:28+00:00 ERR (3): true
+2013-01-25T13:49:40+00:00 ERR (3): -
+2013-01-25T13:49:40+00:00 ERR (3): entrée :
+2013-01-25T13:49:40+00:00 ERR (3): bootstrap/js
+2013-01-25T13:49:40+00:00 ERR (3): -
+2013-01-25T13:49:42+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-25T13:49:42+00:00 ERR (3): true
+2013-01-25T13:50:24+00:00 ERR (3): -
+2013-01-25T13:50:24+00:00 ERR (3): entrée :
+2013-01-25T13:50:24+00:00 ERR (3): message/approuver
+2013-01-25T13:50:24+00:00 ERR (3): -
+2013-01-25T13:56:12+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-25T13:56:12+00:00 ERR (3): true
+2013-01-25T13:56:25+00:00 ERR (3): -
+2013-01-25T13:56:25+00:00 ERR (3): entrée :
+2013-01-25T13:56:25+00:00 ERR (3): evenement/accueil
+2013-01-25T13:56:25+00:00 ERR (3): -
+2013-01-25T13:56:25+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-25T13:56:25+00:00 ERR (3): true
+2013-01-25T13:56:26+00:00 ERR (3): -
+2013-01-25T13:56:26+00:00 ERR (3): entrée :
+2013-01-25T13:56:26+00:00 ERR (3): bootstrap/js
+2013-01-25T13:56:26+00:00 ERR (3): -
+2013-01-25T13:56:26+00:00 ERR (3): -
+2013-01-25T13:56:26+00:00 ERR (3): entrée :
+2013-01-25T13:56:26+00:00 ERR (3): error/error
+2013-01-25T13:56:26+00:00 ERR (3): -
+2013-01-25T13:56:26+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T13:56:26+00:00 ERR (3): true
+2013-01-25T13:56:31+00:00 ERR (3): -
+2013-01-25T13:56:31+00:00 ERR (3): entrée :
+2013-01-25T13:56:31+00:00 ERR (3): evenement/accueil
+2013-01-25T13:56:31+00:00 ERR (3): -
+2013-01-25T13:56:31+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-25T13:56:31+00:00 ERR (3): true
+2013-01-25T13:56:31+00:00 ERR (3): -
+2013-01-25T13:56:31+00:00 ERR (3): entrée :
+2013-01-25T13:56:31+00:00 ERR (3): bootstrap/js
+2013-01-25T13:56:31+00:00 ERR (3): -
+2013-01-25T13:56:31+00:00 ERR (3): -
+2013-01-25T13:56:31+00:00 ERR (3): entrée :
+2013-01-25T13:56:31+00:00 ERR (3): error/error
+2013-01-25T13:56:31+00:00 ERR (3): -
+2013-01-25T13:56:31+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T13:56:31+00:00 ERR (3): true
+2013-01-25T13:56:46+00:00 ERR (3): -
+2013-01-25T13:56:46+00:00 ERR (3): entrée :
+2013-01-25T13:56:46+00:00 ERR (3): message/lister-tous
+2013-01-25T13:56:46+00:00 ERR (3): -
+2013-01-25T13:56:46+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-25T13:56:46+00:00 ERR (3): true
+2013-01-25T13:56:48+00:00 ERR (3): -
+2013-01-25T13:56:48+00:00 ERR (3): entrée :
+2013-01-25T13:56:48+00:00 ERR (3): bootstrap/js
+2013-01-25T13:56:48+00:00 ERR (3): -
+2013-01-25T13:56:49+00:00 ERR (3): -
+2013-01-25T13:56:49+00:00 ERR (3): entrée :
+2013-01-25T13:56:49+00:00 ERR (3): error/error
+2013-01-25T13:56:49+00:00 ERR (3): -
+2013-01-25T13:56:49+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T13:56:49+00:00 ERR (3): true
+2013-01-25T13:56:50+00:00 ERR (3): -
+2013-01-25T13:56:50+00:00 ERR (3): entrée :
+2013-01-25T13:56:50+00:00 ERR (3): utilisateur/deconnecter
+2013-01-25T13:56:50+00:00 ERR (3): -
+2013-01-25T13:56:50+00:00 ERR (3): isAllowed ? identifie,utilisateur,deconnecter
+2013-01-25T13:56:50+00:00 ERR (3): true
+2013-01-25T13:56:50+00:00 ERR (3): -
+2013-01-25T13:56:50+00:00 ERR (3): entrée :
+2013-01-25T13:56:50+00:00 ERR (3): evenement/accueil
+2013-01-25T13:56:50+00:00 ERR (3): -
+2013-01-25T13:56:50+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-25T13:56:50+00:00 ERR (3): true
+2013-01-25T13:56:51+00:00 ERR (3): -
+2013-01-25T13:56:51+00:00 ERR (3): entrée :
+2013-01-25T13:56:51+00:00 ERR (3): bootstrap/js
+2013-01-25T13:56:51+00:00 ERR (3): -
+2013-01-25T13:56:51+00:00 ERR (3): -
+2013-01-25T13:56:51+00:00 ERR (3): entrée :
+2013-01-25T13:56:51+00:00 ERR (3): error/error
+2013-01-25T13:56:51+00:00 ERR (3): -
+2013-01-25T13:56:51+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T13:56:51+00:00 ERR (3): true
+2013-01-25T13:56:54+00:00 ERR (3): -
+2013-01-25T13:56:54+00:00 ERR (3): entrée :
+2013-01-25T13:56:54+00:00 ERR (3): message/lister-tous
+2013-01-25T13:56:54+00:00 ERR (3): -
+2013-01-25T13:56:54+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-25T13:56:54+00:00 ERR (3): true
+2013-01-25T13:56:56+00:00 ERR (3): -
+2013-01-25T13:56:56+00:00 ERR (3): entrée :
+2013-01-25T13:56:56+00:00 ERR (3): bootstrap/js
+2013-01-25T13:56:56+00:00 ERR (3): -
+2013-01-25T13:56:56+00:00 ERR (3): -
+2013-01-25T13:56:56+00:00 ERR (3): entrée :
+2013-01-25T13:56:56+00:00 ERR (3): error/error
+2013-01-25T13:56:56+00:00 ERR (3): -
+2013-01-25T13:56:56+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T13:56:56+00:00 ERR (3): true
+2013-01-25T13:56:59+00:00 ERR (3): -
+2013-01-25T13:56:59+00:00 ERR (3): entrée :
+2013-01-25T13:56:59+00:00 ERR (3): message/approuver
+2013-01-25T13:56:59+00:00 ERR (3): -
+2013-01-25T13:56:59+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T13:56:59+00:00 ERR (3): true
+2013-01-25T13:57:00+00:00 ERR (3): -
+2013-01-25T13:57:00+00:00 ERR (3): entrée :
+2013-01-25T13:57:00+00:00 ERR (3): bootstrap/js
+2013-01-25T13:57:00+00:00 ERR (3): -
+2013-01-25T13:57:00+00:00 ERR (3): -
+2013-01-25T13:57:00+00:00 ERR (3): entrée :
+2013-01-25T13:57:00+00:00 ERR (3): error/error
+2013-01-25T13:57:00+00:00 ERR (3): -
+2013-01-25T13:57:00+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T13:57:00+00:00 ERR (3): true
+2013-01-25T13:57:08+00:00 ERR (3): -
+2013-01-25T13:57:08+00:00 ERR (3): entrée :
+2013-01-25T13:57:08+00:00 ERR (3): message/approuver
+2013-01-25T13:57:08+00:00 ERR (3): -
+2013-01-25T13:57:08+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T13:57:08+00:00 ERR (3): true
+2013-01-25T13:57:08+00:00 ERR (3): -
+2013-01-25T13:57:08+00:00 ERR (3): entrée :
+2013-01-25T13:57:08+00:00 ERR (3): evenement/accueil
+2013-01-25T13:57:08+00:00 ERR (3): -
+2013-01-25T13:57:08+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-25T13:57:08+00:00 ERR (3): true
+2013-01-25T13:57:09+00:00 ERR (3): -
+2013-01-25T13:57:09+00:00 ERR (3): entrée :
+2013-01-25T13:57:09+00:00 ERR (3): bootstrap/js
+2013-01-25T13:57:09+00:00 ERR (3): -
+2013-01-25T13:57:09+00:00 ERR (3): -
+2013-01-25T13:57:09+00:00 ERR (3): entrée :
+2013-01-25T13:57:09+00:00 ERR (3): error/error
+2013-01-25T13:57:09+00:00 ERR (3): -
+2013-01-25T13:57:09+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T13:57:09+00:00 ERR (3): true
+2013-01-25T13:57:11+00:00 ERR (3): -
+2013-01-25T13:57:11+00:00 ERR (3): entrée :
+2013-01-25T13:57:11+00:00 ERR (3): message/lister-tous
+2013-01-25T13:57:11+00:00 ERR (3): -
+2013-01-25T13:57:11+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-25T13:57:11+00:00 ERR (3): true
+2013-01-25T13:57:13+00:00 ERR (3): -
+2013-01-25T13:57:13+00:00 ERR (3): entrée :
+2013-01-25T13:57:13+00:00 ERR (3): bootstrap/js
+2013-01-25T13:57:13+00:00 ERR (3): -
+2013-01-25T13:57:13+00:00 ERR (3): -
+2013-01-25T13:57:13+00:00 ERR (3): entrée :
+2013-01-25T13:57:13+00:00 ERR (3): error/error
+2013-01-25T13:57:13+00:00 ERR (3): -
+2013-01-25T13:57:13+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T13:57:13+00:00 ERR (3): true
+2013-01-25T13:57:15+00:00 ERR (3): -
+2013-01-25T13:57:15+00:00 ERR (3): entrée :
+2013-01-25T13:57:15+00:00 ERR (3): message/approuver
+2013-01-25T13:57:15+00:00 ERR (3): -
+2013-01-25T13:57:15+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-25T13:57:15+00:00 ERR (3): true
+2013-01-25T13:57:16+00:00 ERR (3): -
+2013-01-25T13:57:16+00:00 ERR (3): entrée :
+2013-01-25T13:57:16+00:00 ERR (3): bootstrap/js
+2013-01-25T13:57:16+00:00 ERR (3): -
+2013-01-25T13:57:16+00:00 ERR (3): -
+2013-01-25T13:57:16+00:00 ERR (3): entrée :
+2013-01-25T13:57:16+00:00 ERR (3): error/error
+2013-01-25T13:57:16+00:00 ERR (3): -
+2013-01-25T13:57:16+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T13:57:16+00:00 ERR (3): true
+2013-01-25T13:58:17+00:00 ERR (3): -
+2013-01-25T13:58:17+00:00 ERR (3): entrée :
+2013-01-25T13:58:17+00:00 ERR (3): message/approuver
+2013-01-25T13:58:17+00:00 ERR (3): -
+2013-01-25T13:58:37+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-25T13:58:37+00:00 ERR (3): true
+2013-01-25T13:59:00+00:00 ERR (3): -
+2013-01-25T13:59:00+00:00 ERR (3): entrée :
+2013-01-25T13:59:00+00:00 ERR (3): bootstrap/js
+2013-01-25T13:59:00+00:00 ERR (3): -
+2013-01-25T13:59:33+00:00 ERR (3): -
+2013-01-25T13:59:33+00:00 ERR (3): entrée :
+2013-01-25T13:59:33+00:00 ERR (3): error/error
+2013-01-25T13:59:33+00:00 ERR (3): -
+2013-01-25T14:02:00+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T14:02:00+00:00 ERR (3): true
+2013-01-25T14:03:59+00:00 ERR (3): -
+2013-01-25T14:03:59+00:00 ERR (3): entrée :
+2013-01-25T14:03:59+00:00 ERR (3): evenement/accueil
+2013-01-25T14:03:59+00:00 ERR (3): -
+2013-01-25T14:03:59+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-25T14:03:59+00:00 ERR (3): true
+2013-01-25T14:04:00+00:00 ERR (3): -
+2013-01-25T14:04:00+00:00 ERR (3): entrée :
+2013-01-25T14:04:00+00:00 ERR (3): bootstrap/js
+2013-01-25T14:04:00+00:00 ERR (3): -
+2013-01-25T14:04:00+00:00 ERR (3): -
+2013-01-25T14:04:00+00:00 ERR (3): entrée :
+2013-01-25T14:04:00+00:00 ERR (3): error/error
+2013-01-25T14:04:00+00:00 ERR (3): -
+2013-01-25T14:04:00+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T14:04:00+00:00 ERR (3): true
+2013-01-25T14:04:02+00:00 ERR (3): -
+2013-01-25T14:04:02+00:00 ERR (3): entrée :
+2013-01-25T14:04:02+00:00 ERR (3): message/lister-tous
+2013-01-25T14:04:02+00:00 ERR (3): -
+2013-01-25T14:04:02+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-25T14:04:02+00:00 ERR (3): true
+2013-01-25T14:04:04+00:00 ERR (3): -
+2013-01-25T14:04:04+00:00 ERR (3): entrée :
+2013-01-25T14:04:04+00:00 ERR (3): bootstrap/js
+2013-01-25T14:04:04+00:00 ERR (3): -
+2013-01-25T14:04:04+00:00 ERR (3): -
+2013-01-25T14:04:04+00:00 ERR (3): entrée :
+2013-01-25T14:04:04+00:00 ERR (3): error/error
+2013-01-25T14:04:04+00:00 ERR (3): -
+2013-01-25T14:04:04+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T14:04:04+00:00 ERR (3): true
+2013-01-25T14:04:07+00:00 ERR (3): -
+2013-01-25T14:04:07+00:00 ERR (3): entrée :
+2013-01-25T14:04:07+00:00 ERR (3): message/approuver
+2013-01-25T14:04:07+00:00 ERR (3): -
+2013-01-25T14:04:07+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-25T14:04:07+00:00 ERR (3): true
+2013-01-25T14:04:07+00:00 ERR (3): -
+2013-01-25T14:04:07+00:00 ERR (3): entrée :
+2013-01-25T14:04:07+00:00 ERR (3): bootstrap/js
+2013-01-25T14:04:07+00:00 ERR (3): -
+2013-01-25T14:04:07+00:00 ERR (3): -
+2013-01-25T14:04:07+00:00 ERR (3): entrée :
+2013-01-25T14:04:07+00:00 ERR (3): error/error
+2013-01-25T14:04:07+00:00 ERR (3): -
+2013-01-25T14:04:07+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T14:04:07+00:00 ERR (3): true
+2013-01-25T14:04:39+00:00 ERR (3): -
+2013-01-25T14:04:39+00:00 ERR (3): entrée :
+2013-01-25T14:04:39+00:00 ERR (3): message/lister-tous
+2013-01-25T14:04:39+00:00 ERR (3): -
+2013-01-25T14:04:39+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-25T14:04:39+00:00 ERR (3): true
+2013-01-25T14:04:41+00:00 ERR (3): -
+2013-01-25T14:04:41+00:00 ERR (3): entrée :
+2013-01-25T14:04:41+00:00 ERR (3): bootstrap/js
+2013-01-25T14:04:41+00:00 ERR (3): -
+2013-01-25T14:04:41+00:00 ERR (3): -
+2013-01-25T14:04:41+00:00 ERR (3): entrée :
+2013-01-25T14:04:41+00:00 ERR (3): error/error
+2013-01-25T14:04:41+00:00 ERR (3): -
+2013-01-25T14:04:41+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-25T14:04:41+00:00 ERR (3): true
+2013-01-25T14:04:43+00:00 ERR (3): -
+2013-01-25T14:04:43+00:00 ERR (3): entrée :
+2013-01-25T14:04:43+00:00 ERR (3): utilisateur/deconnecter
+2013-01-25T14:04:43+00:00 ERR (3): -
+2013-01-25T14:04:43+00:00 ERR (3): isAllowed ? identifie,utilisateur,deconnecter
+2013-01-25T14:04:43+00:00 ERR (3): true
+2013-01-25T14:04:44+00:00 ERR (3): -
+2013-01-25T14:04:44+00:00 ERR (3): entrée :
+2013-01-25T14:04:44+00:00 ERR (3): evenement/accueil
+2013-01-25T14:04:44+00:00 ERR (3): -
+2013-01-25T14:04:44+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-25T14:04:44+00:00 ERR (3): true
+2013-01-25T14:04:44+00:00 ERR (3): -
+2013-01-25T14:04:44+00:00 ERR (3): entrée :
+2013-01-25T14:04:44+00:00 ERR (3): bootstrap/js
+2013-01-25T14:04:44+00:00 ERR (3): -
+2013-01-25T14:04:44+00:00 ERR (3): -
+2013-01-25T14:04:44+00:00 ERR (3): entrée :
+2013-01-25T14:04:44+00:00 ERR (3): error/error
+2013-01-25T14:04:44+00:00 ERR (3): -
+2013-01-25T14:04:44+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:04:44+00:00 ERR (3): true
+2013-01-25T14:04:45+00:00 ERR (3): -
+2013-01-25T14:04:45+00:00 ERR (3): entrée :
+2013-01-25T14:04:45+00:00 ERR (3): message/lister-tous
+2013-01-25T14:04:45+00:00 ERR (3): -
+2013-01-25T14:04:45+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-25T14:04:45+00:00 ERR (3): true
+2013-01-25T14:04:47+00:00 ERR (3): -
+2013-01-25T14:04:47+00:00 ERR (3): entrée :
+2013-01-25T14:04:47+00:00 ERR (3): bootstrap/js
+2013-01-25T14:04:47+00:00 ERR (3): -
+2013-01-25T14:04:47+00:00 ERR (3): -
+2013-01-25T14:04:47+00:00 ERR (3): entrée :
+2013-01-25T14:04:47+00:00 ERR (3): error/error
+2013-01-25T14:04:47+00:00 ERR (3): -
+2013-01-25T14:04:47+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:04:47+00:00 ERR (3): true
+2013-01-25T14:04:48+00:00 ERR (3): -
+2013-01-25T14:04:48+00:00 ERR (3): entrée :
+2013-01-25T14:04:48+00:00 ERR (3): message/approuver
+2013-01-25T14:04:48+00:00 ERR (3): -
+2013-01-25T14:04:48+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:04:48+00:00 ERR (3): true
+2013-01-25T14:04:49+00:00 ERR (3): -
+2013-01-25T14:04:49+00:00 ERR (3): entrée :
+2013-01-25T14:04:49+00:00 ERR (3): error/error
+2013-01-25T14:04:49+00:00 ERR (3): -
+2013-01-25T14:04:49+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:04:49+00:00 ERR (3): true
+2013-01-25T14:04:49+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:04:49+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, -1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:04:49+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '37',
+  'appreciation' => '-1',
+  'module' => 'default',
+)
+2013-01-25T14:04:49+00:00 ERR (3): -
+2013-01-25T14:04:49+00:00 ERR (3): entrée :
+2013-01-25T14:04:49+00:00 ERR (3): bootstrap/js
+2013-01-25T14:04:49+00:00 ERR (3): -
+2013-01-25T14:04:49+00:00 ERR (3): -
+2013-01-25T14:04:49+00:00 ERR (3): entrée :
+2013-01-25T14:04:49+00:00 ERR (3): error/error
+2013-01-25T14:04:49+00:00 ERR (3): -
+2013-01-25T14:04:49+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:04:49+00:00 ERR (3): true
+2013-01-25T14:06:55+00:00 ERR (3): -
+2013-01-25T14:06:55+00:00 ERR (3): entrée :
+2013-01-25T14:06:55+00:00 ERR (3): evenement/accueil
+2013-01-25T14:06:55+00:00 ERR (3): -
+2013-01-25T14:06:55+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-25T14:06:55+00:00 ERR (3): true
+2013-01-25T14:06:56+00:00 ERR (3): -
+2013-01-25T14:06:56+00:00 ERR (3): entrée :
+2013-01-25T14:06:56+00:00 ERR (3): bootstrap/js
+2013-01-25T14:06:56+00:00 ERR (3): -
+2013-01-25T14:06:56+00:00 ERR (3): -
+2013-01-25T14:06:56+00:00 ERR (3): entrée :
+2013-01-25T14:06:56+00:00 ERR (3): error/error
+2013-01-25T14:06:56+00:00 ERR (3): -
+2013-01-25T14:06:56+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:06:56+00:00 ERR (3): true
+2013-01-25T14:06:57+00:00 ERR (3): -
+2013-01-25T14:06:57+00:00 ERR (3): entrée :
+2013-01-25T14:06:57+00:00 ERR (3): message/lister-tous
+2013-01-25T14:06:57+00:00 ERR (3): -
+2013-01-25T14:06:57+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-25T14:06:57+00:00 ERR (3): true
+2013-01-25T14:06:59+00:00 ERR (3): -
+2013-01-25T14:06:59+00:00 ERR (3): entrée :
+2013-01-25T14:06:59+00:00 ERR (3): bootstrap/js
+2013-01-25T14:06:59+00:00 ERR (3): -
+2013-01-25T14:06:59+00:00 ERR (3): -
+2013-01-25T14:06:59+00:00 ERR (3): entrée :
+2013-01-25T14:06:59+00:00 ERR (3): error/error
+2013-01-25T14:06:59+00:00 ERR (3): -
+2013-01-25T14:06:59+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:06:59+00:00 ERR (3): true
+2013-01-25T14:09:21+00:00 ERR (3): -
+2013-01-25T14:09:21+00:00 ERR (3): entrée :
+2013-01-25T14:09:21+00:00 ERR (3): index/index
+2013-01-25T14:09:21+00:00 ERR (3): -
+2013-01-25T14:09:21+00:00 ERR (3): isAllowed ? utilisateur,index,index
+2013-01-25T14:09:21+00:00 ERR (3): true
+2013-01-25T14:09:22+00:00 ERR (3): -
+2013-01-25T14:09:22+00:00 ERR (3): entrée :
+2013-01-25T14:09:22+00:00 ERR (3): bootstrap/css
+2013-01-25T14:09:22+00:00 ERR (3): -
+2013-01-25T14:09:22+00:00 ERR (3): -
+2013-01-25T14:09:22+00:00 ERR (3): entrée :
+2013-01-25T14:09:22+00:00 ERR (3): error/error
+2013-01-25T14:09:22+00:00 ERR (3): -
+2013-01-25T14:09:22+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:09:22+00:00 ERR (3): true
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): entrée :
+2013-01-25T14:09:23+00:00 ERR (3): bootstrap/css
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): entrée :
+2013-01-25T14:09:23+00:00 ERR (3): error/error
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:09:23+00:00 ERR (3): true
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): entrée :
+2013-01-25T14:09:23+00:00 ERR (3): bootstrap/js
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): entrée :
+2013-01-25T14:09:23+00:00 ERR (3): error/error
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:09:23+00:00 ERR (3): true
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): entrée :
+2013-01-25T14:09:23+00:00 ERR (3): bootstrap/js
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): entrée :
+2013-01-25T14:09:23+00:00 ERR (3): error/error
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:09:23+00:00 ERR (3): true
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:23+00:00 ERR (3): entrée :
+2013-01-25T14:09:23+00:00 ERR (3): bootstrap/js
+2013-01-25T14:09:23+00:00 ERR (3): -
+2013-01-25T14:09:24+00:00 ERR (3): -
+2013-01-25T14:09:24+00:00 ERR (3): entrée :
+2013-01-25T14:09:24+00:00 ERR (3): error/error
+2013-01-25T14:09:24+00:00 ERR (3): -
+2013-01-25T14:09:24+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:09:24+00:00 ERR (3): true
+2013-01-25T14:09:33+00:00 ERR (3): -
+2013-01-25T14:09:33+00:00 ERR (3): entrée :
+2013-01-25T14:09:33+00:00 ERR (3): message/approuver
+2013-01-25T14:09:33+00:00 ERR (3): -
+2013-01-25T14:15:12+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:15:12+00:00 ERR (3): true
+2013-01-25T14:15:15+00:00 ERR (3): -
+2013-01-25T14:15:15+00:00 ERR (3): entrée :
+2013-01-25T14:15:15+00:00 ERR (3): error/error
+2013-01-25T14:15:15+00:00 ERR (3): -
+2013-01-25T14:15:17+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:15:17+00:00 ERR (3): true
+2013-01-25T14:15:17+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:15:17+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:15:17+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:15:18+00:00 ERR (3): -
+2013-01-25T14:15:18+00:00 ERR (3): entrée :
+2013-01-25T14:15:18+00:00 ERR (3): evenement/accueil
+2013-01-25T14:15:18+00:00 ERR (3): -
+2013-01-25T14:15:18+00:00 ERR (3): isAllowed ? ,evenement,accueil
+2013-01-25T14:15:18+00:00 ERR (3): true
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): entrée :
+2013-01-25T14:15:19+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): entrée :
+2013-01-25T14:15:19+00:00 ERR (3): error/error
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:19+00:00 ERR (3): true
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): entrée :
+2013-01-25T14:15:19+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): entrée :
+2013-01-25T14:15:19+00:00 ERR (3): error/error
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:19+00:00 ERR (3): true
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): entrée :
+2013-01-25T14:15:19+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): entrée :
+2013-01-25T14:15:19+00:00 ERR (3): error/error
+2013-01-25T14:15:19+00:00 ERR (3): -
+2013-01-25T14:15:19+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:19+00:00 ERR (3): true
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): entrée :
+2013-01-25T14:15:20+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): entrée :
+2013-01-25T14:15:20+00:00 ERR (3): error/error
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:20+00:00 ERR (3): true
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): entrée :
+2013-01-25T14:15:20+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): entrée :
+2013-01-25T14:15:20+00:00 ERR (3): error/error
+2013-01-25T14:15:20+00:00 ERR (3): -
+2013-01-25T14:15:20+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:20+00:00 ERR (3): true
+2013-01-25T14:15:25+00:00 ERR (3): -
+2013-01-25T14:15:25+00:00 ERR (3): entrée :
+2013-01-25T14:15:25+00:00 ERR (3): evenement/accueil
+2013-01-25T14:15:25+00:00 ERR (3): -
+2013-01-25T14:15:25+00:00 ERR (3): isAllowed ? ,evenement,accueil
+2013-01-25T14:15:25+00:00 ERR (3): true
+2013-01-25T14:15:26+00:00 ERR (3): -
+2013-01-25T14:15:26+00:00 ERR (3): entrée :
+2013-01-25T14:15:26+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:26+00:00 ERR (3): -
+2013-01-25T14:15:26+00:00 ERR (3): -
+2013-01-25T14:15:26+00:00 ERR (3): entrée :
+2013-01-25T14:15:26+00:00 ERR (3): error/error
+2013-01-25T14:15:26+00:00 ERR (3): -
+2013-01-25T14:15:26+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:26+00:00 ERR (3): true
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): entrée :
+2013-01-25T14:15:27+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): entrée :
+2013-01-25T14:15:27+00:00 ERR (3): error/error
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:27+00:00 ERR (3): true
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): entrée :
+2013-01-25T14:15:27+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): entrée :
+2013-01-25T14:15:27+00:00 ERR (3): error/error
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:27+00:00 ERR (3): true
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): entrée :
+2013-01-25T14:15:27+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): entrée :
+2013-01-25T14:15:27+00:00 ERR (3): error/error
+2013-01-25T14:15:27+00:00 ERR (3): -
+2013-01-25T14:15:27+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:27+00:00 ERR (3): true
+2013-01-25T14:15:28+00:00 ERR (3): -
+2013-01-25T14:15:28+00:00 ERR (3): entrée :
+2013-01-25T14:15:28+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:28+00:00 ERR (3): -
+2013-01-25T14:15:28+00:00 ERR (3): -
+2013-01-25T14:15:28+00:00 ERR (3): entrée :
+2013-01-25T14:15:28+00:00 ERR (3): error/error
+2013-01-25T14:15:28+00:00 ERR (3): -
+2013-01-25T14:15:28+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:28+00:00 ERR (3): true
+2013-01-25T14:15:30+00:00 ERR (3): -
+2013-01-25T14:15:30+00:00 ERR (3): entrée :
+2013-01-25T14:15:30+00:00 ERR (3): index/index
+2013-01-25T14:15:30+00:00 ERR (3): -
+2013-01-25T14:15:30+00:00 ERR (3): isAllowed ? ,index,index
+2013-01-25T14:15:30+00:00 ERR (3): true
+2013-01-25T14:15:31+00:00 ERR (3): -
+2013-01-25T14:15:31+00:00 ERR (3): entrée :
+2013-01-25T14:15:31+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:31+00:00 ERR (3): -
+2013-01-25T14:15:31+00:00 ERR (3): -
+2013-01-25T14:15:31+00:00 ERR (3): entrée :
+2013-01-25T14:15:31+00:00 ERR (3): error/error
+2013-01-25T14:15:31+00:00 ERR (3): -
+2013-01-25T14:15:31+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:31+00:00 ERR (3): true
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): entrée :
+2013-01-25T14:15:32+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): entrée :
+2013-01-25T14:15:32+00:00 ERR (3): error/error
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:32+00:00 ERR (3): true
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): entrée :
+2013-01-25T14:15:32+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): entrée :
+2013-01-25T14:15:32+00:00 ERR (3): error/error
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:32+00:00 ERR (3): true
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): entrée :
+2013-01-25T14:15:32+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): entrée :
+2013-01-25T14:15:32+00:00 ERR (3): error/error
+2013-01-25T14:15:32+00:00 ERR (3): -
+2013-01-25T14:15:32+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:32+00:00 ERR (3): true
+2013-01-25T14:15:33+00:00 ERR (3): -
+2013-01-25T14:15:33+00:00 ERR (3): entrée :
+2013-01-25T14:15:33+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:33+00:00 ERR (3): -
+2013-01-25T14:15:33+00:00 ERR (3): -
+2013-01-25T14:15:33+00:00 ERR (3): entrée :
+2013-01-25T14:15:33+00:00 ERR (3): error/error
+2013-01-25T14:15:33+00:00 ERR (3): -
+2013-01-25T14:15:33+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:33+00:00 ERR (3): true
+2013-01-25T14:15:46+00:00 ERR (3): -
+2013-01-25T14:15:46+00:00 ERR (3): entrée :
+2013-01-25T14:15:46+00:00 ERR (3): evenement/accueil
+2013-01-25T14:15:46+00:00 ERR (3): -
+2013-01-25T14:15:46+00:00 ERR (3): isAllowed ? ,evenement,accueil
+2013-01-25T14:15:46+00:00 ERR (3): true
+2013-01-25T14:15:47+00:00 ERR (3): -
+2013-01-25T14:15:47+00:00 ERR (3): entrée :
+2013-01-25T14:15:47+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:47+00:00 ERR (3): -
+2013-01-25T14:15:47+00:00 ERR (3): -
+2013-01-25T14:15:47+00:00 ERR (3): entrée :
+2013-01-25T14:15:47+00:00 ERR (3): error/error
+2013-01-25T14:15:47+00:00 ERR (3): -
+2013-01-25T14:15:47+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:47+00:00 ERR (3): true
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): entrée :
+2013-01-25T14:15:48+00:00 ERR (3): bootstrap/css
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): entrée :
+2013-01-25T14:15:48+00:00 ERR (3): error/error
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:48+00:00 ERR (3): true
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): entrée :
+2013-01-25T14:15:48+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): entrée :
+2013-01-25T14:15:48+00:00 ERR (3): error/error
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:48+00:00 ERR (3): true
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): entrée :
+2013-01-25T14:15:48+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): entrée :
+2013-01-25T14:15:48+00:00 ERR (3): error/error
+2013-01-25T14:15:48+00:00 ERR (3): -
+2013-01-25T14:15:48+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:48+00:00 ERR (3): true
+2013-01-25T14:15:49+00:00 ERR (3): -
+2013-01-25T14:15:49+00:00 ERR (3): entrée :
+2013-01-25T14:15:49+00:00 ERR (3): bootstrap/js
+2013-01-25T14:15:49+00:00 ERR (3): -
+2013-01-25T14:15:49+00:00 ERR (3): -
+2013-01-25T14:15:49+00:00 ERR (3): entrée :
+2013-01-25T14:15:49+00:00 ERR (3): error/error
+2013-01-25T14:15:49+00:00 ERR (3): -
+2013-01-25T14:15:49+00:00 ERR (3): isAllowed ? ,error,error
+2013-01-25T14:15:49+00:00 ERR (3): true
+2013-01-25T14:16:12+00:00 ERR (3): -
+2013-01-25T14:16:12+00:00 ERR (3): entrée :
+2013-01-25T14:16:12+00:00 ERR (3): evenement/accueil
+2013-01-25T14:16:12+00:00 ERR (3): -
+2013-01-25T14:16:12+00:00 ERR (3): isAllowed ? ,evenement,accueil
+2013-01-25T14:16:12+00:00 ERR (3): true
+2013-01-25T14:16:13+00:00 ERR (3): -
+2013-01-25T14:16:13+00:00 ERR (3): entrée :
+2013-01-25T14:16:13+00:00 ERR (3): bootstrap/js
+2013-01-25T14:16:13+00:00 ERR (3): -
+2013-01-25T14:16:13+00:00 ERR (3): isAllowed ? ,,js
+2013-01-25T14:16:13+00:00 ERR (3): true
+2013-01-25T14:16:13+00:00 ERR (3): -
+2013-01-25T14:16:13+00:00 ERR (3): entrée :
+2013-01-25T14:16:13+00:00 ERR (3): bootstrap/css
+2013-01-25T14:16:13+00:00 ERR (3): -
+2013-01-25T14:16:13+00:00 ERR (3): isAllowed ? ,,css
+2013-01-25T14:16:13+00:00 ERR (3): true
+2013-01-25T14:16:14+00:00 ERR (3): -
+2013-01-25T14:16:14+00:00 ERR (3): entrée :
+2013-01-25T14:16:14+00:00 ERR (3): bootstrap/css
+2013-01-25T14:16:14+00:00 ERR (3): -
+2013-01-25T14:16:14+00:00 ERR (3): isAllowed ? ,,css
+2013-01-25T14:16:14+00:00 ERR (3): true
+2013-01-25T14:16:14+00:00 ERR (3): -
+2013-01-25T14:16:14+00:00 ERR (3): entrée :
+2013-01-25T14:16:14+00:00 ERR (3): bootstrap/js
+2013-01-25T14:16:14+00:00 ERR (3): -
+2013-01-25T14:16:14+00:00 ERR (3): isAllowed ? ,,js
+2013-01-25T14:16:14+00:00 ERR (3): true
+2013-01-25T14:16:14+00:00 ERR (3): -
+2013-01-25T14:16:14+00:00 ERR (3): entrée :
+2013-01-25T14:16:14+00:00 ERR (3): bootstrap/js
+2013-01-25T14:16:14+00:00 ERR (3): -
+2013-01-25T14:16:14+00:00 ERR (3): isAllowed ? ,,js
+2013-01-25T14:16:14+00:00 ERR (3): true
+2013-01-25T14:16:26+00:00 ERR (3): -
+2013-01-25T14:16:26+00:00 ERR (3): entrée :
+2013-01-25T14:16:26+00:00 ERR (3): evenement/accueil
+2013-01-25T14:16:26+00:00 ERR (3): -
+2013-01-25T14:16:26+00:00 ERR (3): isAllowed ? ,evenement,accueil
+2013-01-25T14:16:26+00:00 ERR (3): true
+2013-01-25T14:16:26+00:00 ERR (3): -
+2013-01-25T14:16:26+00:00 ERR (3): entrée :
+2013-01-25T14:16:26+00:00 ERR (3): bootstrap/js
+2013-01-25T14:16:26+00:00 ERR (3): -
+2013-01-25T14:16:26+00:00 ERR (3): isAllowed ? ,,js
+2013-01-25T14:16:26+00:00 ERR (3): true
+2013-01-25T14:17:22+00:00 ERR (3): -
+2013-01-25T14:17:22+00:00 ERR (3): entrée :
+2013-01-25T14:17:22+00:00 ERR (3): evenement/accueil
+2013-01-25T14:17:22+00:00 ERR (3): -
+2013-01-25T14:17:22+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-25T14:17:22+00:00 ERR (3): true
+2013-01-25T14:17:22+00:00 ERR (3): -
+2013-01-25T14:17:22+00:00 ERR (3): entrée :
+2013-01-25T14:17:22+00:00 ERR (3): bootstrap/js
+2013-01-25T14:17:22+00:00 ERR (3): -
+2013-01-25T14:17:22+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:17:22+00:00 ERR (3): true
+2013-01-25T14:17:24+00:00 ERR (3): -
+2013-01-25T14:17:24+00:00 ERR (3): entrée :
+2013-01-25T14:17:24+00:00 ERR (3): message/lister-tous
+2013-01-25T14:17:24+00:00 ERR (3): -
+2013-01-25T14:17:24+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-25T14:17:24+00:00 ERR (3): true
+2013-01-25T14:17:26+00:00 ERR (3): -
+2013-01-25T14:17:26+00:00 ERR (3): entrée :
+2013-01-25T14:17:26+00:00 ERR (3): bootstrap/js
+2013-01-25T14:17:26+00:00 ERR (3): -
+2013-01-25T14:17:26+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:17:26+00:00 ERR (3): true
+2013-01-25T14:17:28+00:00 ERR (3): -
+2013-01-25T14:17:28+00:00 ERR (3): entrée :
+2013-01-25T14:17:28+00:00 ERR (3): message/approuver
+2013-01-25T14:17:28+00:00 ERR (3): -
+2013-01-25T14:17:28+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:17:28+00:00 ERR (3): true
+2013-01-25T14:17:28+00:00 ERR (3): -
+2013-01-25T14:17:28+00:00 ERR (3): entrée :
+2013-01-25T14:17:28+00:00 ERR (3): error/error
+2013-01-25T14:17:28+00:00 ERR (3): -
+2013-01-25T14:17:28+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:17:28+00:00 ERR (3): true
+2013-01-25T14:17:28+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:17:28+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:17:28+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '37',
+  'appreciation' => '1',
+  'module' => 'default',
+)
+2013-01-25T14:17:28+00:00 ERR (3): -
+2013-01-25T14:17:28+00:00 ERR (3): entrée :
+2013-01-25T14:17:28+00:00 ERR (3): bootstrap/js
+2013-01-25T14:17:28+00:00 ERR (3): -
+2013-01-25T14:17:28+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:17:28+00:00 ERR (3): true
+2013-01-25T14:26:09+00:00 ERR (3): -
+2013-01-25T14:26:10+00:00 ERR (3): entrée :
+2013-01-25T14:26:11+00:00 ERR (3): message/approuver
+2013-01-25T14:26:11+00:00 ERR (3): -
+2013-01-25T14:26:43+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:26:43+00:00 ERR (3): true
+2013-01-25T14:33:32+00:00 ERR (3): -
+2013-01-25T14:33:32+00:00 ERR (3): entrée :
+2013-01-25T14:33:32+00:00 ERR (3): evenement/accueil
+2013-01-25T14:33:32+00:00 ERR (3): -
+2013-01-25T14:33:32+00:00 ERR (3): isAllowed ? utilisateur,evenement,accueil
+2013-01-25T14:33:32+00:00 ERR (3): true
+2013-01-25T14:33:32+00:00 ERR (3): -
+2013-01-25T14:33:32+00:00 ERR (3): entrée :
+2013-01-25T14:33:32+00:00 ERR (3): bootstrap/js
+2013-01-25T14:33:32+00:00 ERR (3): -
+2013-01-25T14:33:32+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:33:32+00:00 ERR (3): true
+2013-01-25T14:33:33+00:00 ERR (3): -
+2013-01-25T14:33:33+00:00 ERR (3): entrée :
+2013-01-25T14:33:33+00:00 ERR (3): message/lister-tous
+2013-01-25T14:33:33+00:00 ERR (3): -
+2013-01-25T14:33:33+00:00 ERR (3): isAllowed ? utilisateur,message,lister-tous
+2013-01-25T14:33:33+00:00 ERR (3): true
+2013-01-25T14:33:35+00:00 ERR (3): -
+2013-01-25T14:33:35+00:00 ERR (3): entrée :
+2013-01-25T14:33:35+00:00 ERR (3): bootstrap/js
+2013-01-25T14:33:35+00:00 ERR (3): -
+2013-01-25T14:33:35+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:33:35+00:00 ERR (3): true
+2013-01-25T14:33:37+00:00 ERR (3): -
+2013-01-25T14:33:37+00:00 ERR (3): entrée :
+2013-01-25T14:33:37+00:00 ERR (3): message/approuver
+2013-01-25T14:33:37+00:00 ERR (3): -
+2013-01-25T14:33:37+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:33:37+00:00 ERR (3): true
+2013-01-25T14:33:38+00:00 ERR (3): -
+2013-01-25T14:33:38+00:00 ERR (3): entrée :
+2013-01-25T14:33:38+00:00 ERR (3): error/error
+2013-01-25T14:33:38+00:00 ERR (3): -
+2013-01-25T14:33:38+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:33:38+00:00 ERR (3): true
+2013-01-25T14:33:38+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:33:38+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, -1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:33:38+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '37',
+  'appreciation' => '-1',
+  'module' => 'default',
+)
+2013-01-25T14:33:38+00:00 ERR (3): -
+2013-01-25T14:33:38+00:00 ERR (3): entrée :
+2013-01-25T14:33:38+00:00 ERR (3): bootstrap/js
+2013-01-25T14:33:38+00:00 ERR (3): -
+2013-01-25T14:33:38+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:33:38+00:00 ERR (3): true
+2013-01-25T14:35:08+00:00 ERR (3): -
+2013-01-25T14:35:08+00:00 ERR (3): entrée :
+2013-01-25T14:35:08+00:00 ERR (3): message/approuver
+2013-01-25T14:35:09+00:00 ERR (3): -
+2013-01-25T14:35:32+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:35:33+00:00 ERR (3): true
+2013-01-25T14:37:04+00:00 ERR (3): -
+2013-01-25T14:37:04+00:00 ERR (3): entrée :
+2013-01-25T14:37:05+00:00 ERR (3): error/error
+2013-01-25T14:37:05+00:00 ERR (3): -
+2013-01-25T14:37:07+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:37:16+00:00 ERR (3): true
+2013-01-25T14:38:44+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:38:44+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:38:44+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:39:49+00:00 ERR (3): -
+2013-01-25T14:39:50+00:00 ERR (3): entrée :
+2013-01-25T14:39:50+00:00 ERR (3): bootstrap/js
+2013-01-25T14:39:51+00:00 ERR (3): -
+2013-01-25T14:40:07+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:40:14+00:00 ERR (3): true
+2013-01-25T14:41:01+00:00 ERR (3): -
+2013-01-25T14:41:01+00:00 ERR (3): entrée :
+2013-01-25T14:41:01+00:00 ERR (3): message/approuver
+2013-01-25T14:41:01+00:00 ERR (3): -
+2013-01-25T14:41:09+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:41:10+00:00 ERR (3): true
+2013-01-25T14:43:53+00:00 ERR (3): -
+2013-01-25T14:43:53+00:00 ERR (3): entrée :
+2013-01-25T14:43:53+00:00 ERR (3): error/error
+2013-01-25T14:43:53+00:00 ERR (3): -
+2013-01-25T14:43:54+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:43:54+00:00 ERR (3): true
+2013-01-25T14:44:04+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:44:04+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:44:04+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:44:09+00:00 ERR (3): -
+2013-01-25T14:44:09+00:00 ERR (3): entrée :
+2013-01-25T14:44:09+00:00 ERR (3): bootstrap/js
+2013-01-25T14:44:09+00:00 ERR (3): -
+2013-01-25T14:44:09+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:44:09+00:00 ERR (3): true
+2013-01-25T14:45:28+00:00 ERR (3): -
+2013-01-25T14:45:28+00:00 ERR (3): entrée :
+2013-01-25T14:45:28+00:00 ERR (3): message/approuver
+2013-01-25T14:45:28+00:00 ERR (3): -
+2013-01-25T14:45:30+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:45:30+00:00 ERR (3): true
+2013-01-25T14:45:34+00:00 ERR (3): -
+2013-01-25T14:45:34+00:00 ERR (3): entrée :
+2013-01-25T14:45:34+00:00 ERR (3): error/error
+2013-01-25T14:45:34+00:00 ERR (3): -
+2013-01-25T14:45:36+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:45:36+00:00 ERR (3): true
+2013-01-25T14:46:57+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:46:57+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:46:57+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:47:41+00:00 ERR (3): -
+2013-01-25T14:47:41+00:00 ERR (3): entrée :
+2013-01-25T14:47:41+00:00 ERR (3): bootstrap/js
+2013-01-25T14:47:41+00:00 ERR (3): -
+2013-01-25T14:47:42+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:47:42+00:00 ERR (3): true
+2013-01-25T14:48:08+00:00 ERR (3): -
+2013-01-25T14:48:08+00:00 ERR (3): entrée :
+2013-01-25T14:48:08+00:00 ERR (3): message/approuver
+2013-01-25T14:48:08+00:00 ERR (3): -
+2013-01-25T14:48:09+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:48:09+00:00 ERR (3): true
+2013-01-25T14:49:26+00:00 ERR (3): -
+2013-01-25T14:49:26+00:00 ERR (3): entrée :
+2013-01-25T14:49:26+00:00 ERR (3): error/error
+2013-01-25T14:49:26+00:00 ERR (3): -
+2013-01-25T14:49:27+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:49:27+00:00 ERR (3): true
+2013-01-25T14:49:47+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:49:47+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:49:47+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:49:51+00:00 ERR (3): -
+2013-01-25T14:49:51+00:00 ERR (3): entrée :
+2013-01-25T14:49:51+00:00 ERR (3): message/approuver
+2013-01-25T14:49:51+00:00 ERR (3): -
+2013-01-25T14:49:52+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:49:52+00:00 ERR (3): true
+2013-01-25T14:49:55+00:00 ERR (3): -
+2013-01-25T14:49:55+00:00 ERR (3): entrée :
+2013-01-25T14:49:55+00:00 ERR (3): error/error
+2013-01-25T14:49:55+00:00 ERR (3): -
+2013-01-25T14:49:56+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:49:56+00:00 ERR (3): true
+2013-01-25T14:49:57+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:49:57+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:49:57+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:50:01+00:00 ERR (3): -
+2013-01-25T14:50:01+00:00 ERR (3): entrée :
+2013-01-25T14:50:01+00:00 ERR (3): message/approuver
+2013-01-25T14:50:01+00:00 ERR (3): -
+2013-01-25T14:50:01+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:50:01+00:00 ERR (3): true
+2013-01-25T14:50:04+00:00 ERR (3): -
+2013-01-25T14:50:04+00:00 ERR (3): entrée :
+2013-01-25T14:50:04+00:00 ERR (3): error/error
+2013-01-25T14:50:04+00:00 ERR (3): -
+2013-01-25T14:50:05+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:50:05+00:00 ERR (3): true
+2013-01-25T14:50:06+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:50:06+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:50:06+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:50:09+00:00 ERR (3): -
+2013-01-25T14:50:09+00:00 ERR (3): entrée :
+2013-01-25T14:50:09+00:00 ERR (3): bootstrap/js
+2013-01-25T14:50:09+00:00 ERR (3): -
+2013-01-25T14:50:09+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:50:09+00:00 ERR (3): true
+2013-01-25T14:50:24+00:00 ERR (3): -
+2013-01-25T14:50:24+00:00 ERR (3): entrée :
+2013-01-25T14:50:24+00:00 ERR (3): message/approuver
+2013-01-25T14:50:24+00:00 ERR (3): -
+2013-01-25T14:50:27+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:50:27+00:00 ERR (3): true
+2013-01-25T14:50:46+00:00 ERR (3): -
+2013-01-25T14:50:46+00:00 ERR (3): entrée :
+2013-01-25T14:50:46+00:00 ERR (3): error/error
+2013-01-25T14:50:46+00:00 ERR (3): -
+2013-01-25T14:50:49+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:50:49+00:00 ERR (3): true
+2013-01-25T14:50:52+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:50:52+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:50:52+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:50:55+00:00 ERR (3): -
+2013-01-25T14:50:55+00:00 ERR (3): entrée :
+2013-01-25T14:50:55+00:00 ERR (3): bootstrap/js
+2013-01-25T14:50:55+00:00 ERR (3): -
+2013-01-25T14:50:55+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:50:55+00:00 ERR (3): true
+2013-01-25T14:51:04+00:00 ERR (3): -
+2013-01-25T14:51:04+00:00 ERR (3): entrée :
+2013-01-25T14:51:04+00:00 ERR (3): message/approuver
+2013-01-25T14:51:04+00:00 ERR (3): -
+2013-01-25T14:51:04+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:51:04+00:00 ERR (3): true
+2013-01-25T14:51:43+00:00 ERR (3): -
+2013-01-25T14:51:43+00:00 ERR (3): entrée :
+2013-01-25T14:51:43+00:00 ERR (3): error/error
+2013-01-25T14:51:43+00:00 ERR (3): -
+2013-01-25T14:51:43+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:51:43+00:00 ERR (3): true
+2013-01-25T14:51:54+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:51:54+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:51:54+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:51:57+00:00 ERR (3): -
+2013-01-25T14:51:57+00:00 ERR (3): entrée :
+2013-01-25T14:51:57+00:00 ERR (3): bootstrap/js
+2013-01-25T14:51:57+00:00 ERR (3): -
+2013-01-25T14:51:57+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:51:57+00:00 ERR (3): true
+2013-01-25T14:52:05+00:00 ERR (3): -
+2013-01-25T14:52:05+00:00 ERR (3): entrée :
+2013-01-25T14:52:05+00:00 ERR (3): message/approuver
+2013-01-25T14:52:05+00:00 ERR (3): -
+2013-01-25T14:52:05+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-25T14:52:05+00:00 ERR (3): true
+2013-01-25T14:52:05+00:00 ERR (3): -
+2013-01-25T14:52:05+00:00 ERR (3): entrée :
+2013-01-25T14:52:05+00:00 ERR (3): error/error
+2013-01-25T14:52:05+00:00 ERR (3): -
+2013-01-25T14:52:05+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-25T14:52:05+00:00 ERR (3): true
+2013-01-25T14:52:05+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-25T14:52:05+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-25T14:52:05+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-25T14:52:08+00:00 ERR (3): -
+2013-01-25T14:52:08+00:00 ERR (3): entrée :
+2013-01-25T14:52:08+00:00 ERR (3): bootstrap/js
+2013-01-25T14:52:08+00:00 ERR (3): -
+2013-01-25T14:52:08+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-25T14:52:08+00:00 ERR (3): true
+2013-01-28T16:48:22+00:00 ERR (3): -
+2013-01-28T16:48:22+00:00 ERR (3): entrée :
+2013-01-28T16:48:22+00:00 ERR (3): message/approuver
+2013-01-28T16:48:22+00:00 ERR (3): -
+2013-01-28T16:48:22+00:00 ERR (3): isAllowed ? utilisateur,message,approuver
+2013-01-28T16:48:22+00:00 ERR (3): true
+2013-01-28T16:51:10+00:00 ERR (3): -
+2013-01-28T16:51:10+00:00 ERR (3): entrée :
+2013-01-28T16:51:10+00:00 ERR (3): error/error
+2013-01-28T16:51:10+00:00 ERR (3): -
+2013-01-28T16:51:10+00:00 ERR (3): isAllowed ? utilisateur,error,error
+2013-01-28T16:51:10+00:00 ERR (3): true
+2013-01-28T16:51:18+00:00 ERR (3): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound
+2013-01-28T16:51:18+00:00 ERR (3): #0 C:\comulien\library\Zend\Db\Statement.php(323): Zend_Db_Statement_Pdo->_execute(Array)
+#1 C:\comulien\library\Zend\Db\Adapter\Abstract.php(479): Zend_Db_Statement->execute(Array)
+#2 C:\comulien\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select), Array)
+#3 C:\comulien\library\Zend\Db\Table\Abstract.php(1575): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Table_Select))
+#4 C:\comulien\library\Zend\Db\Table\Abstract.php(1437): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
+#5 C:\comulien\application\models\DbTable\Message.php(130): Zend_Db_Table_Abstract->fetchRow(Array)
+#6 C:\comulien\application\controllers\MessageController.php(139): Application_Model_DbTable_Message->apprecierMessage(Object(Application_Model_Row_MessageRow), NULL, 1)
+#7 C:\comulien\library\Zend\Controller\Action.php(516): MessageController->approuverAction()
+#8 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('approuverAction')
+#9 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#11 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#12 C:\comulien\public\index.php(42): Zend_Application->run()
+#13 {main}
+2013-01-28T16:51:18+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'approuver',
+  'message' => '36',
+  'appreciation' => '1',
+  'module' => 'default',
+  'XDEBUG_SESSION_START' => 'netbeans-xdebug',
+)
+2013-01-28T16:51:33+00:00 ERR (3): -
+2013-01-28T16:51:33+00:00 ERR (3): entrée :
+2013-01-28T16:51:33+00:00 ERR (3): bootstrap/js
+2013-01-28T16:51:33+00:00 ERR (3): -
+2013-01-28T16:51:33+00:00 ERR (3): isAllowed ? utilisateur,,js
+2013-01-28T16:51:33+00:00 ERR (3): true
+2013-01-28T17:21:52+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:21:52+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:21:52+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:21:52+00:00 ERR (3): isAllowed ? visiteur,message,approuver
+2013-01-28T17:21:52+00:00 ERR (3): true
+2013-01-28T17:21:52+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:21:52+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:21:52+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:21:53+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:21:53+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:21:53+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:21:53+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:21:53+00:00 ERR (3): true
+2013-01-28T17:21:53+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:21:53+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:21:53+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:05+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:05+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:05+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:22:05+00:00 ERR (3): isAllowed ? visiteur,message,approuver
+2013-01-28T17:22:05+00:00 ERR (3): true
+2013-01-28T17:22:05+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:22:05+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:22:05+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:05+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:05+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:05+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T17:22:05+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-28T17:22:05+00:00 ERR (3): true
+2013-01-28T17:22:05+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T17:22:05+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:06+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:06+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:06+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:06+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:22:06+00:00 ERR (3): true
+2013-01-28T17:22:06+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:22:06+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:22:06+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:09+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:09+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:09+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:22:09+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T17:22:09+00:00 ERR (3): true
+2013-01-28T17:22:09+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:22:09+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:11+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:11+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:11+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:11+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:22:11+00:00 ERR (3): true
+2013-01-28T17:22:11+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:22:11+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:22:11+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:14+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:14+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:14+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:22:14+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-28T17:22:14+00:00 ERR (3): true
+2013-01-28T17:22:14+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-28T17:22:14+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:15+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:15+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:15+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:15+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:22:15+00:00 ERR (3): true
+2013-01-28T17:22:15+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:22:15+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:22:15+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:21+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:21+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:21+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:22:21+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T17:22:21+00:00 ERR (3): true
+2013-01-28T17:22:21+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:22:21+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:23+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:23+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:23+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:23+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:22:23+00:00 ERR (3): true
+2013-01-28T17:22:23+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:22:23+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:22:23+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:25+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:25+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:25+00:00 ERR (3): Demande l'autorisation pour : utilisateur/deconnecter
+2013-01-28T17:22:25+00:00 ERR (3): isAllowed ? identifie,utilisateur,deconnecter
+2013-01-28T17:22:25+00:00 ERR (3): true
+2013-01-28T17:22:25+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/deconnecter
+2013-01-28T17:22:25+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:26+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:26+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:26+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T17:22:26+00:00 ERR (3): isAllowed ? visiteur,evenement,accueil
+2013-01-28T17:22:26+00:00 ERR (3): true
+2013-01-28T17:22:26+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T17:22:26+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:26+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:26+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:26+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:26+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:22:26+00:00 ERR (3): true
+2013-01-28T17:22:26+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:22:26+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:22:26+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:28+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:28+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:28+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:22:28+00:00 ERR (3): isAllowed ? visiteur,message,lister-tous
+2013-01-28T17:22:28+00:00 ERR (3): true
+2013-01-28T17:22:28+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:22:28+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:29+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:29+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:29+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:29+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:22:29+00:00 ERR (3): true
+2013-01-28T17:22:29+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:22:29+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:22:29+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:31+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:31+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:31+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:22:31+00:00 ERR (3): isAllowed ? visiteur,message,approuver
+2013-01-28T17:22:31+00:00 ERR (3): true
+2013-01-28T17:22:31+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:22:31+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:22:31+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:32+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:32+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:32+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:32+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:22:32+00:00 ERR (3): true
+2013-01-28T17:22:32+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:22:32+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:22:32+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:48+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:48+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:22:48+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:22:48+00:00 ERR (3): isAllowed ? visiteur,message,approuver
+2013-01-28T17:22:48+00:00 ERR (3): true
+2013-01-28T17:22:48+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:22:48+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:22:48+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:48+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:48+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:48+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T17:22:48+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-28T17:22:48+00:00 ERR (3): true
+2013-01-28T17:22:48+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T17:22:48+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:49+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:22:49+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:22:49+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:22:49+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:22:49+00:00 ERR (3): true
+2013-01-28T17:22:49+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:22:49+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:22:49+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:50+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:50+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:31:50+00:00 ERR (3): Demande l'autorisation pour : utilisateur/deconnecter
+2013-01-28T17:31:50+00:00 ERR (3): isAllowed ? identifie,utilisateur,deconnecter
+2013-01-28T17:31:50+00:00 ERR (3): true
+2013-01-28T17:31:50+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/deconnecter
+2013-01-28T17:31:50+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:50+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:50+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:31:50+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T17:31:50+00:00 ERR (3): isAllowed ? visiteur,evenement,accueil
+2013-01-28T17:31:50+00:00 ERR (3): true
+2013-01-28T17:31:50+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T17:31:50+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:51+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:51+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:31:51+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:31:51+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:31:51+00:00 ERR (3): true
+2013-01-28T17:31:51+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:31:51+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:31:51+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:54+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:54+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:31:54+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:31:54+00:00 ERR (3): isAllowed ? visiteur,message,lister-tous
+2013-01-28T17:31:54+00:00 ERR (3): true
+2013-01-28T17:31:54+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:31:54+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:55+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:55+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:31:55+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:31:55+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:31:55+00:00 ERR (3): true
+2013-01-28T17:31:55+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:31:55+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:31:55+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:58+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:58+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:31:58+00:00 ERR (3): Demande l'autorisation pour : utilisateur/authentifier
+2013-01-28T17:31:58+00:00 ERR (3): isAllowed ? visiteur,utilisateur,authentifier
+2013-01-28T17:31:58+00:00 ERR (3): true
+2013-01-28T17:31:58+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:31:58+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:59+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:31:59+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:31:59+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:31:59+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:31:59+00:00 ERR (3): true
+2013-01-28T17:31:59+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:31:59+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:31:59+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:05+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:05+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:32:05+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T17:32:05+00:00 ERR (3): isAllowed ? visiteur,evenement,accueil
+2013-01-28T17:32:05+00:00 ERR (3): true
+2013-01-28T17:32:05+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T17:32:05+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:06+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:06+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:32:06+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:32:06+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:32:06+00:00 ERR (3): true
+2013-01-28T17:32:06+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:32:06+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:32:06+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:08+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:08+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:32:08+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:32:08+00:00 ERR (3): isAllowed ? visiteur,message,lister-tous
+2013-01-28T17:32:08+00:00 ERR (3): true
+2013-01-28T17:32:08+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:32:08+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:09+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:09+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:32:09+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:32:09+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:32:09+00:00 ERR (3): true
+2013-01-28T17:32:09+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:32:09+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:32:09+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:20+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:20+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:32:20+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:32:20+00:00 ERR (3): isAllowed ? visiteur,message,approuver
+2013-01-28T17:32:20+00:00 ERR (3): true
+2013-01-28T17:32:20+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:32:20+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:32:20+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:20+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:32:20+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:32:20+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:32:20+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:32:20+00:00 ERR (3): true
+2013-01-28T17:32:20+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:32:20+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:32:20+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:55:20+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:55:20+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:55:20+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:55:20+00:00 ERR (3): isAllowed ? visiteur,message,approuver
+2013-01-28T17:55:20+00:00 ERR (3): true
+2013-01-28T17:55:20+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:55:20+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:55:20+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:55:21+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:55:21+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:55:21+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:55:21+00:00 ERR (3): isAllowed ? visiteur,,js
+2013-01-28T17:55:21+00:00 ERR (3): true
+2013-01-28T17:55:21+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:55:21+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:55:21+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:56:55+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:56:55+00:00 ERR (3): L'utilisateur inconnu (visiteur)
+2013-01-28T17:56:55+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:56:55+00:00 ERR (3): isAllowed ? visiteur,message,approuver
+2013-01-28T17:56:55+00:00 ERR (3): true
+2013-01-28T17:56:55+00:00 ERR (3): Il n'a pas le droit et il n'est pas connecté
+2013-01-28T17:56:55+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : utilisateur/authentifier
+2013-01-28T17:56:55+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:56:56+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:56:56+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:56:56+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T17:56:56+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-28T17:56:56+00:00 ERR (3): true
+2013-01-28T17:56:56+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T17:56:56+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:56:57+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:56:57+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:56:57+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:56:57+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:56:57+00:00 ERR (3): true
+2013-01-28T17:56:57+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:56:57+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:56:57+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:03+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:03+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:03+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:57:03+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T17:57:03+00:00 ERR (3): true
+2013-01-28T17:57:03+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:57:03+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:05+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:05+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:05+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:57:05+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:57:05+00:00 ERR (3): true
+2013-01-28T17:57:05+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:57:05+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:57:05+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:13+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:13+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:13+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:57:13+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-28T17:57:13+00:00 ERR (3): true
+2013-01-28T17:57:13+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-28T17:57:13+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:14+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:14+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:14+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:57:14+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:57:14+00:00 ERR (3): true
+2013-01-28T17:57:14+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:57:14+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:57:14+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:18+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:18+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:18+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:57:18+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T17:57:18+00:00 ERR (3): true
+2013-01-28T17:57:18+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:57:18+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:23+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:23+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:23+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-28T17:57:23+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-28T17:57:23+00:00 ERR (3): true
+2013-01-28T17:57:23+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-28T17:57:23+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:24+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:24+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:24+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:57:24+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:57:24+00:00 ERR (3): true
+2013-01-28T17:57:24+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:57:24+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:57:24+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:27+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:27+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:27+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:57:27+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T17:57:27+00:00 ERR (3): true
+2013-01-28T17:57:27+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:57:27+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:59+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:59+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:59+00:00 ERR (3): Demande l'autorisation pour : message/envoyer
+2013-01-28T17:57:59+00:00 ERR (3): isAllowed ? identifie,message,envoyer
+2013-01-28T17:57:59+00:00 ERR (3): true
+2013-01-28T17:57:59+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/envoyer
+2013-01-28T17:57:59+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:59+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:57:59+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:57:59+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T17:57:59+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T17:57:59+00:00 ERR (3): true
+2013-01-28T17:57:59+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T17:57:59+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T17:58:01+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T17:58:01+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-28T17:58:01+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T17:58:01+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T17:58:01+00:00 ERR (3): true
+2013-01-28T17:58:01+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T17:58:01+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T17:58:01+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------

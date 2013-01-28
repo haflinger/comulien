@@ -56,40 +56,64 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
      * Utilise _request et _response hérités et injectés par le FC
      */
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
-        
+        //récupération de l'évènement dans le registre (positionné par le plugin EvenementPlugin)
+        $this->_logger->err('---DEBUT DE PLUGIN ACL--------------------------------------');
         if(Zend_Registry::isRegistered('checkedInEvent')){
             $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
-        if (is_null($this->_evenement)) {
-            $role = 'visiteur';
-        }else {
-            $role = 'utilisateur';
-
-            // is the user authenticated
-            if ($this->_auth->hasIdentity()) {
-                // yes ! we get his role
-                $idUser = $this->_auth->getIdentity()->idUser;
-                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-                $user = $tableUtilisateur->find($idUser)->current();
-
-                //$profils = $user->getProfils($this->_evenement->idOrga);
-                $role = $user->getRole($this->_evenement->idOrga);
-            }
-        }
         
-        //DEBUG : role=dev pour debugger
-        //$role = 'dev';
-        Zend_Registry::set('role',$role); //pour debugger avec ZFdebug
+        //
+        //récupération du rôle de l'utilisateur
+        //
+//        if (is_null($this->_evenement)) {
+//            //si aucun évènement : rôle visiteur
+//            $role = 'visiteur';
+//        }else {
+//            //un évènement en cours
+//            $role = 'utilisateur';
+//
+//            // is the user authenticated
+//            if ($this->_auth->hasIdentity()) {
+//                // yes ! we get his role
+//                $idUser = $this->_auth->getIdentity()->idUser;
+//                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+//                $user = $tableUtilisateur->find($idUser)->current();
+//
+//                //$profils = $user->getProfils($this->_evenement->idOrga);
+//                $role = $user->getRole($this->_evenement->idOrga);
+//            }
+//        }
         
         $module = $request->getModuleName();
         $controller = $request->getControllerName();
         $action = $request->getActionName();
         
-        //$logger = Zend_Registry::get("cml_logger");
-        $this->_logger->err('-');
-        $this->_logger->err('entrée :');
-        $this->_logger->err($controller.'/'.$action);
-        $this->_logger->err('-');
+                
+        $role = 'visiteur';
+        //si l'utilisateur en cours est connecté
+        if ($this->_auth->hasIdentity()) {
+            // nous avons à faire à un utilisateur connecté ! 
+            // il sera donc AU MOINS utilisateur
+            $role = 'utilisateur'; 
+            //peut être a t'il un rôle plus important ?
+            $idUser = $this->_auth->getIdentity()->idUser;
+            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+            $user = $tableUtilisateur->find($idUser)->current();
+            
+            //on va récupérer son rôle dans l'évènement
+            if (!is_null($this->_evenement)) {
+                $role = $user->getRole($this->_evenement->idOrga);
+            }
+            $this->_logger->err('L\'utilisateur '.$user->loginUser.' ('.$role.')');
+        }else{
+            $this->_logger->err('L\'utilisateur inconnu ('.$role.')');
+        }
+        //DEBUG : role=dev pour debugger
+        //$role = 'dev';
+        Zend_Registry::set('role',$role); //pour debugger avec ZFdebug
+        
+        $this->_logger->err('Demande l\'autorisation pour : '.$controller.'/'.$action);
+
         
         $front = Zend_Controller_Front::getInstance();
         $default = $front->getDefaultModule();
@@ -104,46 +128,36 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         // est-ce que la ressource existe ?
         if (!$this->_acl->has($resource)) {
             $resource = null;
+            //return;
         }
-        
- 
-//$role='visiteur';
+
         // contrôle si l'utilisateur est autorisé
         $this->_logger->err('isAllowed ? '.$role.','.$resource.','.$action);
-        $this->_logger->err(($this->_acl->isAllowed($role, $resource, $action))==true?"true":"false");
+        $this->_logger->err(' - '. ($this->_acl->isAllowed($role, $resource, $action))==true?"true":"false");
         if (!$this->_acl->isAllowed($role, $resource, $action)) {
             // l'utilisateur n'est pas autorisé à accéder à cette ressource
             // on va le rediriger
             if (!$this->_auth->hasIdentity()) {
-                // il n'est pas identifié -> module de login
-                //TODO : à tester :
-                //  on passe un tableau contenant $module / $controller / $action / $params = $request->getParams()
-                //  dans le registre. Ainsi il sera possible de récupérer ses informations pour rediriger
-
-//                
-//                $bulleNamespace = new Zend_Session_Namespace('bulle');
-//                $bulleNamespace->retour = array('controller'=>$controller,'action'=>$action,'module'=>$module,'params'=>$request->getParams());
-//                
-//                $this->_logger = Zend_Registry::get("cml_logger");
-//                $this->_logger->err('retour en session');
-//                $this->_logger->err($controller.'/'.$action);
-//                $this->_  logger->err('-');
-
+                $this->_logger->err('Il n\'a pas le droit et il n\'est pas connecté');
                 $module = self::FAIL_AUTH_MODULE;
                 $controller = self::FAIL_AUTH_CONTROLLER;
                 $action = self::FAIL_AUTH_ACTION;
             } else {
                 // il est identifié -> error de privilèges
+                $this->_logger->err('Il n\'a pas le droit mais il est connecté');
                 $module = self::FAIL_ACL_MODULE;
                 $controller = self::FAIL_ACL_CONTROLLER;
                 $action = self::FAIL_ACL_ACTION;
             }
         }
-        
 
         $request->setModuleName($module);
         $request->setControllerName($controller);
         $request->setActionName($action);
+        
+        $this->_logger->err('Finalement l\utilisateur est redirigé sur : '.$controller.'/'.$action);
+        $this->_logger->err('---FIN DE PLUGIN ACL--------------------------------------');
+        
     }
 
 }
