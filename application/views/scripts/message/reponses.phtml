@@ -1,4 +1,95 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Message</b> and script/action name <b>reponses</b></p>
-</div>
+<!--
+TODO
+- Modifier l'image par défaut de gravatar
+-->
+<div class="container-fluid">
+    <div id="monaccordeon">
+        <?php foreach ($this->reponses as $entry): ?>
+                <!--Affiche le message-->
+                <div class="accordion-group">
+                    <div class="accordion-heading"> <a class="accordion-toggle" href="#menu<?php echo $entry->idMessage; ?>" data-parent="#monaccordeon" data-toggle="collapse">
+                        <div class="row-fluid">
+                           <div class="span1">
+                              <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
+                           </div>
+                           <div class="span10">
+                              <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
+                              <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div>
+                           </div>  
+                           <div class="span1">
+                              <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div>
+                              <div class="nbMessage"><!--<img class="icone" alt="home" src="<?php echo $this->baseUrl() ?> /images/message.png"/>--><span>23</span></div>
+                           </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div id="menu<?php echo $entry->idMessage; ?>" class="collapse menuMessage">
+                        <div id="monaccordeon">
+                            <nav class="navbar">
+                                <div class="navbar-inner">
+                                  <div class="container">
+                                    <ul class="nav">
+                                         <?php 
+                                            //Recherche et affiche le nombre de plus et de moins d'un message
+                                            $app = $entry->getAppreciers();
+                                            $plus = 0;
+                                            $moins = 0;
+                                            foreach ($app as $appreciation){
+                                                if($appreciation->evaluation > 0){
+                                                    $plus++;
+                                                }
+                                                else{
+                                                    $moins++;
+                                                }    
+                                            }
+                                         ?>
+                                        <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>"><i class="icon-thumbs-up"></i> <?php echo $plus ?></a> </li>
+                                        <li class="divider-vertical"></li>
+                                        <li> <a href="<?php echo$this->unlikeMessage($entry->idMessage);?>"><i class="icon-thumbs-down"></i>  <?php echo $moins ?></a> </li>
+                                        <li class="divider-vertical"></li>
+                                        <li><a href="http://www.facebook.com">Facebook</a></li>
+                                        <li class="divider-vertical"></li>
+                                        <li><a href="http://www.twitter.com">Twitter</a></li>
+                                        <?php if($this->moderateur){ ?> 
+                                        <li class="divider-vertical"></li>
+                                        <li> <a href="<?php echo $this->moderationMessage($entry->idMessage) ?>">Modérer</a> </li><?php }?>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </nav>
+                        </div><!--monaccordeon-->
+                    </div>
+              </div><!--accordion-group-->
+         <?php endforeach ?>
+    </div><!--monaccordeon-->
+</div><!--container-fluid-->
+
+
+
+    <!--ANCIEN CODE QUI PEUT SERVIR
+                
+   
+    <div><?php echo 'note : '.$entry->getNote() ?></div>
+    <div><?php echo $this->moderationMessage($entry->idMessage) ?></div>
+    <dd><?php if($entry->idTypeMsg != null) echo 'Type du message : ' . $this->escape($entry->getType()->lblTypeMsg)?></dd>
+    -->
+    
+    <!--
+    <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
+    <dd><?php echo ($entry->estActifMsg=='1')?'Message Actif':'Message inactif' ?> : 
+    
+            <?php //echo $this->formModererMessage ?></dd>
+    <dd><?php if($entry->idEvent != null) echo 'Evenement : ' . $this->escape($entry->getEvent()->titreEvent)?></dd>
+     <dd><?php if($entry->idProfil != null) echo 'Type du profil : ' . $this->escape($entry->getProfil()->nomProfil)?></dd>
+     <dd><?php if($entry->idUser_moderer != null) echo 'Moderateur : ' . $this->escape($entry->getUserModerer()->nomUser)?></dd>
+     <?php 
+     echo 'Liste des utilisateurs qui ont appréciés : <br/>';
+    //Recherche et affiche les utilisateurs d'un message
+    $app = $entry->getAppreciers();
+     foreach ($app as $appreciation){
+         echo '<dd>Utilisateur : ' . $appreciation->getUser()->loginUser . 
+                 ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
+     }
+     ?>-->
+
+ 
