@@ -15,26 +15,23 @@ $event = $comulienNamespace->checkedInEvent;*/
 <div class="container-fluid">    
     
        <div class="row well-small">
-       <div class="span6">
-           <a class="btn " id="btn_listeOrga" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs<br/><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></i></a>
-       </div>
-       <div class="span6">
-          <a class="btn " id="btn_listeMess" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages<br/><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></i></a>
-       </div>  
+       
+           <p><a class="btn" id="btn_listeOrga" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs<br/><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></i></a>
+           </p><br/>
+       
+           <p><a class="btn" id="btn_listeMess" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages<br/><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></i></a>
+   </p>
     </div>
         <br/>
     <div>
-      <div id="nomEvent"><p><?php echo $this->evenement->titreEvent ?></p> </div>
-      
+            
     
     <div class="span12">
       <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
       <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
     </div><br/>
     <div class="span12">
-      <div id="nomEvent"><p><?php echo $this->evenement->titreEvent ?></p> </div>      <div id="nomEvent"><p><?php echo $this->evenement->titreEvent ?></p> </div>
-      <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>
-      <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
+      <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>      <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
     </div>
   
 </div>
