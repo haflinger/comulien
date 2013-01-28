@@ -62,6 +62,19 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
     
+    public function reponsesMessage($idMessage, $showAll = false){
+        $result = null;
+        $select = $this->select()
+                ->where('idMessage_reponse=?',$idMessage)
+                ->order('dateEmissionMsg DESC');
+        //les messages actifs seulement ?
+        if (!$showAll) {
+            $select->where('estActifMsg=?','1'); //seuls les messages actifs
+        }
+        $result = $this->fetchAll($select);
+        return $result;
+    }
+    
     /**
      * Récupère un message mentionné par son ID
      * @param type $id
