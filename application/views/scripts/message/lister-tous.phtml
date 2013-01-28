@@ -66,30 +66,5 @@ TODO
 
 
 
-    <!--ANCIEN CODE QUI PEUT SERVIR
-                
    
-    <div><?php echo 'note : '.$entry->getNote() ?></div>
-    <div><?php echo $this->moderationMessage($entry->idMessage) ?></div>
-    <dd><?php if($entry->idTypeMsg != null) echo 'Type du message : ' . $this->escape($entry->getType()->lblTypeMsg)?></dd>
-    -->
-    
-    <!--
-    <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
-    <dd><?php echo ($entry->estActifMsg=='1')?'Message Actif':'Message inactif' ?> : 
-    
-            <?php //echo $this->formModererMessage ?></dd>
-    <dd><?php if($entry->idEvent != null) echo 'Evenement : ' . $this->escape($entry->getEvent()->titreEvent)?></dd>
-     <dd><?php if($entry->idProfil != null) echo 'Type du profil : ' . $this->escape($entry->getProfil()->nomProfil)?></dd>
-     <dd><?php if($entry->idUser_moderer != null) echo 'Moderateur : ' . $this->escape($entry->getUserModerer()->nomUser)?></dd>
-     <?php 
-     echo 'Liste des utilisateurs qui ont appréciés : <br/>';
-    //Recherche et affiche les utilisateurs d'un message
-    $app = $entry->getAppreciers();
-     foreach ($app as $appreciation){
-         echo '<dd>Utilisateur : ' . $appreciation->getUser()->loginUser . 
-                 ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
-     }
-     ?>-->
-
  

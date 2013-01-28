@@ -3524,3 +3524,142 @@
 2013-01-28T20:55:07+00:00 ERR (3): -
 2013-01-28T20:55:07+00:00 ERR (3): isAllowed ? identifie,,img
 2013-01-28T20:55:07+00:00 ERR (3): false
+2013-01-28T21:46:55+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:46:55+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:46:55+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T21:46:55+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T21:46:55+00:00 ERR (3): true
+2013-01-28T21:46:55+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T21:46:55+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:46:56+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:46:56+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:46:56+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T21:46:56+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T21:46:56+00:00 ERR (3): true
+2013-01-28T21:46:56+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:46:56+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:46:56+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:46:57+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:46:57+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:46:57+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-28T21:46:57+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-28T21:46:57+00:00 ERR (3): true
+2013-01-28T21:46:57+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:46:57+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:46:57+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:47:00+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:47:00+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:47:00+00:00 ERR (3): Demande l'autorisation pour : message/16
+2013-01-28T21:47:00+00:00 ERR (3): isAllowed ? identifie,message,16
+2013-01-28T21:47:00+00:00 ERR (3): true
+2013-01-28T21:47:00+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:47:00+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:47:00+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:47:01+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:47:01+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:47:01+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T21:47:01+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T21:47:01+00:00 ERR (3): true
+2013-01-28T21:47:01+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:47:01+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:47:01+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:47:02+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:47:03+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:47:03+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-28T21:47:03+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-28T21:47:03+00:00 ERR (3): true
+2013-01-28T21:47:03+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:47:03+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:47:03+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:48+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:48+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:49:48+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T21:49:48+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-28T21:49:48+00:00 ERR (3): true
+2013-01-28T21:49:48+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T21:49:48+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:49+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:49+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:49:49+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T21:49:49+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T21:49:49+00:00 ERR (3): true
+2013-01-28T21:49:49+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:49:49+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:49:49+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:50+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:50+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:49:50+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-28T21:49:50+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-28T21:49:50+00:00 ERR (3): true
+2013-01-28T21:49:50+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:49:50+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:49:50+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:51+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:51+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:49:51+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T21:49:51+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T21:49:51+00:00 ERR (3): true
+2013-01-28T21:49:51+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T21:49:51+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:52+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:52+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:49:52+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T21:49:52+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T21:49:52+00:00 ERR (3): true
+2013-01-28T21:49:52+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:49:52+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:49:52+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:53+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T21:49:53+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T21:49:53+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-28T21:49:53+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-28T21:49:53+00:00 ERR (3): true
+2013-01-28T21:49:53+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T21:49:53+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T21:49:53+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:24+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:24+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T23:14:24+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-28T23:14:24+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-28T23:14:24+00:00 ERR (3): true
+2013-01-28T23:14:24+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-28T23:14:24+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:26+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:26+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T23:14:26+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T23:14:26+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T23:14:26+00:00 ERR (3): true
+2013-01-28T23:14:26+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T23:14:26+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T23:14:26+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:27+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:27+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T23:14:27+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-28T23:14:27+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-28T23:14:27+00:00 ERR (3): true
+2013-01-28T23:14:27+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T23:14:27+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T23:14:27+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:43+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:43+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T23:14:43+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-28T23:14:43+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-28T23:14:43+00:00 ERR (3): true
+2013-01-28T23:14:43+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-28T23:14:43+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:44+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:44+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T23:14:44+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-28T23:14:44+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-28T23:14:44+00:00 ERR (3): true
+2013-01-28T23:14:44+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T23:14:44+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T23:14:44+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:45+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-28T23:14:45+00:00 ERR (3): L'utilisateur fred (identifie)
+2013-01-28T23:14:45+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-28T23:14:45+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-28T23:14:45+00:00 ERR (3): true
+2013-01-28T23:14:45+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-28T23:14:45+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-28T23:14:45+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
