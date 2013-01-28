@@ -20,20 +20,10 @@ class MessageController extends Zend_Controller_Action
         if (Zend_Registry::isRegistered('checkedInEvent')) {
             $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
-//        $bulleNamespace = new Zend_Session_Namespace('bulle');
-//        //session active ?
-//        if (isset($bulleNamespace->checkedInEvent)) {
-//            $this->_evenement = $bulleNamespace->checkedInEvent;
-//            //La ligne qui suit est indispensable pour que les tables liées à la table évènement 
-//            //  soient mémorisées dans la session
-//            //  http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
-//            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
-//        }
-//        else
-//        {
-//            $this->_evenement = null;
-//            //$this->view->evenement = $bulleNamespace->checkedInEvent;
-//        }
+        
+        $contextSwitch = $this->_helper->getHelper('contextSwitch');
+        $contextSwitch->addActionContext('reponses', 'json')
+                      ->initContext();
     }
 
     
@@ -89,14 +79,6 @@ class MessageController extends Zend_Controller_Action
         $this->view->messages = $messagesTous;
     }
     
-    public function listerReponse($id){
-        //TODO
-        //récupération des réponses au message
-        $tableMessage = new Application_Model_DbTable_Message();
-        $reponses = $tableMessage->getReponses($id);
-        $this->view->messages = $reponses;
-    }
-    
     public function listerOrganisateurAction()
     {
         //si la session contient un evenement
@@ -107,6 +89,9 @@ class MessageController extends Zend_Controller_Action
 
     public function reponsesAction()
     {
+
+        
+
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         $auth = Zend_Auth::getInstance ();
         $moderateur = false;
@@ -146,13 +131,17 @@ class MessageController extends Zend_Controller_Action
         }
         
         $idMessage = $this->getRequest()->getParam('message');
-        //TODO check l'idMessage
-        
-        //récupération des messages
-        $tableMessage = new Application_Model_DbTable_Message();
-        $lesReponses = $tableMessage->reponsesMessage($idMessage, $moderateur);
-        $this->view->reponses = $lesReponses;
+        $lesReponses = null;
+        if (!is_null($idMessage)) {
+            
 
+            $idEvent = $this->_evenement->idEvent;
+
+            //récupération des messages
+            $tableMessage = new Application_Model_DbTable_Message();
+            $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur);
+        }
+        $this->view->reponses = $lesReponses;
     }
 
     public function approuverAction()
