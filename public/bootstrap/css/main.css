@@ -94,6 +94,10 @@ body{
     font-size: 13px;
     padding: 0px;
 }
+.logoMessage{
+    height:30px;
+    
+}
 .accordion-group{background-color: #FFFFFF;}
 
 /*Formulaire de message*/
