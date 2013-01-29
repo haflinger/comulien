@@ -90,9 +90,6 @@ class MessageController extends Zend_Controller_Action
 
     public function reponsesAction()
     {
-
-        
-
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         $auth = Zend_Auth::getInstance ();
         $moderateur = false;

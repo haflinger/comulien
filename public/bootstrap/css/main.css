@@ -29,16 +29,15 @@ body{
     float: right;
     margin: 0px auto;
 }
+#blockBouton{
+    display: block;
+    margin:0px 100px;
+}
 #pres_event{
     background-color: white;
     margin: 0px auto;
 }
-#btn_listeOrga, #btn_listeMess{
-    position: relative;
-    float: left;
-    margin: 0px 20px 0px 0px;
-    width:97%;
-}
+
 #logoOrga im{
        height:50px; 
        width: 50px;
@@ -130,6 +129,9 @@ dt #envoyer-label{visibility: hidden}
 form{margin:0px}
 dt, dl, dd{margin:0px}
 
-    
+/*Fenetre modal*/
+.modal-body{
+    overflow-x: hidden; overflow-y: scroll;
+}
 
 

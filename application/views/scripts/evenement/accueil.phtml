@@ -17,8 +17,13 @@ $event = $comulienNamespace->checkedInEvent;*/
        <img  src="<?php  echo $this->baseUrl() ?> /images/logo_comulien.png" alt="logo organisme" />
    </div>
    <div id="pres_event">
-       <a id="btn_listeOrga" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs</a>
-       <a id="btn_listeMess" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages</a>
+       <div id="blockBouton">
+           <div id="orgaBlock"><a id="btn" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs</a></div><br/>
+           <div><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></div>
+
+           <div id="eventBlock"><a id="btn" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages</a></div>
+           <div><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></div>
+       </div>
    </div>
 </div>
 
@@ -34,7 +39,3 @@ $event = $comulienNamespace->checkedInEvent;*/
   
 
 </div>
-
-<img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></a>
-<img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></a>
-  

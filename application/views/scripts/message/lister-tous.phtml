@@ -5,6 +5,48 @@ TODO
 <div class="container-fluid">
     <div id="monaccordeon">
         <?php foreach ($this->messages as $entry): ?>
+                <!-- Crée ic la fenetre modal-->
+                <div class="modal hide" id="reponsesMessage<?php echo $entry->idMessage; ?>">
+                    <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+                        <div class="row-fluid">
+                           <div class="span12"> 
+                              <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
+                           
+                              <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
+                              <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div><br/>
+                              <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div>
+                              
+                           </div>  
+                           
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ecrireMessage">
+                            <?php echo $this->formEcrireMessage ; ?>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            
+                        </div>
+                    </div>
+                    
+                                
+                </div>
                 <!--Affiche le message-->
                 <div class="accordion-group">
                     <div class="accordion-heading"> <a class="accordion-toggle" href="#menu<?php echo $entry->idMessage; ?>" data-parent="#monaccordeon" data-toggle="collapse">
@@ -41,15 +83,15 @@ TODO
                                                 }    
                                             }
                                          ?>
-                                        <li> <a href="<?php echo $entry->idMessage;?>"><i class="icon-edit"></i>Répondre</a> </li>
+                                        <li> <a data-toggle="modal" href="#reponsesMessage<?php echo $entry->idMessage; ?>"><i class="icon-edit"></i>Répondre</a> </li>
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>"><i class="icon-thumbs-up"></i> <?php echo $plus ?></a> </li>
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo$this->unlikeMessage($entry->idMessage);?>"><i class="icon-thumbs-down"></i>  <?php echo $moins ?></a> </li>
-                                        <li class="divider-vertical"></li>
+                                        <!--<li class="divider-vertical"></li>
                                         <li><a href="http://www.facebook.com">Facebook</a></li>
                                         <li class="divider-vertical"></li>
-                                        <li><a href="http://www.twitter.com">Twitter</a></li>
+                                        <li><a href="http://www.twitter.com">Twitter</a></li>-->
                                         <?php if($this->moderateur){ ?> 
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo $this->moderationMessage($entry->idMessage) ?>">Modérer</a> </li><?php }?>
@@ -57,9 +99,7 @@ TODO
                                   </div>
                                 </div>
                               </nav>
-                            <div class="contenuReponse">
-                                <p>test</p>
-                            </div>
+                       
                         </div><!--monaccordeon-->
                     </div>
               </div><!--accordion-group-->
