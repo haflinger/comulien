@@ -21,9 +21,9 @@ class MessageController extends Zend_Controller_Action
             $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
         
-        $contextSwitch = $this->_helper->getHelper('contextSwitch');
+        $contextSwitch = $this->_helper->contextSwitch();
         $contextSwitch->addActionContext('reponses', 'json')
-        //$contextSwitch->setAutoJsonSerialization(true)
+                      ->addActionContext('approuver', 'json')
                       ->initContext();
     }
 
@@ -91,8 +91,6 @@ class MessageController extends Zend_Controller_Action
     public function reponsesAction()
     {
 
-        
-
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         $auth = Zend_Auth::getInstance ();
         $moderateur = false;
@@ -116,20 +114,6 @@ class MessageController extends Zend_Controller_Action
         }else{
             $role = 'visiteur';
         }
-
-         
-//        $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
-//        $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
-//        $ACL = Zend_Registry::get('Zend_Acl');
-//        if($ACL->isAllowed($role, $resourceController, $privilegeAction))
-//        {
-//            $formEcrire = new Application_Form_EcrireMessage();
-//            $this->view->formEcrireMessage = $formEcrire;
-//        }
-//        else
-//        {
-//            $this->view->formEcrireMessage = null;            
-//        }
         
         $idMessage = $this->getRequest()->getParam('message');
         $lesReponses = null;
@@ -142,7 +126,14 @@ class MessageController extends Zend_Controller_Action
             $tableMessage = new Application_Model_DbTable_Message();
             $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur);
         }
-        $this->view->reponses = $lesReponses->toArray();
+        
+        //selon le context, retourne un array (pour le json) ou un rowset pour la vue html
+        $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        if ($context=='json') {
+            $this->view->reponses = $lesReponses->toArray();
+        }else{
+            $this->view->reponses = $lesReponses;
+        }
     }
 
     public function approuverAction()
@@ -176,7 +167,23 @@ class MessageController extends Zend_Controller_Action
         $this->view->info = 'Appréciation déposée ! (message : '.$message->idMessage.', appreciation : '.$note.')';
 //        $bulleNamespace = new Zend_Session_Namespace('bulle');
 //        $this->view->retour = $bulleNamespace->retour;
-        $this->view->user = $utilisateur;
+        $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        if ($context=='json') {
+            $arrayUser = array(
+                'idUser'=>$utilisateur->idUser,
+                'loginUser'=>$utilisateur->loginUser,
+                'emailUser'=>$utilisateur->emailUser,
+                'dateInscriptionUser'=>$utilisateur->dateInscriptionUser,
+                'nomUser'=>$utilisateur->nomUser,
+                'prenomUser'=>$utilisateur->prenomUser,
+                'nbMsgUser'=>$utilisateur->nbMsgUser,
+                'nbApprouverUser'=>$utilisateur->nbApprouverUser,
+                'estActifUser'=>$utilisateur->estActifUser
+                );
+            $this->view->user = $arrayUser;
+        }else{
+            $this->view->user = $utilisateur;
+        }
     }
 
     public function envoyerAction()

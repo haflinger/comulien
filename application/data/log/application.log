@@ -4037,3 +4037,370 @@
 2013-01-29T00:15:58+00:00 ERR (3): true
 2013-01-29T00:15:58+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
 2013-01-29T00:15:58+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T16:39:25+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T16:39:25+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T16:39:25+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T16:39:25+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T16:39:25+00:00 ERR (3): true
+2013-01-29T16:39:25+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T16:39:25+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T16:41:44+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T16:41:44+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T16:41:44+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T16:41:44+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T16:41:44+00:00 ERR (3): true
+2013-01-29T16:41:44+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T16:41:44+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T16:49:08+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T16:49:08+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T16:49:08+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T16:49:08+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T16:49:08+00:00 ERR (3): true
+2013-01-29T16:49:08+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T16:49:08+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T16:49:55+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T16:49:55+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T16:49:55+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T16:49:55+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T16:49:55+00:00 ERR (3): true
+2013-01-29T16:49:55+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T16:49:55+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T16:52:15+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T16:52:15+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T16:52:15+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T16:52:15+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T16:52:15+00:00 ERR (3): true
+2013-01-29T16:52:15+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T16:52:15+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:17:46+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:17:46+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:17:46+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:17:46+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:17:46+00:00 ERR (3): true
+2013-01-29T17:17:46+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:17:46+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:19:56+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:19:56+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:19:56+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:19:56+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:19:56+00:00 ERR (3): true
+2013-01-29T17:19:56+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:19:56+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:20:22+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:20:22+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:20:22+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:20:22+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:20:22+00:00 ERR (3): true
+2013-01-29T17:20:22+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:20:22+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:43+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:43+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:25:43+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:25:43+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:25:43+00:00 ERR (3): true
+2013-01-29T17:25:43+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:25:43+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:52+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:52+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:25:52+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:25:52+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:25:52+00:00 ERR (3): true
+2013-01-29T17:25:52+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:25:52+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:54+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:54+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:25:54+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-29T17:25:54+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-29T17:25:54+00:00 ERR (3): true
+2013-01-29T17:25:54+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:25:54+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:25:54+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:56+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:25:56+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:25:56+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:25:56+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:25:56+00:00 ERR (3): true
+2013-01-29T17:25:56+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:25:56+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:25:56+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:32+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:32+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:29:32+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:29:32+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:29:32+00:00 ERR (3): true
+2013-01-29T17:29:32+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:29:32+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:35+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:35+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:29:35+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:29:35+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:29:35+00:00 ERR (3): true
+2013-01-29T17:29:35+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:29:35+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:48+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:48+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:29:48+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:29:48+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:29:48+00:00 ERR (3): true
+2013-01-29T17:29:48+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:29:48+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:48+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:48+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:29:48+00:00 ERR (3): Demande l'autorisation pour : error/error
+2013-01-29T17:29:48+00:00 ERR (3): isAllowed ? identifie,error,error
+2013-01-29T17:29:48+00:00 ERR (3): true
+2013-01-29T17:29:48+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : error/error
+2013-01-29T17:29:48+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:29:48+00:00 ERR (3): script 'message/reponses.json.phtml' not found in path (C:/comulien/application/views\scripts/)
+2013-01-29T17:29:48+00:00 ERR (3): #0 C:\comulien\library\Zend\View\Abstract.php(884): Zend_View_Abstract->_script('message/reponse...')
+#1 C:\comulien\library\Zend\Controller\Action\Helper\ViewRenderer.php(900): Zend_View_Abstract->render('message/reponse...')
+#2 C:\comulien\library\Zend\Controller\Action\Helper\ViewRenderer.php(921): Zend_Controller_Action_Helper_ViewRenderer->renderScript('message/reponse...', NULL)
+#3 C:\comulien\library\Zend\Controller\Action\Helper\ViewRenderer.php(960): Zend_Controller_Action_Helper_ViewRenderer->render()
+#4 C:\comulien\library\Zend\Controller\Action\HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#5 C:\comulien\library\Zend\Controller\Action.php(527): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#6 C:\comulien\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('reponsesAction')
+#7 C:\comulien\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#8 C:\comulien\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#9 C:\comulien\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#10 C:\comulien\public\index.php(42): Zend_Application->run()
+#11 {main}
+2013-01-29T17:29:48+00:00 ERR (3): array (
+  'controller' => 'message',
+  'action' => 'reponses',
+  'message' => '1',
+  'module' => 'default',
+  'format' => 'json',
+)
+2013-01-29T17:30:12+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:13+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:30:13+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:30:13+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:30:13+00:00 ERR (3): true
+2013-01-29T17:30:13+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:30:13+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:14+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:14+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:30:14+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:30:14+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:30:14+00:00 ERR (3): true
+2013-01-29T17:30:14+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:30:14+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:30:14+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:57+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:57+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:30:57+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-29T17:30:57+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-29T17:30:57+00:00 ERR (3): true
+2013-01-29T17:30:57+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-29T17:30:57+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:58+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:58+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:30:58+00:00 ERR (3): Demande l'autorisation pour : bootstrap/js
+2013-01-29T17:30:58+00:00 ERR (3): isAllowed ? identifie,,js
+2013-01-29T17:30:58+00:00 ERR (3): true
+2013-01-29T17:30:58+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:30:58+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:30:58+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:59+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:30:59+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:30:59+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:30:59+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:30:59+00:00 ERR (3): true
+2013-01-29T17:30:59+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:30:59+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:30:59+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:19+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:19+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:19+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:31:19+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:31:19+00:00 ERR (3): true
+2013-01-29T17:31:19+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:31:19+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:20+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:20+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:20+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:20+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:20+00:00 ERR (3): true
+2013-01-29T17:31:20+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:20+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:20+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:23+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:23+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:23+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-29T17:31:23+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-29T17:31:23+00:00 ERR (3): true
+2013-01-29T17:31:23+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-29T17:31:23+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:25+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:25+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:25+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:25+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:25+00:00 ERR (3): true
+2013-01-29T17:31:25+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:25+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:25+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:31+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:31+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:31+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-29T17:31:31+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-29T17:31:31+00:00 ERR (3): true
+2013-01-29T17:31:31+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-29T17:31:31+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:33+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:33+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:33+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:33+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:33+00:00 ERR (3): true
+2013-01-29T17:31:33+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:33+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:33+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:36+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:36+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:36+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-29T17:31:36+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-29T17:31:36+00:00 ERR (3): true
+2013-01-29T17:31:36+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-29T17:31:36+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:36+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:36+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:36+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:36+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:36+00:00 ERR (3): true
+2013-01-29T17:31:36+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:36+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:36+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:37+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:37+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:37+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-29T17:31:37+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-29T17:31:37+00:00 ERR (3): true
+2013-01-29T17:31:37+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-29T17:31:37+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:39+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:39+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:39+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:39+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:39+00:00 ERR (3): true
+2013-01-29T17:31:39+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:39+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:39+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:40+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:40+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:40+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-29T17:31:40+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-29T17:31:40+00:00 ERR (3): true
+2013-01-29T17:31:40+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-29T17:31:40+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:41+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:41+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:41+00:00 ERR (3): Demande l'autorisation pour : %20/images
+2013-01-29T17:31:41+00:00 ERR (3): isAllowed ? identifie,,images
+2013-01-29T17:31:41+00:00 ERR (3): true
+2013-01-29T17:31:41+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:41+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:41+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:41+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:41+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:41+00:00 ERR (3): Demande l'autorisation pour : message/38
+2013-01-29T17:31:41+00:00 ERR (3): isAllowed ? identifie,message,38
+2013-01-29T17:31:41+00:00 ERR (3): true
+2013-01-29T17:31:41+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:41+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:41+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:42+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:42+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:42+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:42+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:42+00:00 ERR (3): true
+2013-01-29T17:31:42+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:42+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:42+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:43+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:43+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:43+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:43+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:43+00:00 ERR (3): true
+2013-01-29T17:31:43+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:43+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:43+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:43+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:43+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:43+00:00 ERR (3): Demande l'autorisation pour : message/lister-tous
+2013-01-29T17:31:43+00:00 ERR (3): isAllowed ? identifie,message,lister-tous
+2013-01-29T17:31:43+00:00 ERR (3): true
+2013-01-29T17:31:43+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/lister-tous
+2013-01-29T17:31:43+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:45+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:45+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:45+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:45+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:45+00:00 ERR (3): true
+2013-01-29T17:31:45+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:45+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:45+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:46+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:46+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:46+00:00 ERR (3): Demande l'autorisation pour : evenement/accueil
+2013-01-29T17:31:46+00:00 ERR (3): isAllowed ? identifie,evenement,accueil
+2013-01-29T17:31:46+00:00 ERR (3): true
+2013-01-29T17:31:46+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : evenement/accueil
+2013-01-29T17:31:46+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:46+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:47+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:47+00:00 ERR (3): Demande l'autorisation pour : %20/images
+2013-01-29T17:31:47+00:00 ERR (3): isAllowed ? identifie,,images
+2013-01-29T17:31:47+00:00 ERR (3): true
+2013-01-29T17:31:47+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:47+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:47+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:47+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:47+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:47+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:31:47+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:31:47+00:00 ERR (3): true
+2013-01-29T17:31:47+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:31:47+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:48+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:48+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:48+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:48+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:48+00:00 ERR (3): true
+2013-01-29T17:31:48+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:48+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:48+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:49+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:49+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:49+00:00 ERR (3): Demande l'autorisation pour : bootstrap/img
+2013-01-29T17:31:49+00:00 ERR (3): isAllowed ? identifie,,img
+2013-01-29T17:31:49+00:00 ERR (3): true
+2013-01-29T17:31:49+00:00 ERR (3): Il n'a pas le droit mais il est connecté
+2013-01-29T17:31:49+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : index/index
+2013-01-29T17:31:49+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:55+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:31:55+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:31:55+00:00 ERR (3): Demande l'autorisation pour : message/reponses
+2013-01-29T17:31:55+00:00 ERR (3): isAllowed ? identifie,message,reponses
+2013-01-29T17:31:55+00:00 ERR (3): true
+2013-01-29T17:31:55+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/reponses
+2013-01-29T17:31:55+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:32:01+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:32:01+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:32:01+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-29T17:32:01+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-29T17:32:01+00:00 ERR (3): true
+2013-01-29T17:32:01+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-29T17:32:01+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:34:28+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:34:28+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:34:28+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-29T17:34:28+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-29T17:34:28+00:00 ERR (3): true
+2013-01-29T17:34:28+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-29T17:34:28+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
+2013-01-29T17:37:54+00:00 ERR (3): ---DEBUT DE PLUGIN ACL--------------------------------------
+2013-01-29T17:37:54+00:00 ERR (3): L'utilisateur alex (identifie)
+2013-01-29T17:37:54+00:00 ERR (3): Demande l'autorisation pour : message/approuver
+2013-01-29T17:37:54+00:00 ERR (3): isAllowed ? identifie,message,approuver
+2013-01-29T17:37:54+00:00 ERR (3): true
+2013-01-29T17:37:54+00:00 ERR (3): Finalement l\utilisateur est redirigé sur : message/approuver
+2013-01-29T17:37:54+00:00 ERR (3): ---FIN DE PLUGIN ACL--------------------------------------
