@@ -120,7 +120,26 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         $this->update($data, $where);
     }
     
-    public function posterMessage($data){
+    /**
+     * persiste le message. La date est celle de l'instant
+     * @param int $idUser : l'ID de l'utilisateur
+     * @param int $idTypeMsg : l'ID du type de message (0 obligatoirement pour le moment)
+     * @param int $idEvent : l'ID de l'évènement
+     * @param string $message : le message à persister
+     * @param int $profil : l'id du profil utilisé pour persister le message
+     */
+    public function posterMessage($idUser,$idTypeMsg,$idEvent,$message,$profil)
+    {
+        $dateheure = Zend_Date::now()->toString('yyyy-MM-dd HH:mm:ss S');
+        $data = array(
+            'idUser_emettre' => $idUser,
+            'idTypeMsg' => $idTypeMsg,//inutilisé pour le moment mais obligatoire
+            'idEvent' => $idEvent,
+            'lblMessage' => $message,
+            'idProfil' => $profil,
+            'dateEmissionMsg' => $dateheure,
+            'dateActiviteMsg' => $dateheure,
+            );
         $this->insert($data);
     }
     
@@ -140,8 +159,15 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         $where['idUser = ?'] = $data['idUser'];
         $where['idMessage = ?'] = $data['idMessage'];
 
+        $appreciation = $table->fetchRow($where);
+        if (!is_null($appreciation)) {
+            $ancienneNote = $appreciation->evaluation;
+        }
+        else{
+            $ancienneNote = 0;
+        }
         //on teste l'existence d'une entrée
-        if( is_null($table->fetchRow($where)) ){
+        if( is_null($appreciation) ){
             //la note 0 n'insère ni n'update rien
             if ($note==0) {
                 //passe
@@ -160,10 +186,11 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
             
         }
         
-        //TODO il faut actualiser la date d'activité du message lorsque note=1
-        if ($note==1) {
-            $maintenant = Zend_Date::now();
-            $message->dateActiviteMsg = $maintenant->toString('YYYY-MM-DD HH:mm:ss S');
+        //la date d'activité d'un message est actualisé lorsque la nouvelle note 
+        //dépasse la précédente
+        if($note>$ancienneNote){
+            $maintenant = Zend_Date::now()->toString('yyyy-MM-dd HH:mm:ss S');
+            $message->dateActiviteMsg = $maintenant;
             $message->save();
         }
         return;

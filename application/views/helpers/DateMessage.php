@@ -11,9 +11,9 @@ class Zend_View_Helper_DateMessage extends Zend_View_Helper_Abstract {
         //'il y a x heures' si le même jour
         //'le jj/mm/aa' sinon
         //ATTENTION : j'ai galéré pas mal avec les dates parceque j'utilisais la variable $date
-        $mdate = new Zend_Date($dateMessage,'YYYY-MM-DD HH:mm:ss S');//, 'y-m-d H:i:s');
+        $mdate = new Zend_Date($dateMessage,'yyyy-MM-dd HH:mm:ss S');//, 'y-m-d H:i:s');
         
-        $maintenant = zend_date::now();//new Zend_Date(null,'YYYY-MM-DD HH:mm:ss S');
+        $maintenant = zend_date::now();//new Zend_Date(null,'yyyy-MM-dd HH:mm:ss S');
         //return $mdate . ' / ' . $maintenant . ' / ' . $maintenant->sub($mdate)->get();
         //$interval = $mdate->subDate($maintenant)->toValue(zend_date::SECOND_SHORT);
         $diff = $maintenant->sub($mdate)->get();//->toValue();
