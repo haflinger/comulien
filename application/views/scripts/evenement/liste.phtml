@@ -3,18 +3,18 @@
 	<p>Ceci est la page d'accueil <b>Evenement</b> accessible par une <b>URL</b></p>
 </div>
 Evenement Entries: <br />
-<dl>
+<div>
     <?php foreach ($this->entries as $entry): ?>
     <?php //var_dump($entry) ?>
     <p>---------------------------------------------------------------------------------</p>
-    <dt><a href="<?php echo $this->url(array('controller' => 'evenement','action'=>'checkin','id'=>$entry->idEvent)); ?>" alt=""><?php echo $this->escape($entry->titreEvent) ?></a></dt>
-    <dd><?php echo $this->escape($entry->numEvent) ?></dd>
-    <dd><?php echo $this->escape($entry->descEvent) ?></dd>
-    <dd><?php echo $this->escape($entry->logoEvent) ?></dd>
-    <dd><?php echo $this->escape($entry->dateDebutEvent) ?></dd>
-    <dd><?php echo $this->escape($entry->dateFinEvent) ?></dd>
-    <dd><?php echo $this->escape($entry->delaiPersistence) ?></dd>
-    <dd><?php if($entry->idOrga != null) echo 'Organisme : ' . $this->escape($entry->getOrga()->nomOrga)?></dd>
+    <div><a href="<?php echo $this->url(array('controller' => 'evenement','action'=>'checkin','id'=>$entry->idEvent)); ?>" alt=""><?php echo $this->escape($entry->titreEvent) ?></a></div>
+    <p><?php echo $this->escape($entry->numEvent) ?></p>
+    <p><?php echo $this->escape($entry->descEvent) ?></p>
+    <p><?php echo $this->escape($entry->logoEvent) ?></p>
+    <p><?php echo $this->escape($entry->dateDebutEvent) ?></p>
+    <p><?php echo $this->escape($entry->dateFinEvent) ?></p>
+    <p><?php echo $this->escape($entry->delaiPersistence) ?></p>
+    <p><?php if($entry->idOrga != null) echo 'Organisme : ' . $this->escape($entry->getOrga()->nomOrga)?></p>
    
     <?php endforeach ?>
-</dl>
+</div>
