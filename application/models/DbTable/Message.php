@@ -62,10 +62,11 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
     
-    public function reponsesMessage($idMessage, $showAll = false){
+    public function reponsesMessage($idMessage, $idEvent, $showAll = false){
         $result = null;
         $select = $this->select()
                 ->where('idMessage_reponse=?',$idMessage)
+                ->where('idEvent=?',$idEvent)
                 ->order('dateEmissionMsg DESC');
         //les messages actifs seulement ?
         if (!$showAll) {

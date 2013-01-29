@@ -62,45 +62,27 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
             $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
         
-        //
-        //récupération du rôle de l'utilisateur
-        //
-//        if (is_null($this->_evenement)) {
-//            //si aucun évènement : rôle visiteur
-//            $role = 'visiteur';
-//        }else {
-//            //un évènement en cours
-//            $role = 'utilisateur';
-//
-//            // is the user authenticated
-//            if ($this->_auth->hasIdentity()) {
-//                // yes ! we get his role
-//                $idUser = $this->_auth->getIdentity()->idUser;
-//                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-//                $user = $tableUtilisateur->find($idUser)->current();
-//
-//                //$profils = $user->getProfils($this->_evenement->idOrga);
-//                $role = $user->getRole($this->_evenement->idOrga);
-//            }
-//        }
-        
         $module = $request->getModuleName();
         $controller = $request->getControllerName();
         $action = $request->getActionName();
+
+        //
+        //récupération du rôle de l'utilisateur
+        //
         
-                
-        $role = 'visiteur';
+        $role = 'visiteur'; //par défaut
         //si l'utilisateur en cours est connecté
         if ($this->_auth->hasIdentity()) {
             // nous avons à faire à un utilisateur connecté ! 
             // il sera donc AU MOINS utilisateur
             $role = 'utilisateur'; 
             //peut être a t'il un rôle plus important ?
+            //on récupère l'utilisateur
             $idUser = $this->_auth->getIdentity()->idUser;
             $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
             $user = $tableUtilisateur->find($idUser)->current();
             
-            //on va récupérer son rôle dans l'évènement
+            //puis on va récupérer son rôle dans l'évènement
             if (!is_null($this->_evenement)) {
                 $role = $user->getRole($this->_evenement->idOrga);
             }
