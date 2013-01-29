@@ -23,6 +23,7 @@ class MessageController extends Zend_Controller_Action
         
         $contextSwitch = $this->_helper->getHelper('contextSwitch');
         $contextSwitch->addActionContext('reponses', 'json')
+        //$contextSwitch->setAutoJsonSerialization(true)
                       ->initContext();
     }
 
@@ -117,18 +118,18 @@ class MessageController extends Zend_Controller_Action
         }
 
          
-        $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
-        $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
-        $ACL = Zend_Registry::get('Zend_Acl');
-        if($ACL->isAllowed($role, $resourceController, $privilegeAction))
-        {
-            $formEcrire = new Application_Form_EcrireMessage();
-            $this->view->formEcrireMessage = $formEcrire;
-        }
-        else
-        {
-            $this->view->formEcrireMessage = null;            
-        }
+//        $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
+//        $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
+//        $ACL = Zend_Registry::get('Zend_Acl');
+//        if($ACL->isAllowed($role, $resourceController, $privilegeAction))
+//        {
+//            $formEcrire = new Application_Form_EcrireMessage();
+//            $this->view->formEcrireMessage = $formEcrire;
+//        }
+//        else
+//        {
+//            $this->view->formEcrireMessage = null;            
+//        }
         
         $idMessage = $this->getRequest()->getParam('message');
         $lesReponses = null;
@@ -141,7 +142,7 @@ class MessageController extends Zend_Controller_Action
             $tableMessage = new Application_Model_DbTable_Message();
             $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur);
         }
-        $this->view->reponses = $lesReponses;
+        $this->view->reponses = $lesReponses->toArray();
     }
 
     public function approuverAction()
