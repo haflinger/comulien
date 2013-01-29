@@ -99,7 +99,7 @@ body{
     
 }
 .accordion-group{background-color: #FFFFFF;}
-
+.contenuReponse{margin: 20px;padding:15px;}
 /*Formulaire de message*/
 #message{
     width:94%;
