@@ -140,9 +140,16 @@ class MessageController extends Zend_Controller_Action
     {
         //récupération des paramètres
         //TODO : controle des paramètres
-        $idMessage = $this->getRequest()->getParam('message');
-        $appreciation = $this->getRequest()->getParam('appreciation');
         
+        if ($this->_request->isPost()) {
+            $postData = $this->_request->getPost();
+            $idMessage = $postData['message'];
+            $appreciation = $postData['appreciation']; 
+        } else {
+            //TODO : en production, ne plus utiliser le GET pour apprécier un message
+            $idMessage = $this->getRequest()->getParam('message');
+            $appreciation = $this->getRequest()->getParam('appreciation');
+        }
         //vérification du paramètre appreciation
         if ($appreciation=='1') {
             $note = 1;            
