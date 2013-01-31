@@ -11,31 +11,34 @@ $lienListerOrganisateur = $helperUrl->url ( array ('action' => 'lister-organisat
 $comulienNamespace = new Zend_Session_Namespace('bulle');
 $event = $comulienNamespace->checkedInEvent;*/
 ?>
+        <div class="modal-header">
+            <h3>Informations "<?php echo $this->escape($this->evenement->titreEvent) ?>"</h3>
+        </div>
+        <div class="modal-body">
+            <div id="nomOrga"><?php echo $this->escape($this->organisateur->nomOrga) ?></div>
+            <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
+            <!--<div><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></div>-->
+            <hr>
+            <div id="nomOrga"><?php echo $this->escape($this->evenement->titreEvent) ?></div>
+            <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>      <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
+            <!--<div><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->evenement->logoEvent)?>" alt="logo evenement" /></div>-->
+            
+            
+            <div class="container-fluid">    
+               <div id="orgaBlock"><a id="btn" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs</a></div><br/>
+               <div id="eventBlock"><a id="btn" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages</a></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div id="logo_comulien">
+             <img  src="<?php  echo $this->baseUrl() ?> /images/logo_comulien.png" alt="logo organisme" />
+            </div> 
+        </div>
 
-<div class="container-fluid">    
-   <div id="logo_comulien">
-       <img  src="<?php  echo $this->baseUrl() ?> /images/logo_comulien.png" alt="logo organisme" />
-   </div>
-   <div id="pres_event">
-       <div id="blockBouton">
-           <div id="orgaBlock"><a id="btn" data-toggle="modal" href="<?php echo $this->lienListerOrganisateur ?>" >Annonces organisateurs</a></div><br/>
-           <div><img class="logo" src="<?php  echo $this->baseUrl() . "/images/organisme/"  . $this->escape($this->organisateur->logoOrga)?>" alt="logo organisme" /></div>
-
-           <div id="eventBlock"><a id="btn" data-toggle="modal" href="<?php echo $this->lienListerTous ?>" >Les messages</a></div>
-           <div><img class="logo" src="<?php echo $this->baseUrl() . "/images/evenement/" .  $this->escape($this->evenement->logoEvent) ?>" alt="logo Evènement" /></div>
-       </div>
-   </div>
-</div>
 
 
-    <div>
-    <div class="span12">
-      <div id="nomOrga"><p><?php echo $this->escape($this->organisateur->nomOrga) ?></p></div>
-      <div>Description : <?php echo $this->escape($this->organisateur->descOrga) ?></div>
-    </div><br/>
-    <div class="span12">
-      <div>Description : <?php echo $this->escape($this->evenement->descEvent) ?></div>      <div><p><?php echo $this->datesEvenement($this->evenement->dateDebutEvent,$this->evenement->dateFinEvent,$this->evenement->delaiPersistence) ?></p></div>
-    </div>
-  
 
-</div>
+ 
+
+
+   

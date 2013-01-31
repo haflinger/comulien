@@ -21,6 +21,9 @@ body{
 .nav{display: inline}
 #btn_newMessage{float:right}
 .infos{margin:0px; padding:0px}
+
+/*info bulle*/
+#detailsEvent{top: 70px}
 /*Acceuil*/
 #logo_comulien{
     position: relative;
@@ -128,9 +131,6 @@ dt #envoyer-label{visibility: hidden}
 form{margin:0px}
 
 
-/*Fenetre modal*/
-.modal-body{
-    overflow-x: hidden; overflow-y: scroll;
-}
+
 
 
