@@ -5,6 +5,21 @@ class Application_Form_EcrireMessage extends Zend_Form
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
   
+    private $_idMessageParent = null;
+    private $_nomSubmitButton;
+    
+    public function __construct($idMessageParent=null) {
+        parent::__construct();
+        //todo tester le idmessageparent
+        $this->setIdMessageParent($idMessageParent);
+        
+        
+    }
+
+    private function setIdMessageParent($idMessage){
+        $this->_idMessageParent = $idMessage;
+    }
+    
     public function init()
     {
         
@@ -31,7 +46,6 @@ class Application_Form_EcrireMessage extends Zend_Form
             //TODO
             return ;
 
-            return;
         }
 
         // La méthode HTTP d'envoi du formulaire
@@ -40,6 +54,18 @@ class Application_Form_EcrireMessage extends Zend_Form
         // l'action utilisée pour l'envoi du message
         $this->setAction(self::PRIVILEGE_ACTION);
         //
+        
+        //un champ masqué pour l'id du message parent
+        $hiddenIdMessageParent = new Zend_Form_Element_Hidden('IdMessageParent');
+        if (!is_null($this->_idMessageParent)) {
+            $hiddenIdMessageParent->setValue($this->_idMessageParent);
+        }else{
+            $hiddenIdMessageParent->setValue(null);
+        }
+        
+        
+            
+        
         //zone de texte pour la saisie du message
         //TODO : modifié textarea + son nom
         $message = new Zend_Form_Element_Textarea('message');
@@ -61,28 +87,16 @@ class Application_Form_EcrireMessage extends Zend_Form
         $profil = new Zend_Form_Element_Select('choixProfil',array(
             'MultiOptions' => $lesProfils
             ) );
+       
         
-        //
-        // essai du captcha
-        // ( http://framework.zend.com/manual/1.12/fr/zend.captcha.adapters.html )
-        // Un captcha
-//        $this->addElement('captcha', 'captcha', array(
-//            'label'      => 'Veuillez saisir la lettre:',
-//            'required'   => true,
-//            'captcha'    => array(
-//                'captcha' => 'Figlet',
-//                'wordLen' => 1,
-//                'timeout' => 300
-//            )
-//        ));
-
-
         $submit = new Zend_Form_Element_Submit ( 'envoyer' );
-        $elements = array ($message, $profil, $submit );
+        $elements = array ($hiddenIdMessageParent, $message, $profil, $submit );
         $this->addElements ( $elements );
 
     }
 
 
+    
+    
 }
 

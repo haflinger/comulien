@@ -84,6 +84,7 @@ TODO
                                             }
                                          ?>
                                         <li> <a data-toggle="modal" href="#reponsesMessage<?php echo $entry->idMessage; ?>"><i class="icon-edit"></i>Répondre</a> </li>
+                                        <li><?php echo $this->reponseMessage($entry->idMessage); ?></li>
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>"><i class="icon-thumbs-up"></i> <?php echo $plus ?></a> </li>
                                         <li class="divider-vertical"></li>

@@ -37,7 +37,20 @@ class Application_Form_InscrireUtilisateur extends Twitter_Form//Zend_Form
         $elm_submit = new Zend_Form_Element_Submit('submit');
         $elm_submit ->setLabel('Connexion')
                 ->setIgnore(true);
-				
+ 
+        //
+        // essai du captcha
+        // ( http://framework.zend.com/manual/1.12/fr/zend.captcha.adapters.html )
+        // Un captcha
+        $this->addElement('captcha', 'captcha', array(
+            'label'      => 'Veuillez saisir la lettre:',
+            'required'   => true,
+            'captcha'    => array(
+                'captcha' => 'Figlet',
+                'wordLen' => 1,
+                'timeout' => 300
+            )
+        ));				
 		//on ajoute les différents input à la construction du formulaire
         $this->addElements(array($elm_login, $elm_email, $elm_pwd, $elm_nom, $elm_prenom, $elm_submit));
     }
