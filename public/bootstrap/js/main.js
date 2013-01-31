@@ -5,7 +5,7 @@ $("#nomEvent").click(function(){
 //requête ajax, appel du fichier recherche.php
 $.ajax({
 type: "GET",
-url: "http://localhost/comuZend/public/evenement/accueil",
+url: BASE_URL + "/evenement/accueil",
 dataType : "html",
 //affichage de l'erreur en cas de problème
 error:function(msg, string){
