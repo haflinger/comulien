@@ -20,9 +20,10 @@ body{
 #lientitre {color:black;text-decoration: none}
 .nav{display: inline}
 #btn_newMessage{float:right}
-#choixProfil{margin:0px auto}
-#envoyer{margin:0px auto}
 .infos{margin:0px; padding:0px}
+
+/*info bulle*/
+#detailsEvent{top: 70px}
 /*Acceuil*/
 #logo_comulien{
     position: relative;
@@ -103,7 +104,7 @@ body{
 #message{
     width:94%;
     margin:0px;
-    height:60px;
+    height:20px;
 }
 #choixProfil-element{
     margin:0px auto;
@@ -113,6 +114,7 @@ body{
     margin:0px auto;
     text-align: center;
 }
+.modal hide{max-height: 600px}
 .modal-body{
     margin:0px;
 }
@@ -127,11 +129,8 @@ dt #message-label{visibility: hidden}
 dt #choixProfil-label{visibility: hidden}
 dt #envoyer-label{visibility: hidden}
 form{margin:0px}
-dt, dl, dd{margin:0px}
 
-/*Fenetre modal*/
-.modal-body{
-    overflow-x: hidden; overflow-y: scroll;
-}
+
+
 
 
