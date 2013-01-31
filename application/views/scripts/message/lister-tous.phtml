@@ -6,7 +6,7 @@ TODO
     <div id="monaccordeon">
         <?php foreach ($this->messages as $entry): ?>
                 <!-- Crée ic la fenetre modal-->
-                <div class="modal hide" id="reponsesMessage<?php echo $entry->idMessage; ?>">
+                <div class="modal hide" id="reponsesMessage<?php echo $entry->idMessage; ?>" max-height="600px">
                     <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
                         <div class="row-fluid">
                            <div class="span12"> 
@@ -18,11 +18,35 @@ TODO
                               
                            </div>  
                            
-                        </div>
+                        </div><hr>
+                        <div><?php if (!is_null($this->formEcrireMessage)) echo $this->formEcrireMessage ; ?></div>
                     </div>
                     <div class="modal-body">
                         <div id="ecrireMessage">
-                            <?php echo $this->formEcrireMessage ; ?>
+                            <div class="row-fluid">
+                           <div class="span12"> 
+                              <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
+                           
+                              <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
+                              <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div><br/>
+                              <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div>
+                              
+                           </div>  
+                           
+                        </div>
+                            <hr>
+                            <div class="row-fluid">
+                           <div class="span12"> 
+                              <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
+                           
+                              <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
+                              <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div><br/>
+                              <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div>
+                              
+                           </div>  
+                           
+                        </div>
+                            <hr>
                             <p>Rkdcblahgfvlurehvrekhn</p>
                             <p>Rkdcblahgfvlurehvrekhn</p>
                             <p>Rkdcblahgfvlurehvrekhn</p>
@@ -40,7 +64,7 @@ TODO
                             <p>Rkdcblahgfvlurehvrekhn</p>
                             <p>Rkdcblahgfvlurehvrekhn</p>
                             <p>Rkdcblahgfvlurehvrekhn</p>
-                            <p>Rkdcblahgfvlurehvrekhn</p>
+                            <p>fred</p>
                             
                         </div>
                     </div>
