@@ -10,7 +10,7 @@ class Application_Model_DbTable_Utilisateur extends Zend_Db_Table_Abstract
 
     public function addUser($login, $email, $password, $nom , $prenom) {
         $maintenant = Zend_Date::now();
-        $dateheure = $maintenant->toString('YYYY-MM-DD HH:mm:ss S');
+        $dateheure = $maintenant->toString('yyyy-MM-dd HH:mm:ss S');
         $data = array(
             'loginUser' => $login,
             'emailUser' => $email,
@@ -22,16 +22,5 @@ class Application_Model_DbTable_Utilisateur extends Zend_Db_Table_Abstract
         $this->insert($data);
     }
     
-    public function updateUserInfos($id,$login, $email, $password, $nom , $prenom)
-    {
-        $data = array(
-            'loginUser'=>$login,
-            'emailUser'=>$email,
-            'pswUser'=>$prenom,
-            'nomUser'=>$nom,
-            'prenomUser'=>$prenom
-        );
-        $table->insert($data);
-    }
 }
 

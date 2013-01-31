@@ -140,9 +140,16 @@ class MessageController extends Zend_Controller_Action
     {
         //récupération des paramètres
         //TODO : controle des paramètres
-        $idMessage = $this->getRequest()->getParam('message');
-        $appreciation = $this->getRequest()->getParam('appreciation');
         
+        if ($this->_request->isPost()) {
+            $postData = $this->_request->getPost();
+            $idMessage = $postData['message'];
+            $appreciation = $postData['appreciation']; 
+        } else {
+            //TODO : en production, ne plus utiliser le GET pour apprécier un message
+            $idMessage = $this->getRequest()->getParam('message');
+            $appreciation = $this->getRequest()->getParam('appreciation');
+        }
         //vérification du paramètre appreciation
         if ($appreciation=='1') {
             $note = 1;            
@@ -195,8 +202,7 @@ class MessageController extends Zend_Controller_Action
         if ($this->_request->isPost()) {
             $form = new Application_Form_EcrireMessage();
             $formData = $this->_request->getPost();
-//            $this->view->message = $formData;
-//            return;
+
             if ($form->isValid($formData)) {
                 //on récupère les données du formulaire
                 //faire du contrôle de saisie :
@@ -219,23 +225,21 @@ class MessageController extends Zend_Controller_Action
                 }
                 
                 //insertion du message
-                //TODO passer cette partie dans le modèle
                 $table = new Application_Model_DbTable_Message();
                 
-                $dateheure = Date('y-m-d H:i:s u');//TODO : utiliser zend_date pour générer une date
-                $data = array(
-                    'idUser_emettre' => $idUser,//todo : récupérer l'id de l'utilisateur avec zend_auth
-                    'idTypeMsg' => 0,//inutilisé pour le moment mais obligatoire
-                    'idEvent' => $this->_evenement->idEvent,
-                    'lblMessage' => $message,
-                    'idProfil' => $profil,
-                    'dateEmissionMsg' => $dateheure,
-                    'dateActiviteMsg' => $dateheure,
-                    );
+//                $dateheure = Zend_Date::now();
+//                $data = array(
+//                    'idUser_emettre' => $idUser,//todo : récupérer l'id de l'utilisateur avec zend_auth
+//                    'idTypeMsg' => 0,//inutilisé pour le moment mais obligatoire
+//                    'idEvent' => $this->_evenement->idEvent,
+//                    'lblMessage' => $message,
+//                    'idProfil' => $profil,
+//                    'dateEmissionMsg' => $dateheure->toString('yyyy-MM-dd HH:mm:ss S'),
+//                    'dateActiviteMsg' => $dateheure->toString('yyyy-MM-dd HH:mm:ss S'),
+//                    );
                 
-                $table->posterMessage($data);
-                //TODO : $table->posterMessage($idUser,$idTypeMsg,$this->_evenement->idEvent,$message,$profil)
-                //pour remplacer l'envoi d'un array
+                //$table->posterMessage($data);
+                $table->posterMessage($idUser,0,$this->_evenement->idEvent,$message,$profil);
                 
                 //message posté ! on redirige sur les messages 
                 
