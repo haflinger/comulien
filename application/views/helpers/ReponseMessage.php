@@ -9,10 +9,11 @@ class Zend_View_Helper_ReponseMessage extends Zend_View_Helper_Abstract {
      * @param int $idMessage
      * @return \Application_Form_EcrireMessage
      */
-    public function reponseMessage($idMessage) {
+    public function reponseMessage($idMessageParent) {
         
-        $formRepondre = new Application_Form_EcrireMessage($idMessage);
-        //$formRepondre->($idMessage);
+        //$formRepondre = new Application_Form_RepondreMessage();
+        $formRepondre = new Application_Form_EcrireMessage();
+        $formRepondre->generer($idMessageParent);
         //$formRepondre->genererForm();
         return $formRepondre;
         

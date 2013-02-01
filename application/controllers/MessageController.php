@@ -67,6 +67,7 @@ class MessageController extends Zend_Controller_Action
         if($ACL->isAllowed($role, $resourceController, $privilegeAction))
         {
             $formEcrire = new Application_Form_EcrireMessage();
+            $formEcrire->generer();
             $this->view->formEcrireMessage = $formEcrire;
         }
         else
@@ -200,15 +201,21 @@ class MessageController extends Zend_Controller_Action
          */
         // on vérifie qu'il y ai des données postées et on les valide
         if ($this->_request->isPost()) {
-            $form = new Application_Form_EcrireMessage();
             $formData = $this->_request->getPost();
-
+            
+            //$this->view->message = var_dump($formData);
+            
+            //récupération du message parent (si possible)
+            $idMessageParent = $formData['IdMessageParent'];
+            
+            $form = new Application_Form_EcrireMessage();
+            $form->generer($idMessageParent);
             if ($form->isValid($formData)) {
                 //on récupère les données du formulaire
                 //faire du contrôle de saisie :
                 // $message ne doit pas être vide, de taille limitée ...
-                $message = $form->getValue('message');
-                $profil = $form->getValue('choixProfil');
+                $message = $form->getValue('message'.$idMessageParent);
+                $profil = $form->getValue('choixProfil'.$idMessageParent);
                 if ($profil=='0') {
                     $profil = null;
                 }
@@ -239,7 +246,7 @@ class MessageController extends Zend_Controller_Action
 //                    );
                 
                 //$table->posterMessage($data);
-                $table->posterMessage($idUser,0,$this->_evenement->idEvent,$message,$profil);
+                $table->posterMessage($idUser,0,$this->_evenement->idEvent,$message,$profil,$idMessageParent);
                 
                 //message posté ! on redirige sur les messages 
                 

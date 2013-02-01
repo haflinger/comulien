@@ -51,6 +51,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
     public function messagesTous(Application_Model_Row_EvenementRow $evenement, $showAll ){
         $select = $this->select()
                 ->where('idEvent=?',$evenement->idEvent) //dans l'évènement
+                ->where('idMessage_reponse IS NULL')
                 ->order('dateActiviteMsg DESC');         //classés par date d'activité la plus récente en premier
                 
         //les messages actifs seulement ?
@@ -128,7 +129,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      * @param string $message : le message à persister
      * @param int $profil : l'id du profil utilisé pour persister le message
      */
-    public function posterMessage($idUser,$idTypeMsg,$idEvent,$message,$profil)
+    public function posterMessage($idUser,$idTypeMsg,$idEvent,$message,$profil,$idMessageParent=null)
     {
         $dateheure = Zend_Date::now()->toString('yyyy-MM-dd HH:mm:ss S');
         $data = array(
@@ -138,8 +139,14 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
             'lblMessage' => $message,
             'idProfil' => $profil,
             'dateEmissionMsg' => $dateheure,
-            'dateActiviteMsg' => $dateheure,
+            'dateActiviteMsg' => $dateheure
             );
+
+        if ($idMessageParent!='') {
+            $data['idMessage_reponse'] = $idMessageParent;
+        }
+
+        //todo : updater le message parent -> utiliser un trigger
         $this->insert($data);
     }
     
