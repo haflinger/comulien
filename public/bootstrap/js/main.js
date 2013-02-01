@@ -17,7 +17,7 @@ $("#detailsEvent").empty().hide();
 //on affecte les resultats au div
 $("#detailsEvent").append(data);
 //on affiche les resultats avec la transition
-$('#detailsEvent').fadeIn(500);
+$('#detailsEvent').fadeIn(1000);
 }
 });
 });
