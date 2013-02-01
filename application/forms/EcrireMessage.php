@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_EcrireMessage extends Zend_Form
+class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
 {
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
