@@ -27,7 +27,7 @@
               <!-- Test si l'utilisateur est loggé-->
               <?php if(isset($_SESSION['Zend_Auth'])){
                   $nomLien = 'Déconnexion';?>
-                  <li><a href="<?php echo $this->baseUrl() . '/utilisateur/modifier' ?>">Profil</a></li>
+                  <li><a href="<?php echo $this->baseUrl() . '/utilisateur/index' ?>">Profil</a></li>
               <?php 
               
               }

@@ -14,21 +14,6 @@ class EvenementController extends Zend_Controller_Action
 
     public function init()
     {
-//        $bulleNamespace = new Zend_Session_Namespace('bulle');
-//        //session active ?
-//        if (isset($bulleNamespace->checkedInEvent)) {
-//            $this->_evenement = $bulleNamespace->checkedInEvent;
-//            //  
-//            //lors de la sauvegarde en session le EvenementRow est sérialisé, et par sécurité passe en mode 'déconnecté'
-//            // pour l'utiliser à nouveau comme un objet row, il faut le reconnecter en utilisant setTable
-//            //http://gustavostraube.wordpress.com/2010/05/11/zend-framework-cannot-save-a-row-unless-it-is-connected/
-//            $this->_evenement->setTable(new Application_Model_DbTable_Evenement());
-//        }
-//        else
-//        {
-//            $this->_evenement = null;
-//            //$this->view->evenement = $bulleNamespace->checkedInEvent;
-//        }
         if(Zend_Registry::isRegistered('checkedInEvent')){
             $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
@@ -87,10 +72,10 @@ class EvenementController extends Zend_Controller_Action
          * Accueil dans l'évènement
          */
         //L'évènement ne doit normalement pas être null puisque géré en amont par le plugin EvenementPlugin   
-        $evenement = Zend_Registry::get('checkedInEvent');
-        $this->view->evenement = $evenement;
+        //$evenement = Zend_Registry::get('checkedInEvent');
+        $this->view->evenement = $this->_evenement;
         
-        $organisateur = $evenement->getOrga();
+        $organisateur = $this->_evenement->getOrga();
         $this->view->organisateur = $organisateur;
 
         $helperUrl = new Zend_View_Helper_Url ( );

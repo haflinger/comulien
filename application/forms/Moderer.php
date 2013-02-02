@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Moderer extends Zend_Form
+class Application_Form_Moderer extends Twitter_Form //Zend_Form
 {
 
     private $idMessage;

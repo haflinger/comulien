@@ -41,8 +41,15 @@ class UtilisateurController extends Zend_Controller_Action
     
     public function indexAction()
     {
-        $Utilisateur = new Application_Model_DbTable_Utilisateur();
-        $this->view->entries = $Utilisateur->fetchAll();
+        //$Utilisateur = new Application_Model_DbTable_Utilisateur();
+        //$this->view->entries = $Utilisateur->fetchAll();
+        $utilisateur = $this->getUserFromAuth();
+
+        $this->view->moderateur = $utilisateur->estModerateur($this->_evenement);
+        $this->view->role = $utilisateur->getRole($this->_evenement->idOrga);
+        $this->view->utilisateur = $utilisateur;
+        $this->view->evenement = $this->_evenement;
+        
     }
 
     public function profilpriveAction()
