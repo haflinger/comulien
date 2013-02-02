@@ -26,7 +26,10 @@
               <li><a href="<?php echo $this->accueilEventLink(); ?>">Accueil</a></li>
               <!-- Test si l'utilisateur est loggé-->
               <?php if(isset($_SESSION['Zend_Auth'])){
-                  $nomLien = 'Déconnexion';
+                  $nomLien = 'Déconnexion';?>
+                  <li><a href="<?php echo $this->baseUrl() . '/Utilisateur/modifier' ?>">Profil</a></li>
+              <?php 
+              
               }
               else
               {
