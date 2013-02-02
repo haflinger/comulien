@@ -205,26 +205,40 @@ class MessageController extends Zend_Controller_Action
         //approuver le message
         $table->apprecierMessage($message,$utilisateur,$note);
         
+        //récupérer la note du message
+        $lesAppreciations = $message->getAppreciers();
+        $noteGlobale = 0;
+        $lesAppreciations->count();
+        foreach ($lesAppreciations as $app) {
+            $noteGlobale += $app->evaluation ;
+        }
+        $this->view->noteGlobale = $noteGlobale;
+        
         $this->view->info = 'Appréciation déposée ! (message : '.$message->idMessage.', appreciation : '.$note.')';
 //        $bulleNamespace = new Zend_Session_Namespace('bulle');
 //        $this->view->retour = $bulleNamespace->retour;
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
         if ($context=='json') {
-            $arrayUser = array(
-                'idUser'=>$utilisateur->idUser,
-                'loginUser'=>$utilisateur->loginUser,
-                'emailUser'=>$utilisateur->emailUser,
-                'dateInscriptionUser'=>$utilisateur->dateInscriptionUser,
-                'nomUser'=>$utilisateur->nomUser,
-                'prenomUser'=>$utilisateur->prenomUser,
-                'nbMsgUser'=>$utilisateur->nbMsgUser,
-                'nbApprouverUser'=>$utilisateur->nbApprouverUser,
-                'estActifUser'=>$utilisateur->estActifUser
-                );
-            $this->view->user = $arrayUser;
+            //en json, on va retourner la nouvelle note pour le message
+//            $arrayUser = array(
+//                'idUser'=>$utilisateur->idUser,
+//                'loginUser'=>$utilisateur->loginUser,
+//                'emailUser'=>$utilisateur->emailUser,
+//                'dateInscriptionUser'=>$utilisateur->dateInscriptionUser,
+//                'nomUser'=>$utilisateur->nomUser,
+//                'prenomUser'=>$utilisateur->prenomUser,
+//                'nbMsgUser'=>$utilisateur->nbMsgUser,
+//                'nbApprouverUser'=>$utilisateur->nbApprouverUser,
+//                'estActifUser'=>$utilisateur->estActifUser
+//                );
+//            $this->view->user = $arrayUser;
         }else{
             $this->view->user = $utilisateur;
+            //redirection uniquement si pas de json
+            $this->_helper->redirector ( 'lister-tous', 'message' , null );
         }
+        
+        
     }
 
     public function envoyerAction()
