@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" data-toggle="collapse in" data-target="#detailsEvent" href="#detailsEvent" id="nomEvent"><?php echo $event ?></a>
+          <a class="brand" href="#" id="nomEvent"><?php echo $event ?></a>
           <?php  if (!is_null($this->formEcrireMessage)) {?>
              <a class="btn " id="btn_newMessage" data-toggle="modal" href="#infos" ><i class="icon-edit"></i></a>
          <?php }?>
@@ -55,5 +55,4 @@
         <div class="modal-footer"> <a class="btn btn-info" data-dismiss="modal">Annuler</a> </div>
     </div> 
 <?php   }?>
- <!-- On crée ici la div pour les informations de l'événement-->
-    <div class="container-fluid hide" id="detailsEvent">Chargement en cours...</div>
+
