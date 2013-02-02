@@ -15,6 +15,9 @@ class MessageController extends Zend_Controller_Action
     private $_evenement = null;
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
+    
+    const NB_MESSAGES_PAR_PAGE = 5;
+    
     public function init()
     {
         if (Zend_Registry::isRegistered('checkedInEvent')) {
@@ -24,6 +27,7 @@ class MessageController extends Zend_Controller_Action
         $contextSwitch = $this->_helper->contextSwitch();
         $contextSwitch->addActionContext('reponses', 'json')
                       ->addActionContext('approuver', 'json')
+                      ->addActionContext('lister-tous', 'json')
                       ->initContext();
     }
 
@@ -36,6 +40,9 @@ class MessageController extends Zend_Controller_Action
 
     public function listerTousAction()
     {
+        
+        $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         $auth = Zend_Auth::getInstance ();
         $moderateur = false;
@@ -60,25 +67,51 @@ class MessageController extends Zend_Controller_Action
             $role = 'visiteur';
         }
 
-        //définition 
-        $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
-        $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
-        $ACL = Zend_Registry::get('Zend_Acl');
-        if($ACL->isAllowed($role, $resourceController, $privilegeAction))
-        {
-            $formEcrire = new Application_Form_EcrireMessage();
-            $formEcrire->generer();
-            $this->view->formEcrireMessage = $formEcrire;
-        }
-        else
-        {
-            $this->view->formEcrireMessage = null;            
-        }
+        if ($context=='html') {
+            $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
+            $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
+            $ACL = Zend_Registry::get('Zend_Acl');
+            if($ACL->isAllowed($role, $resourceController, $privilegeAction))
+            {
+                $formEcrire = new Application_Form_EcrireMessage();
+                $formEcrire->generer();
+                $this->view->formEcrireMessage = $formEcrire;
+            }
+            else
+            {
+                $this->view->formEcrireMessage = null;            
+            }
 
+        }else{
+            //ici les choses quand on est pas en html
+        }
+        
+        $numPage = $this->getRequest()->getParam('numpage');
+        $validator = new Zend_Validate_Int();
+        if ($validator->isValid($numPage) ) {
+            //TODO : gérer les bornes (peut être faut t'il utiliser zend_validate_between
+            $page = $numPage;
+        }else{
+            $page = 1;
+        }
+        //todo : utiliser la date d'activité la plus ancienne du jeux de données pour ne prendre que les messages encore plus anciens
+        $pagination = array(
+            'currentPage'=>$page,
+            'nextPage'=>$page+1,//TODO : vérifier si la page suivante possède des résultats
+            'previousPage'=>$page>0?$page-1:$page
+            );
+        $this->view->pagination = $pagination;
+        
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
-        $messagesTous = $tableMessage->messagesTous($this->_evenement,$moderateur);
+        $messagesTous = $tableMessage->messagesTous($this->_evenement,$moderateur,$page,self::NB_MESSAGES_PAR_PAGE);
+        
+        if ($context=='json') {
+            $messagesTous = $messagesTous->toArray();
+        }
+        
         $this->view->messages = $messagesTous;
+        
     }
     
     public function listerOrganisateurAction()
@@ -233,19 +266,7 @@ class MessageController extends Zend_Controller_Action
                 
                 //insertion du message
                 $table = new Application_Model_DbTable_Message();
-                
-//                $dateheure = Zend_Date::now();
-//                $data = array(
-//                    'idUser_emettre' => $idUser,//todo : récupérer l'id de l'utilisateur avec zend_auth
-//                    'idTypeMsg' => 0,//inutilisé pour le moment mais obligatoire
-//                    'idEvent' => $this->_evenement->idEvent,
-//                    'lblMessage' => $message,
-//                    'idProfil' => $profil,
-//                    'dateEmissionMsg' => $dateheure->toString('yyyy-MM-dd HH:mm:ss S'),
-//                    'dateActiviteMsg' => $dateheure->toString('yyyy-MM-dd HH:mm:ss S'),
-//                    );
-                
-                //$table->posterMessage($data);
+
                 $table->posterMessage($idUser,0,$this->_evenement->idEvent,$message,$profil,$idMessageParent);
                 
                 //message posté ! on redirige sur les messages 

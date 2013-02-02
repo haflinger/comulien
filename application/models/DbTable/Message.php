@@ -48,17 +48,23 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
     
-    public function messagesTous(Application_Model_Row_EvenementRow $evenement, $showAll ){
+    /**
+     * Retourne les messages de l'évènement
+     * @param Application_Model_Row_EvenementRow $evenement
+     * @param bool $showAll indique si les messages modérés doivent être affichés
+     * @return type
+     */
+    public function messagesTous(Application_Model_Row_EvenementRow $evenement, $showAll, $pageNum = 1, $nbItemParPage = 5 ){
         $select = $this->select()
                 ->where('idEvent=?',$evenement->idEvent) //dans l'évènement
-                ->where('idMessage_reponse IS NULL')
+                ->where('idMessage_reponse IS NULL')     // pas les réponses
                 ->order('dateActiviteMsg DESC');         //classés par date d'activité la plus récente en premier
                 
         //les messages actifs seulement ?
         if (!$showAll) {
             $select->where('estActifMsg=?','1'); //seuls les messages actifs
         }
-        
+        $select->limitPage($pageNum, $nbItemParPage);
         $result = $this->fetchAll($select);
         return $result;
     }
