@@ -36,7 +36,7 @@ class UtilisateurController extends Zend_Controller_Action
             $utilisateur = $tableUtilisateur->find($idUser)->current();
         }
         
-        $this->view->test = $utilisateur->getRole($this->_evenement->idOrga);
+        $this->view->test = $utilisateur->getDistinction($this->_evenement->idOrga);
     }
     
     public function indexAction()

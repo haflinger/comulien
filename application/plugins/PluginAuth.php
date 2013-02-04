@@ -84,8 +84,11 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
             
             //puis on va récupérer son rôle dans l'évènement
             if (!is_null($this->_evenement)) {
+                //$role = $user->getRole($this->_evenement->idOrga);
                 $role = $user->getRole($this->_evenement->idOrga);
             }
+            
+            
             $this->_logger->err('L\'utilisateur '.$user->loginUser.' ('.$role.')');
         }else{
             $this->_logger->err('L\'utilisateur inconnu ('.$role.')');
