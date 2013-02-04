@@ -67,7 +67,7 @@ class MessageController extends Zend_Controller_Action
             $role = 'visiteur';
         }
 
-        if ($context=='html') {
+        if (true) {
             $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
             $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
             $ACL = Zend_Registry::get('Zend_Acl');
@@ -261,8 +261,10 @@ class MessageController extends Zend_Controller_Action
                 //on récupère les données du formulaire
                 //faire du contrôle de saisie :
                 // $message ne doit pas être vide, de taille limitée ...
-                $message = $form->getValue('message'.$idMessageParent);
-                $profil = $form->getValue('choixProfil'.$idMessageParent);
+//                $message = $form->getValue('message'.$idMessageParent);
+//                $profil = $form->getValue('choixProfil'.$idMessageParent);
+                $message = $form->getValue('message');
+                $profil = $form->getValue('choixProfil');
                 if ($profil=='0') {
                     $profil = null;
                 }

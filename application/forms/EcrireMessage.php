@@ -62,7 +62,7 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         }else{
             $hiddenIdMessageParent->setValue(null);
         }
-        
+       
         
             
         
@@ -86,12 +86,9 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
 
         //création d'un élément de formulaire de sélection du profil
         //$profil = new Zend_Form_Element_Select('choixProfil'.$idMessageParent,array(
-         //   'MultiOptions' => $lesProfils
-           // ) );
         $profil = new Zend_Form_Element_Select('choixProfil',array(
             'MultiOptions' => $lesProfils
             ) );
-       
         
         //$submit = new Zend_Form_Element_Submit ( 'envoyer'.$idMessageParent );
         $submit = new Zend_Form_Element_Submit ( 'envoyer' );
@@ -99,7 +96,13 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         
         $elements = array ($hiddenIdMessageParent, $message, $profil, $submit );
         $this->addElements ( $elements );
-
+         $this->setDecorators(array(
+            array('ViewScript',
+                array('viewScript' => 'forms/ecrireMessage.phtml'),
+                array('idMessageParent'=>$idMessageParent))
+        ));
+       
+        
     }
 
 
