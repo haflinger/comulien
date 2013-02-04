@@ -97,9 +97,7 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         $elements = array ($hiddenIdMessageParent, $message, $profil, $submit );
         $this->addElements ( $elements );
          $this->setDecorators(array(
-            array('ViewScript',
-                array('viewScript' => 'forms/ecrireMessage.phtml'),
-                array('idMessageParent'=>$idMessageParent))
+            array('ViewScript',array('viewScript' => 'forms/ecrireMessage.phtml'))
         ));
        
         
