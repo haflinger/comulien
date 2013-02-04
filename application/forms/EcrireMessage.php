@@ -62,13 +62,14 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         }else{
             $hiddenIdMessageParent->setValue(null);
         }
-        
+       
         
             
         
         //zone de texte pour la saisie du message
         //TODO : modifié textarea + son nom
-        $message = new Zend_Form_Element_Textarea('message'.$idMessageParent);
+        //$message = new Zend_Form_Element_Textarea('message'.$idMessageParent);
+        $message = new Zend_Form_Element_Textarea('message');
         $message->setAllowEmpty(false);
         $message->setAttrib('placeholder','Votre message');
         $message->setRequired(true);
@@ -84,17 +85,24 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         $lesProfils = $distinguer->getProfils($idUser, $IDorga);
 
         //création d'un élément de formulaire de sélection du profil
-        $profil = new Zend_Form_Element_Select('choixProfil'.$idMessageParent,array(
+        //$profil = new Zend_Form_Element_Select('choixProfil'.$idMessageParent,array(
+        $profil = new Zend_Form_Element_Select('choixProfil',array(
             'MultiOptions' => $lesProfils
             ) );
-       
         
-        $submit = new Zend_Form_Element_Submit ( 'envoyer'.$idMessageParent );
+        //$submit = new Zend_Form_Element_Submit ( 'envoyer'.$idMessageParent );
+        $submit = new Zend_Form_Element_Submit ( 'envoyer' );
         $submit->setLabel('Envoyer');
         
         $elements = array ($hiddenIdMessageParent, $message, $profil, $submit );
         $this->addElements ( $elements );
-
+         $this->setDecorators(array(
+            array('ViewScript',
+                array('viewScript' => 'forms/ecrireMessage.phtml'),
+                array('idMessageParent'=>$idMessageParent))
+        ));
+       
+        
     }
 
 

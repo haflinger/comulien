@@ -26,6 +26,11 @@ class Application_Form_Login extends Twitter_Form//Zend_Form
 
         $elements = array ($login, $password, $submit );
         $this->addElements ( $elements );
+        
+        $this->setDecorators(array(
+            array('ViewScript', array('viewScript' => 'forms/connexion.phtml'))
+        ));
+
     }
 
 
