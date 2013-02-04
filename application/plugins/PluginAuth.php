@@ -32,6 +32,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     const FAIL_AUTH_MODULE = 'default';
     const FAIL_AUTH_ACTION = 'authentifier';
     const FAIL_AUTH_CONTROLLER = 'utilisateur';
+    const FAIL_AUTH_PARAMS = null;
 
     /**
      * Chemin de redirection lors de l'échec de contrôle des privilèges
@@ -39,6 +40,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
     const FAIL_ACL_MODULE = 'default';
     const FAIL_ACL_ACTION = 'index';
     const FAIL_ACL_CONTROLLER = 'index';
+    const FAIL_ACL_PARAMS = null;
 
     /**
      * Constructeur
@@ -65,6 +67,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         $module = $request->getModuleName();
         $controller = $request->getControllerName();
         $action = $request->getActionName();
+//        $params = $request->getUserParams();
 
         //
         //récupération du rôle de l'utilisateur
@@ -124,25 +127,36 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
             // on va le rediriger
             if (!$this->_auth->hasIdentity()) {
                 $this->_logger->err('Il n\'a pas le droit et il n\'est pas connecté');
+                //on va mémoriser dans la session le module/controller/action demandés initialement
+                //  de manière à retourner dessus après l'identification
+                Zend_Registry::set('ModuleReferer',$module);
+                Zend_Registry::set('ControllerReferer',$controller);
+                Zend_Registry::set('ActionReferer',$action);
+                //Zend_Registry::set('ParamsReferer',$params);
                 $module = self::FAIL_AUTH_MODULE;
                 $controller = self::FAIL_AUTH_CONTROLLER;
                 $action = self::FAIL_AUTH_ACTION;
+                //$params = self::FAIL_AUTH_PARAMS;
             } else {
                 // il est identifié -> error de privilèges
                 $this->_logger->err('Il n\'a pas le droit mais il est connecté');
                 $module = self::FAIL_ACL_MODULE;
                 $controller = self::FAIL_ACL_CONTROLLER;
                 $action = self::FAIL_ACL_ACTION;
+                //$params = self::FAIL_ACL_PARAMS;
             }
         }
 
         $request->setModuleName($module);
         $request->setControllerName($controller);
         $request->setActionName($action);
+        //$request->setParams($params);
         
         $this->_logger->err('Finalement l\utilisateur est redirigé sur : '.$controller.'/'.$action);
         $this->_logger->err('---FIN DE PLUGIN ACL--------------------------------------');
         
     }
 
+    
+    
 }

@@ -210,11 +210,15 @@ class UtilisateurController extends Zend_Controller_Action
                     // - écriture dans le stockage des infos de l'utilisateur (sans le mot de passe)
                     $storage->write ( $authAdapter->getResultRowObject ( null, 'password' ) );
                     // - et finalement on redirige l'utilisateur sur la page principale de l'application
+                    
                     //TODO : rediriger sur la page qui précède l'authentification
-                    $bulleNamespace = new Zend_Session_Namespace('bulle');
-                    $redirection = $bulleNamespace->retour;
-                    //$this->_helper->redirector ( $redirection['action'],$redirection['controller'],$redirection['module'],$redirection['params'] );
-                    $this->_helper->redirector ( 'accueil', 'evenement' );
+                    //$bulleNamespace = new Zend_Session_Namespace('bulle');
+                    //$redirection = $bulleNamespace->retour;
+                    $module = Zend_Registry::get('ModuleReferer');
+                    $controller = Zend_Registry::get('ControllerReferer');
+                    $action = Zend_Registry::get('ActionReferer');
+                    $this->_helper->redirector ( $action,$controller,$module);
+                    //$this->_helper->redirector ( 'accueil', 'evenement' );
                 } else {
                     //NOK : on affiche une erreur
                     $form->addError ( 'Il n\'existe pas d\'utilisateur avec ce mot de passe' );

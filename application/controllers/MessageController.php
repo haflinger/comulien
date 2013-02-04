@@ -172,8 +172,7 @@ class MessageController extends Zend_Controller_Action
 
     public function approuverAction()
     {
-        //récupération des paramètres
-        //TODO : controle des paramètres
+        $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
         
         if ($this->_request->isPost()) {
             $postData = $this->_request->getPost();
@@ -184,7 +183,27 @@ class MessageController extends Zend_Controller_Action
             $idMessage = $this->getRequest()->getParam('message');
             $appreciation = $this->getRequest()->getParam('appreciation');
         }
+        
+        //récupération de l'utilisateur en session
+        $utilisateur = $this->getUserFromAuth();
+        $this->view->noteGlobale = null;
+        if (is_null($idMessage) || is_null($appreciation)) {
+            $this->view->info = 'paramètres invalides';
+            if ($context!='json') {
+                return;
+            }else{
+                $this->view->user = $utilisateur;
+                //redirection uniquement si pas de json
+                $this->_helper->redirector ( 'lister-tous', 'message' , null );
+            }
+        }
+        
+        //vérification du paramètre message
+        $table = new Application_Model_DbTable_Message();
+        $message = $table->getMessage($idMessage);
+        
         //vérification du paramètre appreciation
+        
         if ($appreciation=='1') {
             $note = 1;            
         }elseif ($appreciation=='-1') {
@@ -195,12 +214,6 @@ class MessageController extends Zend_Controller_Action
             throw new HttpInvalidParamException("l'appreciation doit être '-1' ou '0' ou '1'");
         }
         
-        //vérification du paramètre message
-        $table = new Application_Model_DbTable_Message();
-        $message = $table->getMessage($idMessage);
-        
-        //récupération de l'utilisateur en session
-        $utilisateur = $this->getUserFromAuth();
         
         //approuver le message
         $table->apprecierMessage($message,$utilisateur,$note);
@@ -217,7 +230,7 @@ class MessageController extends Zend_Controller_Action
         $this->view->info = 'Appréciation déposée ! (message : '.$message->idMessage.', appreciation : '.$note.')';
 //        $bulleNamespace = new Zend_Session_Namespace('bulle');
 //        $this->view->retour = $bulleNamespace->retour;
-        $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        
         if ($context=='json') {
             //en json, on va retourner la nouvelle note pour le message
 //            $arrayUser = array(
