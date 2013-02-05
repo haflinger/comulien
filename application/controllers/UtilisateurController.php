@@ -214,10 +214,15 @@ class UtilisateurController extends Zend_Controller_Action
                     //TODO : rediriger sur la page qui précède l'authentification
                     //$bulleNamespace = new Zend_Session_Namespace('bulle');
                     //$redirection = $bulleNamespace->retour;
-                    $module = Zend_Registry::get('ModuleReferer');
-                    $controller = Zend_Registry::get('ControllerReferer');
-                    $action = Zend_Registry::get('ActionReferer');
-                    $this->_helper->redirector ( $action,$controller,$module);
+                    if (Zend_Registry::isRegistered('ModuleReferer')){
+                        $module = Zend_Registry::get('ModuleReferer');
+                        $controller = Zend_Registry::get('ControllerReferer');
+                        $action = Zend_Registry::get('ActionReferer');
+                        $this->_helper->redirector ( $action,$controller,$module);
+                    } else {
+                        //pas de page d'origine sur laquelle retourner...
+                        $this->_helper->redirector ( 'index', 'utilisateur' );
+                    }
                     //$this->_helper->redirector ( 'accueil', 'evenement' );
                 } else {
                     //NOK : on affiche une erreur
