@@ -98,19 +98,30 @@ body{
 }
 .accordion-group{background-color: #FFFFFF;}
 .contenuReponse{margin: 20px;padding:15px;}
+#chargerPlusMessage{
+    text-decoration-color: #66CCFF;
+    color: #66CCFF;
+    text-align: right;
+}
 /*Formulaire de message*/
 #message{
     width:94%;
     margin:0px;
     height:20px;
 }
-#choixProfil-element{
-    margin:0px auto;
-    text-align: center;
+#choixProfil{
+    margin:0px;
 }
-#envoyer-element{
-    margin:0px auto;
-    text-align: center;
+#envoyer{
+    margin:0px;
+}
+.control-group{
+    margin:0px;
+    padding: 0px;
+}
+.form-actions{
+    margin:0px;
+    padding: 0px;
 }
 .modal hide{max-height: 600px}
 .modal-body{

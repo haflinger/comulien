@@ -3,27 +3,29 @@ TODO
 - Modifier l'image par défaut de gravatar
 -->
 <div class="container-fluid">
-    <div id="monaccordeon">
         <?php foreach ($this->messages as $entry): ?>
-               
+               <div class="monaccordeon">
                 <!--Affiche le message-->
                 <div class="accordion-group">
-                    <div class="accordion-heading"> <a class="accordion-toggle" href="#menu<?php echo $entry->idMessage; ?>" data-parent="#monaccordeon" data-toggle="collapse">
+                    <div class="accordion-heading" id="<?php echo $entry->idMessage; ?>"> <a class="accordion-toggle" href="#menu<?php echo $entry->idMessage; ?>" data-parent=".monaccordeon" data-toggle="collapse">
                         <div class="row-fluid">
                            <div class="span12"> 
+                               <!-- Affiche l'avatar-->
                               <div class="avatar"><?php echo $this->gravatar($entry->getUserEmettre()->emailUser)?> </div>
-                           
+                              <!-- Affiche le nom de l'emetteur-->
                               <div class="nomUser"><?php if($entry->idUser_emettre != null) echo $this->escape($entry->getUserEmettre()->nomUser)?></div>
+                              <!-- Affiche la date du message-->
                               <div class="dateMessage"><?php echo $this->escape($this->dateMessage($entry->dateActiviteMsg)) ?></div><br/>
+                              <!-- Affiche le libélé du message-->
                               <div class="lblMessage"><?php echo $this->escape($entry->lblMessage) ?></div>
                               <!--<div class="nbMessage">23</div>-->
                            </div>  
-                           
                         </div>
                     </a>
                     </div>
+                    <!-- Menu du message-->
                     <div id="menu<?php echo $entry->idMessage; ?>" class="collapse menuMessage">
-                        <div id="monaccordeon">
+                        <div id="monaccordeonMenu">
                             <nav class="navbar">
                                 <div class="navbar-inner">
                                   <div class="container">
@@ -42,10 +44,12 @@ TODO
                                                 }    
                                             }
                                          ?>
-
+                                        <!-- Formulaire de saisie de réponse au message-->
                                         <li><?php echo $this->reponseMessage($entry->idMessage); ?></li>
+                                        <!-- Séparateur-->
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo$this->likeMessage($entry->idMessage);?>"><i class="icon-thumbs-up"></i> <?php echo $plus ?></a> </li>
+                                        <!-- Séparateur-->
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo$this->unlikeMessage($entry->idMessage);?>"><i class="icon-thumbs-down"></i>  <?php echo $moins ?></a> </li>
                                         <!--<li class="divider-vertical"></li>
@@ -53,18 +57,20 @@ TODO
                                         <li class="divider-vertical"></li>
                                         <li><a href="http://www.twitter.com">Twitter</a></li>-->
                                         <?php if($this->moderateur){ ?> 
+                                        <!-- Séparateur-->
                                         <li class="divider-vertical"></li>
                                         <li> <a href="<?php echo $this->moderationMessage($entry->idMessage) ?>">Modérer</a> </li><?php }?>
                                     </ul>
                                   </div>
                                 </div>
                               </nav>
-                       
+                            <div id="reponses<?php echo $entry->idMessage; ?>"></div>
                         </div><!--monaccordeon-->
                     </div>
               </div><!--accordion-group-->
+            </div><!--monaccordeon-->  
          <?php endforeach ?>
-    </div><!--monaccordeon-->
+      <div id="chargerPlusMessage"><a href="">Plus...</a></div>
 </div><!--container-fluid-->
 
 
