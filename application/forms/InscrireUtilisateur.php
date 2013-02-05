@@ -54,6 +54,10 @@ class Application_Form_InscrireUtilisateur extends Twitter_Form//Zend_Form
         
 		//on ajoute les différents input à la construction du formulaire
         $this->addElements(array($elm_login, $elm_email, $elm_pwd, $elm_nom, $elm_prenom, $elm_submit));
+        $this->setDecorators(array(
+            array('ViewScript', array('viewScript' => 'forms/inscrireUtilisateur.phtml'))
+        ));
+
     }
 
 }

@@ -119,18 +119,55 @@ class Application_Model_Row_UtilisateurRow extends Zend_Db_Table_Row_Abstract
         
     }
     
+//    public function getRole($idOrga){
+//        $profils = $this->getProfils($idOrga);
+//        $role = 'visiteur';
+//        if ($profils->count()>0) {
+//            $role = 'identifie';
+//            //TODO : préciser s'il s'agit d'un corp ou orga
+//            //  (attention le cas ou l'utilisateur est à la fois corp ou orga)
+//        }
+//        else{
+//            $role = 'utilisateur';
+//        }
+//        return $role;
+//    }
+//    
     public function getRole($idOrga){
+        $idProfil = $this->getDistinction($idOrga);
+        $role = null;
+        switch ($idProfil) {
+            case null:
+                //identifié sans distinction
+                $role = 'utilisateur';
+                break;
+            case 1:
+                //Organisateur
+                $role = 'organisateur';
+                break;
+            case 2:
+                //Corporate
+                $role = 'corporate';
+                break;
+            case 3:
+                //Partenaire
+                $role = 'partenaire';
+                break;
+            default:
+                //aucun des cas
+                $role = 'identifie';
+         }
+         return $role;
+    }
+
+    public function getDistinction($idOrga){
         $profils = $this->getProfils($idOrga);
-        $role = 'visiteur';
-        if ($profils->count()>0) {
-            $role = 'identifie';
-            //TODO : préciser s'il s'agit d'un corp ou orga
-            //  (attention le cas ou l'utilisateur est à la fois corp ou orga)
+        $profil = $profils->current();
+        $idProfil = null;
+        if (!is_null($profil)) {
+            $idProfil = $profil->idProfil;
         }
-        else{
-            $role = 'utilisateur';
-        }
-        return $role;
+        return $idProfil;
     }
 }
 

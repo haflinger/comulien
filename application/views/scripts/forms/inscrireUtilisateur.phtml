@@ -1,0 +1,39 @@
+<form id="register" class="form-vertical" enctype="application/x-www-form-urlencoded"
+      action="<?php echo $this->escape($this->element->getAction()); ?>" 
+      method="<?php echo $this->escape($this->element->getMethod()); ?>">
+    <fieldset id="fieldset-register">
+        <div class="control-group">
+            <label for="login" class="control-label required">Login</label>
+            <div class="controls">
+                <?php echo $this->element->login->renderViewHelper(); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="email" class="control-label required">Email</label>
+            <div class="controls">
+                <?php echo $this->element->email->renderViewHelper(); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="password" class="control-label required">Password</label>
+            <div class="controls">
+                <?php echo $this->element->password->renderViewHelper(); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="nom" class="control-label optional">Nom</label>
+            <div class="controls">
+                <?php echo $this->element->nom->renderViewHelper(); ?>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="prenom" class="control-label optional">Prenom</label>
+            <div class="controls">
+                <?php echo $this->element->prenom->renderViewHelper(); ?>
+            </div>
+        </div>
+        <div class="form-actions">
+            <?php echo $this->element->submit->renderViewHelper(); ?>
+        </div>
+    </fieldset>
+</form>

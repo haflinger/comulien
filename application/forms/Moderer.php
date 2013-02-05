@@ -26,6 +26,10 @@ class Application_Form_Moderer extends Twitter_Form //Zend_Form
 
         $elements = array ($hiddenIdMessage, $submit );
         $this->addElements ( $elements );
+        
+        $this->setDecorators(array(
+            array('ViewScript', array('viewScript' => 'forms/inscrireUtilisateur.phtml'))
+        ));
     }
    
 

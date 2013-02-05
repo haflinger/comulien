@@ -1,4 +1,3 @@
-<br /><br />
 <div id="view-content">
     <ul>
         <li><img src="<?php echo $this->escape($this->utilisateur->getGravatar()) ?>" alt="" /></li>
@@ -11,51 +10,15 @@
         <li><a href="<?php echo $this->baseUrl() . '/utilisateur/profilprive' ?>">Voir mon profil complet</a></li>
         <li><a href="<?php echo $this->baseUrl() . '/utilisateur/deconnecter' ?>">Me déconnecter</a></li>
         <li>TODO : si organisateur de l'évènement en cours : proposer d'éditer l'évènement</li>
+        <li>Rôles dans les organismes :</li>
+        <?php $dist = $this->utilisateur->getDistinctions();
+        foreach ($dist as $distinction){
+            echo  $distinction->getOrganisme()->nomOrga . 
+                     '<ul><li>Profil : ' . $distinction->getProfil()->nomProfil . '</li>' .
+                     '<li>Fonction : ' . $distinction->nomFonction . '</li>' . 
+                     '<li>Droit modération : ' . (($distinction->droitModeration==1)?'oui':'non') . '</li></ul>';
+        }
+        ?>
+        
     </ul>  
 </div>
-<!--
-Utilisateur Entries: <br />
-<dl>
-    <?php foreach ($this->entries as $entry): ?>
-    <p>---------------------------------------------------------------------------------</p>
-    <dt><?php echo $this->escape($entry->loginUser) ?></dt>
-    <dd><img src="<?php echo $this->escape($entry->getGravatar()) ?>" alt="" /></dd>
-    <dd><?php echo $this->escape($entry->pswUser) ?></dd>
-    <dd><?php echo $this->escape($entry->emailUser) ?></dd>
-    <dd><?php echo $this->escape($entry->dateInscriptionUser) ?></dd>
-    <dd><?php echo $this->escape($entry->nomUser) ?></dd>
-    <dd><?php echo $this->escape($entry->prenomUser) ?></dd>
-    <dd><?php echo $this->escape($entry->nbMsgUser) ?></dd>
-    <dd><?php echo $this->escape($entry->nbApprouverUser) ?></dd>
-    <dd><?php echo $this->escape($entry->estActifUser) ?></dd>
-    <?php 
-     echo 'Liste des messages émis : <br/>';
-    //Recherche et affiche les messages
-    $mess = $entry->getMessagesEmis();
-     foreach ($mess as $message){
-         echo '<dd>Message : ' . $message->lblMessage . '</dd>'; 
-     }
-     ?>
-     <?php 
-     echo 'Liste des messages appréciés : <br/>';
-    //Recherche et affiche les messages
-    $app = $entry->getAppreciers();
-     foreach ($app as $appreciation){
-         echo '<dd>Message : ' . $appreciation->getMessage()->lblMessage . 
-                 ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
-     }
-     ?>
-    <?php 
-     echo 'Liste des organismes : <br/>';
-    //Recherche et affiche les utilisateurs d'un organisme
-    $dist = $entry->getDistinctions();
-     foreach ($dist as $distinction){
-         echo '<dd>Organisme : ' . $distinction->getOrganisme()->nomOrga . 
-                 ' - Profil : ' . $distinction->getProfil()->nomProfil . 
-                 ' - Droit modération : ' . $distinction->droitModeration . 
-                 ' - Fonction : ' . $distinction->nomFonction . '</dd>'; 
-     }
-     ?>
-    <?php endforeach ?>
-</dl>
--->
