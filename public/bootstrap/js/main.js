@@ -1,8 +1,8 @@
 $(document).ready(function() {
 //au click sur le lien evenement
-    $("#monaccordeon").click(function(){
-        console.log( $("#IdMessageParent"));
-        var valeur = $("#IdMessageParent").val();
+    $(".accordion-heading").click(function(){
+        console.log("toto");
+        var valeur = this.id;
         $.ajax({
             type: "GET",
             url: BASE_URL + "/message/reponses/message/"+ valeur +"?format=json",
@@ -13,6 +13,8 @@ $(document).ready(function() {
             },
 
             success:function(data){
+                //traitement du json pour créer l'HTML
+                
                 //on met à jour le div zone_de_rechargement avec les données reçus
                 //on vide la div et on le cache
                 $("#reponses"+ valeur).empty().hide();

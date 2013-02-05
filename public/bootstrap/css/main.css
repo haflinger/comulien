@@ -98,6 +98,11 @@ body{
 }
 .accordion-group{background-color: #FFFFFF;}
 .contenuReponse{margin: 20px;padding:15px;}
+#chargerPlusMessage{
+    text-decoration-color: #66CCFF;
+    color: #66CCFF;
+    text-align: right;
+}
 /*Formulaire de message*/
 #message{
     width:94%;
