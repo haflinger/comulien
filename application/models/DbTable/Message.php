@@ -69,16 +69,38 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
     
-    public function reponsesMessage($idMessage, $idEvent, $showAll = false){
+    public function reponsesMessage($idMessage, $idEvent, $showAll = false, $depuisDateActivite = null){
+//        select m.idMessage , m.idUser_emettre ,  m.idTypeMsg , m.lblMessage , m.idProfil , m.estActifMsg , m.dateActiviteMsg ,
+//        sum(IF(a.evaluation>0,1,0)) as 'like' , sum(IF(a.evaluation<0,1,0)) as 'dislike' ,
+//        u.loginUser , u.emailUser
+//        from message m
+//        left outer join apprecier a on m.idMessage = a.idMessage
+//        inner join utilisateur u on m.idUser_emettre = u.idUser
+//        where idMessage_reponse=61
+//        and idEvent=1
+//        group by m.idMessage,'like','disklike'
+//        order by dateEmissionMsg DESC
 
+        
         $select = $this->select()
-                ->where('idMessage_reponse=?',$idMessage)
-                ->where('idEvent=?',$idEvent)
+                ->setIntegrityCheck(false)
+                ->from(array('m'=>'message'),
+                        array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg','dateActiviteMsg'))
+                ->joinLeft(array('a'=>'apprecier'),
+                        'm.idMessage = a.idMessage',
+                        array('sum(if(a.evaluation>0,1,0)) as like','sum(if(a.evaluation<0,1,0)) as dislike'))
+                ->joinInner(array('u'=>'utilisateur'),
+                        'm.idUser_emettre = u.idUser',
+                        array('loginUser','emailUser'))
+                ->where('m.idMessage_reponse=?',$idMessage)
+                ->where('m.idEvent=?',$idEvent)
+                ->group('m.idMessage','like','disklike')
                 ->order('dateEmissionMsg DESC');
         //les messages actifs seulement ?
         if (!$showAll) {
-            $select->where('estActifMsg=?','1'); //seuls les messages actifs
+            $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
         }
+        Zend_Registry::set('sql',$select->assemble());
         $result = $this->fetchAll($select);
         return $result;
     }
