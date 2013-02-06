@@ -152,10 +152,7 @@ class MessageController extends Zend_Controller_Action
         $idMessage = $this->getRequest()->getParam('message');
         $lesReponses = null;
         if (!is_null($idMessage)) {
-            
-
             $idEvent = $this->_evenement->idEvent;
-
             //récupération des messages
             $tableMessage = new Application_Model_DbTable_Message();
             $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur);

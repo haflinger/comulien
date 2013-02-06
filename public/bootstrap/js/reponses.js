@@ -40,10 +40,12 @@ $(document).ready(function() {
             $reponse += '<div class="reponse">';
             $reponse += '<div class="row-fluid">';
             $reponse += '<div class="span12">';
-            $reponse += '<div class="avatar">avatar</div>';
-            $reponse += '<div class="nomUser">'+element.reponses[i].idUser_emettre +'</div>';
+            $reponse += '<div class="nomUser">#'+element.reponses[i].idUser_emettre +' : '+ element.reponses[i].loginUser +'</div>';
+            $reponse += '<div class="avatar">avatar '+ element.reponses[i].emailUser +'</div>';
             $reponse += '<div class="dateMessage">'+element.reponses[i].dateActiviteMsg +'</div><br/>';
-            $reponse += '<div class="lblMessage">'+ element.reponses[i].lblMessage +'</div>';
+            $reponse += '<div class="lblMessage">#'+element.reponses[i].idMessage +' : '+ element.reponses[i].lblMessage +'</div>';
+            $reponse += '<div class="idProfilUser">profil='+element.reponses[i].idProfil +' : '+ element.reponses[i].lblMessage +'</div>';
+            $reponse += '<div class="appreciations">like='+element.reponses[i].like +' / dislike='+ element.reponses[i].dislike +'</div>';
             $reponse += '</div>';  
             $reponse += '</div>';
             $reponse += '</a>';
