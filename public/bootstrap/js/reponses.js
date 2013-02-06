@@ -22,7 +22,8 @@ $(document).ready(function() {
                 parseJSON(data, valeur)
                 //on met à jour le div zone_de_rechargement avec les données reçus
                 $("#reponses"+ valeur).append();
-                $("#reponses"+ valeur).fadeIn(500);
+                //$("#reponses"+ valeur).fadeIn(500);
+                $("#reponses"+ valeur).show();
             }
         });
     });
