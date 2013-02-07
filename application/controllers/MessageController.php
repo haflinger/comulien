@@ -92,15 +92,15 @@ class MessageController extends Zend_Controller_Action
             //TODO : gérer les bornes (peut être faut t'il utiliser zend_validate_between
             $page = $numPage;
         }else{
-            $page = 1;
+            $page = 0;
         }
         //todo : utiliser la date d'activité la plus ancienne du jeux de données pour ne prendre que les messages encore plus anciens
-        $pagination = array(
+        /*$pagination = array(
             'currentPage'=>$page,
             'nextPage'=>$page+1,//TODO : vérifier si la page suivante possède des résultats
             'previousPage'=>$page>0?$page-1:$page
             );
-        $this->view->pagination = $pagination;
+        $this->view->pagination = $pagination;*/
         
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();

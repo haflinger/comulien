@@ -103,6 +103,10 @@ body{
     color: #66CCFF;
     text-align: right;
 }
+.rep{
+    background-color: #F9F6F4;
+    padding-left: 30px;
+}
 /*Formulaire de message*/
 #message{
     width:94%;

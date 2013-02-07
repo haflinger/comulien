@@ -2,8 +2,6 @@
 TODO
 - Modifier l'image par défaut de gravatar
 -->
-<script src="<?php echo $this->baseUrl() . '/bootstrap/' ?>js/reponses.js" type="text/javascript"></script>    
-   <script src="<?php echo $this->baseUrl() . '/bootstrap/' ?>js/plusMessage.js" type="text/javascript"></script>       
 <div class="container-fluid">
         <?php foreach ($this->messages as $entry): ?>
                <div class="monaccordeon">
@@ -72,9 +70,11 @@ TODO
               </div><!--accordion-group-->
             </div><!--monaccordeon-->  
          <?php endforeach ?>
-      <div class="chargerPlusMessage" id="chargerPlusMessage"><a class="chargerPlusMessage" href="">Plus...</a></div>
 </div><!--container-fluid-->
+<div class="chargerPlusMessage" id="chargerPlusMessage"><a class="chargerPlusMessage" href="">Plus...</a></div>
 
+<script src="<?php echo $this->baseUrl() . '/bootstrap/' ?>js/reponses.js" type="text/javascript"></script>    
+<script src="<?php echo $this->baseUrl() . '/bootstrap/' ?>js/plusMessage.js" type="text/javascript"></script>       
 
 
    
