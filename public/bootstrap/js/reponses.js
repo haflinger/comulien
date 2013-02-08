@@ -4,7 +4,10 @@ $(document).ready(function() {
     //au click sur le message
     $(".accordion-heading").click(function(){
         valeur = this.id;
-        console.log(valeur);
+        if ($("#attente" + valeur).is(":hidden")){
+            
+        $("#attente"+valeur).show();
+        console.log(this);
         $.ajax({
             type: "GET",
             url: BASE_URL + "/message/reponses/message/"+ valeur +"?format=json",
@@ -21,11 +24,11 @@ $(document).ready(function() {
                 //console.log(data);
                 parseJSON(data);
                 //on met à jour le div zone_de_rechargement avec les données reçus
-                //$("#reponses"+ valeur).append();
                 //$("#reponses"+ valeur).fadeIn(500);
-                
+                $("#attente"+valeur).hide();
             }
         });
+    }
     });
     
     var parseJSON = function(data){
@@ -39,9 +42,9 @@ $(document).ready(function() {
         $reponse = '';
         for (var i = 0; i<element.reponses.length; i++){
                   
-            $reponse += '<div class="monaccordeon">';
+            $reponse += '<div class="monaccordeonRep">';
                 $reponse += '<div class="accordion-group">';
-                    $reponse += '<div class="accordion-heading" id="' + element.reponses[i].idMessage + '"> <a class="accordion-toggle" href="#menu' + element.reponses[i].idMessage + '" data-parent=".monaccordeon" data-toggle="collapse">';
+                    $reponse += '<div class="accordion-heading" id="' + element.reponses[i].idMessage + '"> <a class="accordion-toggle" href="#menuRep' + element.reponses[i].idMessage + '" data-parent=".monaccordeonRep" data-toggle="collapse">';
                         $reponse += '<div class="rep">';
                             $reponse += '<div class="row-fluid">';
                                 $reponse += '<div class="span12">';  
@@ -55,21 +58,21 @@ $(document).ready(function() {
                     $reponse += '</a>';
                 $reponse += '</div>';
             $reponse += '</div>';
-            $reponse += '<div id="menu'+element.reponses[i].idMessage+'" class="collapse menuMessage">';
-                $reponse += '<div id="monaccordeonMenuRep">';
+            $reponse += '<div id="menuRep'+element.reponses[i].idMessage+'" class="collapse menuMessage">';
+                $reponse += '<div id="monaccordeonRepMenuRep">';
                     $reponse += '<nav class="navbar">';
                         $reponse += '<div class="navbar-inner">';
                             $reponse += '<div class="container">';
                                 $reponse += '<ul class="nav">';
                                     $reponse += '<li class="divider-vertical"></li>';
-                                    $reponse +='<li> <a href="'+element.reponses[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.reponses[i].like+'</a> </li>';
+                                    $reponse +='<li> <a href="/comuZend/public/message/approuver/message/'+element.reponses[i].idMessage+'/appreciation/1"><i class="icon-thumbs-up"></i>'+element.reponses[i].like+'</a> </li>';
                                     $reponse +='<li class="divider-vertical"></li>';
-                                    $reponse +='<li> <a href="'+element.reponses[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.reponses[i].dislike+'</a> </li>';
+                                    $reponse +='<li> <a href="/comuZend/public/message/approuver/message/'+element.reponses[i].idMessage+'/appreciation/-1"><i class="icon-thumbs-down"></i>'+element.reponses[i].dislike+'</a> </li>';
                                 $reponse +='</ul>';
                             $reponse +='</div>';
                         $reponse +='</div>';
                     $reponse +='</nav>'; 
-                $reponse +='</div><!--monaccordeon-->';
+                $reponse +='</div><!--monaccordeonRep-->';
             $reponse +='</div>';
         $reponse +='</div>';
         }

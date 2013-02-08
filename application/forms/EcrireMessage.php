@@ -73,8 +73,8 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         $message->setAllowEmpty(false);
         $message->setAttrib('placeholder','Votre message');
         $message->setRequired(true);
-        $message->setAttrib('cols', 35)
-                ->setAttrib('rows', 4);
+        //$message->setAttrib('cols', 35)
+               // ->setAttrib('rows', 4);
         //$message->addValidator('StringLength',array(0,10)); //todo à vérifier
         
         //
