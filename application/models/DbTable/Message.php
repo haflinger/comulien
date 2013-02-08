@@ -55,12 +55,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      * @return type
      */
     public function messagesTous($idEvent, $showAll, $pageNum = 1, $nbItemParPage = 5 ,$dateRef = null){
-//        $select = $this->select()
-//                ->where('idEvent=?',$evenement->idEvent) //dans l'évènement
-//                ->where('idMessage_reponse IS NULL')     // pas les réponses
-//                ->order('dateActiviteMsg DESC');         //classés par date d'activité la plus récente en premier
         //TODO : job in progress : utiliser la date pour la pagination
-        // X messages depuis telle date
         if (is_null($dateRef)) {
             //pas de date de référence : messages plus anciens que maintenant
             $dateRef = Zend_Date::now();
@@ -90,26 +85,17 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         //$select->limitPage($pageNum, $nbItemParPage);
         $select->limit($nbItemParPage);
         $result = $this->fetchAll($select);
-        //TODO retourner également la date la plus ancienne
         Zend_Registry::set('sql',$select->assemble());
         return $result;
     }
 
     
     
-    public function reponsesMessage($idMessage, $idEvent, $showAll = false ,$pageNum = 1, $nbItemParPage = 5 , $depuisDateActivite = null){
-//        select m.idMessage , m.idUser_emettre ,  m.idTypeMsg , m.lblMessage , m.idProfil , m.estActifMsg , m.dateActiviteMsg ,
-//        sum(IF(a.evaluation>0,1,0)) as 'like' , sum(IF(a.evaluation<0,1,0)) as 'dislike' ,
-//        u.loginUser , u.emailUser
-//        from message m
-//        left outer join apprecier a on m.idMessage = a.idMessage
-//        inner join utilisateur u on m.idUser_emettre = u.idUser
-//        where idMessage_reponse=61
-//        and idEvent=1
-//        group by m.idMessage,'like','disklike'
-//        order by dateEmissionMsg DESC
-
-        
+    public function reponsesMessage($idMessage, $idEvent, $showAll = false ,$pageNum = 1, $nbItemParPage = 5 , $dateRef = null){
+        if (is_null($dateRef)) {
+            //pas de date de référence : messages plus anciens que maintenant
+            $dateRef = Zend_Date::now();
+        } 
         $select = $this->select()
                 ->setIntegrityCheck(false)
                 ->from(array('m'=>'message'),
@@ -122,13 +108,14 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                         array('loginUser','emailUser'))
                 ->where('m.idMessage_reponse=?',$idMessage)
                 ->where('m.idEvent=?',$idEvent)
+                ->where('m.dateActiviteMsg<?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
                 ->group('m.idMessage','like','disklike')
                 ->order('dateEmissionMsg DESC');
         //les messages actifs seulement ?
         if (!$showAll) {
             $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
         }
-        $select->limitPage($pageNum, $nbItemParPage);
+        $select->limit( $nbItemParPage);
         $result = $this->fetchAll($select);
         Zend_Registry::set('sql',$select->assemble());
         return $result;
