@@ -102,14 +102,17 @@ class UtilisateurController extends Zend_Controller_Action
     {
         $formInscription =  new Application_Form_InscrireUtilisateur();
         $this->view->formInscription = $formInscription;
-        
         //si le formulaire est posté
         if ($this->getRequest()->isPost()) {
         //on récupère les données postées
             $formData = $this->getRequest()->getPost();
             //si les données postées sont valides 
+            $formInscription->setOptions($formData);
+            $formInscription->render();
+            $this->view->$errorsMessages = $formInscription->getMessages();
             if ($formInscription->isValid($formData)) {
                 //on récupère les données qui nous intéressent
+        
                 $login = $formInscription->getValue('login');
                 $email = $formInscription->getValue('email');
                 $password = $formInscription->getValue('password');
@@ -123,6 +126,9 @@ class UtilisateurController extends Zend_Controller_Action
 
                 //éventuellle redirection
                 $this->_forward('authentifier','utilisateur');
+            }else{
+                
+
             }
         }
     

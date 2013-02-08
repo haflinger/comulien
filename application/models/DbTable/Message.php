@@ -54,22 +54,50 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      * @param bool $showAll indique si les messages modérés doivent être affichés
      * @return type
      */
-    public function messagesTous(Application_Model_Row_EvenementRow $evenement, $showAll, $pageNum = 1, $nbItemParPage = 5 ){
+    public function messagesTous($idEvent, $showAll, $pageNum = 1, $nbItemParPage = 5 ,$dateRef = null){
+//        $select = $this->select()
+//                ->where('idEvent=?',$evenement->idEvent) //dans l'évènement
+//                ->where('idMessage_reponse IS NULL')     // pas les réponses
+//                ->order('dateActiviteMsg DESC');         //classés par date d'activité la plus récente en premier
+        //TODO : job in progress : utiliser la date pour la pagination
+        // X messages depuis telle date
+        if (is_null($dateRef)) {
+            //pas de date de référence : messages plus anciens que maintenant
+            $dateRef = Zend_Date::now();
+        } 
+        
+        //$dateRef = Zend_Date::now()->subDay(4);//todo pour les tests
         $select = $this->select()
-                ->where('idEvent=?',$evenement->idEvent) //dans l'évènement
-                ->where('idMessage_reponse IS NULL')     // pas les réponses
-                ->order('dateActiviteMsg DESC');         //classés par date d'activité la plus récente en premier
-                
+                ->setIntegrityCheck(false)
+                ->from(array('m'=>'message'),
+                        array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg','dateActiviteMsg'))
+                ->joinLeft(array('a'=>'apprecier'),
+                        'm.idMessage = a.idMessage',
+                        array('sum(if(a.evaluation>0,1,0)) as like','sum(if(a.evaluation<0,1,0)) as dislike'))
+                ->joinInner(array('u'=>'utilisateur'),
+                        'm.idUser_emettre = u.idUser',
+                        array('loginUser','emailUser'))
+                //->where('m.idMessage_reponse=?',$idMessage)
+                ->where('m.idMessage_reponse IS NULL')          //ne pas prendre les réponses
+                ->where('m.idEvent=?',$idEvent)                 //les messages de l'évènement
+                ->where('m.dateActiviteMsg<?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
+                ->group('m.idMessage','like','disklike')
+                ->order('dateActiviteMsg DESC');        
         //les messages actifs seulement ?
         if (!$showAll) {
-            $select->where('estActifMsg=?','1'); //seuls les messages actifs
+            $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
         }
-        $select->limitPage($pageNum, $nbItemParPage);
+        //$select->limitPage($pageNum, $nbItemParPage);
+        $select->limit($nbItemParPage);
         $result = $this->fetchAll($select);
+        //TODO retourner également la date la plus ancienne
+        Zend_Registry::set('sql',$select->assemble());
         return $result;
     }
+
     
-    public function reponsesMessage($idMessage, $idEvent, $showAll = false, $depuisDateActivite = null){
+    
+    public function reponsesMessage($idMessage, $idEvent, $showAll = false ,$pageNum = 1, $nbItemParPage = 5 , $depuisDateActivite = null){
 //        select m.idMessage , m.idUser_emettre ,  m.idTypeMsg , m.lblMessage , m.idProfil , m.estActifMsg , m.dateActiviteMsg ,
 //        sum(IF(a.evaluation>0,1,0)) as 'like' , sum(IF(a.evaluation<0,1,0)) as 'dislike' ,
 //        u.loginUser , u.emailUser
@@ -100,8 +128,9 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         if (!$showAll) {
             $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
         }
-        Zend_Registry::set('sql',$select->assemble());
+        $select->limitPage($pageNum, $nbItemParPage);
         $result = $this->fetchAll($select);
+        Zend_Registry::set('sql',$select->assemble());
         return $result;
     }
     
