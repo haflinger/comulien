@@ -42,8 +42,9 @@ class MessageController extends Zend_Controller_Action
     {
         
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
-        
+        //
         //Récupération du droit de modération de l'utilisateur dans l'évènement
+        //
         $auth = Zend_Auth::getInstance ();
         $moderateur = false;
         $UtilisateurActif = null;
@@ -57,8 +58,10 @@ class MessageController extends Zend_Controller_Action
 
         //passe à la vue le droit de l'utilisateur à modérer
         $this->view->moderateur = $moderateur;
-
+        
+        //
         //vérification du droit d'écrire un message
+        //
 
         //Détermination du rôle de l'utilisateur dans l'organisme
         if (!is_null($UtilisateurActif)) {
@@ -66,8 +69,11 @@ class MessageController extends Zend_Controller_Action
         }else{
             $role = 'visiteur';
         }
-
-        if (true) {
+       
+        //
+        // prise en charge du formulaire
+        //
+        if ($context!='json') { //le formulaire n'est pas envoyé pour du json
             $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
             $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
             $ACL = Zend_Registry::get('Zend_Acl');
@@ -83,10 +89,13 @@ class MessageController extends Zend_Controller_Action
             }
 
         }else{
-            //ici les choses quand on est pas en html
+            //ici nous traitons le json
         }
         
-        $numPage = $this->getRequest()->getParam('numpage');
+        //
+        // traitement de la pagination
+        //
+        $numPage = $this->getRequest()->getParam('numpage'); //obsolethe lorsque la pagination par date sera fonctionnelle
         $validator = new Zend_Validate_Int();
         if ($validator->isValid($numPage) ) {
             //TODO : gérer les bornes (peut être faut t'il utiliser zend_validate_between
@@ -94,22 +103,24 @@ class MessageController extends Zend_Controller_Action
         }else{
             $page = 0;
         }
-        //todo : utiliser la date d'activité la plus ancienne du jeux de données pour ne prendre que les messages encore plus anciens
-        /*$pagination = array(
-            'currentPage'=>$page,
-            'nextPage'=>$page+1,//TODO : vérifier si la page suivante possède des résultats
-            'previousPage'=>$page>0?$page-1:$page
-            );
-        $this->view->pagination = $pagination;*/
+        $fromDate = $this->getRequest()->getParam('fromdate',  null );
+        //TODO : les dates en paramètres vont transiter sous forme de timestamps
+        if (!is_null($fromDate)) {
+            $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
+        }
         
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
-        $messagesTous = $tableMessage->messagesTous($this->_evenement,$moderateur,$page,self::NB_MESSAGES_PAR_PAGE);
-        
+        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$page,self::NB_MESSAGES_PAR_PAGE, $fromDate);
+        $stringDateProchaine = $messagesTous->getRow(self::NB_MESSAGES_PAR_PAGE-1)->dateActiviteMsg;
+        //$zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S');
+        $zendDateProchaine = new Zend_Date( $stringDateProchaine ,  Zend_Date::TIMESTAMP);
+        $dateProchaine = $zendDateProchaine->getTimestamp();
+        //message/lister-tous/datedebut/xxxxxxx/datefin/xxxxxxxx
         if ($context=='json') {
             $messagesTous = $messagesTous->toArray();
         }
-        
+        $this->view->dateProchaine = $dateProchaine; //on retourne un timestamp
         $this->view->messages = $messagesTous;
         
     }

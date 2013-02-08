@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Example extends Twitter_Form
+class Application_Form_Example extends Zend_Form//Twitter_Form
 {
 	public function init()
 	{
