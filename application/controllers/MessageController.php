@@ -37,6 +37,14 @@ class MessageController extends Zend_Controller_Action
         $Message = new Application_Model_DbTable_Message();
         $this->view->entries = $Message->fetchAll();
     }
+    
+    public function listerOrganisateurAction()
+    {
+        //si la session contient un evenement
+        $Message = new Application_Model_DbTable_Message();
+        $messagesOrganisateurs = $Message->messagesOrganisateur($this->_evenement);
+        $this->view->messages = $messagesOrganisateurs;
+    }
 
     public function listerTousAction()
     {
@@ -114,9 +122,10 @@ class MessageController extends Zend_Controller_Action
         $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$page,self::NB_MESSAGES_PAR_PAGE, $fromDate);
         $stringDateProchaine = $messagesTous->getRow(self::NB_MESSAGES_PAR_PAGE-1)->dateActiviteMsg;
         //$zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S');
-        $zendDateProchaine = new Zend_Date( $stringDateProchaine ,  Zend_Date::TIMESTAMP);
+        $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
         $dateProchaine = $zendDateProchaine->getTimestamp();
-        //message/lister-tous/datedebut/xxxxxxx/datefin/xxxxxxxx
+        //message/lister-tous/fromdate/xxxxxxx/
+        
         if ($context=='json') {
             $messagesTous = $messagesTous->toArray();
         }
@@ -125,13 +134,6 @@ class MessageController extends Zend_Controller_Action
         
     }
     
-    public function listerOrganisateurAction()
-    {
-        //si la session contient un evenement
-        $Message = new Application_Model_DbTable_Message();
-        $messagesOrganisateurs = $Message->messagesOrganisateur($this->_evenement);
-        $this->view->messages = $messagesOrganisateurs;
-    }
 
     public function reponsesAction()
     {
@@ -158,6 +160,12 @@ class MessageController extends Zend_Controller_Action
             $role = $UtilisateurActif->getRole($this->_evenement->idOrga);
         }else{
             $role = 'visiteur';
+        }
+        
+        $fromDate = $this->getRequest()->getParam('fromdate',  null );
+        //TODO : les dates en paramètres vont transiter sous forme de timestamps
+        if (!is_null($fromDate)) {
+            $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
         }
         
         $idMessage = $this->getRequest()->getParam('message');
