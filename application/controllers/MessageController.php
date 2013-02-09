@@ -113,7 +113,7 @@ class MessageController extends Zend_Controller_Action
         }
         $fromDate = $this->getRequest()->getParam('fromdate',  null );
         //TODO : les dates en paramètres vont transiter sous forme de timestamps
-        if (is_null($fromDate)) {
+        if (!is_null($fromDate)) {
             $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
         }  
         

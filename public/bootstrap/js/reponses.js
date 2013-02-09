@@ -4,10 +4,11 @@ $(document).ready(function() {
     //au click sur le message
     $(".accordion-heading").click(function(){
         valeur = this.id;
+        
         if ($("#attente" + valeur).is(":hidden")){
             
         $("#attente"+valeur).show();
-        console.log(this);
+        console.log($("#attente" + valeur).is(":hidden"));
         $.ajax({
             type: "GET",
             url: BASE_URL + "/message/reponses/message/"+ valeur +"?format=json",
