@@ -91,7 +91,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
 
     
     
-    public function reponsesMessage($idMessage, $idEvent, $showAll = false ,$pageNum = 1, $nbItemParPage = 5 , $dateRef = null){
+    public function reponsesMessage($idMessage, $idEvent, $showAll = false , $nbItemParPage = 5 , $dateRef = null){
         if (is_null($dateRef)) {
             //pas de date de référence : messages plus anciens que maintenant
             $dateRef = Zend_Date::now();

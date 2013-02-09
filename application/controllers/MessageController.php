@@ -120,10 +120,16 @@ class MessageController extends Zend_Controller_Action
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
         $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$page,self::NB_MESSAGES_PAR_PAGE, $fromDate);
-        $stringDateProchaine = $messagesTous->getRow(self::NB_MESSAGES_PAR_PAGE-1)->dateActiviteMsg;
+        //ATTENTION la ligne suivante bug si on a pas assez de résukltats
+        if ($messagesTous->count() > 0) {
+            $stringDateProchaine = $messagesTous->getRow( $messagesTous->count()-1)->dateActiviteMsg;
+            $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
+            $dateProchaine = $zendDateProchaine->getTimestamp();
+        } else {
+            $dateProchaine = null;
+        }
         //$zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S');
-        $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
-        $dateProchaine = $zendDateProchaine->getTimestamp();
+        
         //message/lister-tous/fromdate/xxxxxxx/
         
         if ($context=='json') {
@@ -165,6 +171,7 @@ class MessageController extends Zend_Controller_Action
         $fromDate = $this->getRequest()->getParam('fromdate',  null );
         //TODO : les dates en paramètres vont transiter sous forme de timestamps
         if (!is_null($fromDate)) {
+            //$estDate = Zend_Date::isDate($fromDate,Zend_Date::TIMESTAMP);
             $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
         }
         
@@ -174,16 +181,23 @@ class MessageController extends Zend_Controller_Action
             $idEvent = $this->_evenement->idEvent;
             //récupération des messages
             $tableMessage = new Application_Model_DbTable_Message();
-            $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur);
+            $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur,self::NB_MESSAGES_PAR_PAGE,$fromDate);
         }
-        
+        if ($lesReponses->count() > 0) {
+            $stringDateProchaine = $lesReponses->getRow( $lesReponses->count()-1)->dateActiviteMsg;
+            $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
+            $dateProchaine = $zendDateProchaine->getTimestamp();
+        } else {
+            $dateProchaine = null;
+        }
         //selon le context, retourne un array (pour le json) ou un rowset pour la vue html
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
         if ($context=='json') {
-            $this->view->reponses = $lesReponses->toArray();
-        }else{
-            $this->view->reponses = $lesReponses;
+            $lesReponses = $lesReponses->toArray();
         }
+        $this->view->reponses = $lesReponses;
+        $this->view->dateProchaine = $dateProchaine; //on retourne un timestamp
+        
     }
 
     public function approuverAction()
