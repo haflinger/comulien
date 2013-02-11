@@ -28,6 +28,7 @@ class MessageController extends Zend_Controller_Action
         $contextSwitch->addActionContext('reponses', 'json')
                       ->addActionContext('approuver', 'json')
                       ->addActionContext('lister-tous', 'json')
+                      ->addActionContext('lister-organisateur', 'json')
                       ->initContext();
     }
 
@@ -41,8 +42,13 @@ class MessageController extends Zend_Controller_Action
     public function listerOrganisateurAction()
     {
         //si la session contient un evenement
-        $Message = new Application_Model_DbTable_Message();
-        $messagesOrganisateurs = $Message->messagesOrganisateur($this->_evenement);
+        $tableMessage = new Application_Model_DbTable_Message();
+        $messagesOrganisateurs = $tableMessage->messagesOrganisateur($this->_evenement->idEvent);
+        
+        $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        if ($context=='json') {
+            $messagesOrganisateurs = $messagesOrganisateurs->toArray();
+        }
         $this->view->messages = $messagesOrganisateurs;
     }
 
@@ -105,14 +111,14 @@ class MessageController extends Zend_Controller_Action
         //
         // traitement de la pagination
         //
-        $numPage = $this->getRequest()->getParam('numpage'); //obsolethe lorsque la pagination par date sera fonctionnelle
-        $validator = new Zend_Validate_Int();
-        if ($validator->isValid($numPage) ) {
-            //TODO : gérer les bornes (peut être faut t'il utiliser zend_validate_between
-            $page = $numPage;
-        }else{
-            $page = 0;
-        }
+//        $numPage = $this->getRequest()->getParam('numpage'); //obsolethe lorsque la pagination par date sera fonctionnelle
+//        $validator = new Zend_Validate_Int();
+//        if ($validator->isValid($numPage) ) {
+//            //TODO : gérer les bornes (peut être faut t'il utiliser zend_validate_between
+//            $page = $numPage;
+//        }else{
+//            $page = 0;
+//        }
         $fromDate = $this->getRequest()->getParam('fromdate',  null );
         //TODO : les dates en paramètres vont transiter sous forme de timestamps
         if (!is_null($fromDate)) {
@@ -122,7 +128,7 @@ class MessageController extends Zend_Controller_Action
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
         $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$page,self::NB_MESSAGES_PAR_PAGE, $fromDate);
-        //ATTENTION la ligne suivante bug si on a pas assez de résukltats
+        //ATTENTION la ligne suivante bug si on a pas assez de résultats
         if ($messagesTous->count() > 0) {
             $stringDateProchaine = $messagesTous->getRow( $messagesTous->count()-1)->dateActiviteMsg;
             $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
@@ -130,7 +136,6 @@ class MessageController extends Zend_Controller_Action
         } else {
             $dateProchaine = null;
         }
-        //$zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S');
         
         //message/lister-tous/fromdate/xxxxxxx/
         

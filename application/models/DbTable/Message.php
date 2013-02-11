@@ -34,17 +34,22 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
             'refColumns'        => 'idUser'
         ));
 
-    public function messagesOrganisateur(Application_Model_Row_EvenementRow $evenement, $showActifOnly = true)
+    public function messagesOrganisateur($idEvent , $showActifOnly = true, $nbMessages = 5)
     {
         $select = $this->select()
-                     ->where('idEvent=?',$evenement->idEvent)   //dans l'évènement
-                     ->where('idProfil=1')                      //les organisateurs
-                     ->order('dateEmissionMsg DESC');           //classés par date d'émission les plus récents en premier
+                ->from('message',
+                        array('idEvent','idUser_emettre','idUser_moderer','idMessage','idTypeMsg','lblMessage','estActifMsg','dateEmissionMsg','dateActiviteMsg')
+                        )                            // TODO il faudra une jointure pour le type de message lorsqu'il sera utilisé
+                ->where('idEvent=?',$idEvent)        //dans l'évènement
+                ->where('idProfil=1')                //les organisateurs
+                ->order('dateActiviteMsg DESC');     //classés par date d'émission les plus récents en premier
         //les messages actifs seulement ?
         if ($showActifOnly) {
             $select->where('estActifMsg=1');              //seuls les messages actifs
         }
+        $select->limit($nbMessages);
         $result = $this->fetchAll($select);
+        Zend_Registry::set('sql',$select->assemble());
         return $result;
     }
     
