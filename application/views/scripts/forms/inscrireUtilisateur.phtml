@@ -1,34 +1,63 @@
 <?php $valideur = new Zend_Validate();
-$errorsMessages = $this->errorsMessages;
+$errorsMessages = $this->element->getMessages() ;//errorsMessages;
+
+
 ?>
 <form id="register" class="form-vertical" enctype="application/x-www-form-urlencoded"
       action="<?php echo $this->escape($this->element->getAction()); ?>" 
       method="<?php echo $this->escape($this->element->getMethod()); ?>">
     <fieldset id="fieldset-register">
         <div class="control-group">
-            <label for="login" class="control-label required">Login</label>
+            <label for="login" class="control-label required"><?php echo $this->element->login->renderLabel(); //rend le label ?></label>
             <div class="controls">
-                <?php echo $this->element->login->renderViewHelper(); ?>
+                <?php echo $this->element->login->renderDescription(); //rend la desctription  ?>
+                <?php echo $this->element->login->renderViewHelper(); // rend le input ?>
+                
             </div>
         </div>
         <div class="control-group">
-            <label for="email" class="control-label required">Email</label>
+            <label for="email" class="control-label required"><?php echo $this->element->email->renderLabel(); ?></label>
             <div class="controls">
-                <?php echo $this->element->email->renderViewHelper(); ?>
-                <?php if(isset($errorsMessages['email']['emailAddressInvalid'])){
-			echo "L'adresse e-mail que vous avez entré est invalide.";
+               <?php echo $this->element->email->renderDescription(); ?>
+               <?php echo $this->element->email->renderViewHelper(); ?>
+                <?php if(isset($errorsMessages['email']['emailAddressInvalidFormat'])){
+			echo "L'adresse e-mail que vous avez entrée est invalide.";
 		} ?> 
             </div>
         </div>
         <div class="control-group">
-            <label for="password" class="control-label required">Password</label>
+            <label for="password" class="control-label required"><?php echo $this->element->password->renderLabel(); ?></label>
             <div class="controls">
-                <?php echo $this->element->password->renderViewHelper(); ?>
+               <?php echo $this->element->password->renderDescription(); ?>
+               <?php echo $this->element->password->renderViewHelper(); ?>
+                <?php if(isset($errorsMessages['password']['isEmpty'])){
+			echo "Le mot de passe est manquant.";
+		} ?> 
+                <?php 
+                if(isset($errorsMessages['password']['stringLengthTooShort'])){
+                        echo "Le mot de passe est trop court (minimum 6 caractères)";
+                }
+                if(isset($errorsMessages['password']['stringLengthTooLong'])){
+                        echo "Le mot de passe est trop long (maximum 15 caractères)";
+                }
+                ?>
             </div>
         </div>
         <div class="control-group">
-            <label for="nom" class="control-label optional">Nom</label>
+            <label for="confirmPassword" class="control-label required"><?php echo $this->element->confirmPassword->renderLabel(); ?></label>
             <div class="controls">
+               <?php echo $this->element->confirmPassword->renderDescription(); ?>
+               <?php echo $this->element->confirmPassword->renderViewHelper(); ?>
+                <?php if(isset($errorsMessages['confirmPassword']['isEmpty'])){
+			echo "Le mot de passe de confirmation est manquant.";
+		} ?> 
+
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="nom" class="control-label optional"><?php echo $this->element->nom->renderLabel(); ?></label>
+            <div class="controls">
+                <?php echo $this->element->nom->renderDescription(); ?>
                 <?php echo $this->element->nom->renderViewHelper(); ?>
             </div>
         </div>

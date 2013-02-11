@@ -99,6 +99,12 @@ class EvenementController extends Zend_Controller_Action
         $this->_helper->redirector ( 'index', 'index' );
     }
 
+    public function creerAction()
+    {
+        
+    }
+    
+    
     /**
      * Mémorise l'évènement fourni en paramètres dans la session
      * @param type $Evenement : l'évènement dans lequel l'utilisateur s'inscrit

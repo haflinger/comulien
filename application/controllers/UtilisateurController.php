@@ -109,7 +109,7 @@ class UtilisateurController extends Zend_Controller_Action
             //si les données postées sont valides 
             $formInscription->setOptions($formData);
             $formInscription->render();
-            $this->view->$errorsMessages = $formInscription->getMessages();
+            //$this->view->$errorsMessages = $formInscription->getMessages();
             if ($formInscription->isValid($formData)) {
                 //on récupère les données qui nous intéressent
         

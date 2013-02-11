@@ -54,7 +54,6 @@ class MessageController extends Zend_Controller_Action
 
     public function listerTousAction()
     {
-        
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
         //
         //Récupération du droit de modération de l'utilisateur dans l'évènement
