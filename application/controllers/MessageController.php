@@ -82,20 +82,22 @@ class MessageController extends Zend_Controller_Action
         // prise en charge du formulaire
         //
         if ($context!='json') { //le formulaire n'est pas envoyé pour du json
-            $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
-            $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
-            $ACL = Zend_Registry::get('Zend_Acl');
-            if($ACL->isAllowed($role, $resourceController, $privilegeAction))
-            {
-                $formEcrire = new Application_Form_EcrireMessage();
-                $formEcrire->generer();
-                $this->view->formEcrireMessage = $formEcrire;
-            }
-            else
-            {
-                $this->view->formEcrireMessage = null;            
-            }
-
+            $formEcrire = new Application_Form_EcrireMessage();
+            $formEcrire->generer();
+            $this->view->formEcrireMessage = $formEcrire;
+//            $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
+//            $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
+//            $ACL = Zend_Registry::get('Zend_Acl');
+//            if($ACL->isAllowed($role, $resourceController, $privilegeAction))
+//            {
+//                $formEcrire = new Application_Form_EcrireMessage();
+//                $formEcrire->generer();
+//                $this->view->formEcrireMessage = $formEcrire;
+//            }
+//            else
+//            {
+//                $this->view->formEcrireMessage = null;            
+//            }
         }else{
             //ici nous traitons le json
         }
