@@ -8,19 +8,17 @@
             {
                 $event = 'Comulien';
             }
-    ?>    
+    ?>
     <div class="navbar navbar-fixed-top" id="navBar">
       <div class="navbar-inner">
         <div class="container">
+            <a class="btn btn_maj"><img id="maj" src="<?php  echo $this->baseUrl(); ?>/images/attente.png"/></a>
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#" id="nomEvent"><?php echo $event ?></a>
-          <?php if (!is_null($this->formEcrireMessage)) {?>
-             <a class="btn " id="btn_newMessage" data-toggle="modal" href="#infos" ><i class="icon-edit"></i></a>
-         <?php }?>
           <div class="nav-collapse collapse pull-right">
             <ul class="nav">
               <li><a href="<?php echo $this->accueilEventLink(); ?>">Accueil</a></li>
@@ -38,24 +36,18 @@
               ?>
               <li><a href="<?php echo $this->profileLink(); ?>"><?php echo $nomLien;?></a></li>
               <li><a href="<?php echo $this->checkoutLink(); ?>">CheckOut</a></li>
-            </ul>
+            </ul>       
           </div><!--/.nav-collapse -->
         </div>
-      </div>
-        
-    </div>
-<!--Mise en place de la fenetre modal si utilisateur identifié-->
-<?php  if (!is_null($this->formEcrireMessage)) {?>        
-    <div class="modal hide" id="infos">
-        <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
-            <h3>Poster un message</h3>
-        </div>
-        <div class="modal-body">
-            <div id="ecrireMessage">
+      </div> 
+        <div class="container-header">
+        <!--Mise en place de la sasie de message si utilisateur identifié-->
+        <?php  if (!is_null($this->formEcrireMessage)) {?> 
+            <div class="saisieMessage">
                 <?php echo $this->formEcrireMessage ; ?>
             </div>
+        <?php   }?>            
         </div>
-        <div class="modal-footer"> <a class="btn btn-info" data-dismiss="modal">Annuler</a> </div>
-    </div> 
-<?php   }?>
+</div>
+
 

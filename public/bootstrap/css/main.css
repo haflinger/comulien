@@ -11,7 +11,7 @@
     font-family: sans-serif;
 }
 body{
-    background-color: #F9F6F4;
+    background-color: #EFEAEB;
     font-family: sans-serif; 
     font-size: 12px;
 }
@@ -21,7 +21,19 @@ body{
 .nav{display: inline}
 #btn_newMessage{float:right}
 .infos{margin:0px; padding:0px}
+#saisieMessage{
+    width:100%;
+    margin: 10px;
+    background-color: gray;
+}
+textarea { width: 100%;}
+#btn_maj{
+        float: right;
+}
+#maj{
+    padding: 2px 0px;
 
+}
 /*Acceuil*/
 #logo_comulien{
     position: relative;
@@ -122,15 +134,9 @@ body{
     text-align: center;
 }
 /*Formulaire de message*/
-.nav{
-    width: 100%;
-}
-.nav, li, textArea{
-    max-width:100%;
-}
-#message{
-    width: 100%;
-    margin:1px  auto 1px -24px;
+div #message{
+    width: 96%;
+    margin:1px  3px 1px 3px;
     height: 20px;
 }
 .control-group{
