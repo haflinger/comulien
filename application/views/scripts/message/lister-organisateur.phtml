@@ -1,26 +1,20 @@
-<?php $messages = $this->messages; ?>
 
-<dl>
-    <?php foreach ($this->messages as $entry): ?>
+
+<?php foreach ($this->messages as $entry): ?>
     
-    <p>---------------------------------------------------------------------------------</p>
-    <dt><?php echo $this->escape($entry->dateEmissionMsg) ?></dt>
-    <dd><?php echo $this->escape($entry->lblMessage) ?></dd>
-    <dd><?php echo $this->escape($entry->dateActiviteMsg) ?></dd>
-    <dd><?php echo $this->escape($entry->estActifMsg) ?></dd>
-    <dd><?php if($entry->idEvent != null) echo 'Evenement : ' . $this->escape($entry->getEvent()->titreEvent)?></dd>
-    <dd><?php if($entry->idTypeMsg != null) echo 'Type du message : ' . $this->escape($entry->getType()->lblTypeMsg)?></dd>
-    <dd><?php if($entry->idProfil != null) echo 'Type du profil : ' . $this->escape($entry->getProfil()->nomProfil)?></dd>
-    <dd><?php if($entry->idUser_emettre != null) echo 'Emetteur : ' . $this->escape($entry->getUserEmettre()->nomUser)?></dd>
-    <dd><?php if($entry->idUser_moderer != null) echo 'Moderateur : ' . $this->escape($entry->getUserModerer()->nomUser)?></dd>
-     <?php 
-     echo 'Liste des utilisateurs qui ont appréciés : <br/>';
-    //Recherche et affiche les utilisateurs d'un message
-    $app = $entry->getAppreciers();
-     foreach ($app as $appreciation){
-         echo '<dd>Utilisateur : ' . $appreciation->getUser()->loginUser . 
-                 ' - Appréciation : ' . $appreciation->evaluation . '</dd>'; 
-     }
-     ?>
-    <?php endforeach ?>
-</dl>
+<ul>
+    
+    <!--'idEvent','idUser_emettre','idUser_moderer','idMessage','idTypeMsg','lblMessage','estActifMsg','dateEmissionMsg','dateActiviteMsg')-->
+    <li>Date d'émission : <?php echo $this->escape($entry->dateEmissionMsg) ?></li>
+    <li>Date d'activite : <?php echo $this->escape($entry->dateActiviteMsg) ?></li>
+    <li>Message #<?php echo $this->escape($entry->idMessage) ?> : <?php echo $this->escape($entry->lblMessage) ?></li>
+    <li>idTypeMessage #<?php echo $this->escape($entry->idTypeMsg) ?></li>
+    <li>idUser_emettre #<?php echo $this->escape($entry->idUser_emettre) ?></li>
+    <li>Etat <?php echo ($this->escape($entry->estActifMsg)==1)?'Actif':'inactif' ?></li>
+    <li>Moderé par <?php echo $this->escape($entry->idUser_moderer) ?></li>
+    <li>idEvent #<?php echo $this->escape($entry->lblMessage) ?></li>
+    
+
+</ul>
+<br />
+   <?php endforeach ?> 
