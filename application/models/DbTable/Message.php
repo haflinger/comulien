@@ -54,19 +54,19 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
     }
     
     /**
-     * Retourne les messages de l'évènement
-     * @param Application_Model_Row_EvenementRow $evenement
-     * @param bool $showAll indique si les messages modérés doivent être affichés
-     * @return type
+     * Liste tous les messages de l'évènement.
+     * @param int $idEvent L'identifiant de l'évènement
+     * @param bool $showAll Indique si les éléments modérées doivent être également affichés
+     * @param int $nbItemParPage Le nombre de messages à retourner
+     * @param Zend_Date $dateRef Date de référence. Seuls les messages émis après cette date seront affichés
+     * @return MessageRowset Liste des messages
      */
-    public function messagesTous($idEvent, $showAll, $pageNum = 1, $nbItemParPage = 5 ,$dateRef = null){
-        //TODO : job in progress : utiliser la date pour la pagination
-        if (is_null($dateRef)) {
-            //pas de date de référence : messages plus anciens que maintenant
+    public function messagesTous($idEvent, $showAll, $nbItemParPage = 5 ,$dateRef = null){
+        $validator = new Zend_Validate_Date(array('format'=>'yyyy-MM-dd HH:mm:ss S'));
+        if (!$validator->isValid($dateRef)) {
             $dateRef = Zend_Date::now();
-        } 
-        
-        //$dateRef = Zend_Date::now()->subDay(4);//todo pour les tests
+        }
+       
         $select = $this->select()
                 ->setIntegrityCheck(false)
                 ->from(array('m'=>'message'),
