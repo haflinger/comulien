@@ -126,7 +126,7 @@ class MessageController extends Zend_Controller_Action
         
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
-        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$page,self::NB_MESSAGES_PAR_PAGE, $fromDate);
+        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$fromDate, self::NB_MESSAGES_PAR_PAGE, $fromDate);
         //ATTENTION la ligne suivante bug si on a pas assez de résultats
         if ($messagesTous->count() > 0) {
             $stringDateProchaine = $messagesTous->getRow( $messagesTous->count()-1)->dateActiviteMsg;

@@ -29,10 +29,15 @@ body{
 textarea { width: 100%;}
 #btn_maj{
         float: right;
+        padding:3px 12px;
 }
 #maj{
     padding: 2px 0px;
+    height: 16px;
 
+}
+.chargement{
+    color:gray;
 }
 /*Acceuil*/
 #logo_comulien{
