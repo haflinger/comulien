@@ -160,6 +160,8 @@ class UtilisateurController extends Zend_Controller_Action
     public function modifierAction()
     {
         $formInscription =  new Application_Form_InscrireUtilisateur();
+        $formInscription->getElement('submit')->setLabel('Modifier');
+        $formInscription->setAction('modifier');
         $this->view->formInscription = null; //valeur par défaut. Sera rempli avec les besoins
         
         //si le formulaire est posté
@@ -172,15 +174,39 @@ class UtilisateurController extends Zend_Controller_Action
                 $login = $formInscription->getValue('login');
                 $email = $formInscription->getValue('email');
                 $password = $formInscription->getValue('password');
+                $confirmPassword = $formInscription->getValue('confirmPassword');
                 $nom = $formInscription->getValue('nom');
                 $prenom = $formInscription->getValue('prenom');
-                //insertion du nouvel utilisateur
-                //instance du model 'Utilisateur'
-                $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-                //utilisation de la function addUser du modele
-                $tableUtilisateur->updateUser($login, $email, $password, $nom, $prenom);
-                //TODO : renvoyer sur une page de confirmation ?
-                $this->_helper->redirector ( 'profilprive');
+                
+                //vérifications
+                
+                $validatorIdentical = new Zend_Validate_Identical($password);
+//                $validatorRecordExists = new Zend_Validate_Db_RecordExists(
+//                    array(
+//                        'table' => 'utilisateur',
+//                        'field' => 'loginUser'
+//                    )
+//                );
+                $error = false;
+//                if ($validatorRecordExists->isValid($login) ) {
+//                    // Le login existe déjà
+//                    $formInscription->addErrors(array('loginAlreadyExists'=>'Cet identifiant est déjà utilisé.'));
+//                    $error=true;
+//                }
+                if (!$validatorIdentical->isValid($confirmPassword)) {
+                    $formInscription->addErrors(array('passwordMispelled'=>'Les mots de passe sont différents'));
+                    $error=true;
+                }
+                if (!$error) {
+                    //insertion du nouvel utilisateur
+                    //instance du model 'Utilisateur'
+                    $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+                    //utilisation de la function addUser du modele
+                    $tableUtilisateur->updateUser($login, $email, $password, $nom, $prenom);
+                    //TODO : renvoyer sur une page de confirmation ?
+                    $this->_helper->redirector ( 'profilprive');
+                }
+                
             }
         }  
         else //la requête n'est pas post
