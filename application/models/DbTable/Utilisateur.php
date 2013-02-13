@@ -22,5 +22,19 @@ class Application_Model_DbTable_Utilisateur extends Zend_Db_Table_Abstract
         $this->insert($data);
     }
     
+    public function updateUser($login, $email, $password, $nom , $prenom) {
+        //TODO : voir si l'update appartient à Utilisateur_Row
+        $data = array(
+            'loginUser' => $login,          //un login peut t'il être modifié
+            'emailUser' => $email,          
+            'pswUser' => md5($password),
+            'nomUser' => $nom,
+            'prenomUser' => $prenom
+            //'dateInscriptionUser' => $dateheure
+        );
+        $where = $this->getAdapter()->quoteInto('loginUser = ?', $login);
+        
+        $this->update($data,$where);
+    }
 }
 

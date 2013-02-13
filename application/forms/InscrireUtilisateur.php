@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_InscrireUtilisateur extends Twitter_Form//Zend_Form
+class Application_Form_InscrireUtilisateur extends Zend_Form//Twitter_Form//Zend_Form
 {
  
     public function init()
