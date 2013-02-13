@@ -36,17 +36,6 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
 
         }
 //        
-        // récupération de l'utilisateur
-        $auth = Zend_Auth::getInstance ();
-        if ($auth->hasIdentity ()) {
-            $idUser = $auth->getIdentity ()->idUser;
-//            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-//            $user = $tableUtilisateur->find($idUser)->current();
-        }else{
-            //TODO
-            return ;
-
-        }
 
         // La méthode HTTP d'envoi du formulaire
         $this->setMethod('post');
@@ -77,29 +66,43 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
                 ->setAttrib('rows', 4);
         //$message->addValidator('StringLength',array(0,10)); //todo à vérifier
         
-        //
-        // combobox de sélection du profil à utiliser
-        // 
-        //récupération des distinctions de l'utilisateur dans l'organisme
-        $distinguer = new Application_Model_DbTable_Distinguer();
-        $lesProfils = $distinguer->getProfils($idUser, $IDorga);
+        // récupération de l'utilisateur
+        $auth = Zend_Auth::getInstance ();
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            //
+            // combobox de sélection du profil à utiliser
+            // 
+            //récupération des distinctions de l'utilisateur dans l'organisme
+            $distinguer = new Application_Model_DbTable_Distinguer();
+            $lesProfils = $distinguer->getProfils($idUser, $IDorga);
 
-        //création d'un élément de formulaire de sélection du profil
-        //$profil = new Zend_Form_Element_Select('choixProfil'.$idMessageParent,array(
-        $profil = new Zend_Form_Element_Select('choixProfil',array(
-            'MultiOptions' => $lesProfils
-            ) );
+            //création d'un élément de formulaire de sélection du profil
+            //$profil = new Zend_Form_Element_Select('choixProfil'.$idMessageParent,array(
+//            $profil = new Zend_Form_Element_Select('choixProfil',array(
+//                'MultiOptions' => $lesProfils
+//                ) );
+        }else{
+            //return ;
+        }
+
+        
         
         //$submit = new Zend_Form_Element_Submit ( 'envoyer'.$idMessageParent );
         $submit = new Zend_Form_Element_Submit ( 'envoyer' );
         $submit->setLabel('Envoyer');
         
-        $elements = array ($hiddenIdMessageParent, $message, $profil, $submit );
+        $elements = array (
+            $hiddenIdMessageParent,
+            $message,
+            //$profil,
+            $submit );
         $this->addElements ( $elements );
-         $this->setDecorators(array(
-            array('ViewScript',array('viewScript' => 'forms/ecrireMessage.phtml'))
+        
+        $this->setDecorators(array(
+            'PrepareElements',
+            array('ViewScript',array('viewScript' => 'forms/ecrireMessage.phtml')),
         ));
-       
         
     }
 
