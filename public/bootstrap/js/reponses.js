@@ -5,7 +5,7 @@ $(document).ready(function() {
     //au click sur le message
     $(".accordion-heading").click(function(){
         valeur = this.id;
-        console.log($("#attente" + valeur).is(":hidden"))
+        
         if ($("#attente" + valeur).is(":hidden")){
             
         $("#attente"+valeur).show();
@@ -25,7 +25,7 @@ $(document).ready(function() {
                 //traitement du json pour créer l'HTML
                 //console.log(data);
                 parseJSON(data);
-                $("#attente" + valeur).style.visibility ="hidden";
+                
                 //on met à jour le div zone_de_rechargement avec les données reçus
                 //$("#reponses"+ valeur).fadeIn(500);
             }
