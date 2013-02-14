@@ -102,6 +102,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         }
         $select = $this->select()
                 ->from('message','count(*) as nbr' )
+                ->where('idEvent=?',$idEvent)
                 ->where('dateActiviteMsg>?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))
                 ->where('idMessage_reponse IS NULL');
         if ($compterActifSeuls) {
