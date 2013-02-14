@@ -16,7 +16,7 @@ class MessageController extends Zend_Controller_Action
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
     
-    const NB_MESSAGES_PAR_PAGE = 5;
+    const NB_MESSAGES_PAR_PAGE = 7;
     
     public function init()
     {
@@ -105,6 +105,9 @@ class MessageController extends Zend_Controller_Action
 //            }
         }else{
             //ici nous traitons le json
+            $formEcrire = new Application_Form_EcrireMessage();
+            $formEcrire->generer();
+            $this->view->formEcrireMessage = $formEcrire;
         }
         
         //

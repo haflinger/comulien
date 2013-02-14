@@ -50,7 +50,7 @@ class ZFDebug_Controller_Plugin_Debug extends Zend_Controller_Plugin_Abstract
             'Time' => null,
             'Memory' => null),
         'z-index'           => 255,
-        'jquery_path'       => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
+        'jquery_path'       => '/comuZend/public/bootstrap/js/jquery.js',
         'image_path'        => null
     );
     

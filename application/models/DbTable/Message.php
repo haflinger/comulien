@@ -61,8 +61,8 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      * @param Zend_Date $dateRef Date de référence. Seuls les messages émis après cette date seront affichés
      * @return MessageRowset Liste des messages
      */
-    public function messagesTous($idEvent, $showAll, $nbItemParPage = 5 ,$dateRef = null){
-        $validator = new Zend_Validate_Date(array('format'=>'yyyy-MM-dd HH:mm:ss S'));
+    public function messagesTous($idEvent, $showAll, $nbItemParPage = 7 ,$dateRef = null){
+        $validator = new Zend_Validate_Date();
         if (!$validator->isValid($dateRef)) {
             $dateRef = Zend_Date::now();
         }
