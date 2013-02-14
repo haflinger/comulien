@@ -94,8 +94,25 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
 
-    
-    
+    public function compter($idEvent,$dateRef = null,$compterActifSeuls = false)
+    {
+        $validator = new Zend_Validate_Date();
+        if (!$validator->isValid($dateRef)) {
+            $dateRef = Zend_Date::now();
+        }
+        $select = $this->select()
+                ->from('message','count(*) as nbr' )
+                ->where('dateActiviteMsg>?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))
+                ->where('idMessage_reponse IS NULL');
+        if ($compterActifSeuls) {
+            $select->where('estActifMsg=?','1');
+        }
+                
+        //TODO inclure ou non les messages inactivés
+        Zend_Registry::set('sql',$select->assemble());
+        $result = $this->fetchAll($select)->current()->nbr;
+        return $result;
+    }
     public function reponsesMessage($idMessage, $idEvent, $showAll = false , $nbItemParPage = 5 , $dateRef = null){
         if (is_null($dateRef)) {
             //pas de date de référence : messages plus anciens que maintenant

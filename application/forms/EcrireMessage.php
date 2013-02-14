@@ -91,6 +91,7 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         //$submit = new Zend_Form_Element_Submit ( 'envoyer'.$idMessageParent );
         $submit = new Zend_Form_Element_Submit ( 'envoyer' );
         $submit->setLabel('Envoyer');
+        //$submit->setAttrib('style', 'display:none');
         
         $elements = array (
             $hiddenIdMessageParent,
