@@ -58,10 +58,10 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      * @param int $idEvent L'identifiant de l'évènement
      * @param bool $showAll Indique si les éléments modérées doivent être également affichés
      * @param int $nbItemParPage Le nombre de messages à retourner
-     * @param Zend_Date $dateRef Date de référence. Seuls les messages émis après cette date seront affichés
+     * @param Zend_Date $dateRef Date de référence. Seuls les messages émis avant cette date seront affichés
      * @return MessageRowset Liste des messages
      */
-    public function messagesTous($idEvent, $showAll, $nbItemParPage = 7 ,$dateRef = null){
+    public function messagesTous($idEvent, $showAll, $nbItemParPage = 5 ,$dateRef = null){
         $validator = new Zend_Validate_Date();
         if (!$validator->isValid($dateRef)) {
             $dateRef = Zend_Date::now();
@@ -94,8 +94,25 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
 
-    
-    
+    public function compter($idEvent,$dateRef = null,$compterActifSeuls = false)
+    {
+        $validator = new Zend_Validate_Date();
+        if (!$validator->isValid($dateRef)) {
+            $dateRef = Zend_Date::now();
+        }
+        $select = $this->select()
+                ->from('message','count(*) as nbr' )
+                ->where('dateActiviteMsg>?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))
+                ->where('idMessage_reponse IS NULL');
+        if ($compterActifSeuls) {
+            $select->where('estActifMsg=?','1');
+        }
+                
+        //TODO inclure ou non les messages inactivés
+        Zend_Registry::set('sql',$select->assemble());
+        $result = $this->fetchAll($select)->current()->nbr;
+        return $result;
+    }
     public function reponsesMessage($idMessage, $idEvent, $showAll = false , $nbItemParPage = 5 , $dateRef = null){
         if (is_null($dateRef)) {
             //pas de date de référence : messages plus anciens que maintenant

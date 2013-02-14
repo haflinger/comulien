@@ -29,14 +29,31 @@ class MessageController extends Zend_Controller_Action
                       ->addActionContext('approuver', 'json')
                       ->addActionContext('lister-tous', 'json')
                       ->addActionContext('lister-organisateur', 'json')
+                      ->addActionContext('compter', 'json')
                       ->initContext();
     }
 
-    
     public function indexAction()
     {
         $Message = new Application_Model_DbTable_Message();
         $this->view->entries = $Message->fetchAll();
+    }
+    
+    public function compterAction()
+    {
+        $fromDate = $this->getRequest()->getParam('fromdate',  null );
+        //TODO : les dates en paramètres vont transiter sous forme de timestamps
+        if (!is_null($fromDate)) {
+            $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
+        }else{
+            $fromDate = Zend_Date::now();
+        }
+        $tableMessage = new Application_Model_DbTable_Message();
+        $nbMsg = $tableMessage->compter($this->_evenement->idEvent , $fromDate);
+        $this->view->nbMessages = $nbMsg;
+        $this->view->fromDate = $fromDate->toString('yyyy-MM-dd HH:mm:ss S');
+        $this->view->lastCheckedDate = Zend_Date::now()->toString('yyyy-MM-dd HH:mm:ss S');
+        
     }
     
     public function listerOrganisateurAction()
