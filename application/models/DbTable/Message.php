@@ -76,7 +76,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                         array('sum(if(a.evaluation>0,1,0)) as like','sum(if(a.evaluation<0,1,0)) as dislike'))
                 ->joinInner(array('u'=>'utilisateur'),
                         'm.idUser_emettre = u.idUser',
-                        array('loginUser','emailUser'))
+                        array('loginUser','emailUser','MD5(LOWER(TRIM(emailUser))) as emailMD5'))
                 //->where('m.idMessage_reponse=?',$idMessage)
                 ->where('m.idMessage_reponse IS NULL')          //ne pas prendre les réponses
                 ->where('m.idEvent=?',$idEvent)                 //les messages de l'évènement
