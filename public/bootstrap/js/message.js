@@ -168,7 +168,7 @@ $(document).ready(function() {
     })
     
     //Lors du click sur un message
-    $(".monaccordeon").click(function(){
+    $("div > monaccordeon").click(function(){
         console.log(this.id);
         console.log(dateProchaine);
         //chargerReponses(this.id);

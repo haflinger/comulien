@@ -44,8 +44,7 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
 //            $user = $tableUtilisateur->find($idUser)->current();
         }else{
             //TODO
-            //return ;
-
+            return;
         }
 
         // La méthode HTTP d'envoi du formulaire
