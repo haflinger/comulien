@@ -62,11 +62,12 @@ for (var i = 0; i<element.messages.length; i++){
 $message +='</div>';
 }
 $(".container-fluid").append($message);
-
-console.log(dateProchaine);
+ $(document).on("click", ".accordion-heading", function(){
+        chargerReponses(this.id);
+ })
 }    
 
-function creeHtmlReponse(element, numMessage){
+function creeHtmlReponses(element, numMessage){
     dateProchaineReponse = element.dateProchaine;
     $reponse = '';
     for (var i = 0; i<element.reponses.length; i++){
@@ -89,6 +90,7 @@ function creeHtmlReponse(element, numMessage){
         $reponse +='</div>';
     }
     $("#reponses"+ numMessage).append($reponse);
+    
 }
 
 //Fonction de parcours des éléments data retournés
@@ -133,8 +135,8 @@ function chargerMessagesSuivant(){
 function chargerReponses(numMessage){
     if(dateProchaineReponse==null){dateProchaineReponse = new Date().getTime();
         dateProchaineReponse = Math.floor(dateProchaineReponse/1000);
-        console.log(dateProchaineReponse);
         }
+        console.log(numMessage);
     $.ajax({
             type: "GET",
             url: BASE_URL + "/message/reponses/message/" + numMessage + "/fromdate/"+ dateProchaineReponse +"?format=json" ,
@@ -167,12 +169,7 @@ $(document).ready(function() {
         chargerMessagesSuivant();
     })
     
-    //Lors du click sur un message
-    $("div > monaccordeon").click(function(){
-        console.log(this.id);
-        console.log(dateProchaine);
-        //chargerReponses(this.id);
-    })
+   
 })
 
 

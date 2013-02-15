@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
+class Application_Form_EcrireMessage extends Zend_Form//Zend_Form
 {
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
@@ -36,16 +36,6 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
 
         }
 //        
-        // récupération de l'utilisateur
-        $auth = Zend_Auth::getInstance ();
-        if ($auth->hasIdentity ()) {
-            $idUser = $auth->getIdentity ()->idUser;
-//            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-//            $user = $tableUtilisateur->find($idUser)->current();
-        }else{
-            //TODO
-            return;
-        }
 
         // La méthode HTTP d'envoi du formulaire
         $this->setMethod('post');
@@ -67,39 +57,52 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         
         //zone de texte pour la saisie du message
         //TODO : modifié textarea + son nom
-        //$message = new Zend_Form_Element_Text('message'.$idMessageParent);
+        //$message = new Zend_Form_Element_Textarea('message'.$idMessageParent);
         $message = new Zend_Form_Element_Text('message');
         $message->setAllowEmpty(false);
         $message->setAttrib('placeholder','Votre message');
         $message->setRequired(true);
-        //$message->setAttrib('cols', 35)
-               // ->setAttrib('rows', 4);
+
         //$message->addValidator('StringLength',array(0,10)); //todo à vérifier
         
-        //
-        // combobox de sélection du profil à utiliser
-        // 
-        //récupération des distinctions de l'utilisateur dans l'organisme
-        $distinguer = new Application_Model_DbTable_Distinguer();
-        $lesProfils = $distinguer->getProfils($idUser, $IDorga);
+        // récupération de l'utilisateur
+        /*$auth = Zend_Auth::getInstance ();
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            //
+            // combobox de sélection du profil à utiliser
+            // 
+            //récupération des distinctions de l'utilisateur dans l'organisme
+            $distinguer = new Application_Model_DbTable_Distinguer();
+            $lesProfils = $distinguer->getProfils($idUser, $IDorga);
 
-        //création d'un élément de formulaire de sélection du profil
-        //$profil = new Zend_Form_Element_Select('choixProfil'.$idMessageParent,array(
-        $profil = new Zend_Form_Element_Select('choixProfil',array(
-            'MultiOptions' => $lesProfils
-            ) );
+            //création d'un élément de formulaire de sélection du profil
+            //$profil = new Zend_Form_Element_Select('choixProfil'.$idMessageParent,array(
+//            $profil = new Zend_Form_Element_Select('choixProfil',array(
+//                'MultiOptions' => $lesProfils
+//                ) );
+        }else{
+            //return ;
+        }*/
+
+        
         
         //$submit = new Zend_Form_Element_Submit ( 'envoyer'.$idMessageParent );
         $submit = new Zend_Form_Element_Submit ( 'envoyer' );
-        $submit->setLabel('Envoyer')
-                ->setAttrib('style',"display:none");
+        $submit->setLabel('Envoyer');
+        $submit->setAttrib('style', 'display:none');
         
-        $elements = array ($hiddenIdMessageParent, $message, $profil, $submit );
+        $elements = array (
+            $hiddenIdMessageParent,
+            $message,
+            //$profil,
+            $submit );
         $this->addElements ( $elements );
-         $this->setDecorators(array(
-            array('ViewScript',array('viewScript' => 'forms/ecrireMessage.phtml'))
-        ));
-       
+        
+        /*$this->setDecorators(array(
+            'PrepareElements',
+            array('ViewScript',array('viewScript' => 'forms/ecrireMessage.phtml')),
+        ));*/
         
     }
 
