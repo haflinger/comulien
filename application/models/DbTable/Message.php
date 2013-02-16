@@ -70,7 +70,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         $select = $this->select()
                 ->setIntegrityCheck(false)
                 ->from(array('m'=>'message'),
-                        array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg','dateActiviteMsg'))
+                        array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg','unix_timestamp(dateActiviteMsg) as dateActiviteMsg'))
                 ->joinLeft(array('a'=>'apprecier'),
                         'm.idMessage = a.idMessage',
                         array('sum(if(a.evaluation>0,1,0)) as like','sum(if(a.evaluation<0,1,0)) as dislike'))
@@ -80,7 +80,8 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                 //->where('m.idMessage_reponse=?',$idMessage)
                 ->where('m.idMessage_reponse IS NULL')          //ne pas prendre les réponses
                 ->where('m.idEvent=?',$idEvent)                 //les messages de l'évènement
-                ->where('m.dateActiviteMsg<?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
+                //->where('m.dateActiviteMsg<?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
+                ->where('unix_timestamp(m.dateActiviteMsg)<?',$dateRef->toString(Zend_Date::TIMESTAMP))         //les message antérieurs à la date fournie
                 ->group('m.idMessage','like','disklike')
                 ->order('dateActiviteMsg DESC');        
         //les messages actifs seulement ?
@@ -94,26 +95,33 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         return $result;
     }
 
-    public function compter($idEvent,$dateRef = null,$compterActifSeuls = false)
+    public function compter($idEvent,$dateRef = null,$actifSeuls = true,$exclureReponses=false,$reponsesSeules=false)
     {
         $validator = new Zend_Validate_Date();
-        if (!$validator->isValid($dateRef)) {
+        if (!$validator->isValid($dateRef, Zend_Date::TIMESTAMP)) {
             $dateRef = Zend_Date::now();
         }
         $select = $this->select()
                 ->from('message','count(*) as nbr' )
                 ->where('idEvent=?',$idEvent)
-                ->where('dateActiviteMsg>?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))
-                ->where('idMessage_reponse IS NULL');
-        if ($compterActifSeuls) {
+                ->where('unix_timestamp(dateActiviteMsg)>?',$dateRef->toString(Zend_Date::TIMESTAMP));
+        if ($exclureReponses) {
+            $select->where('idMessage_reponse IS NULL');
+        } else {
+            if ($reponsesSeules) {
+                $select->where('idMessage_reponse IS NOT NULL');
+            }
+        }
+        
+        if ($actifSeuls) {
             $select->where('estActifMsg=?','1');
         }
                 
-        //TODO inclure ou non les messages inactivés
         Zend_Registry::set('sql',$select->assemble());
         $result = $this->fetchAll($select)->current()->nbr;
         return $result;
     }
+    
     public function reponsesMessage($idMessage, $idEvent, $showAll = false , $nbItemParPage = 5 , $dateRef = null){
         if (is_null($dateRef)) {
             //pas de date de référence : messages plus anciens que maintenant
@@ -122,7 +130,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         $select = $this->select()
                 ->setIntegrityCheck(false)
                 ->from(array('m'=>'message'),
-                        array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg','dateActiviteMsg'))
+                        array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg','unix_timestamp(dateActiviteMsg) as dateActiviteMsg'))
                 ->joinLeft(array('a'=>'apprecier'),
                         'm.idMessage = a.idMessage',
                         array('sum(if(a.evaluation>0,1,0)) as like','sum(if(a.evaluation<0,1,0)) as dislike'))
@@ -131,7 +139,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                         array('loginUser','emailUser'))
                 ->where('m.idMessage_reponse=?',$idMessage)
                 ->where('m.idEvent=?',$idEvent)
-                ->where('m.dateActiviteMsg<?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
+                ->where('unix_timestamp(dateActiviteMsg)<?',$dateRef->toString(Zend_Date::TIMESTAMP)) //$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
                 ->group('m.idMessage','like','disklike')
                 ->order('dateEmissionMsg DESC');
         //les messages actifs seulement ?
@@ -198,6 +206,7 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      */
     public function posterMessage($idUser,$idTypeMsg,$idEvent,$message,$profil,$idMessageParent=null)
     {
+        //TODO : résoudre un bug de date. La date énvoyée pour mémoriser la date activite du message parent n'est pas bonne (décalage 1h)
         $dateheure = Zend_Date::now()->toString('yyyy-MM-dd HH:mm:ss S');
         $data = array(
             'idUser_emettre' => $idUser,
@@ -215,6 +224,13 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
 
         //todo : updater le message parent -> utiliser un trigger
         $this->insert($data);
+        
+        $rowParent = $this->fetchRow($this->select()->where('idMessage=?',$idMessageParent));
+        if (!is_null($rowParent)) {
+            $rowParent->dateActiviteMsg = $dateheure;
+            $rowParent->save();
+        }
+        
     }
     
     public function apprecierMessage(Application_Model_Row_MessageRow $message, Application_Model_Row_UtilisateurRow $utilisateur, $note){

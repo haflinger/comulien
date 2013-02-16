@@ -40,6 +40,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Registry::set('Zend_Acl', $acl);
     }
     
+    protected function _initTimezone()
+    {
+        date_default_timezone_set('Europe/Paris');
+    }
 
     protected function _initZFDebug()
     {
