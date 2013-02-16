@@ -11,7 +11,7 @@
     font-family: sans-serif;
 }
 body{
-    background-color: #8C8A8C;
+
     font-family: sans-serif; 
     font-size: 12px;
 }
@@ -66,7 +66,15 @@ textarea { width: 100%;}
     float: right;
 }
 /*Tous les message*/
-
+.vip{
+    position: absolute;
+    margin: -7px 0px -15px -18px;
+    transform: rotate(341deg) ;
+-webkit-transform: rotate(341deg) ;
+-moz-transform: rotate(341deg) ;
+-o-transform: rotate(341deg) ;
+-ms-transform: rotate(341deg) ;
+}
 .dateMessage{
        position: relative;
        float:right;
