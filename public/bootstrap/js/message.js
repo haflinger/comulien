@@ -56,7 +56,7 @@ for (var i = 0; i<element.messages.length; i++){
                         $message +='</div>';
                     $message +='</div>';
                 $message +='</nav>';
-                $message +='<div id="reponses'+element.messages[i].idMessage+'">';
+                $message +='<div class="container-reponse" id="reponses'+element.messages[i].idMessage+'">';
                 $message +='</div>';
             $message +='</div><!--monaccordeonMenu-->';
     $message +='</div>';
@@ -67,6 +67,7 @@ $(".container-fluid").append($message);
         $("#reponses" + this.id).empty();
         chargerReponses(this.id);
  })
+ 
 }    
 
 function creeHtmlReponses(element, numMessage){
@@ -177,6 +178,10 @@ $(document).ready(function() {
         dateProchaine = null;
         $(".container-fluid").empty();
         chargerMessagesSuivant();
+    })
+    
+    $("#message").keyup(function(){
+        if (event.keyCode == 13) {console.log("ça marche");}
     })
    
 })

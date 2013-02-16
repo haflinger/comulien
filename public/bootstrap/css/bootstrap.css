@@ -1606,11 +1606,9 @@ select:focus:invalid:focus {
 }
 
 .form-actions {
-  padding: 19px 20px 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #e5e5e5;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   *zoom: 1;
 }
 
@@ -5842,7 +5840,7 @@ a.badge:hover {
 }
 
 .accordion-group {
-  margin-bottom: 2px;
+  margin-bottom: 0px;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;

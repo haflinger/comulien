@@ -11,9 +11,9 @@
     font-family: sans-serif;
 }
 body{
-
+    background-color: #FFFFB8;
     font-family: sans-serif; 
-    font-size: 12px;
+    font-size: 11px;
 }
 /*header*/
 .menuHeader{position: fixed}
@@ -67,8 +67,9 @@ textarea { width: 100%;}
 }
 /*Tous les message*/
 .vip{
+    z-index: 4;
     position: absolute;
-    margin: -7px 0px -15px -18px;
+    margin: -0px 0px -25px -18px;
     transform: rotate(341deg) ;
 -webkit-transform: rotate(341deg) ;
 -moz-transform: rotate(341deg) ;
@@ -91,7 +92,7 @@ textarea { width: 100%;}
 .lblMessage{
         position: relative;
         color: black;
-        font-size: 12px;
+        font-size: 10px;
     }
 .nbMessage{
         position: relative;
@@ -125,11 +126,14 @@ textarea { width: 100%;}
     text-align: right;
 }
 .rep{
-    
+    margin: 0px 15px 10px 0px;
     padding-left: 30px;
 }
-.monaccordeonRep{
-    background-color: #66CCFF;
+.monaccordeon{
+    margin-bottom: 1px;
+}
+.container-reponse{
+    margin-bottom: 2px;
 }
 .controls ul li{
     display: inline;
