@@ -30,7 +30,7 @@ for (var i = 0; i<element.messages.length; i++){
             $message += '<div class="accordion-heading" id="' + element.messages[i].idMessage + '"> <a class="accordion-toggle" href="#menu' + element.messages[i].idMessage + '" data-parent=".monaccordeon" data-toggle="collapse">';
                 $message += '<div class="row-fluid">';
                     $message += '<div class="span12">'; 
-                        if( element.messages[i].loginUser=="fred") {$message += '<img class="vip"  src="../images/vip.gif"/>';}
+                        if( element.messages[i].idProfil != null) {$message += '<img class="vip"  src="../images/vip.gif"/>';}
                         $message += '<div class="avatar">' + gravatar(element.messages[i].emailUser) + '</div>';
                         $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
                         $message += '<div class="dateMessage">'+ element.messages[i].dateActiviteMsg +'</div><br/>';
@@ -67,7 +67,9 @@ $(".container-fluid").append($message);
         $("#reponses" + this.id).empty();
         chargerReponses(this.id);
  })
- 
+ $("#form_rep").keyup(function(){
+        if (event.keyCode == 13) {}
+ })
 }    
 
 function creeHtmlReponses(element, numMessage){
@@ -81,7 +83,7 @@ function creeHtmlReponses(element, numMessage){
                     $reponse += '<div class="rep">';
                         $reponse += '<div class="row-fluid">';
                             $reponse += '<div class="span12">';
-                                if( element.reponses[i].loginUser=="fred") {$reponse += '<img class="vip"  src="../images/vip.gif"/>';}
+                                if( element.reponses[i].idProfil != null) {$reponse += '<img class="vip"  src="../images/vip.gif"/>';}
                                 $reponse += '<div class="avatar">' + gravatar(element.reponses[i].emailUser) + '</div>';
                                 $reponse += '<div class="nomUser">'+element.reponses[i].loginUser +'</div>';
                                 $reponse += '<div class="dateMessage">'+element.reponses[i].dateActiviteMsg +'</div><br/>';
@@ -181,7 +183,7 @@ $(document).ready(function() {
     })
     
     $("#message").keyup(function(){
-        if (event.keyCode == 13) {console.log("ça marche");}
+        if (event.keyCode == 13) {}
     })
    
 })
