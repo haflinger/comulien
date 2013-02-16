@@ -47,7 +47,7 @@ for (var i = 0; i<element.messages.length; i++){
                                 $message += '<div class="container-header">';
                                     $message += '<div class="saisieMessage">';
                                         $message += '<form class="form-vertical" enctype="application/x-www-form-urlencoded" method="post" action="envoyer">';
-                                        $message += '<input type="hidden" name="IdMessageParent" value="" id="IdMessageParent" />';
+                                        $message += '<input type="hidden" name="IdMessageParent" value="'+element.messages[i].idMessage+'" id="IdMessageParent" />';
                                         $message += '<input type="text" name="message" id="message" placeholder="Votre message"/>'; 
                                         $message += '<input type="submit" name="envoyer" id="envoyer" value="Envoyer" style="display:none" class="btn btn-primary" />';
                                         $message += '</form>';
