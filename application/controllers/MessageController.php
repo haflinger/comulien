@@ -49,10 +49,14 @@ class MessageController extends Zend_Controller_Action
             $fromDate = Zend_Date::now();
         }
         $tableMessage = new Application_Model_DbTable_Message();
-        $nbMsg = $tableMessage->compter($this->_evenement->idEvent , $fromDate);
+//        $exclureReponses = true;
+//        $reponsesSeules = true;
+//        $actifsSeuls = false;
+//        $nbMsg = $tableMessage->compter($this->_evenement->idEvent , $fromDate,$actifsSeuls,$exclureReponses,$reponsesSeules );
+        $nbMsg = $tableMessage->compter($this->_evenement->idEvent , $fromDate );
         $this->view->nbMessages = $nbMsg;
-        $this->view->fromDate = $fromDate->toString('yyyy-MM-dd HH:mm:ss S');
-        $this->view->lastCheckedDate = Zend_Date::now()->toString('yyyy-MM-dd HH:mm:ss S');
+        $this->view->fromDate = $fromDate->toString(Zend_Date::TIMESTAMP);
+        $this->view->lastCheckedDate = Zend_Date::now()->toString(Zend_Date::TIMESTAMP);
         
     }
     
@@ -130,14 +134,7 @@ class MessageController extends Zend_Controller_Action
         //
         // traitement de la pagination
         //
-//        $numPage = $this->getRequest()->getParam('numpage'); //obsolethe lorsque la pagination par date sera fonctionnelle
-//        $validator = new Zend_Validate_Int();
-//        if ($validator->isValid($numPage) ) {
-//            //TODO : gérer les bornes (peut être faut t'il utiliser zend_validate_between
-//            $page = $numPage;
-//        }else{
-//            $page = 0;
-//        }
+
         $fromDate = $this->getRequest()->getParam('fromdate',  null );
         //TODO : les dates en paramètres vont transiter sous forme de timestamps
         if (!is_null($fromDate)) {
@@ -149,9 +146,7 @@ class MessageController extends Zend_Controller_Action
         $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,self::NB_MESSAGES_PAR_PAGE, $fromDate);
         //ATTENTION la ligne suivante bug si on a pas assez de résultats
         if ($messagesTous->count() > 0) {
-            $stringDateProchaine = $messagesTous->getRow( $messagesTous->count()-1)->dateActiviteMsg;
-            $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
-            $dateProchaine = $zendDateProchaine->getTimestamp();
+            $dateProchaine = $messagesTous->getRow( $messagesTous->count()-1 )->dateActiviteMsg;
         } else {
             $dateProchaine = null;
         }
@@ -166,7 +161,6 @@ class MessageController extends Zend_Controller_Action
         
     }
     
-
     public function reponsesAction()
     {
 
@@ -210,9 +204,10 @@ class MessageController extends Zend_Controller_Action
             $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur,self::NB_MESSAGES_PAR_PAGE,$fromDate);
         }
         if ($lesReponses->count() > 0) {
-            $stringDateProchaine = $lesReponses->getRow( $lesReponses->count()-1)->dateActiviteMsg;
-            $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
-            $dateProchaine = $zendDateProchaine->getTimestamp();
+            //$stringDateProchaine = $lesReponses->getRow( $lesReponses->count()-1)->dateActiviteMsg;
+            //$zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
+            //$dateProchaine = $zendDateProchaine->getTimestamp();
+            $dateProchaine = $lesReponses->getRow( $lesReponses->count()-1 )->dateActiviteMsg;
         } else {
             $dateProchaine = null;
         }
@@ -332,7 +327,11 @@ class MessageController extends Zend_Controller_Action
                 // $message ne doit pas être vide, de taille limitée ...
 //                $message = $form->getValue('message'.$idMessageParent);
 //                $profil = $form->getValue('choixProfil'.$idMessageParent);
+                $valid=new Zend_Validate_NotEmpty();
                 $message = $form->getValue('message');
+                if (!$valid->isValid($message)) {
+                    //TODO : renvoyer sur le controlleur d'erreurs
+                }
                 $profil = $form->getValue('choixProfil');
                 if ($profil=='0') {
                     $profil = null;
