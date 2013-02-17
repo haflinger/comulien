@@ -62,14 +62,52 @@ class MessageController extends Zend_Controller_Action
     
     public function listerOrganisateurAction()
     {
-        //si la session contient un evenement
-        $tableMessage = new Application_Model_DbTable_Message();
-        $messagesOrganisateurs = $tableMessage->messagesOrganisateur($this->_evenement->idEvent);
-        
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        //
+        //Récupération du droit de modération de l'utilisateur dans l'évènement
+        //
+        $auth = Zend_Auth::getInstance ();
+        $moderateur = false;
+        $UtilisateurActif = null;
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+            $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
+
+            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
+        }
+
+        //passe à la vue le droit de l'utilisateur à modérer
+        $this->view->moderateur = $moderateur;
+        
+        //
+        // traitement de la pagination
+        //
+
+        //récupération des paramètres
+        $fromDate = $this->getRequest()->getParam('fromdate',  null );
+        if (!is_null($fromDate)) {
+            $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
+        }
+        
+        $tableMessage = new Application_Model_DbTable_Message();
+        $showAll = false;
+        $nbItemParPage = self::NB_MESSAGES_PAR_PAGE;
+        $dateRef = $fromDate;
+        $messagesOrganisateurs = $tableMessage->messagesOrganisateur($this->_evenement->idEvent,$showAll,$nbItemParPage,$dateRef);
+        
+        //ATTENTION la ligne suivante bug si on a pas assez de résultats
+        if ($messagesOrganisateurs->count() > 0) {
+            $dateProchaine = $messagesOrganisateurs->getRow( $messagesOrganisateurs->count()-1 )->dateEmissionMsg;
+        } else {
+            $dateProchaine = null;
+        }
+        
         if ($context=='json') {
             $messagesOrganisateurs = $messagesOrganisateurs->toArray();
         }
+        
+        $this->view->dateProchaine = $dateProchaine; //on retourne un timestamp
         $this->view->messages = $messagesOrganisateurs;
     }
 
@@ -136,7 +174,7 @@ class MessageController extends Zend_Controller_Action
         //
 
         $fromDate = $this->getRequest()->getParam('fromdate',  null );
-        //TODO : les dates en paramètres vont transiter sous forme de timestamps
+        
         if (!is_null($fromDate)) {
             $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
         }
@@ -150,8 +188,6 @@ class MessageController extends Zend_Controller_Action
         } else {
             $dateProchaine = null;
         }
-        
-        //message/lister-tous/fromdate/xxxxxxx/
         
         if ($context=='json') {
             $messagesTous = $messagesTous->toArray();
