@@ -34,20 +34,37 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
             'refColumns'        => 'idUser'
         ));
 
-    public function messagesOrganisateur($idEvent , $showActifOnly = true, $nbMessages = 5)
+    public function messagesOrganisateur($idEvent , $showAll, $nbItemParPage = 5, $dateRef = null)
     {
+        $validator = new Zend_Validate_Date();
+        if (!$validator->isValid($dateRef)) {
+            $dateRef = Zend_Date::now();
+        }
+        
         $select = $this->select()
-                ->from('message',
-                        array('idEvent','idUser_emettre','idUser_moderer','idMessage','idTypeMsg','lblMessage','estActifMsg','dateEmissionMsg','dateActiviteMsg')
-                        )                            // TODO il faudra une jointure pour le type de message lorsqu'il sera utilisé
-                ->where('idEvent=?',$idEvent)        //dans l'évènement
-                ->where('idProfil=1')                //les organisateurs
-                ->order('dateActiviteMsg DESC');     //classés par date d'émission les plus récents en premier
+        
+                ->setIntegrityCheck(false)
+                ->from(array('m'=>'message'),
+                        array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg',
+                            'unix_timestamp(dateActiviteMsg) as dateActiviteMsg','unix_timestamp(dateEmissionMsg) as dateEmissionMsg'))
+                ->joinLeft(array('a'=>'apprecier'),
+                        'm.idMessage = a.idMessage',
+                        array('sum(if(a.evaluation>0,1,0)) as like','sum(if(a.evaluation<0,1,0)) as dislike'))
+                ->joinInner(array('u'=>'utilisateur'),
+                        'm.idUser_emettre = u.idUser',
+                        array('loginUser','emailUser','MD5(LOWER(TRIM(emailUser))) as emailMD5'))
+                //->where('m.idMessage_reponse=?',$idMessage)
+                ->where('m.idProfil=1')                         //seuls les messages organisateurs
+                ->where('m.idMessage_reponse IS NULL')          //ne pas prendre les réponses
+                ->where('m.idEvent=?',$idEvent)                 //les messages de l'évènement
+                ->where('unix_timestamp(m.dateEmissionMsg)<?',$dateRef->toString(Zend_Date::TIMESTAMP))         //les message antérieurs à la date fournie
+                ->group('m.idMessage','like','disklike')
+                ->order('dateEmissionMsg DESC');     
         //les messages actifs seulement ?
-        if ($showActifOnly) {
+        if (!$showAll) {
             $select->where('estActifMsg=1');              //seuls les messages actifs
         }
-        $select->limit($nbMessages);
+        $select->limit($nbItemParPage);
         $result = $this->fetchAll($select);
         Zend_Registry::set('sql',$select->assemble());
         return $result;
