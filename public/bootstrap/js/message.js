@@ -9,8 +9,35 @@ var MD5=function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){va
 
 //Fonction qui retourne la date d'activité du message au format simplifié
 //hier, min, heure, jour
-function modifDate(dateMessage){
-    d= new Date().getTime();
+function calculDate(dateMessage){
+    var maintenant = new Date().getTime();
+    console.log("now: " + Math.floor(maintenant/1000));
+    console.log("date message :" + dateMessage);
+    var diff = Math.floor(maintenant/1000)- dateMessage;
+    
+    var diff_j = Math.floor(diff / (24*3600));
+    diff = diff % (24*3600);
+    var diff_h = Math.floor(diff / (3600));
+    diff = diff % 3600;
+    var diff_m = Math.floor(diff / (60));
+    diff = diff % 60;
+
+    
+    if(diff_j == 1){
+        return "hier";
+    }
+    else if(diff_j >1){
+        return diff_j + " j";
+    }
+    else if(diff_h >0 && diff_h<24){
+        return diff_h + " h";
+    }
+    else if(diff_m >0 && diff_m<60){
+        return diff_m + " min";
+    }
+    else{
+        return "à l'instant";
+    }
     
 }
 
@@ -33,7 +60,8 @@ for (var i = 0; i<element.messages.length; i++){
                         if( element.messages[i].idProfil != null) {$message += '<img class="vip"  src="../images/vip.gif"/>';}
                         $message += '<div class="avatar">' + gravatar(element.messages[i].emailUser) + '</div>';
                         $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
-                        $message += '<div class="dateMessage">'+ element.messages[i].dateActiviteMsg +'</div><br/>';
+                        $message += '<div class="dateMessage">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
+                        
                         $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
                     $message += '</div>';  
                 $message += '</div>';
@@ -89,7 +117,7 @@ function creeHtmlReponses(element, numMessage){
                                 if( element.reponses[i].idProfil != null) {$reponse += '<img class="vip"  src="../images/vip.gif"/>';}
                                 $reponse += '<div class="avatar">' + gravatar(element.reponses[i].emailUser) + '</div>';
                                 $reponse += '<div class="nomUser">'+element.reponses[i].loginUser +'</div>';
-                                $reponse += '<div class="dateMessage">'+element.reponses[i].dateActiviteMsg +'</div><br/>';
+                                $reponse += '<div class="dateMessage">'+ calculDate(element.reponses[i].dateActiviteMsg) +'</div><br/>';
                                 $reponse += '<div class="lblMessage">'+ element.reponses[i].lblMessage +'</div>';
                             $reponse += '</div>';  
                         $reponse += '</div>';
