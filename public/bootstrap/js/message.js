@@ -11,8 +11,6 @@ var MD5=function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){va
 //hier, min, heure, jour
 function calculDate(dateMessage){
     var maintenant = new Date().getTime();
-    console.log("now: " + Math.floor(maintenant/1000));
-    console.log("date message :" + dateMessage);
     var diff = Math.floor(maintenant/1000)- dateMessage;
     
     var diff_j = Math.floor(diff / (24*3600));
@@ -60,7 +58,7 @@ for (var i = 0; i<element.messages.length; i++){
                         if( element.messages[i].idProfil != null) {$message += '<img class="vip"  src="../images/vip.gif"/>';}
                         $message += '<div class="avatar">' + gravatar(element.messages[i].emailUser) + '</div>';
                         $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
-                        $message += '<div class="dateMessage">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
+                        $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
                         
                         $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
                     $message += '</div>';  
@@ -88,18 +86,21 @@ for (var i = 0; i<element.messages.length; i++){
                 $message +='</div>';
             $message +='</div><!--monaccordeonMenu-->';
     $message +='</div>';
-    $message +='<div class="waitGif" id="waitGif'+element.messages[i].idMessage+'" style="display:none"><img id="attente" height="94" width="109" src="'+BASE_URL+'/images/attente.gif"/></div>';
+    $message +='<div class="waitGif" id="waitGif'+element.messages[i].idMessage+'" style="display:none"><img id="attente" src="'+BASE_URL+'/images/attente.gif"/></div>';
 $message +='</div>';
-}
+
 $(".container-fluid").append($message);
- $(document).on("click", ".accordion-heading", function(){
-        $("#reponses" + this.id).empty();
-         $("#waitGif" + this.id).show();
-        chargerReponses(this.id);
- })
- $("#form_rep").keyup(function(){
-        if (event.keyCode == 13) {}
- })
+$(document).on("click", "#"+ element.messages[i].idMessage, function(){
+    console.log(document.getElementById(this.id).childNodes);
+    
+    $("#reponses" + this.id).empty();
+    //$("#waitGif" + this.id).show();
+    chargerReponses(this.id);
+    
+})
+$message = '';
+}
+
  $("#waitGif").hide();
 }    
 
@@ -117,7 +118,7 @@ function creeHtmlReponses(element, numMessage){
                                 if( element.reponses[i].idProfil != null) {$reponse += '<img class="vip"  src="../images/vip.gif"/>';}
                                 $reponse += '<div class="avatar">' + gravatar(element.reponses[i].emailUser) + '</div>';
                                 $reponse += '<div class="nomUser">'+element.reponses[i].loginUser +'</div>';
-                                $reponse += '<div class="dateMessage">'+ calculDate(element.reponses[i].dateActiviteMsg) +'</div><br/>';
+                                $reponse += '<div class="dateMessage" id="'+element.reponses[i].dateActiviteMsg+'">'+ calculDate(element.reponses[i].dateActiviteMsg) +'</div><br/>';
                                 $reponse += '<div class="lblMessage">'+ element.reponses[i].lblMessage +'</div>';
                             $reponse += '</div>';  
                         $reponse += '</div>';
@@ -125,8 +126,10 @@ function creeHtmlReponses(element, numMessage){
                 $reponse += '</div>';
             $reponse += '</div>';
         $reponse +='</div>';
-    }
     $("#reponses"+ numMessage).append($reponse);
+    $reponse ='';    
+    }
+    
     $("#waitGif"+numMessage).hide();
 }
 
@@ -215,10 +218,11 @@ $(document).ready(function() {
         chargerMessagesSuivant();
     })
     
-    $("#message").keyup(function(){
+    $("#message").keydown(function(){
         if (event.keyCode == 13) {}
     })
-   
+    
+    
 })
 
 
