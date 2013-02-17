@@ -60,16 +60,19 @@ for (var i = 0; i<element.messages.length; i++){
                 $message +='</div>';
             $message +='</div><!--monaccordeonMenu-->';
     $message +='</div>';
+    $message +='<div class="waitGif" id="waitGif'+element.messages[i].idMessage+'" style="display:none"><img id="attente" height="94" width="109" src="'+BASE_URL+'/images/attente.gif"/></div>';
 $message +='</div>';
 }
 $(".container-fluid").append($message);
  $(document).on("click", ".accordion-heading", function(){
         $("#reponses" + this.id).empty();
+         $("#waitGif" + this.id).show();
         chargerReponses(this.id);
  })
  $("#form_rep").keyup(function(){
         if (event.keyCode == 13) {}
  })
+ $("#waitGif").hide();
 }    
 
 function creeHtmlReponses(element, numMessage){
@@ -96,7 +99,7 @@ function creeHtmlReponses(element, numMessage){
         $reponse +='</div>';
     }
     $("#reponses"+ numMessage).append($reponse);
-    
+    $("#waitGif"+numMessage).hide();
 }
 
 //Fonction de parcours des éléments data retournés
@@ -172,6 +175,7 @@ $(document).ready(function() {
     //Lors du click sur le lien "Plus..."
     //Appel de la fonction pour charger les x messages suivant
     $("#chargerPlusMessage").click(function(){
+        $("#waitGif").show();
         chargerMessagesSuivant();
     })
     //Lors du click sur le lien "Plus..."
@@ -179,6 +183,7 @@ $(document).ready(function() {
     $("#btn_maj").click(function(){
         dateProchaine = null;
         $(".container-fluid").empty();
+        $("#waitGif").show();
         chargerMessagesSuivant();
     })
     
