@@ -90,10 +90,8 @@ for (var i = 0; i<element.messages.length; i++){
 $message +='</div>';
 
 $(".container-fluid").append($message);
+
 $(document).on("click", "#"+ element.messages[i].idMessage, function(){
-    console.log(document.getElementById(this.id).childNodes);
-    
-    $("#reponses" + this.id).empty();
     //$("#waitGif" + this.id).show();
     chargerReponses(this.id);
     
@@ -105,7 +103,6 @@ $message = '';
 }    
 
 function creeHtmlReponses(element, numMessage){
-    dateProchaineReponse = element.dateProchaine;
     $reponse = '';
     for (var i = 0; i<element.reponses.length; i++){
 
@@ -129,8 +126,7 @@ function creeHtmlReponses(element, numMessage){
     $("#reponses"+ numMessage).append($reponse);
     $reponse ='';    
     }
-    
-    $("#waitGif"+numMessage).hide();
+
 }
 
 //Fonction de parcours des éléments data retournés
@@ -153,7 +149,6 @@ function parseJSONReponse(data, numMessage){
 function chargerMessagesSuivant(){
     if(dateProchaine==null){dateProchaine = new Date().getTime();
         dateProchaine = Math.floor(dateProchaine/1000);
-        console.log(dateProchaine);
         }
      $.ajax({
             type: "GET",
@@ -173,10 +168,9 @@ function chargerMessagesSuivant(){
 }
 
 function chargerReponses(numMessage){
-    if(dateProchaineReponse==null){dateProchaineReponse = new Date().getTime();
-        dateProchaineReponse = Math.floor(dateProchaineReponse/1000);
-        }
-        console.log(numMessage);
+    $("#reponses" + numMessage).empty();
+    dateProchaineReponse = new Date().getTime();
+    dateProchaineReponse = Math.floor(dateProchaineReponse/1000);;
     $.ajax({
             type: "GET",
             url: BASE_URL + "/message/reponses/message/" + numMessage + "/fromdate/"+ dateProchaineReponse +"?format=json" ,
@@ -213,9 +207,10 @@ $(document).ready(function() {
     //Appel de la fonction pour charger les x messages suivant
     $("#btn_maj").click(function(){
         dateProchaine = null;
-        $(".container-fluid").empty();
+        /*$(".container-fluid").empty();
         $("#waitGif").show();
-        chargerMessagesSuivant();
+        chargerMessagesSuivant();*/
+        location.reload() ;
     })
     
     $("#message").keydown(function(){
