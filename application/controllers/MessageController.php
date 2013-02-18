@@ -361,8 +361,6 @@ class MessageController extends Zend_Controller_Action
                 //on récupère les données du formulaire
                 //faire du contrôle de saisie :
                 // $message ne doit pas être vide, de taille limitée ...
-//                $message = $form->getValue('message'.$idMessageParent);
-//                $profil = $form->getValue('choixProfil'.$idMessageParent);
                 $valid=new Zend_Validate_NotEmpty();
                 $message = $form->getValue('message');
                 if (!$valid->isValid($message)) {
