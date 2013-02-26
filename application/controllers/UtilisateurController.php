@@ -13,12 +13,15 @@ class UtilisateurController extends Zend_Controller_Action
 {   
         
     private $_evenement;
+    private $_session;
     
     public function init()
     {
         if (Zend_Registry::isRegistered('checkedInEvent')) {
             $this->_evenement = Zend_Registry::get('checkedInEvent');
         }
+        $this->_session = new Zend_Session_Namespace('bulle');
+        
             
     }
     
@@ -234,13 +237,22 @@ class UtilisateurController extends Zend_Controller_Action
     
     public function authentifierAction()
     {
+        //vérifions si nous devons prévoir une redirection 
+        if (isset($this->_session->redirection)){
+            $redirectInfos = $this->_session->redirection;
+            
+        }else{
+            //pas de redirection prévue
+        }    
+        
         //création d'une instance du formulaire
         $form = new Application_Form_Login();
         //on passe le formulaire à la vue
         $this->view->formLogin = $form;
         
+        
         // on vérifie qu'il y ai des données postées et on les valide
-        if ($this->_request->isPost()) {
+        if ($this->getRequest()->isPost()) {
             $formData = $this->_request->getPost();
             if ($form->isValid($formData)) {
                 //on récupère les données du formulaire
@@ -269,11 +281,16 @@ class UtilisateurController extends Zend_Controller_Action
                     //TODO : rediriger sur la page qui précède l'authentification
                     //$bulleNamespace = new Zend_Session_Namespace('bulle');
                     //$redirection = $bulleNamespace->retour;
-                    if (Zend_Registry::isRegistered('ModuleReferer')){
-                        $module = Zend_Registry::get('ModuleReferer');
-                        $controller = Zend_Registry::get('ControllerReferer');
-                        $action = Zend_Registry::get('ActionReferer');
-                        $this->_helper->redirector ( $action,$controller,$module);
+                    if (isset($this->_session->redirection)){
+                        //unset($this->_session->redirection);
+                        //redirige
+                        //needRedirect
+                        $this->getRequest()->setParam("needRedirect",true);
+                        $redirectInfos["needRedirect"]=true;
+                        //$this->_helper->redirector( $redirection_action , $redirection_controller , $redirection_module , $redirection_params );
+                        $this->_helper->redirector( $redirectInfos['action'] , $redirectInfos['controller'], $redirectInfos['module'], $redirectInfos );
+                        //$this->forward($action, $controller, $module, $params);
+                        //$this->_helper->redirector ( 'index', 'utilisateur' );
                     } else {
                         //pas de page d'origine sur laquelle retourner...
                         $this->_helper->redirector ( 'index', 'utilisateur' );
@@ -291,6 +308,7 @@ class UtilisateurController extends Zend_Controller_Action
     {
         //suppression des informations de l'utilisateur
         Zend_Auth::getInstance ()->clearIdentity ();
+        
         //redirection vers le controlleur index, action index
         $this->_helper->redirector ( 'accueil', 'evenement' );
     }

@@ -347,6 +347,7 @@ class MessageController extends Zend_Controller_Action
          * Envoyer un message et vérifier le message à persister 
          */
         // on vérifie qu'il y ai des données postées et on les valide
+        
         if ($this->_request->isPost()) {
             $formData = $this->_request->getPost();
             
