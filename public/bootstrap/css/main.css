@@ -11,6 +11,7 @@
     font-family: sans-serif;
 }
 body{
+    background-color: #BFC0C0;
     font-family: sans-serif; 
     font-size: 11px;
 }
@@ -27,25 +28,35 @@ body{
 }
 .modal-header{
     margin:0px;
-    background-color: #f5f5f5;
+    background-color: #BFC0C0;
 }
 .modal-footer{
     margin:0px;
     padding: 1px;
+    background-color: #BFC0C0;
 }
+.menu{background-image: -webkit-linear-gradient(top, gray, #000);}
 .close {
     position: absolute;
     margin-left: 95%;
     opacity: 1;
     color: black;
 }
+li {
+    display: inline;
+    list-style: none;
+    color: white;
+}
 .accordion-group{
-    padding: 5px;
-    margin: 0px 3px 0px 0px;
+    margin: 1px 3px 1px 0px;
     background-color: white;
 }
 .monaccordeonRep{
     margin: 0px 1px 0px 0px;
+    padding: 1px;
+}
+.span12{
+    padding: 2px;
 }
 /*header*/
 .menuHeader{position: fixed}
@@ -112,7 +123,7 @@ textarea { width: 100%;}
 .dateMessage{
        position: relative;
        float:right;
-       color: #66CCFF;
+       color: #0546FF;
        text-align:right;
        z-index: 1;
     }
@@ -120,7 +131,7 @@ textarea { width: 100%;}
        position: relative;
        float: left;
        font-weight: bold;
-       color: #66CCFF;
+       color: #0546FF;
     }
 .lblMessage{
         position: relative;
@@ -130,7 +141,7 @@ textarea { width: 100%;}
 .avatar img{
         position: relative;
         float: left;
-        margin: 7px 10px 0px 0px;
+        margin: 0px 10px 0px 0px;
         width:45px;
         height:45px;
     }
@@ -143,8 +154,8 @@ textarea { width: 100%;}
 }
 
 #chargerPlusMessage{
-    text-decoration-color: #66CCFF;
-    color: #66CCFF;
+    text-decoration-color: #0546FF;
+    color: #0546FF;
     text-align: right;
 }
 
@@ -154,13 +165,7 @@ textarea { width: 100%;}
 .container-reponse{
     margin-bottom: 10px;
 }
-.controls ul li{
-    display: inline;
-    text-decoration: none;
-    position: relative;
-    float: left;
-    margin: 0px;
-}
+
 .waitGif{
     margin: 1px auto;
     text-align: center;

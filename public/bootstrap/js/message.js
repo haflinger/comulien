@@ -4,6 +4,10 @@
 var dateProchaine = null;
 var dateProchaineReponse = null;
 
+//Fonction automatique de calcul des dates et heurs
+function autoDate(){
+  
+}
 
 //Fonction qui retourne la date d'activité du message au format simplifié
 //hier, min, heure, jour
@@ -46,6 +50,7 @@ function gravatar(email){
 function creeHtmlMessage(element){
 dateProchaine = element.dateProchaine;
 $message = '';
+$formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
         $message += '<div class="accordion-group accordion-heading" id="' + element.messages[i].idMessage + '">';
             $message += '<a class="accordion-toggle" data-toggle="modal" href="#details" data-parent=".monaccordeon" data-toggle="collapse">';
@@ -55,12 +60,16 @@ for (var i = 0; i<element.messages.length; i++){
                         $message += '<div class="avatar">' + gravatar(element.messages[i].emailUser) + '</div>';
                         $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
                         $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
-                        //$message += '<div> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.messages[i].like+'</a> </div>';
-                        //$message += '<div> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.messages[i].dislike+'</a> </div>';
                         $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
                     $message += '</div>';  
                 $message += '</div>';
             $message += '</a>';
+            $message += '<div class="menu"><ul>'
+            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.messages[i].like+'</a> </li>';
+            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.messages[i].dislike+'</a> </li>';
+            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Publier</a> </li>';           
+            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Modérer</a> </li>';    
+            $message += '</ul></div>'            
         $message += '</div>';
 $(".container-fluid").append($message);
 
@@ -69,6 +78,7 @@ $(document).on("click", "#"+ element.messages[i].idMessage, function(){
     //chargerReponses(this.id);
     $("#messParent").empty();
     $("#messReponse").empty();
+    $("#messMenu").empty();
     $("#waitGifDetails").show();
     //Duplication du noeud du message
     var nouveau = this.cloneNode(true);
@@ -78,11 +88,12 @@ $(document).on("click", "#"+ element.messages[i].idMessage, function(){
     chargerReponses(this.id);
 })
 $message = '';
+
 }
  $("#waitGif").hide();
 }    
 
-function creeHtmlReponses(element){
+function creeHtmlReponses(element, numMessage){
     $reponse = '';
     for (var i = 0; i<element.reponses.length; i++){
 
@@ -106,6 +117,17 @@ function creeHtmlReponses(element){
     }
     //$("#messReponse").empty();
     $("#messReponse").append($reponse);
+    
+$formulaire =  '<form class="form-vertical" enctype="application/x-www-form-urlencoded" method="post" action="envoyer"><fieldset>';
+    $formulaire += '<input type="hidden" name="IdMessageParent" value="' + numMessage + '" id="IdMessageParent" />';
+    $formulaire += '<div class="control-group"><div class="controls">';
+    $formulaire += '<input type="text" name="message" id="message" value="" placeholder="Votre message" /></div></div>';
+    $formulaire += '<div class="form-actions">';
+    $formulaire += '<input type="submit" name="envoyer" id="envoyer" value="envoyer" style="display:none" class="btn btn-primary" /></div></fieldset>';
+$formulaire += '</form>';
+
+$("#messMenu").append($formulaire);
+$formulaire = '';
     $("#waitGifDetails").hide();
 }
 
