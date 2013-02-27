@@ -79,7 +79,7 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         $reqController  = $request->getControllerName();
         $reqAction      = $request->getActionName();
         $reqParams      = $request->getParams();
-        
+        $this->_logger->err($reqModule.'/'.$reqController.'/'.$reqAction);
         if ($reqController=="utilisateur" && $reqAction=="index") {
             echo '';
         }

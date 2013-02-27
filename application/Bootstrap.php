@@ -14,6 +14,22 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
     }
     
+    protected function _initAppAutoload()
+    {
+        $autoloader = new Zend_Application_Module_Autoloader(array(
+           'namespace' => '',
+            'basePath'  => dirname(__FILE__),
+        ));
+        return $autoloader;
+    }
+
+    protected function _initLayoutHelper()
+    {
+        $this->bootstrap('frontController');
+        $layout = Zend_Controller_Action_HelperBroker::addHelper(
+            new Application_View_Helper_LayoutLoader());
+    }
+    
     /**
      * initialisation de la journalisation
      */
@@ -45,40 +61,40 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         date_default_timezone_set('Europe/Paris');
     }
 
-    protected function _initZFDebug()
-    {
-        $autoloader = Zend_Loader_Autoloader::getInstance();
-        $autoloader->registerNamespace('ZFDebug');
-
-        $options = array(
-            'plugins' => array('Variables', 
-                               'File' => array('base_path' => '/path/to/project'),
-                               'Memory', 
-                               'Time', 
-                               'Registry', 
-                               'Exception')
-        );
-
-        # Instantiate the database adapter and setup the plugin.
-        # Alternatively just add the plugin like above and rely on the autodiscovery feature.
-        if ($this->hasPluginResource('db')) {
-            $this->bootstrap('db');
-            $db = $this->getPluginResource('db')->getDbAdapter();
-            $options['plugins']['Database']['adapter'] = $db;
-        }
-
-        # Setup the cache plugin
-        if ($this->hasPluginResource('cache')) {
-            $this->bootstrap('cache');
-            $cache = $this-getPluginResource('cache')->getDbAdapter();
-            $options['plugins']['Cache']['backend'] = $cache->getBackend();
-        }
-
-        $debug = new ZFDebug_Controller_Plugin_Debug($options);
-
-        $this->bootstrap('frontController');
-        $frontController = $this->getResource('frontController');
-        $frontController->registerPlugin($debug);
-    }
+//    protected function _initZFDebug()
+//    {
+//        $autoloader = Zend_Loader_Autoloader::getInstance();
+//        $autoloader->registerNamespace('ZFDebug');
+//
+//        $options = array(
+//            'plugins' => array('Variables', 
+//                               'File' => array('base_path' => '/path/to/project'),
+//                               'Memory', 
+//                               'Time', 
+//                               'Registry', 
+//                               'Exception')
+//        );
+//
+//        # Instantiate the database adapter and setup the plugin.
+//        # Alternatively just add the plugin like above and rely on the autodiscovery feature.
+//        if ($this->hasPluginResource('db')) {
+//            $this->bootstrap('db');
+//            $db = $this->getPluginResource('db')->getDbAdapter();
+//            $options['plugins']['Database']['adapter'] = $db;
+//        }
+//
+//        # Setup the cache plugin
+//        if ($this->hasPluginResource('cache')) {
+//            $this->bootstrap('cache');
+//            $cache = $this-getPluginResource('cache')->getDbAdapter();
+//            $options['plugins']['Cache']['backend'] = $cache->getBackend();
+//        }
+//
+//        $debug = new ZFDebug_Controller_Plugin_Debug($options);
+//
+//        $this->bootstrap('frontController');
+//        $frontController = $this->getResource('frontController');
+//        $frontController->registerPlugin($debug);
+//    }
 }
 
