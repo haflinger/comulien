@@ -47,7 +47,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     protected function _initZFDebug()
     {
-        $autoloader = Zend_Loader_Autoloader::getInstance();
+        /*$autoloader = Zend_Loader_Autoloader::getInstance();
         $autoloader->registerNamespace('ZFDebug');
 
         $options = array(
@@ -78,7 +78,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $this->bootstrap('frontController');
         $frontController = $this->getResource('frontController');
-        $frontController->registerPlugin($debug);
+        $frontController->registerPlugin($debug);*/
     }
 }
 

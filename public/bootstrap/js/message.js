@@ -6,9 +6,16 @@ var dateProchaineReponse = null;
 
 //Fonction automatique de calcul des dates et heurs
 function autoDate(){
-  
+  $("#dateMessage").each(
+    function(){
+        modifDate(this);
+    })
+  setTimeout(autoDate(), 100);
 }
 
+function modifDate(noeud){
+    $(noeud).textContent = calculDate(noeud.id);
+}
 //Fonction qui retourne la date d'activité du message au format simplifié
 //hier, min, heure, jour
 function calculDate(dateMessage){
@@ -57,7 +64,7 @@ for (var i = 0; i<element.messages.length; i++){
                 $message += '<div class="row-fluid">';
                     $message += '<div class="span12">'; 
                         if( element.messages[i].idProfil != null) {$message += '<img class="vip"  src="../images/vip.gif"/>';}
-                        $message += '<div class="avatar">' + gravatar(element.messages[i].emailUser) + '</div>';
+                        $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
                         $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
                         $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
                         $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
@@ -103,7 +110,7 @@ function creeHtmlReponses(element, numMessage){
                         $reponse += '<div class="row-fluid">';
                             $reponse += '<div class="span12">';
                                 if( element.reponses[i].idProfil != null) {$reponse += '<img class="vip"  src="../images/vip.gif"/>';}
-                                $reponse += '<div class="avatar">' + gravatar(element.reponses[i].emailUser) + '</div>';
+                                $reponse += '<div class="avatar">' + gravatar(element.reponses[i].emailMD5) + '</div>';
                                 $reponse += '<div class="nomUser">'+element.reponses[i].loginUser +'</div>';
                                 $reponse += '<div class="dateMessage" id="'+element.reponses[i].dateActiviteMsg+'">'+ calculDate(element.reponses[i].dateActiviteMsg) +'</div><br/>';
                                 $reponse += '<div class="lblMessage">'+ element.reponses[i].lblMessage +'</div>';
@@ -218,6 +225,7 @@ $(document).ready(function() {
     $("#message").keydown(function(){
         if (event.keyCode == 13) {}
     })   
+    autoDate();
 })
 
 
