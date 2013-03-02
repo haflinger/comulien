@@ -9,8 +9,10 @@ function autoDate(){
   $("#dateMessage").each(
     function(){
         modifDate(this);
+        //console.log(this);
     })
-  setTimeout(autoDate(), 100);
+    
+    setTimeout(autoDate(), 10000);
 }
 
 function modifDate(noeud){
@@ -50,7 +52,7 @@ function calculDate(dateMessage){
 
 //Fonction de création du lien gravatar
 function gravatar(email){
-    return '<img src="http://www.gravatar.com/avatar/' + email + '.jpg?&d=mm&r=g&s=40"/>';
+    return '<img alt="Avatar" src="http://www.gravatar.com/avatar/' + email + '.jpg?&d=mm&r=g&s=40"/>';
 }
 
 //Ajout des balise HTML - Mise en forme du message
@@ -59,28 +61,49 @@ dateProchaine = element.dateProchaine;
 $message = '';
 $formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
-        $message += '<div class="accordion-group accordion-heading" id="' + element.messages[i].idMessage + '">';
-            $message += '<a class="accordion-toggle" data-toggle="modal" href="#details" data-parent=".monaccordeon" data-toggle="collapse">';
-                $message += '<div class="row-fluid">';
-                    $message += '<div class="span12">'; 
-                        if( element.messages[i].idProfil != null) {$message += '<img class="vip"  src="../images/vip.gif"/>';}
-                        $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
-                        $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
-                        $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
-                        $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
-                    $message += '</div>';  
-                $message += '</div>';
-            $message += '</a>';
-            $message += '<div class="menu"><ul>'
-            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.messages[i].like+'</a> </li>';
-            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.messages[i].dislike+'</a> </li>';
-            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Publier</a> </li>';           
-            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Modérer</a> </li>';    
-            $message += '</ul></div>'            
-        $message += '</div>';
+    $message += '<div class="message">';
+            $message += '<div class="user">';
+                if( element.messages[i].idProfil != null) {$message += '<img alt="VIP" class="vip"  src="../images/vip.gif"/>';}
+                $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div>';
+                $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
+            $message += '</div>';
+            $message += '<div class="tools">';
+                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.messages[i].like+'</a> </li>';
+                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.messages[i].dislike+'</a> </li>';
+                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-share"></i></a> </li>';           
+//                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-remove"></i></a> </li>';    
+            $message += '</div>';
+            $message += '<div class="texteMessage" id="' + element.messages[i].idMessage + '" data-toggle="modal" href="#details">';
+                $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
+                $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
+            $message += '</div>';
+            
+            
+     $message += '</div>';   
+        
+        
+//        $message += '<div class="accordion-group accordion-heading" id="' + element.messages[i].idMessage + '">';
+//            $message += '<a class="accordion-toggle" data-toggle="modal" href="#details" data-parent=".monaccordeon" data-toggle="collapse">';
+//                $message += '<div class="row-fluid">';
+//                    $message += '<div class="span12">'; 
+//                        if( element.messages[i].idProfil != null) {$message += '<img class="vip"  src="../images/vip.gif"/>';}
+//                        $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
+//                        $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
+//                        $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
+//                        $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
+//                    $message += '</div>';  
+//                $message += '</div>';
+//            $message += '</a>';
+//            $message += '<div class="menu"><ul>'
+//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.messages[i].like+'</a> </li>';
+//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.messages[i].dislike+'</a> </li>';
+//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Publier</a> </li>';           
+//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Modérer</a> </li>';    
+//            $message += '</ul></div>'            
+//        $message += '</div>';
 $(".container-fluid").append($message);
 
-$(document).on("click", "#"+ element.messages[i].idMessage, function(){
+$("#"+ element.messages[i].idMessage).on("click", function(){
     //$("#waitGif" + this.id).show();
     //chargerReponses(this.id);
     $("#messParent").empty();

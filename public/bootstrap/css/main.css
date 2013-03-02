@@ -11,8 +11,8 @@
     font-family: sans-serif;
 }
 body{
-    background-image: -webkit-linear-gradient(left,  grey, white); 
-    /*background-color: #C0C0C0;*/
+    /*background-image: -webkit-linear-gradient(top,  #000, gray);*/ 
+    background-color: grey;
     font-family: sans-serif; 
     font-size: 11px;
 }
@@ -37,34 +37,50 @@ body{
     padding: 1px;
     background-color: #BFC0C0;
 }
-.menu{
-    background-image: -webkit-linear-gradient(top, #BFC0C0, #6E6E6E);
-    border : 1px;
-    border-color: #30FF00;
-    margin: 0px 0px 1px 0px;
+.message{
+position: relative;
+margin-bottom: 10px;
 }
-.close {
-    position: absolute;
-    margin-left: 95%;
-    opacity: 1;
-    color: black;
+.user{
+    margin-top: -10px;
+    width: 50px;
+    float:left;  
+}
+.texteMessage{
+    cursor: pointer;
+    background-color: white;
+    min-height: 50px;
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-right: 40px;
+    padding: 5px;
+    border:solid 1px #A2A9AF;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    -moz-box-shadow: 3px 3px 10px #000000;
+    -webkit-box-shadow: 3px 3px 10px #000000;
+    box-shadow: 3px 3px 10px #000000;
+}
+.tools{
+    float:right;
+    width:30px;
 }
 li {
-    display: inline;
     list-style: none;
-    color: white;
+    color : black;
 }
-.accordion-group{
-    margin: 3px 0px 3px 0px;
-    background-color: white;
-}
-.monaccordeonRep{
-    margin: 0px 1px 0px 0px;
-    padding: 1px;
-}
-.span12{
-    padding: 2px;
-}
+
+
 /*header*/
 .menuHeader{position: fixed}
 #lientitre {color:black;text-decoration: none}
@@ -72,7 +88,6 @@ li {
 #btn_newMessage{float:right}
 .infos{margin:0px; padding:0px}
 
-textarea { width: 100%;}
 #btn_maj{
         float: right;
         padding:3px 12px;
@@ -82,9 +97,7 @@ textarea { width: 100%;}
     height: 16px;
 
 }
-.chargement{
-    color:gray;
-}
+
 /*Acceuil*/
 #logo_comulien{
     position: relative;
@@ -119,7 +132,7 @@ textarea { width: 100%;}
 .vip{
     z-index: 4;
     position: absolute;
-    margin: -0px 0px -25px -10px;
+    margin: 20px 0px -25px 1px;
     transform: rotate(341deg) ;
 -webkit-transform: rotate(341deg) ;
 -moz-transform: rotate(341deg) ;
@@ -128,32 +141,42 @@ textarea { width: 100%;}
 }
 
 .dateMessage{
-       position: relative;
        float:right;
        color: #30FF00;
        text-align:right;
-       z-index: 1;
     }
+
 .nomUser{
-       position: relative;
-       float: left;
+       padding:0px 0px 0px 10px;
        font-weight: bold;
        color: #30FF00;
     }
 .lblMessage{
-        position: relative;
+        margin-right: 30px;
         color: black;
         font-size: 10px;
     }
 .avatar img{
         position: relative;
-        float: left;
-        margin: 0px 10px 0px 0px;
+        float: center;
+        margin: auto;
         width:45px;
         height:45px;
+        border:solid 0px #A2A9AF;
+-moz-border-radius-topleft: 38px;
+-moz-border-radius-topright:38px;
+-moz-border-radius-bottomleft:38px;
+-moz-border-radius-bottomright:38px;
+-webkit-border-top-left-radius:38px;
+-webkit-border-top-right-radius:38px;
+-webkit-border-bottom-left-radius:38px;
+-webkit-border-bottom-right-radius:38px;
+border-top-left-radius:38px;
+border-top-right-radius:38px;
+border-bottom-left-radius:38px;
+border-bottom-right-radius:38px;
     }
 
-.navbar{margin:0px;}
 
 .logoMessage{
     height:30px;
@@ -169,9 +192,6 @@ textarea { width: 100%;}
     width: 100%;
 }
 
-.monaccordeon{
-    margin-bottom: 1px;
-}
 .container-reponse{
     margin-bottom: 10px;
 }
@@ -185,7 +205,9 @@ textarea { width: 100%;}
 }
 /*Formulaire de message*/
 div #message{
-    width: 97%;
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
     height: 20px;
 }
 .control-group{
