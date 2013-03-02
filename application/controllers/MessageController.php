@@ -16,7 +16,7 @@ class MessageController extends Zend_Controller_Action
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
     
-    const NB_MESSAGES_PAR_PAGE = 5;
+    const NB_MESSAGES_PAR_PAGE = 7;
     
     public function init()
     {
@@ -29,6 +29,7 @@ class MessageController extends Zend_Controller_Action
                       ->addActionContext('approuver', 'json')
                       ->addActionContext('lister-tous', 'json')
                       ->addActionContext('lister-organisateur', 'json')
+                      ->addActionContext('compter', 'json')
                       ->initContext();
     }
 
@@ -38,16 +39,75 @@ class MessageController extends Zend_Controller_Action
         $this->view->entries = $Message->fetchAll();
     }
     
+    public function compterAction()
+    {
+        $fromDate = $this->getRequest()->getParam('fromdate',  null );
+        //TODO : les dates en paramètres vont transiter sous forme de timestamps
+        if (!is_null($fromDate)) {
+            $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
+        }else{
+            $fromDate = Zend_Date::now();
+        }
+        $tableMessage = new Application_Model_DbTable_Message();
+//        $exclureReponses = true;
+//        $reponsesSeules = true;
+//        $actifsSeuls = false;
+//        $nbMsg = $tableMessage->compter($this->_evenement->idEvent , $fromDate,$actifsSeuls,$exclureReponses,$reponsesSeules );
+        $nbMsg = $tableMessage->compter($this->_evenement->idEvent , $fromDate );
+        $this->view->nbMessages = $nbMsg;
+        $this->view->fromDate = $fromDate->toString(Zend_Date::TIMESTAMP);
+        $this->view->lastCheckedDate = Zend_Date::now()->toString(Zend_Date::TIMESTAMP);
+        
+    }
+    
     public function listerOrganisateurAction()
     {
-        //si la session contient un evenement
-        $tableMessage = new Application_Model_DbTable_Message();
-        $messagesOrganisateurs = $tableMessage->messagesOrganisateur($this->_evenement->idEvent);
-        
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        //
+        //Récupération du droit de modération de l'utilisateur dans l'évènement
+        //
+        $auth = Zend_Auth::getInstance ();
+        $moderateur = false;
+        $UtilisateurActif = null;
+        if ($auth->hasIdentity ()) {
+            $idUser = $auth->getIdentity ()->idUser;
+            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+            $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
+
+            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
+        }
+
+        //passe à la vue le droit de l'utilisateur à modérer
+        $this->view->moderateur = $moderateur;
+        
+        //
+        // traitement de la pagination
+        //
+
+        //récupération des paramètres
+        $fromDate = $this->getRequest()->getParam('fromdate',  null );
+        if (!is_null($fromDate)) {
+            $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
+        }
+        
+        $tableMessage = new Application_Model_DbTable_Message();
+        $showAll = false;
+        $nbItemParPage = self::NB_MESSAGES_PAR_PAGE;
+        $dateRef = $fromDate;
+        $messagesOrganisateurs = $tableMessage->messagesOrganisateur($this->_evenement->idEvent,$showAll,$nbItemParPage,$dateRef);
+        
+        //ATTENTION la ligne suivante bug si on a pas assez de résultats
+        if ($messagesOrganisateurs->count() > 0) {
+            $dateProchaine = $messagesOrganisateurs->getRow( $messagesOrganisateurs->count()-1 )->dateEmissionMsg;
+        } else {
+            $dateProchaine = null;
+        }
+        
         if ($context=='json') {
             $messagesOrganisateurs = $messagesOrganisateurs->toArray();
         }
+        
+        $this->view->dateProchaine = $dateProchaine; //on retourne un timestamp
         $this->view->messages = $messagesOrganisateurs;
     }
 
@@ -104,21 +164,17 @@ class MessageController extends Zend_Controller_Action
 //            }
         }else{
             //ici nous traitons le json
+            $formEcrire = new Application_Form_EcrireMessage();
+            $formEcrire->generer();
+            $this->view->formEcrireMessage = $formEcrire;
         }
         
         //
         // traitement de la pagination
         //
-//        $numPage = $this->getRequest()->getParam('numpage'); //obsolethe lorsque la pagination par date sera fonctionnelle
-//        $validator = new Zend_Validate_Int();
-//        if ($validator->isValid($numPage) ) {
-//            //TODO : gérer les bornes (peut être faut t'il utiliser zend_validate_between
-//            $page = $numPage;
-//        }else{
-//            $page = 0;
-//        }
+
         $fromDate = $this->getRequest()->getParam('fromdate',  null );
-        //TODO : les dates en paramètres vont transiter sous forme de timestamps
+        
         if (!is_null($fromDate)) {
             $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
         }
@@ -128,14 +184,10 @@ class MessageController extends Zend_Controller_Action
         $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,self::NB_MESSAGES_PAR_PAGE, $fromDate);
         //ATTENTION la ligne suivante bug si on a pas assez de résultats
         if ($messagesTous->count() > 0) {
-            $stringDateProchaine = $messagesTous->getRow( $messagesTous->count()-1)->dateActiviteMsg;
-            $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
-            $dateProchaine = $zendDateProchaine->getTimestamp();
+            $dateProchaine = $messagesTous->getRow( $messagesTous->count()-1 )->dateActiviteMsg;
         } else {
             $dateProchaine = null;
         }
-        
-        //message/lister-tous/fromdate/xxxxxxx/
         
         if ($context=='json') {
             $messagesTous = $messagesTous->toArray();
@@ -145,7 +197,6 @@ class MessageController extends Zend_Controller_Action
         
     }
     
-
     public function reponsesAction()
     {
 
@@ -189,9 +240,10 @@ class MessageController extends Zend_Controller_Action
             $lesReponses = $tableMessage->reponsesMessage($idMessage, $idEvent, $moderateur,self::NB_MESSAGES_PAR_PAGE,$fromDate);
         }
         if ($lesReponses->count() > 0) {
-            $stringDateProchaine = $lesReponses->getRow( $lesReponses->count()-1)->dateActiviteMsg;
-            $zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
-            $dateProchaine = $zendDateProchaine->getTimestamp();
+            //$stringDateProchaine = $lesReponses->getRow( $lesReponses->count()-1)->dateActiviteMsg;
+            //$zendDateProchaine = new Zend_Date( $stringDateProchaine ,'yyyy-MM-dd HH:mm:ss S' );
+            //$dateProchaine = $zendDateProchaine->getTimestamp();
+            $dateProchaine = $lesReponses->getRow( $lesReponses->count()-1 )->dateActiviteMsg;
         } else {
             $dateProchaine = null;
         }
@@ -295,6 +347,7 @@ class MessageController extends Zend_Controller_Action
          * Envoyer un message et vérifier le message à persister 
          */
         // on vérifie qu'il y ai des données postées et on les valide
+        
         if ($this->_request->isPost()) {
             $formData = $this->_request->getPost();
             
@@ -309,9 +362,11 @@ class MessageController extends Zend_Controller_Action
                 //on récupère les données du formulaire
                 //faire du contrôle de saisie :
                 // $message ne doit pas être vide, de taille limitée ...
-//                $message = $form->getValue('message'.$idMessageParent);
-//                $profil = $form->getValue('choixProfil'.$idMessageParent);
+                $valid=new Zend_Validate_NotEmpty();
                 $message = $form->getValue('message');
+                if (!$valid->isValid($message)) {
+                    //TODO : renvoyer sur le controlleur d'erreurs
+                }
                 $profil = $form->getValue('choixProfil');
                 if ($profil=='0') {
                     $profil = null;

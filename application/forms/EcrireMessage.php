@@ -58,16 +58,15 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
         //zone de texte pour la saisie du message
         //TODO : modifié textarea + son nom
         //$message = new Zend_Form_Element_Textarea('message'.$idMessageParent);
-        $message = new Zend_Form_Element_Textarea('message');
+        $message = new Zend_Form_Element_Text('message');
         $message->setAllowEmpty(false);
         $message->setAttrib('placeholder','Votre message');
         $message->setRequired(true);
-        //$message->setAttrib('cols', 35)
-               // ->setAttrib('rows', 4);
+
         //$message->addValidator('StringLength',array(0,10)); //todo à vérifier
         
         // récupération de l'utilisateur
-        $auth = Zend_Auth::getInstance ();
+        /*$auth = Zend_Auth::getInstance ();
         if ($auth->hasIdentity ()) {
             $idUser = $auth->getIdentity ()->idUser;
             //
@@ -84,13 +83,13 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
 //                ) );
         }else{
             //return ;
-        }
+        }*/
 
         
         
         //$submit = new Zend_Form_Element_Submit ( 'envoyer'.$idMessageParent );
         $submit = new Zend_Form_Element_Submit ( 'envoyer' );
-        $submit->setLabel('Envoyer');
+        $submit->setAttrib('style', 'display:none');
         
         $elements = array (
             $hiddenIdMessageParent,
@@ -99,10 +98,10 @@ class Application_Form_EcrireMessage extends Twitter_Form//Zend_Form
             $submit );
         $this->addElements ( $elements );
         
-        $this->setDecorators(array(
+        /*$this->setDecorators(array(
             'PrepareElements',
             array('ViewScript',array('viewScript' => 'forms/ecrireMessage.phtml')),
-        ));
+        ));*/
         
     }
 

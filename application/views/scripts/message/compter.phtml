@@ -1,0 +1,25 @@
+<?php 
+ $dateDepuis = new Zend_Date($this->fromDate, Zend_Date::TIMESTAMP);
+ $dateChecked = new Zend_Date($this->lastCheckedDate, Zend_Date::TIMESTAMP);
+?>
+Il y a <?php echo $this->escape($this->nbMessages) ?> messages
+depuis le <?php echo $this->escape( $dateDepuis->toString('yyyy-MM-dd HH:mm:ss S') ); ?>
+(vérifié le <?php echo $this->escape( $dateChecked->toString('yyyy-MM-dd HH:mm:ss S') ) ?>)
+<br/>
+<?php 
+$dateDepuis->setTimezone('Europe/Paris');
+$dateChecked->setTimezone('Europe/Paris')
+?>
+Il y a <?php echo $this->escape($this->nbMessages) ?> messages
+depuis le <?php echo $this->escape( $dateDepuis->toString('yyyy-MM-dd HH:mm:ss S') ); ?>
+(vérifié le <?php echo $this->escape( $dateChecked->toString('yyyy-MM-dd HH:mm:ss S') ) ?>)
+
+    <?php 
+//// $dateDepuis = new Zend_Date($this->fromDate,'yyyy-MM-dd HH:mm:ss S');
+//$dateDepuis->setTimezone('America/Chicago');
+//echo $dateDepuis->getIso();
+        ?>
+<br />
+
+
+        

@@ -11,9 +11,9 @@
     font-family: sans-serif;
 }
 body{
-    background-color: #EFEAEB;
+    background-color: #000;
     font-family: sans-serif; 
-    font-size: 12px;
+    font-size: 11px;
 }
 /*header*/
 .menuHeader{position: fixed}
@@ -21,11 +21,7 @@ body{
 .nav{display: inline}
 #btn_newMessage{float:right}
 .infos{margin:0px; padding:0px}
-#saisieMessage{
-    width:100%;
-    margin: 10px;
-    background-color: gray;
-}
+
 textarea { width: 100%;}
 #btn_maj{
         float: right;
@@ -70,7 +66,16 @@ textarea { width: 100%;}
     float: right;
 }
 /*Tous les message*/
-
+.vip{
+    z-index: 4;
+    position: absolute;
+    margin: -0px 0px -25px -18px;
+    transform: rotate(341deg) ;
+-webkit-transform: rotate(341deg) ;
+-moz-transform: rotate(341deg) ;
+-o-transform: rotate(341deg) ;
+-ms-transform: rotate(341deg) ;
+}
 .dateMessage{
        position: relative;
        float:right;
@@ -87,7 +92,7 @@ textarea { width: 100%;}
 .lblMessage{
         position: relative;
         color: black;
-        font-size: 12px;
+        font-size: 10px;
     }
 .nbMessage{
         position: relative;
@@ -106,7 +111,6 @@ textarea { width: 100%;}
 
 .navbar{margin:0px;}
 .menuMessage{
-    font-size: 13px;
     padding: 0px;
 }
 .logoMessage{
@@ -121,11 +125,15 @@ textarea { width: 100%;}
     text-align: right;
 }
 .rep{
-    
+    margin: 5px 15px 10px 0px;
     padding-left: 30px;
 }
-.monaccordeonRep{
-    background-color: #66CCFF;
+.monaccordeon{
+    margin-bottom: 1px;
+}
+.container-reponse{
+
+    margin-bottom: 10px;
 }
 .controls ul li{
     display: inline;
@@ -138,10 +146,13 @@ textarea { width: 100%;}
     margin: 1px auto;
     text-align: center;
 }
+#chargerPlusMessage{
+    margin:0px 20px 0px 0px
+}
 /*Formulaire de message*/
 div #message{
-    width: 96%;
-    margin:1px  3px 1px 3px;
+    width: 94%;
+    margin:0px  1% 1px 1%;
     height: 20px;
 }
 .control-group{

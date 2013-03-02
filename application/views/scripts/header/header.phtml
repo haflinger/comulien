@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#" id="nomEvent"><?php echo $event ?></a>
-           <a class="btn btn_maj pull-right"><img id="maj" src="<?php  echo $this->baseUrl(); ?>/images/attente.png"/></a>
+           <a class="btn btn_maj pull-right" id="btn_maj"><img id="maj" src="<?php  echo $this->baseUrl(); ?>/images/attente.png"/></a>
          
           <div class="nav-collapse collapse pull-right">
             <ul class="nav">
@@ -43,12 +43,11 @@
         </div>
       </div> 
         <div class="container-header">
-        <!--Mise en place de la sasie de message si utilisateur identifié-->
-        <?php  if (!is_null($this->formEcrireMessage)) {?> 
             <div class="saisieMessage">
-                <?php echo $this->formEcrireMessage ; ?>
+               <?php  if (!is_null($this->formEcrireMessage)) {
+                    echo $this->formEcrireMessage ;
+               }?> 
             </div>
-        <?php   }?>            
         </div>
 </div>
 

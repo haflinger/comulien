@@ -1,29 +1,28 @@
 
-
-
-<form class="form-vertical" enctype="application/x-www-form-urlencoded" 
-      action="<?php echo $this->escape($this->element->getAction()); ?>" 
-      method="<?php echo $this->escape($this->element->getMethod()); ?>">
-
-        <?php echo $this->decorators; ?>
-        <?php echo $this->element->IdMessageParent->renderViewHelper(); ?>
-        
-       <div><?php echo $this->element->message->renderViewHelper(); ?></div>
+<div>
+   <?php echo $this->decorators; ?>
+    <?php echo $this->element->IdMessageParent->renderViewHelper(); ?>
+   <?php echo $this->element->message->renderViewHelper(); ?>
+   <?php echo $this->element->envoyer->renderViewHelper(); ?>
+</div>
 
 
 
     
-    <!--<fieldset>
-        <?php echo $this->decorators; ?>
-        <?php echo $this->element->IdMessageParent->renderViewHelper(); ?>
+<!--ANCIEN CODE
+<?php echo $this->decorators; ?>
+<?php echo $this->element->IdMessageParent->renderViewHelper(); ?>
+
+<div class="control-group">
+<div class="controls">
+<?php echo $this->element->message->renderViewHelper(); ?>
+</div>
+</div>
+<div class="control-group">
+<div class="controls">
+<?php echo $this->element->choixProfil->renderViewHelper(); ?>
+</div>
+</div>-->
         
-        <div class="control-group">
-            <div class="controls">
-                <?php echo $this->element->message->renderViewHelper(); ?>
-            </div>
-        </div>
-        <div class="form-actions">
-            <?php echo $this->element->envoyer->renderViewHelper(); ?>
-        </div>
-    </fieldset>-->
-</form>
+            
+      
