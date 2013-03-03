@@ -9,7 +9,22 @@
     <base href="/" />
 </head>
 <body id="page-home">
-<h1>Default</h1>
-<?php echo $this->layout()->content ?>
+    <div id="header">
+        <?php echo $this->render('header/header.phtml'); ?>
+    </div>
+
+    <div id="menu">
+        <?php echo $this->render('menu/menu.phtml'); ?>
+    </div>
+
+    <div id="content">
+        <?php echo $this->layout()->content ?>
+    </div>
+    
+    <div id="footer">
+        <?php echo $this->render('footer/footer.phtml'); ?>
+    </div>
+
+
 </body>
 </html>

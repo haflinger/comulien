@@ -147,18 +147,28 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
                 }
                 
                 // paramètres de route en cas d'utilisateur non connecté n'ayant pas le droit d'accès à la ressource
-                $outModule      = self::FAIL_AUTH_MODULE;
-                $outController  = self::FAIL_AUTH_CONTROLLER;
-                $outAction      = self::FAIL_AUTH_ACTION;
-                $outParams      = self::FAIL_AUTH_PARAMS;
+                $out = $this->getFailAuthParams($reqModule);
+                $outModule      = $out['module'];
+                $outController  = $out['controller'];
+                $outAction      = $out['action'];
+                $outParams      = $out['params'];
+//                $outModule      = self::FAIL_AUTH_MODULE;
+//                $outController  = self::FAIL_AUTH_CONTROLLER;
+//                $outAction      = self::FAIL_AUTH_ACTION;
+//                $outParams      = self::FAIL_AUTH_PARAMS;
                 
             } else {
                 // l'utilisateur actuel est connecté 
                 $this->_logger->err(" - L'utilisateur est connecté");
-                $outModule      = self::FAIL_ACL_MODULE;
-                $outController  = self::FAIL_ACL_CONTROLLER;
-                $outAction      = self::FAIL_ACL_ACTION;
-                $outParams      = self::FAIL_ACL_PARAMS;
+                $out = $this->getFailACLParams($reqModule);
+                $outModule      = $out['module'];
+                $outController  = $out['controller'];
+                $outAction      = $out['action'];
+                $outParams      = $out['params'];
+//                $outModule      = self::FAIL_ACL_MODULE;
+//                $outController  = self::FAIL_ACL_CONTROLLER;
+//                $outAction      = self::FAIL_ACL_ACTION;
+//                $outParams      = self::FAIL_ACL_PARAMS;
             }
             
         } 
@@ -189,7 +199,10 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         }
         
         //configure la requête pour la suite à donner
-        $request->setModuleName($outModule);
+        //$request->setModuleName($outModule);
+        //ligne ci dessus modifiée pour fonctionner avec les modules. 
+        // Les redirections doivent être faites sur le module qui a demandé la ressource
+        $request->setModuleName($reqModule); 
         $request->setControllerName($outController);
         $request->setActionName($outAction);
         
@@ -232,4 +245,59 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         return $role;
     }
 
+    private function getFailAuthParams($module){
+        switch ($module) {
+            case 'default':
+                return array(
+                    'module'=>self::FAIL_AUTH_MODULE , 
+                    'controller'=>self::FAIL_AUTH_CONTROLLER , 
+                    'action'=>self::FAIL_AUTH_ACTION ,
+                    'params'=>self::FAIL_AUTH_PARAMS
+                    );
+                break;
+            case 'admin':
+                return array(
+                    'module'=>'admin' ,
+                    'controller'=>'index' ,
+                    'action'=>'index',
+                    'params'=>null);
+                break;
+            default:
+                return array(
+                    'module'=>'default' ,
+                    'controller'=>'index' ,
+                    'action'=>'index',
+                    'params'=>null);
+                break;
+        }
+    }
+        
+    private function getFailACLParams($module){
+        switch ($module) {
+            case 'default':
+                return array(
+                    'module'=>self::FAIL_ACL_MODULE , 
+                    'controller'=>self::FAIL_ACL_CONTROLLER , 
+                    'action'=>self::FAIL_ACL_ACTION ,
+                    'params'=>self::FAIL_ACL_PARAMS
+                    );
+                break;
+            case 'admin':
+                return array(
+                    'module'=>'admin' ,
+                    'controller'=>'index' ,
+                    'action'=>'index',
+                    'params'=>null);
+                break;
+            default:
+                return array(
+                    'module'=>'default' ,
+                    'controller'=>'index' ,
+                    'action'=>'index',
+                    'params'=>null);
+                break;
+        }
+         
+        
+    }
 }
