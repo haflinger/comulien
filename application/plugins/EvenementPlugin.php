@@ -36,17 +36,49 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
         $this->getEvenement();
         
         $module = $request->getModuleName();
-        $controller = $request->getControllerName();
-        $action = $request->getActionName();
         
         $front = Zend_Controller_Front::getInstance();
         $default = $front->getDefaultModule();
         
+        switch ($module) {
+            case $default:
+                $this->handleDefault($request);
+                break;
+            case 'admin':
+                $this->handleAdmin($request);
+                break;
+            default:
+                break;
+        }
+        
+
+    }
+    
+    public function setRedirection($request,$message){
+        $front = Zend_Controller_Front::getInstance();
+        $defaultModule = $front->getDefaultModule();
+        $request->setParam('infoDefautEvenement',$message);
+        $request->setModuleName($defaultModule);
+        $request->setControllerName('evenement');
+        $request->setActionName('defaut');
+        $front->returnResponse();       
+    }
+    
+    public function checkout(){
+        $defaultNamespace = new Zend_Session_Namespace('bulle');
+        unset($defaultNamespace->checkedInEvent);
+    }
+    
+    public function handleAdmin($request){
+        return;
+    }
+    public function handleDefault($request){
         $message = null;
         
-        
-        if ( $module == $default && 
-                //tous les cas qui redirigent si pas d'évènement
+        $controller = $request->getControllerName();
+        $action = $request->getActionName();
+        //tous les cas qui redirigent si pas d'évènement
+        if (    
                 ($controller=='evenement' && $action=='accueil') || 
                 ($controller!='evenement' && $controller!='utilisateur') ||
                 ($controller=='index' && $action=='index') 
@@ -87,22 +119,6 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
                 } 
             }
         }
-
-    }
-    
-    public function setRedirection($request,$message){
-        $front = Zend_Controller_Front::getInstance();
-        $defaultModule = $front->getDefaultModule();
-        $request->setParam('infoDefautEvenement',$message);
-        $request->setModuleName($defaultModule);
-        $request->setControllerName('evenement');
-        $request->setActionName('defaut');
-        $front->returnResponse();       
-    }
-    
-    public function checkout(){
-        $defaultNamespace = new Zend_Session_Namespace('bulle');
-        unset($defaultNamespace->checkedInEvent);
     }
 }
 ?>
