@@ -61,20 +61,22 @@ dateProchaine = element.dateProchaine;
 $message = '';
 $formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
-    $message += '<div class="message" id="' + element.messages[i].idMessage + '"  data-toggle="modal" href="#details">';
-            $message += '<div class="user">';
-                if( element.messages[i].idProfil != null) {$message += '<img alt="VIP" class="vip"  src="../images/vip.gif"/>';}
-                $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div>';
-                $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
-            $message += '</div>';
+    $message += '<div class="message" >';
+            
             $message += '<div class="tools">';
                 $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.messages[i].like+'</a> </li>';
                 $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.messages[i].dislike+'</a> </li>';
                 $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-share"></i></a> </li>';           
 //                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-remove"></i></a> </li>';    
             $message += '</div>';
-                $message += '<div class="texteMessage">';
+            $message += '<div class="user">';
+                if( element.messages[i].idProfil != null) {$message += '<img alt="VIP" class="vip"  src="../images/vip.gif"/>';}
+                
+                $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
+            $message += '</div>';  
+            $message += '<div class="texteMessage" id="' + element.messages[i].idMessage + '"  data-toggle="modal" href="#details">';
                 $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
+                $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div>';
                 $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
             $message += '</div>';
             
@@ -111,7 +113,7 @@ $("#"+ element.messages[i].idMessage).on("click", function(){
     $("#messMenu").empty();
     $("#waitGifDetails").show();
     //Duplication du noeud du message
-    var nouveau = this.cloneNode(true);
+    var nouveau = this.parent(".message").cloneNode(true);
     //Ajout du nouveau noeud
     $("#messParent").append(nouveau);
     //chargment des réponses du noeud
