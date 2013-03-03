@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-var paginationMessage = 1;
-$(document).ready(function() {
-    
-    //au click sur le message
-    $(".chargerPlusMessage").click(function(){
-        paginationMessage ++;
-        console.log(paginationMessage);
-        $.ajax({
-            type: "GET",
-            url: BASE_URL + "/message/lister-tous/numpage/"+ paginationMessage + "?format=json" ,
-            dataType : "json",
-            //affichage de l'erreur en cas de problème
-            error:function(string){
-                alert( "Erreur !: " + string );
-            },
-
-            success:function(data){
-                //traitement du json pour créer l'HTML
-                //console.log(data);
-                parseJSON(data);                
-            }
-            
-        });return false;
-    });
-    
-    var parseJSON = function(data){
-        $(data).each(function(i){
-            creeHTML(this);
-        });
-    }
-    
-var creeHTML = function(element){
-=======
 //@auteurs Fred H & AlexSolex
 
 //Variable globale permettant de conserver la date des prochain messages à afficher 
@@ -92,7 +58,6 @@ function gravatar(email){
 //Ajout des balise HTML - Mise en forme du message
 function creeHtmlMessage(element){
 dateProchaine = element.dateProchaine;
->>>>>>> fd7af3b9fcba7285303991ddca145725af0fe988
 $message = '';
 $formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
@@ -108,7 +73,7 @@ for (var i = 0; i<element.messages.length; i++){
                 $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-share"></i></a> </li>';           
 //                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-remove"></i></a> </li>';    
             $message += '</div>';
-            $message += '<div class="texteMessage" id="' + element.messages[i].idMessage + '" data-toggle="modal" href="#details">';
+                $message += '<div class="texteMessage" id="' + element.messages[i].idMessage + '" data-toggle="modal" href="#details">';
                 $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
                 $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
             $message += '</div>';
