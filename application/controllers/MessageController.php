@@ -92,7 +92,7 @@ class MessageController extends Zend_Controller_Action
         
         $tableMessage = new Application_Model_DbTable_Message();
         $showAll = false;
-        $nbItemParPage = self::NB_MESSAGES_PAR_PAGE;
+        $nbItemParPage = self::NB_MESSAGES_PAR_PAGE; //TODO : risque de perdre des messages (fromdate trop ancien retourne plus de message que le max)
         $dateRef = $fromDate;
         $messagesOrganisateurs = $tableMessage->messagesOrganisateur($this->_evenement->idEvent,$showAll,$nbItemParPage,$dateRef);
         
@@ -273,10 +273,14 @@ class MessageController extends Zend_Controller_Action
         
         //récupération de l'utilisateur en session
         $utilisateur = $this->getUserFromAuth();
+        
         $this->view->noteGlobale = null;
+        
+        //TODO revoir cette partie....
         if (is_null($idMessage) || is_null($appreciation)) {
+            //les paramètres sont invalides
             $this->view->info = 'paramètres invalides';
-            if ($context!='json') {
+            if ($context=='json') {
                 return;
             }else{
                 $this->view->user = $utilisateur;
@@ -290,7 +294,6 @@ class MessageController extends Zend_Controller_Action
         $message = $table->getMessage($idMessage);
         
         //vérification du paramètre appreciation
-        
         if ($appreciation=='1') {
             $note = 1;            
         }elseif ($appreciation=='-1') {
@@ -298,9 +301,9 @@ class MessageController extends Zend_Controller_Action
         }elseif ($appreciation=='0') {
             $note = 0;
         }else{
+            //TODO remplacer le throw par un message passé à la vue
             throw new HttpInvalidParamException("l'appreciation doit être '-1' ou '0' ou '1'");
         }
-        
         
         //approuver le message
         $table->apprecierMessage($message,$utilisateur,$note);
@@ -333,11 +336,10 @@ class MessageController extends Zend_Controller_Action
 //                );
 //            $this->view->user = $arrayUser;
         }else{
-            $this->view->user = $utilisateur;
+            $this->view->user = $utilisateur; //TODO : vérifier l'utilité
             //redirection uniquement si pas de json
             $this->_helper->redirector ( 'lister-tous', 'message' , null );
         }
-        
         
     }
 
@@ -350,9 +352,6 @@ class MessageController extends Zend_Controller_Action
         
         if ($this->_request->isPost()) {
             $formData = $this->_request->getPost();
-            
-            //$this->view->message = var_dump($formData);
-            
             //récupération du message parent (si possible)
             $idMessageParent = $formData['IdMessageParent'];
             
@@ -403,11 +402,6 @@ class MessageController extends Zend_Controller_Action
              
         }
         
-    }
-
-    public function repondreAction()
-    {
-        // action body
     }
 
     public function modererAction()

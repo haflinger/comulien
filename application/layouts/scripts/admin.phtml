@@ -1,0 +1,30 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+    <?php echo $this->headTitle() ?>
+    <?php echo $this->headMeta() ?>
+    <?php echo $this->headLink() ?>
+    <?php echo $this->headStyle() ?>
+    <?php echo $this->headScript() ?>
+    <base href="/" />
+</head>
+<body id="page-home">
+    <div id="header">
+        <?php echo $this->render('header/header.phtml'); ?>
+    </div>
+
+    <div id="menu">
+        <?php echo $this->render('menu/menu.phtml'); ?>
+    </div>
+
+    <div id="content">
+        <?php echo $this->layout()->content ?>
+    </div>
+    
+    <div id="footer">
+        <?php echo $this->render('footer/footer.phtml'); ?>
+    </div>
+
+
+</body>
+</html>

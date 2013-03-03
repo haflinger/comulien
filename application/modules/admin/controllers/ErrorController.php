@@ -1,13 +1,8 @@
 <?php
 
-class ErrorController extends Zend_Controller_Action
+class Admin_ErrorController extends Zend_Controller_Action
 {
 
-    public function preDispatch() {
-        $this->_helper->layout()->disableLayout();
-        //$this->_helper->viewRenderer->setNoRender(true);
-    }
-    
     public function errorAction()
     {
         $errors = $this->_getParam('error_handler');
@@ -70,6 +65,7 @@ class ErrorController extends Zend_Controller_Action
         $log = $bootstrap->getResource('Log');
         return $log;
     }
+
 
 
 }
