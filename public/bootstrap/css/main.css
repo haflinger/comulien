@@ -12,11 +12,13 @@
 }
 body{
     /*background-image: -webkit-linear-gradient(top,  #000, gray);*/ 
-    background-color: white;
+    background-color: #CCCCCC;
     font-family: sans-serif; 
     font-size: 11px;
 }
-
+a{
+    color:grey;
+}
 
 
 
@@ -50,9 +52,10 @@ Les messages
 ***********************************************/
 .message{
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .user{
+    position: relative;
     z-index: 3;
     margin-top: -10px;
     width: 50px;
@@ -63,9 +66,9 @@ Les messages
     cursor: pointer;
     background-color: white;
     min-height: 50px;
-    margin-top: 30px;
+    margin-top: 5px;
     margin-left: 40px;
-    margin-right: 40px;
+    margin-right: 5px;
     padding: 5px 5px 10px 5px;
     border:solid 1px #A2A9AF;
     -moz-border-radius-topleft: 5px;
@@ -81,29 +84,40 @@ Les messages
     border-bottom-left-radius:5px;
     border-bottom-right-radius:5px;
     -moz-box-shadow: 1px 1px 1px #000000;
--webkit-box-shadow: 1px 1px 1px #000000;
-box-shadow: 1px 1px 1px #000000;
+    -webkit-box-shadow: 1px 1px 1px #000000;
+    box-shadow: 1px 1px 1px #000000;
+}
+.liking{
+    margin-top: 20px;
+    float: right;
 }
 .tools{
-    background-color: #30FF00;
-    z-index: 1;
-    float:right;
-    width:80px;
-    height: 40px;
-    margin-right: 30px;
-    border:solid 1px #000000;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright:5px;
-    -moz-border-radius-bottomleft:5px;
-    -moz-border-radius-bottomright:5px;
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    -webkit-border-bottom-left-radius:5px;
-    -webkit-border-bottom-right-radius:5px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
-    border-bottom-left-radius:5px;
-    border-bottom-right-radius:5px;
+    background-color: white;
+    margin-top: 1px;
+    margin-left: 50px;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    border:solid 1px #A2A9AF;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright:0px;
+-moz-border-radius-bottomleft:20px;
+-moz-border-radius-bottomright:20px;
+-webkit-border-top-left-radius:0px;
+-webkit-border-top-right-radius:0px;
+-webkit-border-bottom-left-radius:20px;
+-webkit-border-bottom-right-radius:20px;
+border-top-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-left-radius:20px;
+border-bottom-right-radius:20px;
+}
+.tools li{
+    margin-left: 14%;
+    margin-bottom: 5px;
+}
+.nav{
+    margin-left: 14%;
+    margin-bottom: 5px;
 }
 li {
     text-decoration:  none;
@@ -111,6 +125,8 @@ li {
     color : black;
 }
 .dateMessage{
+        position: relative;
+       z-index:3;
        float:right;
        color: #30FF00;
        text-align:right;
@@ -123,6 +139,7 @@ li {
     }
 .lblMessage{
     margin-left: 10px;
+    margin-right: 45px;
     color: black;
     font-size: 10px;
 }
@@ -132,7 +149,7 @@ li {
     margin-top: 20px;
     width:45px;
     height:45px;
-    border:solid 0px #A2A9AF;
+    border:solid 1px #A2A9AF;
     -moz-border-radius-topleft: 38px;
     -moz-border-radius-topright:38px;
     -moz-border-radius-bottomleft:38px;
