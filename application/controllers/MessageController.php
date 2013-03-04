@@ -29,6 +29,7 @@ class MessageController extends Zend_Controller_Action
                       ->addActionContext('approuver', 'json')
                       ->addActionContext('lister-tous', 'json')
                       ->addActionContext('lister-organisateur', 'json')
+                      ->addActionContext('envoyer', 'json')
                       ->addActionContext('compter', 'json')
                       ->initContext();
     }
@@ -349,7 +350,8 @@ class MessageController extends Zend_Controller_Action
          * Envoyer un message et vérifier le message à persister 
          */
         // on vérifie qu'il y ai des données postées et on les valide
-        
+        $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+
         if ($this->_request->isPost()) {
             $formData = $this->_request->getPost();
             //récupération du message parent (si possible)
@@ -387,9 +389,14 @@ class MessageController extends Zend_Controller_Action
 
                 $table->posterMessage($idUser,0,$this->_evenement->idEvent,$message,$profil,$idMessageParent);
                 
-                //message posté ! on redirige sur les messages 
+                //message posté ! 
+                if ($context!='json') {
+                    //on redirige sur les messages 
+                    $this->_helper->redirector ( 'lister-tous', 'message' , null );
+                }else{
+                    //pour le json on ne redirige rien
+                }
                 
-                $this->_helper->redirector ( 'lister-tous', 'message' , null );
                 
                 
             }
