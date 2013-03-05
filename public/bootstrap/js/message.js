@@ -4,19 +4,14 @@
 var dateProchaine = null;
 var dateProchaineReponse = null;
 
-//Fonction automatique de calcul des dates et heurs
-function autoDate(){
-  $("#dateMessage").each(
-    function(){
-        modifDate(this);
-        //console.log(this);
-    })
-    
-    setTimeout(autoDate(), 10000);
+//Fonction qui calcul le total des likes
+function totalLike(like, unlike){
+    return parseInt(like) - parseInt(unlike);
 }
-
-function modifDate(noeud){
-    $(noeud).textContent = calculDate(noeud.id);
+//Fonction qui retourne la date(timestamp) au format dd/mm/YYYY
+function miseFormeDate(dateMessage){
+    var d = new Date(dateMessage*1000);
+    return d.toLocaleDateString();
 }
 //Fonction qui retourne la date d'activité du message au format simplifié
 //hier, min, heure, jour
@@ -68,59 +63,37 @@ for (var i = 0; i<element.messages.length; i++){
             $message += '</div>';  
             
             $message += '<div class="texteMessage accordion-heading" id="' + element.messages[i].idMessage + '"><a class="accordion-toggle" href="#tools'  + element.messages[i].idMessage + '" data-parent="#selector" data-toggle="collapse">';
-                $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
-                $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div>';
+                $message += '<div class="dateMessage">'+ miseFormeDate(element.messages[i].dateActiviteMsg) +'</div>';
+                $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div><hr>';
                 $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
+                $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
+                $message += '<div class="totalLike"><i class="icon-thumbs-up"></i> '+totalLike(element.messages[i].like, element.messages[i].dislike)+'</div>';
             $message += '</a></div>';
             
              $message += '<div class="collapse navbar-inner tools" id="tools' + element.messages[i].idMessage + '"><ul>';
-                $message += '<li> <a id="lienModal'+element.messages[i].idMessage+'" href="'+element.messages[i].idMessage+'" data-toggle="modal" href="#details"><i class="icon-edit icon-white" ></i></a> </li>';
-                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up icon-white"></i>'+element.messages[i].like+'</a> </li>';
-                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down icon-white"></i>'+element.messages[i].dislike+'</a> </li>';
+                $message += '<li> <a id="lienModal'+element.messages[i].idMessage+'" data-toggle="modal" href="#details"><i class="icon-edit icon-white" ></i></a> </li>';
+                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up icon-white"></i> '+element.messages[i].like+'</a> </li>';
+                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down icon-white"></i> '+element.messages[i].dislike+'</a> </li>';
                 $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-share icon-white"></i></a> </li>';           
                 $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-remove icon-white"></i></a> </li>';    
             $message += '</ul></div>';
      $message += '</div>';   
 
+    $(".container-fluid").append($message);
 
-            
-        
-//        $message += '<div class="accordion-group accordion-heading" id="' + element.messages[i].idMessage + '">';
-//            $message += '<a class="accordion-toggle" data-toggle="modal" href="#details" data-parent=".monaccordeon" data-toggle="collapse">';
-//                $message += '<div class="row-fluid">';
-//                    $message += '<div class="span12">'; 
-//                        if( element.messages[i].idProfil != null) {$message += '<img class="vip"  src="../images/vip.gif"/>';}
-//                        $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
-//                        $message += '<div class="nomUser">'+element.messages[i].loginUser +'</div>';
-//                        $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div><br/>';
-//                        $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
-//                    $message += '</div>';  
-//                $message += '</div>';
-//            $message += '</a>';
-//            $message += '<div class="menu"><ul>'
-//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up"></i>'+element.messages[i].like+'</a> </li>';
-//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down"></i>'+element.messages[i].dislike+'</a> </li>';
-//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Publier</a> </li>';           
-//            $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class=""></i>Modérer</a> </li>';    
-//            $message += '</ul></div>'            
-//        $message += '</div>';
-$(".container-fluid").append($message);
-
-$("#lienModal"+element.messages[i].idMessage).on("click", function(){
-    //$("#waitGif" + this.id).show();
-    //chargerReponses(this.id);
-    $("#messParent").empty();
-    $("#messReponse").empty();
-    $("#messMenu").empty();
-    $("#waitGifDetails").show();
-    //Duplication du noeud du message
-    var nouveau = this.cloneNode(true);
-    //Ajout du nouveau noeud
-    $("#messParent").append(nouveau);
-    //chargment des réponses du noeud
-    chargerReponses(this.id);
-})
-$message = '';
+    $("#lienModal"+element.messages[i].idMessage).on("click", function(){
+        $("#messParent").empty();
+        $("#messReponse").empty();
+        $("#messMenu").empty();
+        $("#waitGifDetails").show();
+        //Duplication du noeud du message
+        var nouveau = this.cloneNode(true);
+        //Ajout du nouveau noeud
+        $("#messParent").append(nouveau);
+        //chargment des réponses du noeud
+        chargerReponses(this.id);
+    })
+    $message = '';
 
 }
  $("#waitGif").hide();
@@ -251,7 +224,7 @@ $(document).ready(function() {
     $("#message").keydown(function(){
         if (event.keyCode == 13) {}
     })   
-    autoDate();
+    
 })
 
 
