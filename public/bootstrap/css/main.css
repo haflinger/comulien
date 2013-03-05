@@ -12,7 +12,9 @@
 }
 body{
     /*background-image: -webkit-linear-gradient(top,  #000, gray);*/ 
-    background-color: #CCCCCC;
+
+    background-image: -webkit-linear-gradient(left, #CCCCCC, gray);
+    
     font-family: sans-serif; 
     font-size: 11px;
 }
@@ -61,6 +63,10 @@ Les messages
     width: 50px;
     float:left;  
 }
+hr{
+    border-top: 1px solid #E3E3E3;
+    margin: 0px 5px;
+}
 .texteMessage{
     z-index: 2;
     cursor: pointer;
@@ -69,7 +75,7 @@ Les messages
     margin-top: 5px;
     margin-left: 40px;
     margin-right: 5px;
-    padding: 5px 5px 10px 5px;
+    padding: 2px 2px 2px 5px;
     border:solid 1px #A2A9AF;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright:5px;
@@ -92,28 +98,27 @@ Les messages
     float: right;
 }
 .tools{
-    background-color: white;
+    background-image: url('carbone.jpg');
     margin-top: 1px;
     margin-left: 50px;
     margin-right: 15px;
-    padding-bottom: 5px;
-    border:solid 1px #A2A9AF;
+    padding-bottom: 0px;
+    border:solid 1px #000000;
 -moz-border-radius-topleft: 0px;
 -moz-border-radius-topright:0px;
--moz-border-radius-bottomleft:20px;
--moz-border-radius-bottomright:20px;
+-moz-border-radius-bottomleft:5px;
+-moz-border-radius-bottomright:5px;
 -webkit-border-top-left-radius:0px;
 -webkit-border-top-right-radius:0px;
--webkit-border-bottom-left-radius:20px;
--webkit-border-bottom-right-radius:20px;
+-webkit-border-bottom-left-radius:5px;
+-webkit-border-bottom-right-radius:5px;
 border-top-left-radius:0px;
 border-top-right-radius:0px;
-border-bottom-left-radius:20px;
-border-bottom-right-radius:20px;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
 }
 .tools li{
-    margin-left: 14%;
-    margin-bottom: 5px;
+    margin-left: 13%;
 }
 .nav{
     margin-left: 14%;
@@ -125,28 +130,34 @@ li {
     color : black;
 }
 .dateMessage{
-        position: relative;
+       position: relative;
        z-index:3;
        float:right;
        color: #30FF00;
        text-align:right;
     }
-
+totalLike{
+    position: relative;
+}
 .nomUser{
        margin-left: 10px;
        font-weight: bold;
        color: #30FF00;
     }
+.totalLike{
+       font-weight: bold;
+       color: #30FF00;
+}
 .lblMessage{
     margin-left: 10px;
-    margin-right: 45px;
+    margin-right: 10px;
     color: black;
     font-size: 10px;
 }
 .avatar img{
     float: right;
     z-index: 2;
-    margin-top: 20px;
+    margin-top: 30px;
     width:45px;
     height:45px;
     border:solid 1px #A2A9AF;
@@ -159,14 +170,14 @@ li {
     -webkit-border-bottom-left-radius:38px;
     -webkit-border-bottom-right-radius:38px;
     border-top-left-radius:38px;
-    border-top-right-radius:38px;
+    border-top-right-radius:0px;
     border-bottom-left-radius:38px;
     border-bottom-right-radius:38px;
 }
 .vip{
     z-index: 4;
     position: absolute;
-    margin: 20px 0px -25px 1px;
+    margin: 65px 0px -25px 25px;
     transform: rotate(341deg) ;
     -webkit-transform: rotate(341deg) ;
     -moz-transform: rotate(341deg) ;
@@ -232,12 +243,30 @@ Header
 }
 
 #chargerPlusMessage{
-    background-image: -webkit-linear-gradient(top,  #000, gray); 
-    text-align:  center;
+    
+    background-image: url('carbone.jpg'); 
+    text-align: center;
+    float: right;
+    font-size:20pt;
     text-decoration-color: white;
     color: #30FF00;
-    height: 30px;
+    cursor: pointer;
     width: 100%;
+    
+    margin-top: 5px;
+    border:solid 1px #000000;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
 }
 
 .container-reponse{
@@ -248,14 +277,10 @@ Header
     margin: 1px auto;
     text-align: center;
 }
-#chargerPlusMessage{
-    margin:0px 20px 0px 0px
-}
+
 /*Formulaire de message*/
 div #message{
-    width: 94%;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 100%;
     height: 20px;
 }
 .control-group{
