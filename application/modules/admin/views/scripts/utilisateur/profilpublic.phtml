@@ -1,0 +1,29 @@
+<?php $user=$this->user; ?>
+<?php //var_dump($user); ?>
+<h2>Profil public de <?php echo $this->escape($user->loginUser) ?></h2>
+</div>
+<h3>Infos</h3>
+<ul>
+    <li><?php echo $this->escape($user->loginUser) ?></li>
+    <li><img src="<?php echo $this->escape($user->getGravatar()) ?>" alt="<?php echo $this->escape($user->loginUser) ?>" /></li>
+    <li>Date d'inscription : <?php echo $this->escape($user->dateInscriptionUser) ?></li>
+    <li>Nom : <?php echo $this->escape($user->nomUser) ?></li>
+    <li>Prénom : <?php echo $this->escape($user->prenomUser) ?></li>
+    <li>Nombre de messages émis : <?php echo $this->escape($user->nbMsgUser) ?></li>
+    <li>Nombre de messages approuvés : <?php echo $this->escape($user->nbApprouverUser) ?></li>
+</ul>
+<h3>Rôles dans les organismes</h3>
+<ul><?php 
+    $dist = $user->getDistinctions();
+     foreach ($dist as $distinction){
+         echo '<li>Organisme : ' . $distinction->getOrganisme()->nomOrga . '</li>'.
+                 '<ul>'.
+                 '<li>Profil : ' . $distinction->getProfil()->nomProfil . '</li>'.
+                 '<li>Droit modération : ';
+         echo  ($distinction->droitModeration==1)?'oui':'non' ;
+         echo '</li>'. 
+                 '<li>Fonction : ' . $distinction->nomFonction . '</li></ul>'; 
+         echo '</li>';
+     }
+     ?>
+</ul>

@@ -1,6 +1,7 @@
 <ul>
 
-    <li><a href="<?php echo $this->baseUrl() . '/utilisateur/index' ?>">Profil</a></li>
+    <li><a href="<?php echo $this->url(array ('module'=> 'admin','action'=> 'index','controller' => 'utilisateur'),'default',true ); ?>">Profil</a></li>
     <li><a href="#">Organisations</a></li>
     <li><a href="#">Membres</a></li>
+    <li><a href="<?php echo $this->url(array ('module'=> 'admin','action'=> 'deconnecter','controller' => 'utilisateur'),'default',true ); ?>">Connexion</a></li>
 </ul>

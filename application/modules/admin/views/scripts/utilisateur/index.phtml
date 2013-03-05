@@ -1,0 +1,24 @@
+<div id="view-content">
+    <ul>
+        <li><img src="<?php echo $this->escape($this->utilisateur->getGravatar()) ?>" alt="" /></li>
+        <li>Bienvenue <?php echo $this->escape($this->utilisateur->prenomUser) ?> <?php echo $this->escape($this->utilisateur->nomUser) ?></li>
+        <li>Inscrit le <?php echo $this->escape($this->utilisateur->dateInscriptionUser) ?></li>
+        <li>Dans l'évènement '<?php echo $this->escape($this->evenement->titreEvent) ?>' vous êtes '<?php echo $this->escape($this->role) ?>'
+            <b><?php echo ($this->moderateur)?'avec':'sans'; ?></b> pouvoir de modération.</li>
+        <li><a href="<?php echo $this->baseUrl() . '/utilisateur/modifier' ?>">Editer mes informations</a></li>
+        <li><a href="<?php echo $this->baseUrl() . '/utilisateur/profilpublic/id/'. $this->utilisateur->idUser ?>">Voir mon profil public</a></li>
+        <li><a href="<?php echo $this->baseUrl() . '/utilisateur/profilprive' ?>">Voir mon profil complet</a></li>
+        <li><a href="<?php echo $this->baseUrl() . '/utilisateur/deconnecter' ?>">Me déconnecter</a></li>
+        <li>TODO : si organisateur de l'évènement en cours : proposer d'éditer l'évènement</li>
+        <li>Rôles dans les organismes :</li>
+        <?php $dist = $this->utilisateur->getDistinctions();
+        foreach ($dist as $distinction){
+            echo  $distinction->getOrganisme()->nomOrga . 
+                     '<ul><li>Profil : ' . $distinction->getProfil()->nomProfil . '</li>' .
+                     '<li>Fonction : ' . $distinction->nomFonction . '</li>' . 
+                     '<li>Droit modération : ' . (($distinction->droitModeration==1)?'oui':'non') . '</li></ul>';
+        }
+        ?>
+        
+    </ul>  
+</div>
