@@ -236,7 +236,7 @@ a {
 }
 
 a:hover {
-  color: #30FF00;
+  color: #3333FF;
   text-decoration: none;
 }
 
@@ -794,7 +794,7 @@ h4 small {
 ul,
 ol {
   padding: 0;
-  margin: 0px 0px 0px 0px;
+  margin: 10px 0px 10px 0px;
 }
 
 ul ul,

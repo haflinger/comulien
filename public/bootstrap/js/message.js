@@ -45,6 +45,20 @@ function calculDate(dateMessage){
     
 }
 
+//fonction de calcul des delais des messages
+function calculDelais(){
+    console.log("debut test");
+    setTimeout(function(){
+        console.log("boucle");
+         $(".dateMessage").each(function(){
+            delai = calculDate(this.id);
+            this.content = delai;
+        }) 
+        //calculDelais();
+    }, 60000);
+    
+    
+}
 //Fonction de création du lien gravatar
 function gravatar(email){
     return '<img alt="Avatar" src="http://www.gravatar.com/avatar/' + email + '.jpg?&d=mm&r=g&s=40"/>';
@@ -58,12 +72,12 @@ $formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
     $message += '<div class="accordion-group accordion" id="selector">';
             $message += '<div class="user">';
-                if( element.messages[i].idProfil != null) {$message += '<img alt="VIP" class="vip"  src="../images/vip.gif"/>';}
+                //if( element.messages[i].idProfil != null) {$message += '<img alt="VIP" class="vip"  src="../images/vip.gif"/>';}
                 $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
             $message += '</div>';  
             
             $message += '<div class="texteMessage accordion-heading" id="' + element.messages[i].idMessage + '"><a class="accordion-toggle" href="#tools'  + element.messages[i].idMessage + '" data-parent="#selector" data-toggle="collapse">';
-                $message += '<div class="dateMessage">'+ miseFormeDate(element.messages[i].dateActiviteMsg) +'</div>';
+                $message += '<div class="dateMessage">'+ miseFormeDate(element.messages[i].dateEmissionMsg) +'</div>';
                 $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div><hr>';
                 $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
                 $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
@@ -224,6 +238,9 @@ $(document).ready(function() {
     $("#message").keydown(function(){
         if (event.keyCode == 13) {}
     })   
+    
+    //Calcul automatique des délais des message
+    calculDelais()
     
 })
 
