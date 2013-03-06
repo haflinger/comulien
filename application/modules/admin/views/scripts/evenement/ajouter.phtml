@@ -1,3 +1,13 @@
-<?php Zend_Dojo::enableView($this); ?>
-<?php $this->dojo() ?>
 <?php echo $this->form ?>
+<?php foreach ($this->results as $row) {
+    echo $row->loginUser . ' est \'' . $row->nomProfil . '\' ';
+    echo $row->droitModeration?'(moderateur) ':'';
+    echo 'dans l\'organisme \''.$row->nomOrga.'\' ( ' . $row->descOrga . ') en tant que ' ;
+    echo $row->nomFonction;
+    echo '<br><br>';
+            //select o.nomOrga as 'nomOrga',o.descOrga as 'descOrga',o.logoOrga as 'logoOrga',
+//        d.droitModeration as 'moderateur', d.nomFonction as 'nomFonction',
+//        p.nomProfil as 'nomProfil',
+//        u.loginUser
+}
+?>
