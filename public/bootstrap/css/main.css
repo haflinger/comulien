@@ -11,7 +11,7 @@
     font-family: sans-serif;
 }
 body{
-    background-color: black;
+    background-color: #666666;
     font-family: sans-serif; 
     font-size: 11px;
 }
@@ -108,11 +108,19 @@ li {
     display:inline; 
     color : black;
 }
+.dateEmission{
+     position: relative;
+       z-index:3;
+       float:right;
+       color: #0088ce;
+       text-align:right;
+       font-weight: bold;
+}
 .dateMessage{
        position: relative;
        z-index:3;
        float:right;
-       color: #3333FF;
+       color: #0088ce;
        text-align:right;
     }
 totalLike{
@@ -121,7 +129,7 @@ totalLike{
 .nomUser{
        margin-left: 15px;
        font-weight: bold;
-       color: #3333FF;
+       color: #0088ce;
     }
 .totalLike{
        font-weight: bold;
@@ -129,7 +137,7 @@ totalLike{
 }
 .lblMessage{
     min-height: 40px;
-    margin-left: 50px;
+    margin-left: 45px;
     margin-right: 10px;
     color: black;
     font-size: 10px;
@@ -226,7 +234,7 @@ Header
     text-align: center;
     font-size:20pt;
     text-decoration-color: white;
-    color: #3333FF;
+    color: #0088ce;
     cursor: pointer;
 
 }
