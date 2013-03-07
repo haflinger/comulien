@@ -47,14 +47,11 @@ function calculDate(dateMessage){
 
 //fonction de calcul des delais des messages
 function calculDelais(){
-    console.log("debut test");
-    setTimeout(function(){
-        console.log("boucle");
+    setInterval(function(){
          $(".dateMessage").each(function(){
             delai = calculDate(this.id);
-            this.content = delai;
+            this.innerHTML=delai;
         }) 
-        //calculDelais();
     }, 60000);
     
     
@@ -77,7 +74,7 @@ for (var i = 0; i<element.messages.length; i++){
             $message += '</div>';  
             
             $message += '<div class="texteMessage accordion-heading" id="' + element.messages[i].idMessage + '"><a class="accordion-toggle" href="#tools'  + element.messages[i].idMessage + '" data-parent="#selector" data-toggle="collapse">';
-                $message += '<div class="dateMessage">'+ miseFormeDate(element.messages[i].dateEmissionMsg) +'</div>';
+                $message += '<div class="dateEmission">'+ miseFormeDate(element.messages[i].dateEmissionMsg) +'</div>';
                 $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div><hr>';
                 $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
                 $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
