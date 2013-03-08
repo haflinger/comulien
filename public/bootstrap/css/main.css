@@ -5,7 +5,9 @@
     Description:background-color: #E5E8ED
         Purpose of the stylesheet follows.
 */
-
+/*********************************************
+Commun
+**********************************************/
 *{
     margin:0px; 
     font-family: sans-serif;
@@ -44,6 +46,18 @@ Fenetre modal
     padding: 1px;
     background-color: #BFC0C0;
 }
+/*Formulaire de message*/
+div #message{
+    width: 100%;
+    height: 20px;
+}
+.control-group{
+    margin:0px;
+    padding: 0px;
+}
+.container-reponse{
+    margin-bottom: 10px;
+}
 
 
 /***********************************************
@@ -78,22 +92,22 @@ box-shadow:inset 0px -1px 2px #545454;
 }
 .tools{
     -moz-box-shadow:inset 0px 3px 7px #000000;
--webkit-box-shadow:inset 0px 3px 7px #000000;
-box-shadow:inset 0px 3px 7px #000000;
+    -webkit-box-shadow:inset 0px 3px 7px #000000;
+    box-shadow:inset 0px 3px 7px #000000;
     background-image: url('fond_menu.png');
     border:none 0px #000000;
--moz-border-radius-topleft: 0px;
--moz-border-radius-topright:0px;
--moz-border-radius-bottomleft:0px;
--moz-border-radius-bottomright:0px;
--webkit-border-top-left-radius:0px;
--webkit-border-top-right-radius:0px;
--webkit-border-bottom-left-radius:0px;
--webkit-border-bottom-right-radius:0px;
-border-top-left-radius:0px;
-border-top-right-radius:0px;
-border-bottom-left-radius:0px;
-border-bottom-right-radius:0px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright:0px;
+    -moz-border-radius-bottomleft:0px;
+    -moz-border-radius-bottomright:0px;
+    -webkit-border-top-left-radius:0px;
+    -webkit-border-top-right-radius:0px;
+    -webkit-border-bottom-left-radius:0px;
+    -webkit-border-bottom-right-radius:0px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
 }
 .tools li{
     height: 40px;
@@ -148,7 +162,7 @@ totalLike{
     margin-left: -5px;
     width:45px;
     height:45px;
-    border:solid 1px #A2A9AF;
+    border:solid 0px #A2A9AF;
     -moz-border-radius-topleft: 38px;
     -moz-border-radius-topright:38px;
     -moz-border-radius-bottomleft:38px;
@@ -161,9 +175,9 @@ totalLike{
     border-top-right-radius:38px;
     border-bottom-left-radius:38px;
     border-bottom-right-radius:38px;
-    -moz-box-shadow: 1px 1px 2px #828282;
--webkit-box-shadow: 1px 1px 2px #828282;
-box-shadow: 1px 1px 2px #828282;
+    -moz-box-shadow: 1px 1px 5px #787878;
+-webkit-box-shadow: 1px 1px 7px #787878;
+box-shadow: 1px 1px 5px #787878;
 }
 .vip{
     z-index: 4;
@@ -174,6 +188,17 @@ box-shadow: 1px 1px 2px #828282;
     -moz-transform: rotate(341deg) ;
     -o-transform: rotate(341deg) ;
     -ms-transform: rotate(341deg) ;
+}
+#chargerPlusMessage{ 
+    font-size:20pt;
+    text-decoration-color: white;
+    color: #0088ce;
+    padding-top: 10px;
+    background-image: -webkit-linear-gradient(top, #000,#666666 );
+}
+#chargerPlusMessage a{
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 
@@ -196,7 +221,10 @@ Header
 
 }
 
-/*Acceuil*/
+
+/***********************************************
+Accueil
+***********************************************/
 #logo_comulien{
     position: relative;
     float: right;
@@ -233,33 +261,13 @@ Header
     
 }
 
-#chargerPlusMessage{ 
-    text-align: center;
-    font-size:20pt;
-    text-decoration-color: white;
-    color: #0088ce;
-    cursor: pointer;
-    background-image: -webkit-linear-gradient(top, #000,#666666 );
-}
-
-.container-reponse{
-    margin-bottom: 10px;
-}
-
 .waitGif{
     margin: 1px auto;
     text-align: center;
 }
 
-/*Formulaire de message*/
-div #message{
-    width: 100%;
-    height: 20px;
-}
-.control-group{
-    margin:0px;
-    padding: 0px;
-}
+
+
 
 
 
