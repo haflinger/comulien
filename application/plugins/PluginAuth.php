@@ -80,9 +80,9 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
         $reqAction      = $request->getActionName();
         $reqParams      = $request->getParams();
         $this->_logger->err($reqModule.'/'.$reqController.'/'.$reqAction);
-        if ($reqController=="utilisateur" && $reqAction=="index") {
-            echo '';
-        }
+        
+        
+        
         $redirecting = false;
         if ($request->getParam('needRedirect',false)==true) {
             $redirParams = $this->_session->redirection;
@@ -91,6 +91,20 @@ class Application_Plugin_PluginAuth extends Zend_Controller_Plugin_Abstract {
             $reqAction = $redirParams['action'];
             $reqParams = $redirParams;
             $redirecting = true;
+        }
+        
+        if ($reqModule=="admin") {
+            if (!$this->_auth->hasIdentity()) {
+                //utilisateur non connecté
+                $outModule      = "admin";
+                $outController  = "utilisateur";
+                $outAction      = "authentifier";
+                //$outParams      = null;   
+                $request->setModuleName($reqModule); 
+                $request->setControllerName($outController);
+                $request->setActionName($outAction);
+                return;
+            }
         }
         
         //préparation des paramètres de fin de routage

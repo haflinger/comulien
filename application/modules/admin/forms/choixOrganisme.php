@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_ChoixOrganisme extends Zend_Form {
+class Admin_Form_ChoixOrganisme extends Zend_Form {
     private $_selectOrga;
 
     public function init() {
@@ -8,9 +8,11 @@ class Application_Form_ChoixOrganisme extends Zend_Form {
     }
 
     public function chargeOrganisme($arrayOrganismes) {
-         $this->setMethod('post') //method du formulaire
-                ->setName('choixOrganisme') //nom du formulaire
-                ->setAction('lister');
+         
+        $this->setMethod('post') //method du formulaire
+                ->setName('choixOrganisme'); //nom du formulaire;
+        $this->setAction($this->getView()->url(array('controller' => 'organisme', 'action'=>'lister','module'=>'admin') ));
+        
         $this->addElement("select", "ChoixOrganisme", 
                 array(
                     "label" => "Choisir un organisme",

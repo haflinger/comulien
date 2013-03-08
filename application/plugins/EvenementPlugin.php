@@ -46,9 +46,9 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
         
         //TODO que faire avec la requête pour le module admin ? 
         //par exemple si pas d'organisme : rediriger sur la page de sélection de l'organisme ?
-        if (is_null($this->_organisme)) {
+        if (is_null($this->_organisme)) { //nous ne sommes pas rattachés à un organisme
             if (!($controller=='organisme' && $action=='lister')) {
-                //organisme/action n'est pas appelé, il faut rediriger dessus 
+                //ce n'est pas organisme/lister qui est appelé, il faut rediriger dessus 
                 $front = Zend_Controller_Front::getInstance();
                 $request->setParam('infoDefautOrganisme',"Aucun organisme sélectionné il faut d'abord en sélectionner un !");
                 $request->setControllerName('organisme');
@@ -77,7 +77,7 @@ class Application_Plugin_EvenementPlugin extends Zend_Controller_Plugin_Abstract
     // MODULE DEFAULT
     //
     
-    //gère le pluign pour le module default
+    //gère le plugin pour le module default
     public function handleDefault($request){
         $this->getEvenement();
         

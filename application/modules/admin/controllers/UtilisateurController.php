@@ -85,7 +85,7 @@ class Admin_UtilisateurController extends Zend_Controller_Action
                     ,'default',true );
         }else{
             //pas de session, on redirige sur le login
-            $this->_helper->redirector ( 'authentifier', 'utilisateur');
+            $this->_helper->redirector ( 'authentifier', 'utilisateur','admin');
         }
         
     }
@@ -261,7 +261,7 @@ class Admin_UtilisateurController extends Zend_Controller_Action
         }    
         
         //création d'une instance du formulaire
-        $form = new Application_Form_Login();
+        $form = new Admin_Form_Login();
         //on passe le formulaire à la vue
         $this->view->formLogin = $form;
         
