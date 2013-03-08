@@ -3,7 +3,7 @@
 //Variable globale permettant de conserver la date des prochain messages à afficher 
 var dateProchaine = null;
 var dateProchaineReponse = null;
-
+var dateDernierMessage = null;
 //Fonction qui calcul le total des likes
 function totalLike(like, unlike){
     return parseInt(like) - parseInt(unlike);
@@ -51,11 +51,38 @@ function calculDelais(){
          $(".dateMessage").each(function(){
             delai = calculDate(this.id);
             this.innerHTML=delai;
-        }) 
-    }, 60000);
-    
-    
+        })
+        nbrMessagesRecent();
+    }, 10000);
 }
+
+//function de recherche du nombre de nouveau messages
+//Depuis la dernière recherche
+function nbrMessagesRecent(){
+    if(dateDernierMessage==null){dateDernierMessage = new Date().getTime();
+        dateDernierMessage = Math.floor(dateDernierMessage/1000);
+        }
+     $.ajax({
+            type: "GET",
+            url: BASE_URL + "/message/compter/fromdate/" + dateDernierMessage + "?format=json" ,
+            dataType : "json",
+            //affichage de l'erreur en cas de problème
+            error:function(string){
+               
+            },
+
+            success:function(data){
+                //traitement du json pour créer l'HTML
+                //console.log(data.nbMessages);
+                console.log($(data.nbMessages));
+                //parseJSON(data)
+                dateDernierMessage = new Date().getTime();
+                dateDernierMessage = Math.floor(dateDernierMessage/1000) 
+                $("#btn_maj").children().first().html(data.nbMessages);
+            }
+     })
+}
+
 //Fonction de création du lien gravatar
 function gravatar(email){
     return '<img alt="Avatar" src="http://www.gravatar.com/avatar/' + email + '.jpg?&d=mm&r=g&s=40"/>';
@@ -181,7 +208,7 @@ function chargerMessagesSuivant(){
 
             success:function(data){
                 //traitement du json pour créer l'HTML
-                console.log(data);
+                //console.log(data);
                 parseJSON(data);                
             }
      })
@@ -218,18 +245,17 @@ chargerMessagesSuivant();
 $(document).ready(function() {
     //Lors du click sur le lien "Plus..."
     //Appel de la fonction pour charger les x messages suivant
-    $("#chargerPlusMessage").click(function(){
+    $("#plus").click(function(){
         $("#waitGif").show();
         chargerMessagesSuivant();
     })
     //Lors du click sur le lien "Plus..."
     //Appel de la fonction pour charger les x messages suivant
     $("#btn_maj").click(function(){
-        dateProchaine = null;
-        /*$(".container-fluid").empty();
         $("#waitGif").show();
-        chargerMessagesSuivant();*/
-        location.reload() ;
+        dateProchaine = null;
+        $(".container-fluid").empty();
+        chargerMessagesSuivant();
     })
     
     $("#message").keydown(function(){
