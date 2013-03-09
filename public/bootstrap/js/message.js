@@ -92,7 +92,7 @@ function gravatar(email){
 //Requête Ajax pour liker un message
 function likeMessage(event){
     $.ajax({
-            type: "GET",
+            type: "POST",
             url: BASE_URL + '/message/approuver/message/'+event.data.id+'/appreciation/1?format=json' ,
             dataType : "json",
             //affichage de l'erreur en cas de problème
