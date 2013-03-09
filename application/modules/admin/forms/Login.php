@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Login extends Twitter_Form//Zend_Form
+class Admin_Form_Login extends Twitter_Form//Zend_Form
 {
 
     public function init()
@@ -11,7 +11,8 @@ class Application_Form_Login extends Twitter_Form//Zend_Form
          * $this->setAction('valider');
          * positionne la validation du formulaire vers l'action 'login' du controleur
          */
-        $this->setAction('utilisateur/authentifier');
+        $this->setAction($this->getView()->url(array('controller' => 'utilisateur', 'action'=>'authentifier','module'=>'admin') ));
+        //$this->setAction('authentifier');
         
         $login = new Application_Form_EText ('login' );
         $login->setAttrib('placeholder','Identifiant');

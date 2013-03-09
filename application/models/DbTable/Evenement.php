@@ -21,5 +21,20 @@ class Application_Model_DbTable_Evenement extends Zend_Db_Table_Abstract
         }
         return $row;
     }
+    
+    public function setEvent($idOrga,$titreEvent,$numEvent,$descEvent,$logoEvent,$dateDebutEvent,$dateFinEvent,$delaiPersistence){
+        $data = array(
+            'idOrga' => $idOrga,
+            'titreEvent' => $titreEvent,
+            'numEvent' => $numEvent,
+            'descEvent' => $descEvent,
+            'logoEvent' => $logoEvent,
+            'dateDebutEvent' => $dateDebutEvent,
+            'dateFinEvent' => $dateFinEvent,
+            'delaiPersistence' => $delaiPersistence
+        );
+        $this->insert($data);
+    }
+
 }
 

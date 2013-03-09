@@ -16,7 +16,8 @@ class MessageController extends Zend_Controller_Action
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
     
-    const NB_MESSAGES_PAR_PAGE = 7;
+    const NB_MESSAGES_PAR_PAGE = 10;
+    const NB_MESSAGES_PAR_PAGE_MAX = 20;
     
     public function init()
     {
@@ -150,39 +151,42 @@ class MessageController extends Zend_Controller_Action
             $formEcrire = new Application_Form_EcrireMessage();
             $formEcrire->generer();
             $this->view->formEcrireMessage = $formEcrire;
-//            $resourceController  = self::RESOURCE_CONTROLLER;// 'message';
-//            $privilegeAction     = self::PRIVILEGE_ACTION;//'envoyer';
-//            $ACL = Zend_Registry::get('Zend_Acl');
-//            if($ACL->isAllowed($role, $resourceController, $privilegeAction))
-//            {
-//                $formEcrire = new Application_Form_EcrireMessage();
-//                $formEcrire->generer();
-//                $this->view->formEcrireMessage = $formEcrire;
-//            }
-//            else
-//            {
-//                $this->view->formEcrireMessage = null;            
-//            }
-        }else{
-            //ici nous traitons le json
-            $formEcrire = new Application_Form_EcrireMessage();
-            $formEcrire->generer();
-            $this->view->formEcrireMessage = $formEcrire;
+
+        }else{ //ici nous traitons le json
+//            $formEcrire = new Application_Form_EcrireMessage();
+//            $formEcrire->generer();
+//            $this->view->formEcrireMessage = $formEcrire;
         }
         
         //
-        // traitement de la pagination
+        // traitement de la pagination par date et nombre de messages
         //
 
-        $fromDate = $this->getRequest()->getParam('fromdate',  null );
         
+        $fromDate = $this->getRequest()->getParam('fromdate',  null );
         if (!is_null($fromDate)) {
             $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
         }
+        $validator = new Zend_Validate_Date(array("format"=>zend_date::TIMESTAMP));
+        if (!$validator->isValid($fromDate)) {
+            $fromDate = Zend_Date::now();
+        }
         
+        //gestion du nombre de message à retourner
+        $nbMessages = $this->getRequest()->getParam('nbmessages',self::NB_MESSAGES_PAR_PAGE);
+        $validator = new Zend_Validate_Int();
+        if (!$validator->isValid($nbMessages))
+        {
+            $nbMessages = self::NB_MESSAGES_PAR_PAGE;
+        }
+        if ($nbMessages>self::NB_MESSAGES_PAR_PAGE_MAX) {
+            $nbMessages = self::NB_MESSAGES_PAR_PAGE_MAX;
+        }
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
-        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,self::NB_MESSAGES_PAR_PAGE, $fromDate);
+        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$nbMessages, $fromDate);
+        
+        //Récupération de la date la plus récente pour retour
         //ATTENTION la ligne suivante bug si on a pas assez de résultats
         if ($messagesTous->count() > 0) {
             $dateProchaine = $messagesTous->getRow( $messagesTous->count()-1 )->dateActiviteMsg;
@@ -193,6 +197,7 @@ class MessageController extends Zend_Controller_Action
         if ($context=='json') {
             $messagesTous = $messagesTous->toArray();
         }
+        
         $this->view->dateProchaine = $dateProchaine; //on retourne un timestamp
         $this->view->messages = $messagesTous;
         

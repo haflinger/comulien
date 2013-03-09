@@ -1,6 +1,15 @@
-<ul>
-
-    <li><a href="<?php echo $this->baseUrl() . '/utilisateur/index' ?>">Profil</a></li>
-    <li><a href="#">Organisations</a></li>
-    <li><a href="#">Membres</a></li>
+Utilisateur:
+<ul  style="display:inline">
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'authentifier'),'default',true ); ?>">Connexion</a></li>
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'deconnecter' ),'default',true ); ?>">Déconnexion</a></li>
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'index'       ),'default',true ); ?>">Profil</a></li>    
 </ul>
+<br>
+<?php if (!is_null($this->organisme)) { ?>
+Organisme :
+<ul>
+    <li><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'organisme'  ,'action'=> 'lister'      ),'default',true ); ?>">Configuration</a></li>
+    <li><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'index'       ),'default',true ); ?>">Membres</a></li>
+    <li><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'evenement'  ,'action'=> 'index'       ),'default',true ); ?>">Evènements</a></li>
+</ul>
+<?php }?>

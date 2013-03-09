@@ -241,9 +241,10 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
             $data['idMessage_reponse'] = $idMessageParent;
         }
 
-        //todo : updater le message parent -> utiliser un trigger
+        //insertion du message
         $this->insert($data);
         
+        //updater le message parent
         $rowParent = $this->fetchRow($this->select()->where('idMessage=?',$idMessageParent));
         if (!is_null($rowParent)) {
             $rowParent->dateActiviteMsg = $dateheure;

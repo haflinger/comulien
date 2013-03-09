@@ -24,6 +24,20 @@ class Application_Model_Rowset_OrganismeRowset extends Zend_Db_Table_Rowset_Abst
  
         return $orgas;
     }
+    
+    public function getArrayById() {
+        $orgas = array();
+ 
+        while ($this->valid()) {
+            $orga = $this->current();
+            $orgas[$orga->idOrga] = $orga;  
+            $this->next();
+        }
+ 
+        $this->rewind();
+ 
+        return $orgas;
+    }
 }
 
 ?>
