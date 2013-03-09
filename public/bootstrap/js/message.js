@@ -89,6 +89,22 @@ function gravatar(email){
     return '<img alt="Avatar" src="http://www.gravatar.com/avatar/' + email + '.jpg?&d=mm&r=g&s=40"/>';
 }
 
+//Requête Ajax pour liker un message
+function likeMessage(event){
+    $.ajax({
+            type: "GET",
+            url: BASE_URL + '/message/approuver/message/'+event.data.id+'/appreciation/1?format=json' ,
+            dataType : "json",
+            //affichage de l'erreur en cas de problème
+            error:function(string){
+               
+            },
+
+            success:function(data){
+                console.log(data);
+            }
+     })
+}
 //Ajout des balise HTML - Mise en forme du message
 function creeHtmlMessage(element){
 dateProchaine = element.dateProchaine;
@@ -200,7 +216,8 @@ for (var i = 0; i<element.messages.length; i++){
                         'class': 'icon-thumbs-up icon-white'    
                         })
                         ); 
-                    
+                        
+                        l2.click({id: element.messages[i].idMessage},likeMessage);
                 
                 var l3 = $('<li>', {
                 }).appendTo(liste);
