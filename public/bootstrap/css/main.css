@@ -14,11 +14,12 @@ Commun
 }
 body{
     background-color: #666666;
+    background-image: url('fond_menu.png');
     font-family: sans-serif; 
     font-size: 11px;
 }
 a{
-    color:grey;
+    color:white;
 }
 
 
@@ -33,7 +34,6 @@ Fenetre modal
 }
 .modal-body{
     margin:0px;
-    position:relative;
   max-height: 60%;
   overflow-y: scroll;
 }
@@ -48,8 +48,9 @@ Fenetre modal
 }
 /*Formulaire de message*/
 div #message{
-    width: 100%;
-    height: 20px;
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 97%;
 }
 .control-group{
     margin:0px;
@@ -220,7 +221,15 @@ Header
     height: 16px;
 
 }
-
+#nbrMessageRecent{
+    font-size: 8px;
+    color: white;
+    position: absolute;
+    float: left;
+    margin-top: -20px;
+    margin-left: 10px;
+    
+}
 
 /***********************************************
 Accueil

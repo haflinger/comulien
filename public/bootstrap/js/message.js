@@ -74,11 +74,12 @@ function nbrMessagesRecent(){
             success:function(data){
                 //traitement du json pour créer l'HTML
                 //console.log(data.nbMessages);
-                console.log($(data.nbMessages));
+                console.log(data.nbMessages);
                 //parseJSON(data)
                 dateDernierMessage = new Date().getTime();
                 dateDernierMessage = Math.floor(dateDernierMessage/1000) 
-                $("#btn_maj").children().first().html(data.nbMessages);
+                var nbr = data.nbMessages>0 ? data.nbMessages : '';
+                $("#nbrMessageRecent").html(nbr);
             }
      })
 }
@@ -94,85 +95,279 @@ dateProchaine = element.dateProchaine;
 $message = '';
 $formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
-    $message += '<div class="accordion-group accordion" id="selector">';
-            $message += '<div class="user">';
-                //if( element.messages[i].idProfil != null) {$message += '<img alt="VIP" class="vip"  src="../images/vip.gif"/>';}
-                $message += '<div class="avatar">' + gravatar(element.messages[i].emailMD5) + '</div>';
-            $message += '</div>';  
+
+    var accordion = $("<div/>", {
+    "class": "accordion-group accordion",  
+    id: "selector"
+    }).appendTo( "#selector" );
+
+        var user = $('<div>', {
+        'class': 'user'
+        }).appendTo(accordion);
+
+            var avatar = $('<div>', {
+            'class': 'avatar'
+            }).appendTo(user);
+        
+            $(gravatar(element.messages[i].emailMD5)).appendTo(avatar);
             
-            $message += '<div class="texteMessage accordion-heading" id="' + element.messages[i].idMessage + '"><a class="accordion-toggle" href="#tools'  + element.messages[i].idMessage + '" data-parent="#selector" data-toggle="collapse">';
-                $message += '<div class="dateEmission">'+ miseFormeDate(element.messages[i].dateEmissionMsg) +'</div>';
-                $message += '<div class="nomUser">'+ element.messages[i].loginUser +'</div><hr>';
-                $message += '<div class="lblMessage">'+ element.messages[i].lblMessage +'</div>';
-                $message += '<div class="dateMessage" id="'+element.messages[i].dateActiviteMsg+'">'+ calculDate(element.messages[i].dateActiviteMsg) +'</div>';
-                $message += '<div class="totalLike"><i class="icon-thumbs-up"></i> '+totalLike(element.messages[i].like, element.messages[i].dislike)+'</div>';
-            $message += '</a></div>';
+        var texteMessage = $('<div>', {
+         id : element.messages[i].idMessage,
+        'class': 'texteMessage accordion-heading'
+        }).appendTo(accordion);
+        
+            var contenu = $('<a>', {
+            'class': 'accordion-toggle',
+            href : '#tools'  + element.messages[i].idMessage,
+            'data-parent' : '#selector',
+            'data-toggle' : 'collapse'
+            }).appendTo(texteMessage);
+        
+            $('<div>', {
+            'class': 'dateEmission',
+            text : miseFormeDate(element.messages[i].dateEmissionMsg)
+            }).appendTo(contenu);
+        
+            $('<div>', {
+            'class': 'nomUser',
+            text : element.messages[i].loginUser
+            }).appendTo(contenu);
+        
+            $('<hr>', {
+            }).appendTo(contenu);
+        
+            $('<div>', {
+            'class': 'lblMessage',
+            text : element.messages[i].lblMessage
+            }).appendTo(contenu);
             
-             $message += '<div class="collapse navbar-inner tools" id="tools' + element.messages[i].idMessage + '"><ul>';
-                $message += '<li> <a id="lienModal'+element.messages[i].idMessage+'" data-toggle="modal" href="#details"><i class="icon-edit icon-white" ></i></a> </li>';
-                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-up icon-white"></i> '+element.messages[i].like+'</a> </li>';
-                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-thumbs-down icon-white"></i> '+element.messages[i].dislike+'</a> </li>';
-                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-share icon-white"></i></a> </li>';           
-                $message += '<li> <a href="'+element.messages[i].idMessage+'"><i class="icon-remove icon-white"></i></a> </li>';    
-            $message += '</ul></div>';
-     $message += '</div>';   
-
-    $(".container-fluid").append($message);
-
-    $("#lienModal"+element.messages[i].idMessage).on("click", function(){
-        $("#messParent").empty();
-        $("#messReponse").empty();
-        $("#messMenu").empty();
-        $("#waitGifDetails").show();
-        //Duplication du noeud du message
-        var nouveau = this.cloneNode(true);
-        //Ajout du nouveau noeud
-        $("#messParent").append(nouveau);
-        //chargment des réponses du noeud
-        chargerReponses(this.id);
-    })
-    $message = '';
-
+            $('<div>', {
+            id : element.messages[i].dateActiviteMsg,
+            'class': 'dateMessage',
+            text : calculDate(element.messages[i].dateActiviteMsg)
+            }).appendTo(contenu);
+            
+            var total = $('<div>', {
+            'class': 'totalLike',
+            text : totalLike(element.messages[i].like, element.messages[i].dislike)
+            }).appendTo(contenu);
+                $('<i>', {
+                'class': 'icon-thumbs-up'    
+                }).appendTo(total);
+                
+        var nav = $('<div>', {
+         id : 'tools' + element.messages[i].idMessage,
+        'class': 'collapse navbar-inner tools'
+        }).appendTo(accordion);
+        
+            var liste = $('<ul>', {
+            }).appendTo(nav);
+            
+                var lienModal = $('<li>', {
+                }).appendTo(liste);
+                
+                     var modal = $('<a>', {
+                     id : element.messages[i].idMessage,
+                     'class': 'lienModal'+element.messages[i].idMessage,
+                     href : '#details',
+                     "data-toggle":'modal'
+                     }).appendTo(lienModal);
+                        
+                        modal.append($('<i>', {
+                        'class': 'icon-edit icon-white'    
+                        })
+                        );
+                        
+                        modal.click(function(){
+                            $("#messParent").empty();
+                            $("#messReponse").empty();
+                            $("#messMenu").empty();
+                            $("#waitGifDetails").show();
+                            //Ajout du nouveau noeud
+                            accordion.appendTo("#messParent");
+                            //chargment des réponses du noeud
+                            chargerReponses(this.id);
+                        })
+                     
+                var l2 = $('<li>', {
+                }).appendTo(liste);
+                
+                     var modal2 = $('<a>', {
+                     text : element.messages[i].like
+                     }).appendTo(l2);
+                     
+                        modal2.before($('<i>', {
+                        'class': 'icon-thumbs-up icon-white'    
+                        })
+                        ); 
+                    
+                
+                var l3 = $('<li>', {
+                }).appendTo(liste);
+                
+                     var modal3 = $('<a>', {
+                     text : element.messages[i].dislike
+                     }).appendTo(l3);
+                     
+                        modal3.before($('<i>', {
+                        'class': 'icon-thumbs-down icon-white'    
+                        })
+                        );
+                
+                var l4 = $('<li>', {
+                }).appendTo(liste);
+                
+                     var modal4 = $('<a>', {
+                     }).appendTo(l4);
+                     
+                        modal4.before($('<i>', {
+                        'class': 'icon-share icon-white'    
+                        })
+                        );
+                
+                var l5 = $('<li>', {
+                }).appendTo(liste);
+                
+                     var modal5 = $('<a>', {
+                     }).appendTo(l5);
+                     
+                        modal5.before($('<i>', {
+                        'class': 'icon-remove icon-white'    
+                        })
+                        );
 }
+
  $("#waitGif").hide();
+ 
 }    
 
 function creeHtmlReponses(element, numMessage){
-    $reponse = '';
     for (var i = 0; i<element.reponses.length; i++){
+            var accordion = $("<div/>", {
+            "class": "accordion-group accordion"  
+            }).appendTo( "#messReponse" );
 
-        $reponse += '<div class="monaccordeonRep">';
-            $reponse += '<div class="accordion-group">';
-                $reponse += '<div class="accordion-heading" id="' + element.reponses[i].idMessage + '">';
-                        $reponse += '<div class="row-fluid">';
-                            $reponse += '<div class="span12">';
-                                if( element.reponses[i].idProfil != null) {$reponse += '<img class="vip"  src="../images/vip.gif"/>';}
-                                $reponse += '<div class="avatar">' + gravatar(element.reponses[i].emailMD5) + '</div>';
-                                $reponse += '<div class="nomUser">'+element.reponses[i].loginUser +'</div>';
-                                $reponse += '<div class="dateMessage" id="'+element.reponses[i].dateActiviteMsg+'">'+ calculDate(element.reponses[i].dateActiviteMsg) +'</div><br/>';
-                                $reponse += '<div class="lblMessage">'+ element.reponses[i].lblMessage +'</div>';
-                            $reponse += '</div>';  
-                        $reponse += '</div>';
-                $reponse += '</div>';
-            $reponse += '</div>';
-        $reponse +='</div>';
-    //$("#reponses"+ numMessage).append($reponse);
-    //$reponse ='';    
+                var user = $('<div>', {
+                'class': 'user'
+                }).appendTo(accordion);
+
+                    var avatar = $('<div>', {
+                    'class': 'avatar'
+                    }).appendTo(user);
+
+                    $(gravatar(element.reponses[i].emailMD5)).appendTo(avatar);
+
+                var texteMessage = $('<div>', {
+                 id : element.reponses[i].idMessage,
+                'class': 'texteMessage accordion-heading'
+                }).appendTo(accordion);
+
+                    var contenu = $('<a>', {
+                    'class': 'accordion-toggle',
+                    href : '#tools'  + element.reponses[i].idMessage,
+                    'data-parent' : '#messReponse',
+                    'data-toggle' : 'collapse'
+                    }).appendTo(texteMessage);
+
+                    $('<div>', {
+                    'class': 'dateEmission',
+                    text : miseFormeDate(element.reponses[i].dateEmissionMsg)
+                    }).appendTo(contenu);
+
+                    $('<div>', {
+                    'class': 'nomUser',
+                    text : element.reponses[i].loginUser
+                    }).appendTo(contenu);
+
+                    $('<hr>', {
+                    }).appendTo(contenu);
+
+                    $('<div>', {
+                    'class': 'lblMessage',
+                    text : element.reponses[i].lblMessage
+                    }).appendTo(contenu);
+
+                    $('<div>', {
+                    id : element.reponses[i].dateActiviteMsg,
+                    'class': 'dateMessage',
+                    text : calculDate(element.reponses[i].dateActiviteMsg)
+                    }).appendTo(contenu);
+
+                    var total = $('<div>', {
+                    'class': 'totalLike',
+                    text : totalLike(element.reponses[i].like, element.reponses[i].dislike)
+                    }).appendTo(contenu);
+                        $('<i>', {
+                        'class': 'icon-thumbs-up'    
+                        }).appendTo(total);
+
+                var nav = $('<div>', {
+                 id : 'tools' + element.reponses[i].idMessage,
+                'class': 'collapse navbar-inner tools'
+                }).appendTo(accordion);
+
+                    var liste = $('<ul>', {
+                    }).appendTo(nav);
+
+                        var l2 = $('<li>', {
+                        }).appendTo(liste);
+
+                             var modal2 = $('<a>', {
+                             text : element.reponses[i].like
+                             }).appendTo(l2);
+
+                                modal2.before($('<i>', {
+                                'class': 'icon-thumbs-up icon-white'    
+                                })
+                                ); 
+
+
+                        var l3 = $('<li>', {
+                        }).appendTo(liste);
+
+                             var modal3 = $('<a>', {
+                             text : element.reponses[i].dislike
+                             }).appendTo(l3);
+
+                                modal3.before($('<i>', {
+                                'class': 'icon-thumbs-down icon-white'    
+                                })
+                                );
+
+                        var l4 = $('<li>', {
+                        }).appendTo(liste);
+
+                             var modal4 = $('<a>', {
+                             }).appendTo(l4);
+
+                                modal4.before($('<i>', {
+                                'class': 'icon-share icon-white'    
+                                })
+                                );
+
+                        var l5 = $('<li>', {
+                        }).appendTo(liste);
+
+                             var modal5 = $('<a>', {
+                             }).appendTo(l5);
+
+                                modal5.before($('<i>', {
+                                'class': 'icon-remove icon-white'    
+                                })
+                                );
     }
-    //$("#messReponse").empty();
-    $("#messReponse").append($reponse);
     
-$formulaire =  '<form class="form-vertical" enctype="application/x-www-form-urlencoded" method="post" action="envoyer"><fieldset>';
+    
+$formulaire =  '<form enctype="application/x-www-form-urlencoded" method="post" action="envoyer">';
     $formulaire += '<input type="hidden" name="IdMessageParent" value="' + numMessage + '" id="IdMessageParent" />';
-    $formulaire += '<div class="control-group"><div class="controls">';
-    $formulaire += '<input type="text" name="message" id="message" value="" placeholder="Votre message" /></div></div>';
-    $formulaire += '<div class="form-actions">';
-    $formulaire += '<input type="submit" name="envoyer" id="envoyer" value="envoyer" style="display:none" class="btn btn-primary" /></div></fieldset>';
+    $formulaire += '<input type="text" name="message" id="message" value="" placeholder="Votre message" />';
+    $formulaire += '<input type="submit" name="envoyer" id="envoyer" value="envoyer" style="display:none"/>';
 $formulaire += '</form>';
 
 $("#messMenu").append($formulaire);
 $formulaire = '';
     $("#waitGifDetails").hide();
+
 }
 
 //Fonction de parcours des éléments data retournés
@@ -266,5 +461,3 @@ $(document).ready(function() {
     calculDelais()
     
 })
-
-

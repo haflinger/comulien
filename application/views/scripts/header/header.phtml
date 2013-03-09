@@ -18,7 +18,10 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#" id="nomEvent"><?php echo $event ?></a>
-           <a class="btn btn_maj pull-right" id="btn_maj"><img id="maj" src="<?php  echo $this->baseUrl(); ?>/images/attente.png"/></a>
+          <a class="btn btn_maj pull-right" id="btn_maj">
+              <img id="maj" src="<?php  echo $this->baseUrl(); ?>/images/attente.png"/>
+              <div id="nbrMessageRecent"></div>
+          </a>
          
           <div class="nav-collapse collapse pull-right">
             <ul class="nav">
