@@ -266,12 +266,14 @@ class MessageController extends Zend_Controller_Action
     public function approuverAction()
     {
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
-        if ($this->_request->isPost()) {
+        
+        //récupération des paramètres dans la requête
+        if ($this->_request->isPost()) { //POST
             //$postData = $this->_request->getPost();
             $idMessage = $this->_request->getPost('message');
             $appreciation = $this->_request->getPost('appreciation');
         }
-        else{
+        else{ //pas POST (GET ...)
             //TODO : en production, ne plus utiliser le GET pour apprécier un message
             $idMessage = $this->getRequest()->getParam('message');
             $appreciation = $this->getRequest()->getParam('appreciation');
@@ -280,16 +282,43 @@ class MessageController extends Zend_Controller_Action
         //récupération de l'utilisateur en session
         $utilisateur = $this->getUserFromAuth();
         if (is_null($utilisateur)) {
-            $this->view->info = 'utilisateur non connecté';
+            //si l'utilisateur n'est pas connecté il ne peut pas approuver un message
+            $this->view->error = 'USER_NOT_CONNECTED';
             return;
         }
         
-        $this->view->noteGlobale = null;
+        $validator = new Zend_Validate_Int();
         
-        //TODO revoir cette partie....
-        if (is_null($idMessage) || is_null($appreciation)) {
-            //les paramètres sont invalides
-            $this->view->info = 'ID_MESSAGE_NON_VALIDE';
+        //vérification du paramètre 'message'
+        if (!$validator->isValid($idMessage) || $idMessage<0 || is_null($idMessage)) {
+            $this->view->error = 'MESSAGE_ID_NOT_VALID';
+            return;
+        }else{
+            $table = new Application_Model_DbTable_Message();
+            $message = $table->getMessage($idMessage);
+            if (is_null($message)) {
+                $this->view->error = 'MESSAGE_ID_NOT_VALID';
+                return;
+            }
+        }
+        
+//        //TODO revoir cette partie....
+//        if ( is_null($appreciation)) {
+//            //les paramètres sont invalides
+//            $this->view->info = 'MESSAGE_ID_NOT_VALID';
+//            if ($context=='json') {
+//                return;
+//            }else{
+//                $this->view->user = $utilisateur;
+//                //redirection uniquement si pas de json
+//                $this->_helper->redirector ( 'lister-tous', 'message' , null );
+//            }
+//        }
+        
+        
+        //vérification du paramètre 'appreciation'
+        if (!$validator->isValid($appreciation)) {
+            $this->view->error = 'APPRECIATION_NOT_VALID';
             if ($context=='json') {
                 return;
             }else{
@@ -297,22 +326,6 @@ class MessageController extends Zend_Controller_Action
                 //redirection uniquement si pas de json
                 $this->_helper->redirector ( 'lister-tous', 'message' , null );
             }
-        }
-        
-        $validator = new Zend_Validate_Int();
-        
-        //vérification du paramètre 'message'
-        if (!$validator->isValid($idMessage) || $idMessage<0) {
-            $this->view->info = 'ID_MESSAGE_NON_VALIDE';
-            return;
-        }else{
-            $table = new Application_Model_DbTable_Message();
-            $message = $table->getMessage($idMessage);
-        }
-        
-        //vérification du paramètre 'appreciation'
-        if (!$validator->isValid($appreciation)) {
-            $this->view->info = 'APPRECIATION_NON_VALIDE';
             return;
         }else{
             if ($appreciation>0) {
@@ -343,11 +356,11 @@ class MessageController extends Zend_Controller_Action
             
         }
         $noteGlobale = $notePositiv - $noteNegativ;
-        $this->view->noteNegativ = $noteNegativ;
-        $this->view->notePositiv = $notePositiv;
+        $this->view->dislike = $noteNegativ;
+        $this->view->like = $notePositiv;
         $this->view->noteGlobale = $noteGlobale;
         
-        $this->view->info = 'MESSAGE_APPRECIE';
+        $this->view->info = 'MESSAGE_SUCCESSFULLY_APPRECIATED';
 
         
         if (!$context=='json') {
@@ -369,7 +382,7 @@ class MessageController extends Zend_Controller_Action
         if ($this->_request->isPost()) {
             $formData = $this->_request->getPost();
             //récupération du message parent (si possible)
-            $idMessageParent = $formData['IdMessageParent'];
+            $idMessageParent = $this->_request->getPost('IdMessageParent');//$formData['IdMessageParent'];
             
             $form = new Application_Form_EcrireMessage();
             $form->generer($idMessageParent);
