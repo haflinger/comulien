@@ -177,6 +177,10 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      */
     public function getMessage($id)
     {
+        $validate = new Zend_Validate_Int();
+        if (!$validate->isValid($id)) {
+            return null;
+        }
         $id = (int)$id;
         $row = $this->fetchRow(array('idMessage = ?'=>$id));
         if (!$row) {

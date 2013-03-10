@@ -266,12 +266,12 @@ class MessageController extends Zend_Controller_Action
     public function approuverAction()
     {
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
-        
         if ($this->_request->isPost()) {
-            $postData = $this->_request->getPost();
-            $idMessage = $postData['message'];
-            $appreciation = $postData['appreciation']; 
-        } else {
+            //$postData = $this->_request->getPost();
+            $idMessage = $this->_request->getPost('message');
+            $appreciation = $this->_request->getPost('appreciation');
+        }
+        else{
             //TODO : en production, ne plus utiliser le GET pour apprécier un message
             $idMessage = $this->getRequest()->getParam('message');
             $appreciation = $this->getRequest()->getParam('appreciation');
@@ -279,13 +279,17 @@ class MessageController extends Zend_Controller_Action
         
         //récupération de l'utilisateur en session
         $utilisateur = $this->getUserFromAuth();
+        if (is_null($utilisateur)) {
+            $this->view->info = 'utilisateur non connecté';
+            return;
+        }
         
         $this->view->noteGlobale = null;
         
         //TODO revoir cette partie....
         if (is_null($idMessage) || is_null($appreciation)) {
             //les paramètres sont invalides
-            $this->view->info = 'paramètres invalides';
+            $this->view->info = 'ID_MESSAGE_NON_VALIDE';
             if ($context=='json') {
                 return;
             }else{
@@ -295,53 +299,58 @@ class MessageController extends Zend_Controller_Action
             }
         }
         
-        //vérification du paramètre message
-        $table = new Application_Model_DbTable_Message();
-        $message = $table->getMessage($idMessage);
+        $validator = new Zend_Validate_Int();
         
-        //vérification du paramètre appreciation
-        if ($appreciation=='1') {
-            $note = 1;            
-        }elseif ($appreciation=='-1') {
-            $note = -1;
-        }elseif ($appreciation=='0') {
-            $note = 0;
+        //vérification du paramètre 'message'
+        if (!$validator->isValid($idMessage) || $idMessage<0) {
+            $this->view->info = 'ID_MESSAGE_NON_VALIDE';
+            return;
         }else{
-            //TODO remplacer le throw par un message passé à la vue
-            throw new HttpInvalidParamException("l'appreciation doit être '-1' ou '0' ou '1'");
+            $table = new Application_Model_DbTable_Message();
+            $message = $table->getMessage($idMessage);
+        }
+        
+        //vérification du paramètre 'appreciation'
+        if (!$validator->isValid($appreciation)) {
+            $this->view->info = 'APPRECIATION_NON_VALIDE';
+            return;
+        }else{
+            if ($appreciation>0) {
+                $note = 1;            
+            }elseif ($appreciation<0) {
+                $note = -1;
+            }elseif ($appreciation==0 || is_null($appreciation)) {
+                $note = 0;
+            }
         }
         
         //approuver le message
         $table->apprecierMessage($message,$utilisateur,$note);
         
-        //récupérer la note du message
+        //récupération des appreciations du message
         $lesAppreciations = $message->getAppreciers();
+        //calcul de la note positive / négative et noteglobale
         $noteGlobale = 0;
+        $notePositiv = 0;
+        $noteNegativ = 0;
         $lesAppreciations->count();
         foreach ($lesAppreciations as $app) {
-            $noteGlobale += $app->evaluation ;
+            if ($app->evaluation > 0) {
+                $notePositiv ++;
+            } else {
+                $noteNegativ ++;
+            }
+            
         }
+        $noteGlobale = $notePositiv - $noteNegativ;
+        $this->view->noteNegativ = $noteNegativ;
+        $this->view->notePositiv = $notePositiv;
         $this->view->noteGlobale = $noteGlobale;
         
-        $this->view->info = 'Appréciation déposée ! (message : '.$message->idMessage.', appreciation : '.$note.')';
-//        $bulleNamespace = new Zend_Session_Namespace('bulle');
-//        $this->view->retour = $bulleNamespace->retour;
+        $this->view->info = 'MESSAGE_APPRECIE';
+
         
-        if ($context=='json') {
-            //en json, on va retourner la nouvelle note pour le message
-//            $arrayUser = array(
-//                'idUser'=>$utilisateur->idUser,
-//                'loginUser'=>$utilisateur->loginUser,
-//                'emailUser'=>$utilisateur->emailUser,
-//                'dateInscriptionUser'=>$utilisateur->dateInscriptionUser,
-//                'nomUser'=>$utilisateur->nomUser,
-//                'prenomUser'=>$utilisateur->prenomUser,
-//                'nbMsgUser'=>$utilisateur->nbMsgUser,
-//                'nbApprouverUser'=>$utilisateur->nbApprouverUser,
-//                'estActifUser'=>$utilisateur->estActifUser
-//                );
-//            $this->view->user = $arrayUser;
-        }else{
+        if (!$context=='json') {
             $this->view->user = $utilisateur; //TODO : vérifier l'utilité
             //redirection uniquement si pas de json
             $this->_helper->redirector ( 'lister-tous', 'message' , null );
