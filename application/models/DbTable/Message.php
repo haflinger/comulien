@@ -183,9 +183,9 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
         }
         $id = (int)$id;
         $row = $this->fetchRow(array('idMessage = ?'=>$id));
-        if (!$row) {
-           throw new Exception("Could not find row $id");
-        }
+//        if (!$row) {
+//           throw new Exception("Could not find row $id");
+//        }
         return $row;
     }
     
