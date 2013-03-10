@@ -53,7 +53,7 @@ function calculDelais(){
             this.innerHTML=delai;
         })
         nbrMessagesRecent();
-    }, 10000);
+    }, 60000);
 }
 
 //function de recherche du nombre de nouveau messages
@@ -92,16 +92,19 @@ function gravatar(email){
 //Requête Ajax pour liker un message
 function likeMessage(event){
     $.ajax({
-            type: "POST",
-            url: BASE_URL + '/message/approuver/message/'+event.data.id+'/appreciation/1?format=json' ,
+            type: "GET",
+            url: BASE_URL + '/message/approuver/message/'+event.data.id+'/appreciation/'+event.data.val+'?format=json' ,
             dataType : "json",
             //affichage de l'erreur en cas de problème
             error:function(string){
-               
+               alert( "Erreur !: " + string );
             },
 
             success:function(data){
                 console.log(data);
+                console.log(data.noteGlobale);
+                /*$('#totalLike').text = data.noteGlobale;
+                $('#' + event.data.noeud).html = $('#' + event.data.noeud).html + 1;*/
             }
      })
 }
@@ -164,6 +167,7 @@ for (var i = 0; i<element.messages.length; i++){
             }).appendTo(contenu);
             
             var total = $('<div>', {
+            id: 'totalLike',
             'class': 'totalLike',
             text : totalLike(element.messages[i].like, element.messages[i].dislike)
             }).appendTo(contenu);
@@ -209,6 +213,7 @@ for (var i = 0; i<element.messages.length; i++){
                 }).appendTo(liste);
                 
                      var modal2 = $('<a>', {
+                     id : 'like' + element.messages[i].idMessage,
                      text : element.messages[i].like
                      }).appendTo(l2);
                      
@@ -217,7 +222,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         ); 
                         
-                        l2.click({id: element.messages[i].idMessage},likeMessage);
+                        modal2.click({id: element.messages[i].idMessage, val: '1', noeud : 'like' + element.messages[i].idMessage},likeMessage);
                 
                 var l3 = $('<li>', {
                 }).appendTo(liste);
@@ -231,6 +236,8 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         );
                 
+                        l3.click({id: element.messages[i].idMessage, val: '-1'},likeMessage);
+                        
                 var l4 = $('<li>', {
                 }).appendTo(liste);
                 
@@ -242,8 +249,9 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         );
                 
-                var l5 = $('<li>', {
-                }).appendTo(liste);
+                if(true){
+                    var l5 = $('<li>', {
+                    }).appendTo(liste);
                 
                      var modal5 = $('<a>', {
                      }).appendTo(l5);
@@ -252,6 +260,8 @@ for (var i = 0; i<element.messages.length; i++){
                         'class': 'icon-remove icon-white'    
                         })
                         );
+                }
+                
 }
 
  $("#waitGif").hide();
@@ -420,7 +430,7 @@ function chargerMessagesSuivant(){
 
             success:function(data){
                 //traitement du json pour créer l'HTML
-                //console.log(data);
+                console.log(data);
                 parseJSON(data);                
             }
      })
