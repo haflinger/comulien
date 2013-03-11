@@ -168,10 +168,10 @@ class MessageController extends Zend_Controller_Action
         if (!is_null($fromDate)) {
             $fromDate = new Zend_Date($fromDate, Zend_Date::TIMESTAMP);
         }
-        $validator = new Zend_Validate_Date(array("format"=>zend_date::TIMESTAMP));
-        if (!$validator->isValid($fromDate)) {
-            $fromDate = Zend_Date::now();
-        }
+//        $validator = new Zend_Validate_Date(array("format"=>zend_date::TIMESTAMP));
+//        if (!$validator->isValid($fromDate)) {
+//            $fromDate = Zend_Date::now();
+//        }
         
         //gestion du nombre de message à retourner
         $nbMessages = $this->getRequest()->getParam('nbmessages',self::NB_MESSAGES_PAR_PAGE);
@@ -191,6 +191,7 @@ class MessageController extends Zend_Controller_Action
         //ATTENTION la ligne suivante bug si on a pas assez de résultats
         if ($messagesTous->count() > 0) {
             $dateProchaine = $messagesTous->getRow( $messagesTous->count()-1 )->dateActiviteMsg;
+            //$dateProchaine = $messagesTous->getRow( 0 )->dateActiviteMsg;
         } else {
             $dateProchaine = null;
         }
