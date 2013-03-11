@@ -28,6 +28,7 @@ class MessageController extends Zend_Controller_Action
         $contextSwitch = $this->_helper->contextSwitch();
         $contextSwitch->addActionContext('reponses', 'json')
                       ->addActionContext('approuver', 'json')
+                      ->addActionContext('moderer', 'json')
                       ->addActionContext('lister-tous', 'json')
                       ->addActionContext('lister-organisateur', 'json')
                       ->addActionContext('envoyer', 'json')
@@ -447,7 +448,7 @@ class MessageController extends Zend_Controller_Action
         if (!$auth->hasIdentity()) {
             //pas d'utlisateur authentifié
             $logger->info('Tentative de modération sans authentification');
-            $this->view->retour = 'Oops ! Qui êtes vous pour vouloir faire ca ?';
+            $this->view->retour = 'USER_NOT_LOGGED_IN';
             return;
         }
         
@@ -462,7 +463,7 @@ class MessageController extends Zend_Controller_Action
         if (!$moderateur) {
             //l'utilisateur n'est pas modérateur
             $logger->info('L\'utilisateur \''.$idUser.'\' a tenté de modérer un message' );
-            $this->view->retour = 'Je ne pense pas que vous aillez le droit de faire cela dans cet évènement !';
+            $this->view->retour = 'USER_IS_NOT_MODERATOR';
             return;
         }
         $form = new Application_Form_Moderer();
@@ -478,7 +479,7 @@ class MessageController extends Zend_Controller_Action
 //        $idMessage = $this->getRequest()->getParam('message');
         if (is_null($idMessage)) {
             $logger->info('Demande de modération sans id de message à modérer');
-            $this->view->retour = 'Il n\'y a aucun message à modérer';
+            $this->view->retour = 'MESSAGE_ID_IS_NOT_CORRECT';
             return;
         }
         
@@ -489,7 +490,8 @@ class MessageController extends Zend_Controller_Action
             $rowMessage = $table->getMessage($idMessage);
         } catch (Exception $exc) {
             $logger->info('Tentative de modération du message '.$idMessage.' sans authentification');
-            Zend_Debug::dump($exc, $label = 'Impossible de récupérer le message', $echo = true);
+            //Zend_Debug::dump($exc, $label = 'Impossible de récupérer le message', $echo = true);
+            $this->view->retour = 'MESSAGE_NOT_FOUND';
             return;
         }
 
@@ -500,8 +502,11 @@ class MessageController extends Zend_Controller_Action
         //modération du message
         $table->modererMessage($idMessage,$idUser,$actif);
         
-        $chActif = ($actif=='1') ? 'ré-' : 'dés';
-        $this->view->retour = 'Le message #'.$idMessage.' a été '.$chActif .'activé !';
+        //$chActif = ($actif=='1') ? 'ré-' : 'dés';
+        //$this->view->retour = 'Le message #'.$idMessage.' a été '.$chActif .'activé !';
+        $this->view->retour = 'SUCCESS';
+        $this->view->visible = $actif=='1';
+        $this->view->idMessage = $idMessage;
         
     }
 
