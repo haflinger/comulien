@@ -69,17 +69,10 @@ class MessageController extends Zend_Controller_Action
         //
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         //
-        $auth = Zend_Auth::getInstance ();
-        $moderateur = false;
-        $UtilisateurActif = null;
-        if ($auth->hasIdentity ()) {
-            $idUser = $auth->getIdentity ()->idUser;
-            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-            $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
-
-            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
-        }
-
+        
+        $UtilisateurActif = $this->getUserFromAuth();
+        $moderateur =  $UtilisateurActif->estModerateur($this->_evenement);
+        
         //passe à la vue le droit de l'utilisateur à modérer
         $this->view->moderateur = $moderateur;
         
@@ -120,17 +113,10 @@ class MessageController extends Zend_Controller_Action
         //
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         //
-        $auth = Zend_Auth::getInstance ();
-        $moderateur = false;
-        $UtilisateurActif = null;
-        if ($auth->hasIdentity ()) {
-            $idUser = $auth->getIdentity ()->idUser;
-            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-            $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
-
-            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
-        }
-
+        
+        $UtilisateurActif = $this->getUserFromAuth();
+        $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
+        
         //passe à la vue le droit de l'utilisateur à modérer
         $this->view->moderateur = $moderateur;
         
@@ -209,28 +195,20 @@ class MessageController extends Zend_Controller_Action
     {
 
         //Récupération du droit de modération de l'utilisateur dans l'évènement
-        $auth = Zend_Auth::getInstance ();
-        $moderateur = false;
-        $UtilisateurActif = null;
-        if ($auth->hasIdentity ()) {
-            $idUser = $auth->getIdentity ()->idUser;
-            $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-            $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
-
-            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
-        }
-
+        
+        $UtilisateurActif = $this->getUserFromAuth();
+        $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
         //passe à la vue le droit de l'utilisateur à modérer
         $this->view->moderateur = $moderateur;
 
         //vérification du droit d'écrire un message
 
-        //Détermination du rôle de l'utilisateur dans l'organisme
-        if (!is_null($UtilisateurActif)) {
-            $role = $UtilisateurActif->getRole($this->_evenement->idOrga);
-        }else{
-            $role = 'visiteur';
-        }
+//        //Détermination du rôle de l'utilisateur dans l'organisme
+//        if (!is_null($UtilisateurActif)) {
+//            $role = $UtilisateurActif->getRole($this->_evenement->idOrga);
+//        }else{
+//            $role = 'visiteur';
+//        }
         
         $fromDate = $this->getRequest()->getParam('fromdate',  null );
         //TODO : les dates en paramètres vont transiter sous forme de timestamps
