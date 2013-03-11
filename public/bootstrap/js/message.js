@@ -50,7 +50,7 @@ function calculDelais(){
     setInterval(function(){
          $(".dateMessage").each(function(){
             delai = calculDate(this.id);
-            this.innerHTML=delai;
+            this.innerHTML= 'Dernière activité : ' + delai;
         })
         nbrMessagesRecent();
     }, 60000);
@@ -76,8 +76,8 @@ function nbrMessagesRecent(){
                 //console.log(data.nbMessages);
                 console.log(data.nbMessages);
                 //parseJSON(data)
-                dateDernierMessage = new Date().getTime();
-                dateDernierMessage = Math.floor(dateDernierMessage/1000) 
+                console.log(dateDernierMessage);
+                
                 var nbr = data.nbMessages>0 ? data.nbMessages : '';
                 $("#nbrMessageRecent").html(nbr);
             }
@@ -101,16 +101,15 @@ function likeMessage(event){
             },
 
             success:function(data){
-                console.log(data);
-                console.log(data.noteGlobale);
-                /*$('#totalLike').text = data.noteGlobale;
-                $('#' + event.data.noeud).html = $('#' + event.data.noeud).html + 1;*/
+                $('#totalLike' + event.data.noeud).html(data.noteGlobale);
+                $('#like' + event.data.noeud).html(data.like);
+                $('#dislike' + event.data.noeud).html(data.dislike);
             }
      })
 }
 //Ajout des balise HTML - Mise en forme du message
 function creeHtmlMessage(element){
-dateProchaine = element.dateProchaine;
+//dateProchaine = element.dateProchaine;
 $message = '';
 $formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
@@ -163,11 +162,11 @@ for (var i = 0; i<element.messages.length; i++){
             $('<div>', {
             id : element.messages[i].dateActiviteMsg,
             'class': 'dateMessage',
-            text : calculDate(element.messages[i].dateActiviteMsg)
+            text : 'Dernière activité : ' + calculDate(element.messages[i].dateActiviteMsg)
             }).appendTo(contenu);
             
             var total = $('<div>', {
-            id: 'totalLike',
+            id: 'totalLike' + element.messages[i].idMessage,
             'class': 'totalLike',
             text : totalLike(element.messages[i].like, element.messages[i].dislike)
             }).appendTo(contenu);
@@ -203,9 +202,10 @@ for (var i = 0; i<element.messages.length; i++){
                             $("#messReponse").empty();
                             $("#messMenu").empty();
                             $("#waitGifDetails").show();
-                            //Ajout du nouveau noeud
-                            accordion.appendTo("#messParent");
-                            //chargment des réponses du noeud
+                            //Ajout du noeud parent
+                            texteMessage[i].appendTo("#messParent");
+                            //chargement des réponses du noeud
+                            console.log(this.id);
                             chargerReponses(this.id);
                         })
                      
@@ -222,12 +222,13 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         ); 
                         
-                        modal2.click({id: element.messages[i].idMessage, val: '1', noeud : 'like' + element.messages[i].idMessage},likeMessage);
+                        modal2.click({id: element.messages[i].idMessage, val: '1', noeud : element.messages[i].idMessage},likeMessage);
                 
                 var l3 = $('<li>', {
                 }).appendTo(liste);
                 
                      var modal3 = $('<a>', {
+                     id : 'dislike' + element.messages[i].idMessage,
                      text : element.messages[i].dislike
                      }).appendTo(l3);
                      
@@ -236,7 +237,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         );
                 
-                        l3.click({id: element.messages[i].idMessage, val: '-1'},likeMessage);
+                        l3.click({id: element.messages[i].idMessage, val: '-1', noeud : element.messages[i].idMessage},likeMessage);
                         
                 var l4 = $('<li>', {
                 }).appendTo(liste);
@@ -249,7 +250,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         );
                 
-                if(true){
+                if(element.moderateur){
                     var l5 = $('<li>', {
                     }).appendTo(liste);
                 
@@ -371,17 +372,19 @@ function creeHtmlReponses(element, numMessage){
                                 'class': 'icon-share icon-white'    
                                 })
                                 );
+                        
+                        if(element.moderateur){
+                            var l5 = $('<li>', {
+                            }).appendTo(liste);
 
-                        var l5 = $('<li>', {
-                        }).appendTo(liste);
+                                 var modal5 = $('<a>', {
+                                 }).appendTo(l5);
 
-                             var modal5 = $('<a>', {
-                             }).appendTo(l5);
-
-                                modal5.before($('<i>', {
-                                'class': 'icon-remove icon-white'    
-                                })
-                                );
+                                    modal5.before($('<i>', {
+                                    'class': 'icon-remove icon-white'    
+                                    })
+                                    );
+                        }
     }
     
     
