@@ -50,7 +50,7 @@ function calculDelais(){
     setInterval(function(){
          $(".dateMessage").each(function(){
             delai = calculDate(this.id);
-            this.innerHTML= 'Dernière activité : ' + delai;
+            this.innerHTML= ' ' + delai;
         })
         nbrMessagesRecent();
     }, 60000);
@@ -163,7 +163,12 @@ for (var i = 0; i<element.messages.length; i++){
             $('<div>', {
             id : element.messages[i].dateActiviteMsg,
             'class': 'dateMessage',
-            text : 'Dernière activité : ' + calculDate(element.messages[i].dateActiviteMsg)
+            text : ' ' + calculDate(element.messages[i].dateActiviteMsg)
+            }).appendTo(contenu);
+            
+            $('<img>',{
+                id: 'clock',
+                src: BASE_URL + '/images/clock.PNG'
             }).appendTo(contenu);
             
             var total = $('<div>', {
@@ -193,10 +198,10 @@ for (var i = 0; i<element.messages.length; i++){
                      "data-toggle":'modal'
                      }).appendTo(lienModal);
                         
-                        modal.append($('<i>', {
-                        'class': 'icon-edit icon-white'    
-                        })
-                        );
+                        modal.append($('<img>',{
+                            id: 'repondre',
+                            src: BASE_URL + '/images/repondre.png'
+                        }));
                         
                         modal.click(function(){
                             $("#messParent").empty();
@@ -204,10 +209,8 @@ for (var i = 0; i<element.messages.length; i++){
                             $("#messMenu").empty();
                             $("#waitGifDetails").show();
                             //Ajout du noeud parent
-                            //texteMessage.appendTo("#messParent");
-                            //this.parent(texteMessage).appendTo('#messParent');
-                            //chargement des réponses du noeud
-                            console.log(this.id);
+                            var sel = $(this).parent("div.texteMessage");
+                            sel.appendTo("#messParent");
                             chargerReponses(this.id);
                         })
                      
@@ -219,8 +222,9 @@ for (var i = 0; i<element.messages.length; i++){
                      text : element.messages[i].like
                      }).appendTo(l2);
                      
-                        modal2.before($('<i>', {
-                        'class': 'icon-thumbs-up icon-white'    
+                        modal2.before($('<img>',{
+                            id: 'like',
+                            src: BASE_URL + '/images/like.png'
                         })
                         ); 
                         
@@ -234,12 +238,13 @@ for (var i = 0; i<element.messages.length; i++){
                      text : element.messages[i].dislike
                      }).appendTo(l3);
                      
-                        modal3.before($('<i>', {
-                        'class': 'icon-thumbs-down icon-white'    
+                        modal3.before($('<img>',{
+                            id: 'dislike',
+                            src: BASE_URL + '/images/dislike.png'
                         })
                         );
                 
-                        l3.click({id: element.messages[i].idMessage, val: '-1', noeud : element.messages[i].idMessage},likeMessage);
+                        modal3.click({id: element.messages[i].idMessage, val: '-1', noeud : element.messages[i].idMessage},likeMessage);
                         
                 var l4 = $('<li>', {
                 }).appendTo(liste);
@@ -247,8 +252,9 @@ for (var i = 0; i<element.messages.length; i++){
                      var modal4 = $('<a>', {
                      }).appendTo(l4);
                      
-                        modal4.before($('<i>', {
-                        'class': 'icon-share icon-white'    
+                        modal4.before($('<img>',{
+                            id: 'partager',
+                            src: BASE_URL + '/images/partager.png'
                         })
                         );
                 
@@ -259,8 +265,9 @@ for (var i = 0; i<element.messages.length; i++){
                      var modal5 = $('<a>', {
                      }).appendTo(l5);
                      
-                        modal5.before($('<i>', {
-                        'class': 'icon-remove icon-white'    
+                        modal5.before($('<img>',{
+                            id: 'moderer',
+                            src: BASE_URL + '/images/moderer.png'
                         })
                         );
                 }

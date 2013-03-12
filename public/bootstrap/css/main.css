@@ -33,7 +33,7 @@ Fenetre modal
         position: fixed; 
 }
 .modal-body{
-    margin:0px;
+  margin:0px;
   max-height: 60%;
   overflow-y: scroll;
 }
@@ -127,29 +127,36 @@ li {
      position: relative;
        z-index:3;
        float:right;
-       color: #0088ce;
+       color: #000;
        text-align:right;
        font-weight: bold;
+}
+#clock{
+        position: relative;
+       z-index:3;
+       float:right;
+       margin-top: 2px;
+       margin-right: 3px;
+       text-align:right;
 }
 .dateMessage{
        position: relative;
        z-index:3;
        float:right;
-       color: #0088ce;
+       color: gray;
        text-align:right;
     }
-totalLike{
+.totalLike{
     position: relative;
+    color : gray;
+    margin-right: 3px;
 }
 .nomUser{
        margin-left: 15px;
        font-weight: bold;
-       color: #0088ce;
+       color: #0066cc;
     }
-.totalLike{
-       font-weight: bold;
-       color: grey;
-}
+
 .lblMessage{
     min-height: 40px;
     margin-left: 45px;
@@ -194,7 +201,8 @@ box-shadow: 1px 1px 5px #787878;
     font-size:20pt;
     text-decoration-color: white;
     color: #0088ce;
-    padding-top: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     background-image: -webkit-linear-gradient(top, #000,#666666 );
 }
 #chargerPlusMessage a{
