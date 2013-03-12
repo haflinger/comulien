@@ -160,14 +160,14 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                 ->where('m.idEvent=?',$idEvent)
                 ->where('unix_timestamp(dateActiviteMsg)<?',$dateRef->toString(Zend_Date::TIMESTAMP)) //$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
                 //ou si le message est celui qu'on souhaite...
-                ->orWhere('m.idMessage = ?',$idMessage) //TODO : tester avec des réponses
+                //->orWhere('m.idMessage = ?',$idMessage) //TODO : tester avec des réponses
                 ->group('m.idMessage','like','disklike')
                 ->order('dateEmissionMsg ASC');
         //les messages actifs seulement ?
         if (!$showAll) {
             $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
         }
-        $select->limit( $nbItemParPage+1);
+        $select->limit( $nbItemParPage);
         $result = $this->fetchAll($select);
         Zend_Registry::set('sql',$select->assemble());
         return $result;
