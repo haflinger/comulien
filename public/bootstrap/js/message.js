@@ -101,6 +101,7 @@ function likeMessage(event){
             },
 
             success:function(data){
+                console.log(data);
                 $('#totalLike' + event.data.noeud).html(data.noteGlobale);
                 $('#like' + event.data.noeud).html(data.like);
                 $('#dislike' + event.data.noeud).html(data.dislike);
@@ -109,7 +110,7 @@ function likeMessage(event){
 }
 //Ajout des balise HTML - Mise en forme du message
 function creeHtmlMessage(element){
-//dateProchaine = element.dateProchaine;
+dateProchaine = element.dateProchaine;
 $message = '';
 $formulaire = '';
 for (var i = 0; i<element.messages.length; i++){
@@ -130,7 +131,7 @@ for (var i = 0; i<element.messages.length; i++){
             $(gravatar(element.messages[i].emailMD5)).appendTo(avatar);
             
         var texteMessage = $('<div>', {
-         id : element.messages[i].idMessage,
+         //id : element.messages[i].idMessage,
         'class': 'texteMessage accordion-heading'
         }).appendTo(accordion);
         
@@ -203,7 +204,8 @@ for (var i = 0; i<element.messages.length; i++){
                             $("#messMenu").empty();
                             $("#waitGifDetails").show();
                             //Ajout du noeud parent
-                            texteMessage[i].appendTo("#messParent");
+                            //texteMessage.appendTo("#messParent");
+                            //this.parent(texteMessage).appendTo('#messParent');
                             //chargement des réponses du noeud
                             console.log(this.id);
                             chargerReponses(this.id);
