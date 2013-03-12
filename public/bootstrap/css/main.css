@@ -87,9 +87,11 @@ hr{
 -webkit-box-shadow:inset 0px -1px 2px #545454;
 box-shadow:inset 0px -1px 2px #545454;
 }
-.liking{
-    margin-top: 20px;
-    float: right;
+#totalLike{
+    position: relative;
+    float: left;
+    margin-top: 2px;
+    margin-right: 3px;
 }
 .tools{
     -moz-box-shadow:inset 0px 3px 7px #000000;

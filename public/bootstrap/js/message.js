@@ -108,6 +108,25 @@ function likeMessage(event){
             }
      })
 }
+
+//Requête Ajax pour liker un message
+function modererMessage(event){
+    $.ajax({
+            type: "POST",
+            url: BASE_URL + '/message/moderer/' ,
+            data: {hiddenIdMessage : event.id, format: 'json'},
+            dataType : "json",
+            //affichage de l'erreur en cas de problème
+            error:function(string){
+               alert( "Erreur !: " + string );
+            },
+
+            success:function(data){
+                console.log(data);
+                
+            }
+     })
+}
 //Ajout des balise HTML - Mise en forme du message
 function creeHtmlMessage(element){
 dateProchaine = element.dateProchaine;
@@ -171,14 +190,18 @@ for (var i = 0; i<element.messages.length; i++){
                 src: BASE_URL + '/images/clock.PNG'
             }).appendTo(contenu);
             
+            $('<i>', {
+                id : 'totalLike',
+                'class': 'icon-thumbs-up'    
+                }).appendTo(contenu);
+                
             var total = $('<div>', {
             id: 'totalLike' + element.messages[i].idMessage,
             'class': 'totalLike',
             text : totalLike(element.messages[i].like, element.messages[i].dislike)
             }).appendTo(contenu);
-                $('<i>', {
-                'class': 'icon-thumbs-up'    
-                }).appendTo(total);
+                
+                
                 
         var nav = $('<div>', {
          id : 'tools' + element.messages[i].idMessage,
@@ -228,7 +251,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         ); 
                         
-                        modal2.click({id: element.messages[i].idMessage, val: '1', noeud : element.messages[i].idMessage},likeMessage);
+                        l2.click({id: element.messages[i].idMessage, val: '1', noeud : element.messages[i].idMessage},likeMessage);
                 
                 var l3 = $('<li>', {
                 }).appendTo(liste);
@@ -244,7 +267,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         );
                 
-                        modal3.click({id: element.messages[i].idMessage, val: '-1', noeud : element.messages[i].idMessage},likeMessage);
+                        l3.click({id: element.messages[i].idMessage, val: '-1', noeud : element.messages[i].idMessage},likeMessage);
                         
                 var l4 = $('<li>', {
                 }).appendTo(liste);
@@ -270,6 +293,8 @@ for (var i = 0; i<element.messages.length; i++){
                             src: BASE_URL + '/images/moderer.png'
                         })
                         );
+                        l5.click({id: element.messages[i].idMessage},modererMessage);
+                       
                 }
                 
 }
