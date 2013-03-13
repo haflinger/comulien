@@ -99,12 +99,11 @@ function likeMessage(event){
             error:function(string){
                alert( "Erreur !: " + string );
             },
-
             success:function(data){
                 console.log(data);
-                $('#totalLike' + event.data.noeud).html(data.noteGlobale);
-                $('#like' + event.data.noeud).html(data.like);
-                $('#dislike' + event.data.noeud).html(data.dislike);
+                $('#totalLike' + event.data.id).html(data.noteGlobale);
+                $('#like' + event.data.id).html(data.like);
+                $('#dislike' + event.data.id).html(data.dislike);
             }
      })
 }
@@ -114,7 +113,7 @@ function modererMessage(event){
     $.ajax({
             type: "POST",
             url: BASE_URL + '/message/moderer/' ,
-            data: {hiddenIdMessage : event.id, format: 'json'},
+            data: {hiddenIdMessage: event.id, format: 'json'},
             dataType : "json",
             //affichage de l'erreur en cas de problème
             error:function(string){
@@ -122,7 +121,7 @@ function modererMessage(event){
             },
 
             success:function(data){
-                console.log(data);
+                //console.log(data);
                 
             }
      })
@@ -232,7 +231,8 @@ for (var i = 0; i<element.messages.length; i++){
                             $("#messMenu").empty();
                             $("#waitGifDetails").show();
                             //Ajout du noeud parent
-                            var sel = $(this).parent("div.texteMessage");
+                            var sel = $(this).parent(".texteMessage");
+                            console.log(sel);
                             sel.appendTo("#messParent");
                             chargerReponses(this.id);
                         })
@@ -251,7 +251,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         ); 
                         
-                        l2.click({id: element.messages[i].idMessage, val: '1', noeud : element.messages[i].idMessage},likeMessage);
+                        l2.click({id: element.messages[i].idMessage, val: '1'},likeMessage);
                 
                 var l3 = $('<li>', {
                 }).appendTo(liste);
@@ -267,7 +267,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         );
                 
-                        l3.click({id: element.messages[i].idMessage, val: '-1', noeud : element.messages[i].idMessage},likeMessage);
+                        l3.click({id: element.messages[i].idMessage, val: '-1'},likeMessage);
                         
                 var l4 = $('<li>', {
                 }).appendTo(liste);
@@ -293,7 +293,7 @@ for (var i = 0; i<element.messages.length; i++){
                             src: BASE_URL + '/images/moderer.png'
                         })
                         );
-                        l5.click({id: element.messages[i].idMessage},modererMessage);
+                        l5.click({id: element.messages[i].idMessage}, modererMessage);
                        
                 }
                 
