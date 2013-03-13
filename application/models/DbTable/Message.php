@@ -88,13 +88,16 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                 ->setIntegrityCheck(false)
                 ->from(array('m'=>'message'),
                         array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg',
-                            'unix_timestamp(dateActiviteMsg) as dateActiviteMsg','unix_timestamp(dateEmissionMsg) as dateEmissionMsg'))
+                            'unix_timestamp(m.dateActiviteMsg) as dateActiviteMsg','unix_timestamp(m.dateEmissionMsg) as dateEmissionMsg'))
                 ->joinLeft(array('a'=>'apprecier'),
                         'm.idMessage = a.idMessage',
                         array('sum(if(a.evaluation>0,1,0)) as like','sum(if(a.evaluation<0,1,0)) as dislike'))
                 ->joinInner(array('u'=>'utilisateur'),
                         'm.idUser_emettre = u.idUser',
                         array('loginUser','emailUser','MD5(LOWER(TRIM(emailUser))) as emailMD5'))
+                ->joinLeft(array('m2'=>'message'), //autojointure pour compter le nombre de réponses
+                        'm2.idMessage_reponse = m.idMessage',
+                        array('count(m2.idMessage_reponse) as NbReponse')) //nombre de réponses
                 //->where('m.idMessage_reponse=?',$idMessage)
                 ->where('m.idMessage_reponse IS NULL')          //ne pas prendre les réponses
                 ->where('m.idEvent=?',$idEvent)                 //les messages de l'évènement
