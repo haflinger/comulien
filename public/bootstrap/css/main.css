@@ -87,6 +87,9 @@ hr{
 -webkit-box-shadow:inset 0px -1px 2px #545454;
 box-shadow:inset 0px -1px 2px #545454;
 }
+.modere{
+    background-color: #F3F3F3;
+}
 #totalLike{
     position: relative;
     float: left;
@@ -114,7 +117,8 @@ box-shadow:inset 0px -1px 2px #545454;
 }
 .tools li{
     height: 40px;
-    margin-left: 13%;
+    margin-left: 16%;
+    cursor: pointer;
 }
 .nav{
     margin-left: 14%;
@@ -152,6 +156,29 @@ li {
     position: relative;
     color : gray;
     margin-right: 3px;
+}
+.bulle{
+    text-decoration: none;
+    margin-top: -5px;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    font-size: 8px;
+    background-image: url('bulle.png');
+    text-align: center;
+    padding-top: 1px;
+    color: black;
+    height: 24px;
+    width: 24px;
+}
+.inactif{
+    height: 32px;
+    width: 32px;
+    position:absolute;
+    float: left;
+    margin-top: 30px;
+    margin-left: 20px;
+    z-index: 20;
+    background-image: url('inactif.png');
 }
 .nomUser{
        margin-left: 15px;
