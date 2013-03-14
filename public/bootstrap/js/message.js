@@ -112,8 +112,8 @@ function likeMessage(event){
 function modererMessage(event){
     $.ajax({
             type: "POST",
-            url: BASE_URL + '/message/moderer/' ,
-            data: {hiddenIdMessage: event.id, format: 'json'},
+            url: BASE_URL + '/message/moderer' ,
+            data: {hiddenIdMessage: event.data.id,format:'json'},
             dataType : "json",
             //affichage de l'erreur en cas de problème
             error:function(string){
@@ -121,7 +121,7 @@ function modererMessage(event){
             },
 
             success:function(data){
-                //console.log(data);
+                console.log(data);
                 
             }
      })
@@ -149,10 +149,19 @@ for (var i = 0; i<element.messages.length; i++){
             $(gravatar(element.messages[i].emailMD5)).appendTo(avatar);
             
         var texteMessage = $('<div>', {
-         //id : element.messages[i].idMessage,
+         id : 'texte' + element.messages[i].idMessage,
         'class': 'texteMessage accordion-heading'
         }).appendTo(accordion);
-        
+        //Test si le message à été modéré ou non
+        if(element.messages[i].idUser_moderer != null){
+            texteMessage.addClass('modere');
+            $('<div>',{
+                'class': 'inactif'
+            }).appendTo(texteMessage);
+        }else
+        {
+            texteMessage.removeClass('modere');
+        }
             var contenu = $('<a>', {
             'class': 'accordion-toggle',
             href : '#tools'  + element.messages[i].idMessage,
@@ -189,7 +198,7 @@ for (var i = 0; i<element.messages.length; i++){
                 src: BASE_URL + '/images/clock.PNG'
             }).appendTo(contenu);
             
-            $('<i>', {
+           /* $('<i>', {
                 id : 'totalLike',
                 'class': 'icon-thumbs-up'    
                 }).appendTo(contenu);
@@ -198,8 +207,13 @@ for (var i = 0; i<element.messages.length; i++){
             id: 'totalLike' + element.messages[i].idMessage,
             'class': 'totalLike',
             text : totalLike(element.messages[i].like, element.messages[i].dislike)
-            }).appendTo(contenu);
-                
+            }).appendTo(contenu);*/
+            
+            $('<div>', {
+            id : 'bulle' + element.messages[i].idMessage,
+            'class': 'bulle',
+            text : element.messages[i].NbReponse
+            }).appendTo(contenu);    
                 
                 
         var nav = $('<div>', {
@@ -231,9 +245,11 @@ for (var i = 0; i<element.messages.length; i++){
                             $("#messMenu").empty();
                             $("#waitGifDetails").show();
                             //Ajout du noeud parent
-                            var sel = $(this).parent(".texteMessage");
-                            console.log(sel);
-                            sel.appendTo("#messParent");
+                            console.log($(this));
+                            
+                            $(this).parent().parent().parent().parent().appendTo("#messParent");
+                            
+                      
                             chargerReponses(this.id);
                         })
                      
@@ -332,8 +348,9 @@ function creeHtmlReponses(element, numMessage){
                     }).appendTo(texteMessage);
 
                     $('<div>', {
-                    'class': 'dateEmission',
-                    text : miseFormeDate(element.reponses[i].dateEmissionMsg)
+                    id : element.reponses[i].dateActiviteMsg,
+                    'class': 'dateMessage',
+                    text : calculDate(element.reponses[i].dateActiviteMsg)
                     }).appendTo(contenu);
 
                     $('<div>', {
@@ -347,21 +364,15 @@ function creeHtmlReponses(element, numMessage){
                     $('<div>', {
                     'class': 'lblMessage',
                     text : element.reponses[i].lblMessage
-                    }).appendTo(contenu);
+                    }).appendTo(contenu);                    
 
-                    $('<div>', {
-                    id : element.reponses[i].dateActiviteMsg,
-                    'class': 'dateMessage',
-                    text : calculDate(element.reponses[i].dateActiviteMsg)
-                    }).appendTo(contenu);
-
-                    var total = $('<div>', {
+                    /*var total = $('<div>', {
                     'class': 'totalLike',
                     text : totalLike(element.reponses[i].like, element.reponses[i].dislike)
                     }).appendTo(contenu);
                         $('<i>', {
                         'class': 'icon-thumbs-up'    
-                        }).appendTo(total);
+                        }).appendTo(total);*/
 
                 var nav = $('<div>', {
                  id : 'tools' + element.reponses[i].idMessage,
