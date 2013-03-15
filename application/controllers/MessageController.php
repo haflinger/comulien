@@ -133,6 +133,12 @@ class MessageController extends Zend_Controller_Action
             $role = 'visiteur';
         }
        
+        //Récupération de l'ID de l'utilisateur
+        if (!is_null($UtilisateurActif)) {
+            $idUser = $UtilisateurActif->idUser;
+        }else{
+            $idUser = null;
+        }
         //
         // prise en charge du formulaire
         //
@@ -171,7 +177,7 @@ class MessageController extends Zend_Controller_Action
         
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
-        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$nbMessages, $fromDate);
+        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$nbMessages, $fromDate, $idUser);
         
         //Récupération de la date la plus récente pour retour
         //ATTENTION la ligne suivante bug si on a pas assez de résultats
