@@ -120,9 +120,20 @@ function modererMessage(event){
                alert( "Erreur !: " + string );
             },
 
-            success:function(data){
-                console.log(data);
-                
+            success:function(){
+                        console.log($('texte' +event.data.id));                     
+                        if($('#texte' +event.data.id).hasClass('modere')){
+                            $('#texte' +event.data.id + ' > .inactif').remove();
+                        }else
+                        {
+                            $('<div>',{
+                                'class': 'inactif'
+                            }).prependTo($('#texte' + event.data.id));
+                            
+                        }
+                        $('#texte' +event.data.id).toggleClass('modere');
+                        
+                       
             }
      })
 }
@@ -245,11 +256,8 @@ for (var i = 0; i<element.messages.length; i++){
                             $("#messMenu").empty();
                             $("#waitGifDetails").show();
                             //Ajout du noeud parent
-                            console.log($(this));
-                            
-                            $(this).parent().parent().parent().parent().appendTo("#messParent");
-                            
-                      
+                            //console.log($(this));
+                            $(this).parent().parent().parent().parent().clone().appendTo("#messParent");
                             chargerReponses(this.id);
                         })
                      
@@ -310,8 +318,7 @@ for (var i = 0; i<element.messages.length; i++){
                         })
                         );
                         l5.click({id: element.messages[i].idMessage}, modererMessage);
-                       
-                }
+                }   
                 
 }
 
