@@ -110,14 +110,16 @@ class MessageController extends Zend_Controller_Action
     public function listerTousAction()
     {
         $context = $this->_helper->getHelper('contextSwitch')->getCurrentContext();
+        
         //
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         //
-        
         $UtilisateurActif = $this->getUserFromAuth();
-        $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
-        
-        //passe à la vue le droit de l'utilisateur à modérer
+        if (!is_null($UtilisateurActif)) {
+            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
+        } else {
+            $moderateur = false;
+        }
         $this->view->moderateur = $moderateur;
         
         //
@@ -131,18 +133,21 @@ class MessageController extends Zend_Controller_Action
             $role = 'visiteur';
         }
        
+        //Récupération de l'ID de l'utilisateur
+        if (!is_null($UtilisateurActif)) {
+            $idUser = $UtilisateurActif->idUser;
+        }else{
+            $idUser = null;
+        }
         //
         // prise en charge du formulaire
         //
-        if ($context!='json') { //le formulaire n'est pas envoyé pour du json
+        if ($context=='json') { 
+            // en json on ne passe pas le formulaire
+        }else{ 
             $formEcrire = new Application_Form_EcrireMessage();
             $formEcrire->generer();
             $this->view->formEcrireMessage = $formEcrire;
-
-        }else{ //ici nous traitons le json
-//            $formEcrire = new Application_Form_EcrireMessage();
-//            $formEcrire->generer();
-//            $this->view->formEcrireMessage = $formEcrire;
         }
         
         //
@@ -169,9 +174,10 @@ class MessageController extends Zend_Controller_Action
         if ($nbMessages>self::NB_MESSAGES_PAR_PAGE_MAX) {
             $nbMessages = self::NB_MESSAGES_PAR_PAGE_MAX;
         }
+        
         //récupération des messages
         $tableMessage = new Application_Model_DbTable_Message();
-        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$nbMessages, $fromDate);
+        $messagesTous = $tableMessage->messagesTous($this->_evenement->idEvent,$moderateur,$nbMessages, $fromDate, $idUser);
         
         //Récupération de la date la plus récente pour retour
         //ATTENTION la ligne suivante bug si on a pas assez de résultats
@@ -404,8 +410,6 @@ class MessageController extends Zend_Controller_Action
                     //pour le json on ne redirige rien
                 }
                 
-                
-                
             }
             else{
                 //todo
@@ -421,27 +425,43 @@ class MessageController extends Zend_Controller_Action
     public function modererAction()
     {
         $logger = Zend_Registry::get("cml_logger");
-        //récupération de l'utilisateur connecté
-        $auth = Zend_Auth::getInstance ();
         
-        if (!$auth->hasIdentity()) {
-            //pas d'utlisateur authentifié
-            $logger->info('Tentative de modération sans authentification');
-            $this->view->retour = 'USER_NOT_LOGGED_IN';
+        //contrôle de l'utilisateur
+        $UtilisateurActif = $this->getUserFromAuth();
+        if (is_null($UtilisateurActif)) {
+            //si l'utilisateur n'est pas connecté il ne peut pas approuver un message
+            $this->view->retour = 'USER_NOT_CONNECTED';
             return;
         }
-        
-        //l'utilisateur en session doit avoir le droit de modération au sein de l'organisme 
-        //récupération de l'id de l'utilisateur en session
-        $idUser = $auth->getIdentity ()->idUser;
-        //récupération de l'objet UtilisateurRow
-        $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
-        $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
-        //Récupération d'un booleen sur le UtilisateurRow pour savoir si l'utilisateur est modérateur
+//        
+//        //récupération de l'utilisateur connecté
+//        $auth = Zend_Auth::getInstance ();
+//        
+//        if (!$auth->hasIdentity()) {
+//            //pas d'utlisateur authentifié
+//            $logger->info('Tentative de modération sans authentification');
+//            $this->view->retour = 'USER_NOT_LOGGED_IN';
+//            return;
+//        }
+//        
+//        //l'utilisateur en session doit avoir le droit de modération au sein de l'organisme 
+//        //récupération de l'id de l'utilisateur en session
+//        $idUser = $auth->getIdentity ()->idUser;
+//        //récupération de l'objet UtilisateurRow
+//        $tableUtilisateur = new Application_Model_DbTable_Utilisateur();
+//        $UtilisateurActif = $tableUtilisateur->find($idUser)->current();
+//       
+        //contrôle de l'évènement
+        if (is_null($this->_evenement)) {
+            $logger->info('Moderation : pas d\'évènement configuré');
+            $this->view->retour = 'NOT_CHECKED_IN_EVENT';
+            return;
+        }
+        //contrôle du droit de modération
         $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
         if (!$moderateur) {
             //l'utilisateur n'est pas modérateur
-            $logger->info('L\'utilisateur \''.$idUser.'\' a tenté de modérer un message' );
+            $logger->info('L\'utilisateur \''.$UtilisateurActif->idUser.'\' a tenté de modérer un message' );
             $this->view->retour = 'USER_IS_NOT_MODERATOR';
             return;
         }
@@ -456,6 +476,7 @@ class MessageController extends Zend_Controller_Action
         }
         //$idMessage = $formData->getValue('hiddenIdMessage');
 //        $idMessage = $this->getRequest()->getParam('message');
+        //contrôle de l'id du message à modérer
         if (is_null($idMessage)) {
             $logger->info('Demande de modération sans id de message à modérer');
             $this->view->retour = 'MESSAGE_ID_IS_NOT_CORRECT';
@@ -479,7 +500,7 @@ class MessageController extends Zend_Controller_Action
         $actif = ($rowMessage->estActifMsg=='1') ? '0' : '1';
 
         //modération du message
-        $table->modererMessage($idMessage,$idUser,$actif);
+        $table->modererMessage($idMessage,$UtilisateurActif->idUser,$actif);
         
         //$chActif = ($actif=='1') ? 'ré-' : 'dés';
         //$this->view->retour = 'Le message #'.$idMessage.' a été '.$chActif .'activé !';

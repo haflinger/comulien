@@ -78,13 +78,52 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
      * @param Zend_Date $dateRef Date de référence. Seuls les messages émis avant cette date seront affichés
      * @return MessageRowset Liste des messages
      */
-    public function messagesTous($idEvent, $showAll, $nbItemParPage = 5 ,$dateRef = null){
+    public function messagesTous($idEvent, $showAll, $nbItemParPage = 5 ,$dateRef = null,$idUser = null){
+        /*REQUETE à REPRODUIRE EN ZEND
+         
+SELECT count(*) as nbReponses, ap.evaluation as userEvaluation,
+ maSSrequete.like, maSSrequete.dislike, maSSrequete.idEvent, maSSrequete.idUser_moderer
+, maSSrequete.idMessage, maSSrequete.idUser_emettre, maSSrequete.idTypeMsg, maSSrequete.lblMessage
+, maSSrequete.idProfil, maSSrequete.estActifMsg, maSSrequete.dateActiviteMsg, maSSrequete.dateEmissionMsg
+, maSSrequete.loginUser, maSSrequete.emailUser, maSSrequete.emailMD5
+
+FROM (
+
+SELECT 
+
+sum(if(a.evaluation>0,1,0)) AS `like`, sum(if(a.evaluation<0,1,0)) AS `dislike`,
+`m`.`idEvent`, `m`.`idUser_moderer`, `m`.`idMessage`, `m`.`idUser_emettre`, 
+`m`.`idTypeMsg`, `m`.`lblMessage`, `m`.`idProfil`, `m`.`estActifMsg`,
+ unix_timestamp(m.dateActiviteMsg) AS `dateActiviteMsg`, unix_timestamp(m.dateEmissionMsg) AS `dateEmissionMsg`, 
+ `u`.`loginUser`, `u`.`emailUser`, MD5(LOWER(TRIM(u.emailUser))) AS `emailMD5`
+
+ FROM `message` AS `m` 
+
+INNER JOIN `utilisateur` AS `u` ON m.idUser_emettre = u.idUser
+LEFT JOIN `apprecier` AS `a` ON m.idMessage = a.idMessage 
+
+WHERE (m.idMessage_reponse IS NULL) 
+AND (m.idEvent='1') 
+AND (unix_timestamp(m.dateActiviteMsg)<'1463140000')
+GROUP BY m.idMessage 
+) AS maSSrequete
+
+LEFT JOIN `message` as `m2` on m2.idMessage_reponse = maSSrequete.idMessage
+LEFT JOIN `apprecier` AS `ap` ON (maSSrequete.idMessage = ap.idMessage AND ap.idUser=2) 
+GROUP BY maSSrequete.idMessage
+ORDER BY maSSrequete.`dateActiviteMsg` DESC 
+LIMIT 10;
+         * 
+         */
+        
+        //TODO : voir si besoin de vérifier l'idUser
+        
         $validator = new Zend_Validate_Date();
         if (!$validator->isValid($dateRef)) {
             $dateRef = Zend_Date::now();
         }
        
-        $select = $this->select()
+        $subSelect = $this->select()
                 ->setIntegrityCheck(false)
                 ->from(array('m'=>'message'),
                         array('idEvent','idUser_moderer','idMessage','idUser_emettre','idTypeMsg','lblMessage','idProfil','estActifMsg',
@@ -95,16 +134,29 @@ class Application_Model_DbTable_Message extends Zend_Db_Table_Abstract
                 ->joinInner(array('u'=>'utilisateur'),
                         'm.idUser_emettre = u.idUser',
                         array('loginUser','emailUser','MD5(LOWER(TRIM(emailUser))) as emailMD5'))
-                ->joinLeft(array('m2'=>'message'), //autojointure pour compter le nombre de réponses
-                        'm2.idMessage_reponse = m.idMessage',
-                        array('count(m2.idMessage_reponse) as NbReponse')) //nombre de réponses
+
                 //->where('m.idMessage_reponse=?',$idMessage)
                 ->where('m.idMessage_reponse IS NULL')          //ne pas prendre les réponses
                 ->where('m.idEvent=?',$idEvent)                 //les messages de l'évènement
                 //->where('m.dateActiviteMsg<?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
                 ->where('unix_timestamp(m.dateActiviteMsg)<?',$dateRef->toString(Zend_Date::TIMESTAMP))         //les message antérieurs à la date fournie
-                ->group('m.idMessage','like','disklike')
-                ->order('dateActiviteMsg DESC');        
+                ->group('m.idMessage');
+          $select = $this->select()
+                  ->setIntegrityCheck(false)
+                  ->from(array('maSSrequete'=>new Zend_Db_Expr('(' . $subSelect . ')')),
+                          array('maSSrequete.like', 'maSSrequete.dislike', 'maSSrequete.idEvent', 'maSSrequete.idUser_moderer',
+                              'maSSrequete.idMessage', 'maSSrequete.idUser_emettre', 'maSSrequete.idTypeMsg', 'maSSrequete.lblMessage',
+                              'maSSrequete.idProfil', 'maSSrequete.estActifMsg', 'maSSrequete.dateActiviteMsg', 'maSSrequete.dateEmissionMsg',
+                              'maSSrequete.loginUser', 'maSSrequete.emailUser', 'maSSrequete.emailMD5'))
+                  ->joinLeft(array('m2'=>'message'),
+                          'm2.idMessage_reponse = maSSrequete.idMessage',
+                          array('count(m2.idMessage) as NbReponse'))
+                  ->joinLeft(array('ap'=>'apprecier'),
+                          $this->getAdapter()->quoteInto('maSSrequete.idMessage = ap.idMessage AND ap.idUser=?',$idUser),
+                          array('ap.evaluation as userEvaluation'))
+                  ->group('maSSrequete.idMessage')
+                  ->order('maSSrequete.dateActiviteMsg DESC' );
+
         //les messages actifs seulement ?
         if (!$showAll) {
             $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
