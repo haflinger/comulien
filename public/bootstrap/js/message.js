@@ -131,9 +131,7 @@ function modererMessage(event){
                             }).prependTo($('#texte' + event.data.id));
                             
                         }
-                        $('#texte' +event.data.id).toggleClass('modere');
-                        
-                       
+                        $('#texte' +event.data.id).toggleClass('modere');      
             }
      })
 }
