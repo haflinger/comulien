@@ -5,10 +5,12 @@ Changements :
 2012/11/25 : 
   - renommage des tables et des champs en utilisant la notation camelcase
 */
-DROP DATABASE IF EXISTS `comulien`;
 
-CREATE DATABASE IF NOT EXISTS `comulien`;
-USE `comulien`;
+/*D R O P DATABASE IF EXISTS `comulien`;
+
+C R E A T E DATABASE IF NOT EXISTS `comulien`;
+U S E `comulien`;
+*/
 # -----------------------------------------------------------------------------
 #       TABLE : utilisateur
 # -----------------------------------------------------------------------------
