@@ -139,8 +139,12 @@ LIMIT 10;
                 ->where('m.idMessage_reponse IS NULL')          //ne pas prendre les réponses
                 ->where('m.idEvent=?',$idEvent)                 //les messages de l'évènement
                 //->where('m.dateActiviteMsg<?',$dateRef->toString('yyyy-MM-dd HH:mm:ss S'))         //les message antérieurs à la date fournie
-                ->where('unix_timestamp(m.dateActiviteMsg)<?',$dateRef->toString(Zend_Date::TIMESTAMP))         //les message antérieurs à la date fournie
-                ->group('m.idMessage');
+                ->where('unix_timestamp(m.dateActiviteMsg)<?',$dateRef->toString(Zend_Date::TIMESTAMP));         //les message antérieurs à la date fournie
+                //les messages actifs seulement ?
+        if (!$showAll) {
+            $subSelect->where('m.estActifMsg=?','1'); //seuls les messages actifs
+        }
+          $subSelect->group('m.idMessage');
           $select = $this->select()
                   ->setIntegrityCheck(false)
                   ->from(array('maSSrequete'=>new Zend_Db_Expr('(' . $subSelect . ')')),
@@ -157,10 +161,10 @@ LIMIT 10;
                   ->group('maSSrequete.idMessage')
                   ->order('maSSrequete.dateActiviteMsg DESC' );
 
-        //les messages actifs seulement ?
-        if (!$showAll) {
-            $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
-        }
+//        //les messages actifs seulement ?
+//        if (!$showAll) {
+//            $select->where('m.estActifMsg=?','1'); //seuls les messages actifs
+//        }
         //$select->limitPage($pageNum, $nbItemParPage);
         $select->limit($nbItemParPage);
         $result = $this->fetchAll($select);
