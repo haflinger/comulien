@@ -124,11 +124,13 @@ function modererMessage(event){
                         console.log($('texte' +event.data.id));                     
                         if($('#texte' +event.data.id).hasClass('modere')){
                             $('#texte' +event.data.id + ' > .inactif').remove();
+                            $('#moderer' + event.data.id).attr('src', BASE_URL + '/images/moderer.png');
                         }else
                         {
                             $('<div>',{
                                 'class': 'inactif'
                             }).prependTo($('#texte' + event.data.id));
+                            $('#moderer' + event.data.id).attr('src', BASE_URL + '/images/valid.png');
                             
                         }
                         $('#texte' +event.data.id).toggleClass('modere');      
@@ -310,9 +312,14 @@ for (var i = 0; i<element.messages.length; i++){
                      var modal5 = $('<a>', {
                      }).appendTo(l5);
                      
+                        if(element.messages[i].idUser_moderer != null){
+                            image = BASE_URL + '/images/valid.png';
+                        }else{
+                            image = BASE_URL + '/images/moderer.png';
+                        }
                         modal5.before($('<img>',{
-                            id: 'moderer',
-                            src: BASE_URL + '/images/moderer.png'
+                            id: 'moderer' + element.messages[i].idMessage,
+                            src: image
                         })
                         );
                         l5.click({id: element.messages[i].idMessage}, modererMessage);
