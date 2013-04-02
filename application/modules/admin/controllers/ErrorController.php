@@ -9,6 +9,7 @@ class Admin_ErrorController extends Zend_Controller_Action
         
         if (!$errors || !$errors instanceof ArrayObject) {
             $this->view->message = 'You have reached the error page';
+            $this->view->message .= '<br>'.$this->_getParam('errorMessage','wsxdfdsf');
             return;
         }
         

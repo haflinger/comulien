@@ -14,6 +14,9 @@ class Admin_UtilisateurController extends Zend_Controller_Action
         
 //    private $_evenement;
     private $_session;
+    private $_organisme = null;
+    private $_evenement = null;
+    private $_user = null;
     
     public function init()
     {
@@ -21,8 +24,15 @@ class Admin_UtilisateurController extends Zend_Controller_Action
 //            $this->_evenement = Zend_Registry::get('checkedInEvent');
 //        }
         $this->_session = new Zend_Session_Namespace('admin');
-        $this->_evenement = null;
+        //récupération de l'organisme
+        if (Zend_Registry::isRegistered('organismeAdmin')) {
+            $this->_organisme = Zend_Registry::get('organismeAdmin');
+        }
+        $this->view->organisme = $this->_organisme;
         
+        //récupération de l'utilisateur
+        $this->_user = $this->getUserFromAuth();
+        $this->view->user = $this->_user;
             
     }
     
@@ -324,8 +334,10 @@ class Admin_UtilisateurController extends Zend_Controller_Action
         //suppression des informations de l'utilisateur
         Zend_Auth::getInstance ()->clearIdentity ();
         
-        //redirection vers le controlleur index, action index
-        $this->_helper->redirector ( 'accueil', 'evenement' );
+        unset($this->_session->organisme);
+        
+        //redirection vers le controlleur evenement, action accueil
+        $this->_helper->redirector ( 'authentifier', 'utilisateur' );
     }
     
     public static function getUserFromAuth(){

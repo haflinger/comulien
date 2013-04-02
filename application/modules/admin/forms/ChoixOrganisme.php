@@ -7,7 +7,7 @@ class Admin_Form_ChoixOrganisme extends Zend_Form {
        
     }
 
-    public function chargeOrganisme($arrayOrganismes) {
+    public function chargeOrganisme($arrayOrganismes,$idSelectedOrga) {
          
         $this->setMethod('post') //method du formulaire
                 ->setName('choixOrganisme'); //nom du formulaire;
@@ -20,11 +20,13 @@ class Admin_Form_ChoixOrganisme extends Zend_Form {
 //                            "car" => "What was your first car?",
 //                            "city" => "What is your favorite city?"
 //                                        )
-                    "multiOptions" => $arrayOrganismes
+                    "multiOptions" => $arrayOrganismes,
+                    "value" => $idSelectedOrga
                      )
+               
         );
         
-        $this->addElement("submit", "register", array("label" => "Register"));
+        $this->addElement("submit", "Changer", array("label" => "Changer"));
     }
 
 }

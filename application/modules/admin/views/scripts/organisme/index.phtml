@@ -1,1 +1,17 @@
 admin/organisme/index
+<h2><?php echo $this->organisme->nomOrga ?></h2>
+<h3><?php echo $this->organisme->descOrga ?></h3>
+<!-- si USER est organisateur :-->
+<a href="#">Editer</a>
+
+<div id='ImageOrganisme'>
+    <img src='<?php echo $this->organisme->logoOrga ?>' alt='logo de l\'organisme' />
+</div>
+
+<div id='MembresOrganisme'>
+    <p>X messages par Y membres</p>
+    <p>A évènements passés</p>
+    <p>B évènements en cours</p>
+    <p>C évènements à venir</p>
+
+</div>
