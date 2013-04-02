@@ -203,7 +203,11 @@ class MessageController extends Zend_Controller_Action
         //Récupération du droit de modération de l'utilisateur dans l'évènement
         
         $UtilisateurActif = $this->getUserFromAuth();
-        $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
+        $moderateur = false;
+        if (!is_null($UtilisateurActif)) {
+            $moderateur = $UtilisateurActif->estModerateur($this->_evenement);
+        }
+        
         //passe à la vue le droit de l'utilisateur à modérer
         $this->view->moderateur = $moderateur;
 

@@ -206,7 +206,7 @@ for (var i = 0; i<element.messages.length; i++){
             
             $('<img>',{
                 id: 'clock',
-                src: BASE_URL + '/images/clock.PNG'
+                src: BASE_URL + '/images/clock.png'
             }).appendTo(contenu);
             
            /* $('<i>', {
