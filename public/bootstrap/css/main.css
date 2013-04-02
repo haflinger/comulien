@@ -16,7 +16,7 @@ body{
     background-color: #666666;
     background-image: url('fond_menu.png');
     font-family: sans-serif; 
-    font-size: 11px;
+    font-size: 12px;
 }
 a{
     color:white;
@@ -29,12 +29,12 @@ a{
 Fenetre modal
 ***********************************************/
 .modal hide{
-    max-height: 600px;
+    max-height: 60%;
         position: fixed; 
 }
 .modal-body{
   margin:0px;
-  max-height: 60%;
+  height: 70%;
   overflow-y: scroll;
 }
 .modal-header{
@@ -117,7 +117,7 @@ box-shadow:inset 0px -1px 2px #545454;
 }
 .tools li{
     height: 40px;
-    margin-left: 16%;
+    margin-left: 10%;
     cursor: pointer;
 }
 .nav{
@@ -191,7 +191,7 @@ li {
     margin-left: 45px;
     margin-right: 10px;
     color: black;
-    font-size: 10px;
+    font-size: 12px;
 }
 .avatar img{
     z-index: 2;
