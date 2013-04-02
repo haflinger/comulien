@@ -16,9 +16,9 @@ class Application_Model_DbTable_Evenement extends Zend_Db_Table_Abstract
     {
         $id = (int)$id;
         $row = $this->fetchRow('idEvent = ' . $id);
-        if (!$row) {
-            throw new Exception("Could not find row $id");
-        }
+//        if (!$row) {
+//            throw new Exception("Could not find row $id");
+//        }
         return $row;
     }
     

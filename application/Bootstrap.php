@@ -96,5 +96,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $frontController = $this->getResource('frontController');
         $frontController->registerPlugin($debug);
     }
+    
 }
 

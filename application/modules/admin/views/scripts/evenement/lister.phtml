@@ -1,22 +1,33 @@
 
 <div>
     <?php foreach ($this->events as $entry): ?>
-    <?php //var_dump($entry) ?>
-    <p>---------------------------------------------------------------------------------</p>
-    <div><a href="<?php echo $this->url(array('module'=>'default', 'controller' => 'evenement','action'=>'checkin','id'=>$entry->idEvent)); ?>" alt=""><?php echo $this->escape($entry->titreEvent) ?></a></div>
+    <?php 
+    //préparation de variables utiles
+    $urlCheckinEvent    = $this->url(array('module'=>'default', 'controller' => 'evenement','action'=>'checkin' ,'id'=>$entry->idEvent));
+    $urlEditEvent       = $this->url(array('module'=>'admin'  , 'controller' => 'evenement','action'=>'modifier','id'=>$entry->idEvent));
+    ?>
+
+    <span style="display: inline">
+        <a href="<?php echo $urlEditEvent ?>" alt="-">Editer</a>
+    </span>
+    <h2 style="display: inline">
+        <a href="<?php echo $urlCheckinEvent ?>"
+           alt="<?php echo $this->escape($entry->numEvent) ?>"><?php echo $this->escape($entry->titreEvent) ?>
+        </a>
+    </h2>
+    <div style="clear: both"></div>
     <div>
-        <a href="<?php echo $this->url(array('module'=>'default', 'controller' => 'evenement','action'=>'checkin','id'=>$entry->idEvent)); ?>" alt="">
+        <a href="<?php echo $urlCheckinEvent ?>" alt="<?php echo $this->escape($entry->numEvent) ?>">
             <img src="<?php echo $this->url(array('module'=>'default', 'controller' => 'qrcode','action'=>'embedded-image','id'=>$entry->idEvent)); ?>" />
-            ../qrcode/embedded-image
         </a>
     </div>
-    <p><?php echo $this->escape($entry->numEvent) ?></p>
-    <p><?php echo $this->escape($entry->descEvent) ?></p>
-    <p><?php echo $this->escape($entry->logoEvent) ?></p>
-    <p><?php echo $this->escape($entry->dateDebutEvent) ?></p>
-    <p><?php echo $this->escape($entry->dateFinEvent) ?></p>
-    <p><?php echo $this->escape($entry->delaiPersistence) ?></p>
-    <p><?php if($entry->idOrga != null) echo 'Organisme : ' . $this->escape($entry->getOrga()->nomOrga)?></p>
-   
+    <p style="margin: 5px"><?php echo $this->escape($entry->descEvent) ?></p>
+    <p style="margin: 5px"><?php echo $this->escape($entry->logoEvent) ?></p>
+    <p style="margin: 5px"><?php echo $this->escape($entry->dateDebutEvent) ?></p>
+    <p style="margin: 5px"><?php echo $this->escape($entry->dateFinEvent) ?></p>
+    <p style="margin: 5px"><?php echo $this->escape($entry->delaiPersistence) ?></p>
+    <p style="margin: 5px"><?php if($entry->idOrga != null) echo 'Organisme : ' . $this->escape($entry->getOrga()->nomOrga)?></p>
+
+    <hr>
     <?php endforeach ?>
 </div>

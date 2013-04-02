@@ -13,6 +13,7 @@
 class MessageController extends Zend_Controller_Action
 {
     private $_evenement = null;
+    private $_nbMessagesParPage = 10;
     const PRIVILEGE_ACTION = 'envoyer';
     const RESOURCE_CONTROLLER = 'message';
     
@@ -34,6 +35,7 @@ class MessageController extends Zend_Controller_Action
                       ->addActionContext('envoyer', 'json')
                       ->addActionContext('compter', 'json')
                       ->initContext();
+        
     }
 
     public function indexAction()

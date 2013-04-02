@@ -51,7 +51,7 @@ class EvenementController extends Zend_Controller_Action
          * paramètre id : l'id de l'évènement
          */
         $idEvent = $this->getRequest()->getParam('id');
-        if($idEvent!=null){ 
+        if($idEvent!=null) { 
             $Evenement = new Application_Model_DbTable_Evenement();
             $eventDeID = $Evenement->getEvenementParID($idEvent);
             //Sauve l'évènement dans la session
@@ -60,8 +60,8 @@ class EvenementController extends Zend_Controller_Action
             //redirection sur l'accueil de l'évènement
             $this->_helper->redirector ( 'accueil', 'evenement' , null );
           
-            
-        } else { // aucun ID d'évènement passé en paramètres
+        }
+        else { // aucun ID d'évènement passé en paramètres
             $this->_helper->redirector ( 'liste', 'evenement' );
         }
     }

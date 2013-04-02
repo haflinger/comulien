@@ -1,15 +1,21 @@
 Utilisateur:
-<ul  style="display:inline">
+<ul style="display:inline">
+  <?php if (!isset($this->user)) { ?>
     <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'authentifier'),'default',true ); ?>">Connexion</a></li>
+  <?php } else { ?>
     <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'deconnecter' ),'default',true ); ?>">Déconnexion</a></li>
+  <?php }?>
     <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'index'       ),'default',true ); ?>">Profil</a></li>    
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'organisme'  ,'action'=> 'lister'      ),'default',true ); ?>">Choix de l'organisme</a></li>    
 </ul>
 <br>
 <?php if (!is_null($this->organisme)) { ?>
 Organisme :
-<ul>
-    <li><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'organisme'  ,'action'=> 'lister'      ),'default',true ); ?>">Configuration</a></li>
-    <li><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'index'       ),'default',true ); ?>">Membres</a></li>
-    <li><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'evenement'  ,'action'=> 'index'       ),'default',true ); ?>">Evènements</a></li>
+<ul style="display:inline">
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'organisme'  ,'action'=> 'lister'      ),'default',true ); ?>">Sélection</a></li>
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'organisme'  ,'action'=> 'editer'      ),'default',true ); ?>">Configuration</a></li>
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'utilisateur','action'=> 'index'       ),'default',true ); ?>">Membres</a></li>
+    <li style="display:inline"><a href="<?php echo $this->url(array ('module'=> 'admin','controller' => 'evenement'  ,'action'=> 'lister'       ),'default',true ); ?>">Evènements</a></li>
 </ul>
 <?php }?>
+<hr>
