@@ -1,7 +1,7 @@
 comulien
 =====================
 Système de discussion entre producteurs et consommateurs d'évènements
-* Copyright (c) 2012, Team Poulpe [http://www.comulien.fr](http://www.comulien.fr)
+* Copyright (c) 2012, Team Poulpe
 * Author: FredoHorn, ManuThe, BootsyMayField, Haflinger, alexsolex®, Will [@comulien](http://twitter.com/comulien)
 * Licensed under the GPL License.
 
