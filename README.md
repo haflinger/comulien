@@ -25,8 +25,8 @@ COMULIEN :
   <http://www.gnu.org/licenses/>.
   
   __Team Poulpe__ :
-- Alexsolex (alexsolex+poulpe (a) gmail p com) : Développeur
-- Fred (email@mail.fr) : Développeur / Designer
+- Alexsolex  : Développeur
+- Fred  : Développeur / Designer
 - Manu
 - Laurent
 - JC
