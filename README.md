@@ -24,7 +24,7 @@ COMULIEN :
   ce programme ; si ce n’est pas le cas, consultez :
   <http://www.gnu.org/licenses/>.
   
-  __Team Poulpe__ :
+  __Team Poulpe 🐙__ :
 - Alexsolex  : Développeur
 - Fred  : Développeur / Designer
 - Manu
